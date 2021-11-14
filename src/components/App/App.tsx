@@ -1,24 +1,21 @@
 import React from "react";
 import "./App.css";
-import { HashRouter, Link, Route, Routes } from "react-router-dom";
+import Home from "../Home/Home";
+import { Route, Routes } from "react-router";
 import About from "../About/About";
+import NotFound from "../NotFound/NotFound";
+import Experience from "../Experience/Experience";
+import Projects from "../Projects/Projects";
+import Contact from "../Contact/Contact";
 
 function App() {
   return (
-    <HashRouter basename="/">
-      <div>
-        <nav>
-          <ul>
-            <Link to="/about">About</Link>
-          </ul>
-        </nav>
-        <div>
-          <Routes>
-            <Route path="about" element={About()} />
-          </Routes>
-        </div>
-      </div>
-    </HashRouter>
+    <>
+      <Home />
+      <About />
+      <Experience />
+      <Projects />
+    </>
   );
 }
 
