@@ -1,4 +1,6 @@
+import { Fade } from "@mui/material";
 import React, { ReactNode } from "react";
+import { TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
 
 interface IProps {
@@ -6,29 +8,32 @@ interface IProps {
   owner: "bot" | "customer";
 }
 
+const StyledMessageWrapper = styled.div<IProps>`
+  display: flex;
+  justify-content: ${(props) => (props.owner === "bot" ? "start" : "end")};
+`;
+
+const StyledMessage = styled.p<IProps>`
+  box-sizing: border-box;
+  padding: 0.3rem 1rem;
+  margin: 0.5rem 0;
+  background: ${(props) => (props.owner === "bot" ? "rgba(70, 77, 66, 0.15)" : "black")};
+  color: ${(props) => (props.owner === "bot" ? "black" : "white")};
+  border-radius: ${(props) =>
+    props.owner === "bot" ? "1.125rem 1.125rem 1.125rem 0" : "1.125rem 1.125rem 0 1.125rem"};
+  min-height: 2.25rem;
+  width: fit-content;
+  max-width: 80%;
+  box-shadow: 0 0 2rem rgba(black, 0.075), 0rem 1rem 1rem -1rem rgba(black, 0.1);
+`;
+
 const ChatText = ({ children, owner }: IProps) => {
-  const StyledMessageWrapper = styled.div`
-    display: flex;
-    justify-content: ${owner === "bot" ? "start" : "end"};
-  `;
-
-  const StyledMessage = styled.p`
-    box-sizing: border-box;
-    padding: 0.3rem 1rem;
-    margin: 0.5rem 0;
-    background: ${owner === "bot" ? "rgba(70, 77, 66, 0.15)" : "black"};
-    color: ${owner === "bot" ? "black" : "white"};
-    border-radius: ${owner === "bot" ? "1.125rem 1.125rem 1.125rem 0" : "1.125rem 1.125rem 0 1.125rem"};
-    min-height: 2.25rem;
-    width: fit-content;
-    max-width: 80%;
-    box-shadow: 0 0 2rem rgba(black, 0.075), 0rem 1rem 1rem -1rem rgba(black, 0.1);
-  `;
-
   return (
-    <StyledMessageWrapper>
-      <StyledMessage>{children}</StyledMessage>
-    </StyledMessageWrapper>
+    <Fade in appear>
+      <StyledMessageWrapper owner={owner}>
+        <StyledMessage owner={owner}>{children}</StyledMessage>
+      </StyledMessageWrapper>
+    </Fade>
   );
 };
 

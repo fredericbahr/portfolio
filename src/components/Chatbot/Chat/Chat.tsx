@@ -1,4 +1,4 @@
-import { Card } from "@mui/material";
+import { Card, Slide } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
 import ChatHeader from "./ChatHeader";
@@ -20,10 +20,12 @@ const StyledCard = styled(Card)`
 
 const Chat = ({ clickHandler }: IProps) => {
   return (
-    <StyledCard>
-      <ChatHeader clickHandler={clickHandler} />
-      <ChatMessages />
-    </StyledCard>
+      <Slide direction="up" in>
+        <StyledCard>
+          <ChatHeader clickHandler={clickHandler} />
+          <ChatMessages />
+        </StyledCard>
+      </Slide>
   );
 };
 

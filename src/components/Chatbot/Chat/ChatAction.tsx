@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 interface IProps {
   children: ReactNode;
+  handleAction: () => void;
 }
 
 const StyledButton = styled(Button)`
@@ -16,8 +17,12 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const ChatAction = ({ children }: IProps) => {
-  return <StyledButton variant="outlined">{children}</StyledButton>;
+const ChatAction = ({ children, handleAction }: IProps) => {
+  return (
+    <StyledButton variant="outlined" onClick={handleAction}>
+      {children}
+    </StyledButton>
+  );
 };
 
 export default ChatAction;

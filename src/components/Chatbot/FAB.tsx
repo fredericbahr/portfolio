@@ -1,5 +1,5 @@
 import React from "react";
-import { Fab } from "@mui/material";
+import { Fab, Grow } from "@mui/material";
 import styled from "styled-components";
 import { ChatBubbleOutline } from "@mui/icons-material";
 import { lighten, darken } from "@mui/system";
@@ -21,10 +21,12 @@ interface IProps {
 
 const FAB = ({ clickHandler }: IProps) => {
   return (
-    <StyledFab onClick={clickHandler} color="primary">
-      <ChatBubbleOutline />
-    </StyledFab>
+    <Grow in>
+      <StyledFab onClick={clickHandler} color="primary">
+        <ChatBubbleOutline />
+      </StyledFab>
+    </Grow>
   );
-}
+};
 
 export default FAB;
