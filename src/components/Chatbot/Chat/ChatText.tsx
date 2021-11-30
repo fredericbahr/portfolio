@@ -27,6 +27,7 @@ const StyledMessage = styled.p<IProps>`
   box-shadow: 0 0 2rem rgba(black, 0.075), 0rem 1rem 1rem -1rem rgba(black, 0.1);
   word-wrap: break-word;
   hyphens: auto;
+  font-size: 14px;
 `;
 
 const ChatText = ({ children, owner }: IProps) => {

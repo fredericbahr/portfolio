@@ -41,7 +41,7 @@ const ChatMessages = () => {
   /**
    * renders the textMessages
    * If it is a chat message the ChatText is rendered
-   * Else the ChatDownload is rendered 
+   * Else the ChatDownload is rendered
    * @returns ChatText and ChatDowload Components
    */
   const renderTextMessages = () => {
@@ -55,7 +55,15 @@ const ChatMessages = () => {
       }
 
       if (isChatDownload(textMessage)) {
-        return <ChatDownload key={idx} owner={textMessage.owner} type={textMessage.type} url={textMessage.url} />;
+        return (
+          <ChatDownload
+            key={idx}
+            owner={textMessage.owner}
+            type={textMessage.type}
+            fileName={textMessage.fileName}
+            url={textMessage.url}
+          />
+        );
       }
     });
   };
@@ -63,7 +71,7 @@ const ChatMessages = () => {
   /**
    * Adds the messages of the actionMessage to the textMessages after a delay
    * After all messages are set it sets the new actionMessages
-   * @param actionMessage the actionMessage clicked by the user 
+   * @param actionMessage the actionMessage clicked by the user
    */
   const handleChatAction = async (actionMessage: IChatAction) => {
     const delay = 1000;

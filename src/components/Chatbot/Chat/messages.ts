@@ -23,7 +23,7 @@ const showCV: IChatAction = {
     { message: "Hey, im interested in your CV!", owner: "customer" },
     { message: "Thanks for reaching out to me.", owner: "bot" },
     { message: "Underneath you can dowload my CV.", owner: "bot" },
-    { type: "pdf", owner: "bot", url: samplePDF },
+    { type: "pdf", owner: "bot", url: samplePDF, fileName: "fredericbahr_cv" },
   ],
 };
 

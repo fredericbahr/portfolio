@@ -7,6 +7,7 @@ export interface IChatDownload {
   type: "pdf" | "img";
   owner: "bot";
   url: String;
+  fileName: String;
 }
 
 export interface IChatAction {
