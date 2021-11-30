@@ -15,7 +15,7 @@ const StyledMessageWrapper = styled.div<IProps>`
 
 const StyledMessage = styled.p<IProps>`
   box-sizing: border-box;
-  padding: 0.3rem 1rem;
+  padding: 0.5rem 1rem;
   margin: 0.5rem 0;
   background: ${(props) => (props.owner === "bot" ? "rgba(70, 77, 66, 0.15)" : "black")};
   color: ${(props) => (props.owner === "bot" ? "black" : "white")};
@@ -25,6 +25,8 @@ const StyledMessage = styled.p<IProps>`
   width: fit-content;
   max-width: 80%;
   box-shadow: 0 0 2rem rgba(black, 0.075), 0rem 1rem 1rem -1rem rgba(black, 0.1);
+  word-wrap: break-word;
+  hyphens: auto;
 `;
 
 const ChatText = ({ children, owner }: IProps) => {
