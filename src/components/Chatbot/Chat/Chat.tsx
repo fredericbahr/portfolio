@@ -20,12 +20,12 @@ const StyledCard = styled(Card)`
 
 const Chat = ({ clickHandler }: IProps) => {
   return (
-      <Slide direction="up" in>
-        <StyledCard>
-          <ChatHeader clickHandler={clickHandler} />
-          <ChatMessages />
-        </StyledCard>
-      </Slide>
+    <Slide direction="up" in>
+      <StyledCard>
+        <ChatHeader clickHandler={clickHandler} />
+        <ChatMessages />
+      </StyledCard>
+    </Slide>
   );
 };
 

@@ -1,5 +1,6 @@
 export const theme = {
   mainblack: "#181114",
   mainwhite: "#fbfffe",
-  mainred: "#cc0e00"
+  mainred: "#cc0e00",
+  whitefontcolor: "#fbfffe",
 };

@@ -17,7 +17,9 @@ function getElementDimension(element: HTMLElement | null) {
 }
 
 export default function useElementDimensions(element: HTMLElement | null) {
-  const [elementDimensions, setElementDimensions] = useState(getElementDimension(element));
+  const [elementDimensions, setElementDimensions] = useState(
+    getElementDimension(element),
+  );
 
   useEffect(() => {
     setElementDimensions(getElementDimension(element));

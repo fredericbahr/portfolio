@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function NotFound() {
-    return (
-        <div>
-            <p>404 Not Found</p>
-        </div>
-    )
+  return (
+    <div>
+      <p>404 Not Found</p>
+    </div>
+  );
 }

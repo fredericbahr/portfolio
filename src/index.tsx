@@ -4,7 +4,10 @@ import "./index.css";
 import App from "./components/App/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
+import {
+  StyledEngineProvider,
+  ThemeProvider as MUIThemeProvider,
+} from "@mui/material/styles";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./assets/styles/styledComponentsTheme";
 import { muiTheme } from "./assets/styles/muiTheme";
@@ -12,11 +15,13 @@ import { muiTheme } from "./assets/styles/muiTheme";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <MUIThemeProvider theme={muiTheme}>
-        <ThemeProvider theme={theme}>
-          <App />
-        </ThemeProvider>
-      </MUIThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <MUIThemeProvider theme={muiTheme}>
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
+        </MUIThemeProvider>
+      </StyledEngineProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root"),
