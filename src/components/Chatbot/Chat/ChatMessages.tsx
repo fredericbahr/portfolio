@@ -2,12 +2,20 @@ import { CardActions, CardContent } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import ChatText from "./ChatText";
-import { initialActions, initialMessages } from "./messages";
-import { IChatMessage, IChatDownload, IChatAction } from "../../../interfaces/chat";
-import { isChatDownload, isChatMessage } from "../../../utils/typePredicates";
+import { IChatAction, IChatMessage } from "../../../interfaces/chat";
+import {
+  isChatDownload,
+  isChatForm,
+  isChatTextMessage,
+} from "../../../utils/typePredicates";
 import { ChatDownload } from "./ChatDownload";
 import ChatAction from "./ChatAction";
-import { Transition, TransitionGroup } from "react-transition-group";
+import {
+  initialActions,
+  actionRepository,
+  initialMessages,
+} from "../../../data/chatMessages";
+import { ChatFormMessage } from "./ChatFormMessage";
 
 const StyledCardContent = styled(CardContent)`
   flex-grow: 1;
@@ -26,8 +34,8 @@ const StyledDiv = styled.div`
 `;
 
 const ChatMessages = () => {
-  const [textMessages, setTextMessages] = useState<(IChatMessage | IChatDownload)[]>(initialMessages);
-  const [actionMessages, setActionMessages] = useState<IChatAction[]>(initialActions);
+  const [messages, setTextMessages] = useState<IChatMessage[]>(initialMessages);
+  const [actions, setActions] = useState<IChatAction[]>(initialActions);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -36,7 +44,7 @@ const ChatMessages = () => {
    */
   useEffect(() => {
     scrollToBottom();
-  }, [textMessages, actionMessages]);
+  }, [messages, actions]);
 
   /**
    * renders the textMessages
@@ -44,28 +52,56 @@ const ChatMessages = () => {
    * Else the ChatDownload is rendered
    * @returns ChatText and ChatDowload Components
    */
-  const renderTextMessages = () => {
-    return textMessages.map((textMessage: IChatMessage | IChatDownload, idx: number) => {
-      if (isChatMessage(textMessage)) {
+  const renderMessages = () => {
+    return messages.map((message: IChatMessage, idx: number) => {
+      if (isChatTextMessage(message)) {
         return (
-          <ChatText key={idx} owner={textMessage.owner}>
-            {textMessage.message}
+          <ChatText key={idx} owner={message.owner}>
+            {message.message}
           </ChatText>
         );
       }
 
-      if (isChatDownload(textMessage)) {
+      if (isChatDownload(message)) {
         return (
           <ChatDownload
             key={idx}
-            owner={textMessage.owner}
-            type={textMessage.type}
-            fileName={textMessage.fileName}
-            url={textMessage.url}
+            owner={message.owner}
+            type={message.type}
+            fileName={message.fileName}
+            url={message.url}
+          />
+        );
+      }
+
+      if (isChatForm(message)) {
+        return (
+          <ChatFormMessage
+            key={idx}
+            formElements={message.formElements}
+            formSubmitID={message.formSubmitID}
           />
         );
       }
     });
+  };
+
+  /**
+   * Gets the further action messages from the initalActions Map
+   * @param furtherActions the key of the further action
+   * @return array of further actions
+   */
+  const getFurtherActionMessages = (
+    furtherActions: String[],
+  ): IChatAction[] => {
+    const furtherActionsArray: IChatAction[] = [];
+    furtherActions.forEach((action: String) => {
+      const chatAction: IChatAction | undefined = actionRepository.get(action);
+      if (chatAction) {
+        furtherActionsArray.push(chatAction);
+      }
+    });
+    return furtherActionsArray;
   };
 
   /**
@@ -76,7 +112,7 @@ const ChatMessages = () => {
   const handleChatAction = async (actionMessage: IChatAction) => {
     const delay = 1000;
 
-    setActionMessages([]);
+    setActions([]);
 
     const delayedMessages = actionMessage.messges.map((message, idx) => {
       return new Promise<void>((resolve) => {
@@ -89,7 +125,11 @@ const ChatMessages = () => {
 
     await Promise.all(delayedMessages);
 
-    setActionMessages(actionMessage.furtherActions ? actionMessage.furtherActions : []);
+    setActions(
+      actionMessage.furtherActions
+        ? getFurtherActionMessages(actionMessage.furtherActions)
+        : [],
+    );
   };
 
   /**
@@ -101,10 +141,13 @@ const ChatMessages = () => {
 
   return (
     <StyledDiv>
-      <StyledCardContent>{renderTextMessages()}</StyledCardContent>
+      <StyledCardContent>{renderMessages()}</StyledCardContent>
       <StyledCardActions>
-        {actionMessages.map((actionMessage: IChatAction, idx: number) => (
-          <ChatAction key={idx} handleAction={() => handleChatAction(actionMessage)}>
+        {actions.map((actionMessage: IChatAction, idx: number) => (
+          <ChatAction
+            key={idx}
+            handleAction={() => handleChatAction(actionMessage)}
+          >
             {actionMessage.actionText}
           </ChatAction>
         ))}

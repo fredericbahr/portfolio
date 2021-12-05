@@ -17,17 +17,19 @@ const StyledMessage = styled.p<IProps>`
   box-sizing: border-box;
   padding: 0.5rem 1rem;
   margin: 0.5rem 0;
-  background: ${(props) => (props.owner === "bot" ? "rgba(70, 77, 66, 0.15)" : "black")};
+  background: ${(props) =>
+    props.owner === "bot" ? "rgba(70, 77, 66, 0.15)" : "black"};
   color: ${(props) => (props.owner === "bot" ? "black" : "white")};
   border-radius: ${(props) =>
-    props.owner === "bot" ? "1.125rem 1.125rem 1.125rem 0" : "1.125rem 1.125rem 0 1.125rem"};
+    props.owner === "bot"
+      ? "1.125rem 1.125rem 1.125rem 0"
+      : "1.125rem 1.125rem 0 1.125rem"};
   min-height: 2.25rem;
   width: fit-content;
   max-width: 80%;
   box-shadow: 0 0 2rem rgba(black, 0.075), 0rem 1rem 1rem -1rem rgba(black, 0.1);
   word-wrap: break-word;
   hyphens: auto;
-  font-size: 14px;
 `;
 
 const ChatText = ({ children, owner }: IProps) => {

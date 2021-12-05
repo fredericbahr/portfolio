@@ -12,14 +12,14 @@ const StyledButton = styled(Button)`
   font-size: 14px;
 
   &:hover {
-    background-color: ${(props) => props.theme.mainred};
+    background-color: ${(props) => props.theme.mainblack};
     color: ${(props) => props.theme.mainwhite};
   }
 `;
 
 const ChatAction = ({ children, handleAction }: IProps) => {
   return (
-    <StyledButton variant="outlined" onClick={handleAction}>
+    <StyledButton color="inherit" variant="outlined" onClick={handleAction}>
       {children}
     </StyledButton>
   );

@@ -70,7 +70,11 @@ export const ChatDownload = ({ type, url, fileName }: IChatDownload) => {
         <CardActionArea onClick={() => handleDownload()}>
           <StyledCardContent>
             <Document file={url} renderMode="svg">
-              <StyledPage pageNumber={1} height={size.width} loading={<CircularProgress />} />
+              <StyledPage
+                pageNumber={1}
+                height={size.width}
+                loading={<CircularProgress />}
+              />
             </Document>
           </StyledCardContent>
         </CardActionArea>
