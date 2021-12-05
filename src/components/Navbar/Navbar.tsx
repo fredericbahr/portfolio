@@ -1,6 +1,10 @@
-import React from "react";
+import { Slide } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { NavHashLink } from "react-router-hash-link";
+import { TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
+import { navLinks } from "../../data/navLinks";
+import { INavLink } from "../../interfaces/nav";
 
 const StyledNav = styled.nav`
   flex: 1;
@@ -27,6 +31,7 @@ const StyledLi = styled.li`
 const StyledNavHashLink = styled(NavHashLink)`
   text-decoration: none;
   color: inherit;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   &:hover {
     color: ${(props) => props.theme.mainred};
@@ -40,24 +45,28 @@ const StyledNavHashLink = styled(NavHashLink)`
 `;
 
 export const Navbar = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 500);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <StyledNav>
       <StyledOl>
-        <StyledLi>
-          <StyledNavHashLink smooth to="/#about">
-            About
-          </StyledNavHashLink>
-        </StyledLi>
-        <StyledLi>
-          <StyledNavHashLink smooth to="/#experience">
-            Experience
-          </StyledNavHashLink>
-        </StyledLi>
-        <StyledLi>
-          <StyledNavHashLink smooth to="/#projects">
-            Projects
-          </StyledNavHashLink>
-        </StyledLi>
+        {isMounted &&
+          navLinks.map((link: INavLink, idx: number) => {
+            return (
+              <Slide key={idx} in={isMounted} timeout={200 + idx * 300}>
+                <StyledLi key={idx}>
+                  <StyledNavHashLink smooth to={link.url}>
+                    {link.title}
+                  </StyledNavHashLink>
+                </StyledLi>
+              </Slide>
+            );
+          })}
       </StyledOl>
     </StyledNav>
   );
