@@ -50,6 +50,7 @@
     "@types/react-pdf": "^5.0.9",
     "@types/react-router-hash-link": "^2.4.4",
     "@types/styled-components": "^5.1.15",
+    "eslint-config-react-app": "^6.0.0",
     "gh-pages": "^3.2.3",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6",
@@ -69,6 +70,11 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
     ]
   }
 }

@@ -11,6 +11,7 @@ import {
 import { ThemeProvider } from "styled-components";
 import { theme } from "./assets/styles/styledComponentsTheme";
 import { muiTheme } from "./assets/styles/muiTheme";
+import { GlobalStyle } from "./assets/styles/globalStyles";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.render(
       <StyledEngineProvider injectFirst>
         <MUIThemeProvider theme={muiTheme}>
           <ThemeProvider theme={theme}>
+            <GlobalStyle />
             <App />
           </ThemeProvider>
         </MUIThemeProvider>

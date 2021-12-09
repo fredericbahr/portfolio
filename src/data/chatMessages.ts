@@ -4,7 +4,6 @@ import {
   IChatFormElement,
 } from "../interfaces/chat";
 import Lebenslauf from "../assets/pdf/lebenslauf.pdf";
-import { lazy } from "react";
 
 export const initialMessages: IChatTextMessage[] = [
   { message: "Hi, I´m Frederic`s ChatBot 🤖", owner: "bot" },

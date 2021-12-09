@@ -9,14 +9,14 @@ import Chatbot from "../Chatbot/Chatbot";
 import { Header } from "./Header";
 import AnimatedLogo from "../Logo/AnimatedLogo";
 import styled from "styled-components";
-import { Fade } from "@mui/material";
+import { Introduction } from "../Introduction/Introduction";
 
 const StyledLogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: ${(props) => props.theme.mainblack};
+  background-color: ${(props) => props.theme.colors.mainblack};
 `;
 
 const StyledAnimatedLogo = styled(AnimatedLogo)`
@@ -25,8 +25,8 @@ const StyledAnimatedLogo = styled(AnimatedLogo)`
 `;
 
 const StyledContentWrapper = styled.div`
-  background-color: ${(props) => props.theme.mainblack};
-  color: ${(props) => props.theme.whitecolorfont};
+  background-color: ${(props) => props.theme.colors.mainblack};
+  color: ${(props) => props.theme.colors.whitefontcolor};
 `;
 
 function App() {
@@ -46,10 +46,11 @@ function App() {
   ) : (
     <StyledContentWrapper>
       <Header homeClickHandler={() => setIsInAnimation(true)} />
-      <Chatbot />
+      <Introduction />
       <About />
       <Experience />
       <Projects />
+      <Chatbot />
     </StyledContentWrapper>
   );
 }

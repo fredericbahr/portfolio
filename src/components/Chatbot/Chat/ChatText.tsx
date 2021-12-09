@@ -1,6 +1,5 @@
 import { Fade } from "@mui/material";
 import React, { ReactNode } from "react";
-import { TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
 
 interface IProps {

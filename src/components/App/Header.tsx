@@ -36,8 +36,8 @@ const StyledLogo = styled(Logo)`
   height: 50px;
 
   &:hover path {
-    stroke: ${(props) => darken(props.theme.mainred, 0.1)};
-    fill: ${(props) => darken(props.theme.mainred, 0.1)};
+    stroke: ${(props) => darken(props.theme.colors.mainred, 0.1)};
+    fill: ${(props) => darken(props.theme.colors.mainred, 0.1)};
   }
 `;
 

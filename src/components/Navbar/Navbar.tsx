@@ -1,7 +1,6 @@
 import { Slide } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { NavHashLink } from "react-router-hash-link";
-import { TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
 import { navLinks } from "../../data/navLinks";
 import { INavLink } from "../../interfaces/nav";
