@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { TransformControls } from "three/examples/jsm/controls/TransformControls";
 import { MiniMe } from "./miniMe";
 
 export const Character = () => {
@@ -28,13 +30,16 @@ export const Character = () => {
       2000,
     );
 
-    camera.position.set(0, 400, -1000)
+    camera.position.set(0, 400, -1000);
     camera.lookAt(new THREE.Vector3(0, 0, 0));
 
-    const axesHelper = new THREE.AxesHelper( 2000 );
-    scene.add( axesHelper );
+    const axesHelper = new THREE.AxesHelper(2000);
+    scene.add(axesHelper);
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.update();
 
     ref?.current?.appendChild(renderer.domElement);
 
@@ -87,6 +92,7 @@ export const Character = () => {
     const animate = function () {
       resizeCanvasToDisplaySize();
       requestAnimationFrame(animate);
+      controls.update();
       renderer.render(scene, camera);
     };
 
