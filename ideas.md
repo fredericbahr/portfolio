@@ -69,6 +69,9 @@
 
 ---
 
-## Content Componetns
+## Three JS Mini Me (Character)
 
-- [MUI Tab](https://mui.com/components/tabs/#vertical-tabs)
+### Idea
+- [Demo](https://codepen.io/kevoj/pen/BWgvOj)
+- [Tutorial](https://tympanus.net/codrops/2021/10/04/creating-3d-characters-in-three-js/)
+- [Insp](https://codepen.io/eroxburgh/pen/gOayPKV) - make it as dev (computer, mouse, etc)
