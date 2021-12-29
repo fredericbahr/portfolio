@@ -19,8 +19,8 @@ import { TransitionProps } from "@mui/material/transitions";
 
 const StyledDialog = styled(Dialog)`
   & .MuiPaper-root {
-    background-color: ${(props) => props.theme.mainblack};
-    color: ${(props) => props.theme.whitefontcolor};
+    background-color: ${(props) => props.theme.colors.mainblack};
+    color: ${(props) => props.theme.colors.whitefontcolor};
   }
 `;
 
@@ -33,11 +33,11 @@ const StyledDialogTitle = styled(DialogTitle)`
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid;
-  border-bottom-color: ${(props) => props.theme.mainwhite};
+  border-bottom-color: ${(props) => props.theme.colors.mainwhite};
 `;
 
 const StyledClose = styled(Close)`
-  color: ${(props) => props.theme.whitefontcolor};
+  color: ${(props) => props.theme.colors.whitefontcolor};
 `;
 
 const StyledDialogContent = styled(DialogContent)`
@@ -45,7 +45,7 @@ const StyledDialogContent = styled(DialogContent)`
 `;
 
 const StyledDialogContentText = styled(DialogContentText)`
-  color: ${(props) => props.theme.whitefontcolor};
+  color: ${(props) => props.theme.colors.whitefontcolor};
 `;
 
 const StyledForm = styled.form`
@@ -57,7 +57,7 @@ const StyledTextField = styled(TextField)`
   margin: 10px 0;
 
   & label {
-    color: ${(props) => props.theme.whitefontcolor};
+    color: ${(props) => props.theme.colors.whitefontcolor};
   }
 
   & label.Mui-focused {

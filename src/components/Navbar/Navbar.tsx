@@ -4,6 +4,7 @@ import { NavHashLink } from "react-router-hash-link";
 import styled from "styled-components";
 import { navLinks } from "../../data/navLinks";
 import { INavLink } from "../../interfaces/nav";
+import { navbarDelay, navbarItemBaseDelay, navbarItemExtraDelay, transition } from "../../utils/constants";
 
 const StyledNav = styled.nav`
   flex: 1;
@@ -11,7 +12,7 @@ const StyledNav = styled.nav`
   justify-content: end;
   align-items: center;
   font-family: "Fira Code", monospace;
-  color: ${(props) => props.theme.mainwhite};
+  color: ${(props) => props.theme.colors.mainwhite};
 `;
 
 const StyledOl = styled.ol`
@@ -30,15 +31,15 @@ const StyledLi = styled.li`
 const StyledNavHashLink = styled(NavHashLink)`
   text-decoration: none;
   color: inherit;
-  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: ${transition};
 
   &:hover {
-    color: ${(props) => props.theme.mainred};
+    color: ${(props) => props.theme.colors.mainred};
   }
 
   &::before {
     content: "0" counter(item) ".";
-    color: ${(props) => props.theme.mainred};
+    color: ${(props) => props.theme.colors.mainred};
     padding: 7px;
   }
 `;
@@ -47,7 +48,7 @@ export const Navbar = () => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 500);
+    const timeout = setTimeout(() => setIsMounted(true), navbarDelay);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -57,7 +58,7 @@ export const Navbar = () => {
         {isMounted &&
           navLinks.map((link: INavLink, idx: number) => {
             return (
-              <Slide key={idx} in={isMounted} timeout={200 + idx * 300}>
+              <Slide key={idx} in={isMounted} timeout={navbarItemBaseDelay + idx * navbarItemExtraDelay}>
                 <StyledLi key={idx}>
                   <StyledNavHashLink smooth to={link.url}>
                     {link.title}

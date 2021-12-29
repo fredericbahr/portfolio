@@ -9,8 +9,8 @@ interface IProps {
 }
 
 const StyledCardHeader = styled(CardHeader)`
-  background-color: ${(props) => props.theme.mainblack};
-  color: ${(props) => props.theme.mainwhite};
+  background-color: ${(props) => props.theme.colors.mainblack};
+  color: ${(props) => props.theme.colors.mainwhite};
 
   .MuiCardHeader-action {
     align-self: center;
@@ -18,11 +18,11 @@ const StyledCardHeader = styled(CardHeader)`
 `;
 
 const StyledClose = styled(Close)`
-  color: ${(props) => props.theme.mainwhite};
+  color: ${(props) => props.theme.colors.mainwhite};
 `;
 
 const StyledTypography = styled(Typography)`
-  color: ${(props) => props.theme.mainwhite};
+  color: ${(props) => props.theme.colors.mainwhite};
 `;
 
 const StyledIconButton = styled(IconButton)`
