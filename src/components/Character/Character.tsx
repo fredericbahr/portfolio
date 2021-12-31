@@ -37,6 +37,7 @@ export const Character = () => {
     scene.add(axesHelper);
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.update();
