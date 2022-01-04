@@ -1,11 +1,4 @@
-import {
-  AppBar,
-  IconButton,
-  Slide,
-  Toolbar,
-  useScrollTrigger,
-  darken,
-} from "@mui/material";
+import { AppBar, IconButton, Slide, Toolbar, useScrollTrigger, darken } from "@mui/material";
 import React from "react";
 import Logo from "../Logo/Logo";
 import styled from "styled-components";

@@ -1,19 +1,10 @@
-import {
-  IChatDownload,
-  IChatForm,
-  IChatMessage,
-  IChatTextMessage,
-} from "../interfaces/chat";
+import { IChatDownload, IChatForm, IChatMessage, IChatTextMessage } from "../interfaces/chat";
 
-export function isChatTextMessage(
-  message: IChatMessage,
-): message is IChatTextMessage {
+export function isChatTextMessage(message: IChatMessage): message is IChatTextMessage {
   return (message as IChatTextMessage).message !== undefined;
 }
 
-export function isChatDownload(
-  message: IChatMessage,
-): message is IChatDownload {
+export function isChatDownload(message: IChatMessage): message is IChatDownload {
   return (message as IChatDownload).url !== undefined;
 }
 

@@ -3,18 +3,10 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import ChatText from "./ChatText";
 import { IChatAction, IChatMessage } from "../../../interfaces/chat";
-import {
-  isChatDownload,
-  isChatForm,
-  isChatTextMessage,
-} from "../../../utils/typePredicates";
+import { isChatDownload, isChatForm, isChatTextMessage } from "../../../utils/typePredicates";
 import { ChatDownload } from "./ChatDownload";
 import ChatAction from "./ChatAction";
-import {
-  initialActions,
-  actionRepository,
-  initialMessages,
-} from "../../../data/chatMessages";
+import { initialActions, actionRepository, initialMessages } from "../../../data/chatMessages";
 import { ChatFormMessage } from "./ChatFormMessage";
 
 const StyledCardContent = styled(CardContent)`
@@ -75,13 +67,7 @@ const ChatMessages = () => {
       }
 
       if (isChatForm(message)) {
-        return (
-          <ChatFormMessage
-            key={idx}
-            formElements={message.formElements}
-            formSubmitID={message.formSubmitID}
-          />
-        );
+        return <ChatFormMessage key={idx} formElements={message.formElements} formSubmitID={message.formSubmitID} />;
       }
 
       return null;
@@ -93,9 +79,7 @@ const ChatMessages = () => {
    * @param furtherActions the key of the further action
    * @return array of further actions
    */
-  const getFurtherActionMessages = (
-    furtherActions: String[],
-  ): IChatAction[] => {
+  const getFurtherActionMessages = (furtherActions: String[]): IChatAction[] => {
     const furtherActionsArray: IChatAction[] = [];
     furtherActions.forEach((action: String) => {
       const chatAction: IChatAction | undefined = actionRepository.get(action);
@@ -127,11 +111,7 @@ const ChatMessages = () => {
 
     await Promise.all(delayedMessages);
 
-    setActions(
-      actionMessage.furtherActions
-        ? getFurtherActionMessages(actionMessage.furtherActions)
-        : [],
-    );
+    setActions(actionMessage.furtherActions ? getFurtherActionMessages(actionMessage.furtherActions) : []);
   };
 
   /**
@@ -146,10 +126,7 @@ const ChatMessages = () => {
       <StyledCardContent>{renderMessages()}</StyledCardContent>
       <StyledCardActions>
         {actions.map((actionMessage: IChatAction, idx: number) => (
-          <ChatAction
-            key={idx}
-            handleAction={() => handleChatAction(actionMessage)}
-          >
+          <ChatAction key={idx} handleAction={() => handleChatAction(actionMessage)}>
             {actionMessage.actionText}
           </ChatAction>
         ))}

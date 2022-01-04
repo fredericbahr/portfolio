@@ -36,11 +36,7 @@ const ChatHeader = ({ clickHandler }: IProps) => {
     <StyledCardHeader
       avatar={<Avatar alt="Chatbo" src={ChatbotAvatar} variant="square" />}
       title={
-        <StyledTypography
-          sx={{ fontSize: 24 }}
-          variant="caption"
-          display="block"
-        >
+        <StyledTypography sx={{ fontSize: 24 }} variant="caption" display="block">
           Chatbot
         </StyledTypography>
       }

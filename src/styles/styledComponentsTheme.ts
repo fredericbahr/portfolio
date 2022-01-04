@@ -10,8 +10,7 @@ interface IColor {
 }
 
 declare module "styled-components" {
-  export interface DefaultTheme extends ITheme {
-  }
+  export interface DefaultTheme extends ITheme {}
 }
 
 export const theme: ITheme = {

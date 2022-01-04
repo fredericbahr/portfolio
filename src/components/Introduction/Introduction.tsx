@@ -2,11 +2,7 @@ import { lighten, Slide, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
-import {
-  introductionDelay,
-  typewriterDeleteDelay,
-  typewriterInitialDelay,
-} from "../../utils/constants";
+import { introductionDelay, typewriterDeleteDelay, typewriterInitialDelay } from "../../utils/constants";
 import { Character } from "../Character/Character";
 import { StyledLink } from "../util-components/StyledLink";
 import "./Introduction.css";
@@ -77,17 +73,11 @@ export const Introduction = () => {
                 .start();
             }}
           />
-          <StyledSubtitle>
-            I develop occasionally well assets for the web.
-          </StyledSubtitle>
+          <StyledSubtitle>I develop occasionally well assets for the web.</StyledSubtitle>
           <StyledText>
-            I am a Software Engineer spezializing in building digital experience
-            from the frontend perspective. Currently studying Media Informatics
-            (Master) at{" "}
-            <StyledLink url="https://www.htwk-leipzig.de/startseite/">
-              HTWK
-            </StyledLink>{" "}
-            and developing UI-Components at{" "}
+            I am a Software Engineer spezializing in building digital experience from the frontend perspective.
+            Currently studying Media Informatics (Master) at{" "}
+            <StyledLink url="https://www.htwk-leipzig.de/startseite/">HTWK</StyledLink> and developing UI-Components at{" "}
             <StyledLink url="https://www.ipoque.com/">ipoque GmbH</StyledLink>.
           </StyledText>
         </TextWrapper>

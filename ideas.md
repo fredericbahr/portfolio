@@ -34,11 +34,9 @@
 ---
 
 - **Chat Options:** [MUI Button](https://mui.com/components/buttons/)/[MUI Chip](https://mui.com/components/chips)
--
+- ***
 
----
-
-**Idea:**
+  **Idea:**
 
 - Array of Message
 - A message has properties: Message, Owner(Bot/Customer), Type(Message/Option)
@@ -72,6 +70,7 @@
 ## Three JS Mini Me (Character)
 
 ### Idea
+
 - [Demo](https://codepen.io/kevoj/pen/BWgvOj)
 - [Tutorial](https://tympanus.net/codrops/2021/10/04/creating-3d-characters-in-three-js/)
 - [Insp](https://codepen.io/eroxburgh/pen/gOayPKV) - make it as dev (computer, mouse, etc)

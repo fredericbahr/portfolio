@@ -87,19 +87,15 @@
 }
 
 .svg-animated-elem-1 {
-  -webkit-animation: animate-svg-stroke-1 1.2s ease 0s both,
-    animate-svg-fill 0.5s ease-in 1.2s both,
+  -webkit-animation: animate-svg-stroke-1 1.2s ease 0s both, animate-svg-fill 0.5s ease-in 1.2s both,
     animate-svg-fade 0.5s ease-in 2s both;
-  animation: animate-svg-stroke-1 1.2s ease 0s both,
-    animate-svg-fill 0.5s ease-in 1.2s both,
+  animation: animate-svg-stroke-1 1.2s ease 0s both, animate-svg-fill 0.5s ease-in 1.2s both,
     animate-svg-fade 0.5s ease-in 2s both;
 }
 
 .svg-animated-elem-2 {
-  -webkit-animation: animate-svg-stroke-2 1.2s ease 0.1s both,
-    animate-svg-fill 0.5s ease-in 1.2s both,
+  -webkit-animation: animate-svg-stroke-2 1.2s ease 0.1s both, animate-svg-fill 0.5s ease-in 1.2s both,
     animate-svg-fade 0.5s ease-in 2s both;
-  animation: animate-svg-stroke-2 1.2s ease 0.1s both,
-    animate-svg-fill 0.5s ease-in 1.2s both,
+  animation: animate-svg-stroke-2 1.2s ease 0.1s both, animate-svg-fill 0.5s ease-in 1.2s both,
     animate-svg-fade 0.5s ease-in 2s both;
 }

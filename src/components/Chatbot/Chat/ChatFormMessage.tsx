@@ -146,17 +146,9 @@ export const ChatFormMessage = ({ formElements, formSubmitID }: IChatForm) => {
       </StyledDialogTitle>
       <StyledDialogContent>
         <StyledDialogContentText></StyledDialogContentText>
-        <StyledForm
-          method="POST"
-          action={`https://formsubmit.co/${formSubmitID}`}
-          id="contact-form"
-        >
+        <StyledForm method="POST" action={`https://formsubmit.co/${formSubmitID}`} id="contact-form">
           {renderFormElements(formElements)}
-          <input
-            type="hidden"
-            name="_next"
-            value="https://fredericbahr.github.io"
-          />
+          <input type="hidden" name="_next" value="https://fredericbahr.github.io" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="text" name="_honey" style={{ display: "none" }} />
           <input type="hidden" name="_template" value="table"></input>

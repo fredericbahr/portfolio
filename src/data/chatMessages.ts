@@ -1,8 +1,4 @@
-import {
-  IChatTextMessage,
-  IChatAction,
-  IChatFormElement,
-} from "../interfaces/chat";
+import { IChatTextMessage, IChatAction, IChatFormElement } from "../interfaces/chat";
 import Lebenslauf from "../assets/pdf/lebenslauf.pdf";
 
 export const initialMessages: IChatTextMessage[] = [
@@ -77,14 +73,12 @@ const directChat: IChatAction = {
   actionText: "I want to talk to you directly.",
   messges: [
     {
-      message:
-        "I really like your Chatbot, but i would rather talk to you directly.",
+      message: "I really like your Chatbot, but i would rather talk to you directly.",
       owner: "customer",
     },
     { message: "Sad times, but I respect your decision.", owner: "bot" },
     {
-      message:
-        "Send my master a message and he will answer as soon as possible!",
+      message: "Send my master a message and he will answer as soon as possible!",
       owner: "bot",
     },
     {
@@ -95,10 +89,7 @@ const directChat: IChatAction = {
   furtherActions: ["sendAnotherMessage", "sayHello", "showCV"],
 };
 
-export const actionRepository: Map<String, IChatAction> = new Map<
-  String,
-  IChatAction
->();
+export const actionRepository: Map<String, IChatAction> = new Map<String, IChatAction>();
 
 actionRepository.set("sayHello", sayHello);
 actionRepository.set("showCV", showCV);

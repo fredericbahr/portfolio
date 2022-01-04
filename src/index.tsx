@@ -3,10 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./components/App/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import {
-  StyledEngineProvider,
-  ThemeProvider as MUIThemeProvider,
-} from "@mui/material/styles";
+import { StyledEngineProvider, ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/styledComponentsTheme";
 import { muiTheme } from "./styles/muiTheme";
