@@ -1,8 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { TransformControls } from "three/examples/jsm/controls/TransformControls";
 import { MiniMe } from "./miniMe";
+import styled from "styled-components"
+
+const StyledDiv = styled.div`
+  cursor: crosshair;
+`
 
 export const Character = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,12 +27,7 @@ export const Character = () => {
 
     const scene = new THREE.Scene();
 
-    const camera = new THREE.PerspectiveCamera(
-      65,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      2000,
-    );
+    const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 4000);
 
     camera.position.set(0, 400, -1000);
     camera.lookAt(new THREE.Vector3(0, 0, 0));
@@ -75,7 +74,7 @@ export const Character = () => {
 
     const createCharacter = () => {
       const character = new MiniMe();
-      scene.add(character.group);
+      scene.add(character.character);
     };
 
     function resizeCanvasToDisplaySize() {
@@ -103,5 +102,5 @@ export const Character = () => {
     animate();
   }, []);
 
-  return <div ref={ref} id="character"></div>;
+  return <StyledDiv ref={ref} id="character"></StyledDiv>;
 };
