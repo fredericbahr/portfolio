@@ -74,3 +74,31 @@
 - [Demo](https://codepen.io/kevoj/pen/BWgvOj)
 - [Tutorial](https://tympanus.net/codrops/2021/10/04/creating-3d-characters-in-three-js/)
 - [Insp](https://codepen.io/eroxburgh/pen/gOayPKV) - make it as dev (computer, mouse, etc)
+
+## Projects
+
+### Idea
+- Two/Three detailed projects with visual thumbnails
+- Grid with other projects (if all)
+- [Archive](https://brittanychiang.com/archive)
+
+
+### Projects
+- DAG
+- Angular Generic Control Panel Component
+- DSL <-> Compiler
+- Visual Studio Code Extension
+- Intellij Plugin
+- Prettier Plugin
+- XML Visualisation (Dokumentenbeschreibungssprachen)
+- Metis (Softwareprojekt)
+- Prototyp of SVI Website (kein Code mehr...)
+- Cybercrime Webseite (OneDrive)
+
+### Thumbnails
+
+- [VS Code Idea](https://miro.medium.com/max/1012/0*nsMqYxMBzvx9EMGw.png) -> VSC Logo and Screenshot
+- [Prettier Plugin Idea](https://opengraph.githubassets.com/1ed7bf5286970696043c6e2812986d9d3e7ce6552f535bf79a9bf5cc6271502f/prettier-solidity/prettier-plugin-solidity)
+- [Compiler Idea](https://miro.medium.com/max/500/1*Qbm5_d5EYIbYa1-jN4JmSg.jpeg)
+- Metis zum Laufen bekommen --> Screenshot
+
