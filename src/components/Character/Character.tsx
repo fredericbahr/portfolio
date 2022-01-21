@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { MiniMe } from "./miniMe";
-import styled from "styled-components"
+import styled from "styled-components";
 
 const StyledDiv = styled.div`
   cursor: crosshair;
-`
+`;
 
 export const Character = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -57,19 +57,11 @@ export const Character = () => {
     };
 
     const createLight = () => {
-      const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6);
+      const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.7);
+      const ambientLight = new THREE.AmbientLight(0x404040, 1.2);
 
-      const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
-      dirLight.position.set(200, 200, 200);
-      dirLight.castShadow = true;
-
-      const backLight = new THREE.DirectionalLight(0xffffff, 0.4);
-      backLight.position.set(-200, 200, 50);
-      backLight.castShadow = true;
-
-      scene.add(backLight);
       scene.add(hemiLight);
-      scene.add(dirLight);
+      scene.add(ambientLight);
     };
 
     const createCharacter = () => {
