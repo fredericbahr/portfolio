@@ -20,17 +20,21 @@ export const bodySizeZ = headSize * 0.75;
 
 export const bodyPositionY = 200;
 
-export const armSizeX = 40;
-export const armSizeY = 80;
-export const armSizeZ = 50;
+export const upperArmSizeX = 40;
+export const upperArmSizeY = 80;
+export const upperArmSizeZ = 50;
 
-export const thumbSizeX = armSizeX / 2;
+export const lowerArmSizeX = 40;
+export const lowerArmSizeY = 140;
+export const lowerArmSizeZ = 50;
+
+export const thumbSizeX = 20;
 export const thumbSizeY = 40;
-export const thumbSizeZ = armSizeZ;
+export const thumbSizeZ = 50;
 
-export const fingerSizeX = armSizeX / 2;
+export const fingerSizeX = thumbSizeX;
 export const fingerSizeY = 10;
-export const fingerSizeZ = armSizeZ;
+export const fingerSizeZ = thumbSizeZ;
 
 export const beltSizeX = bodySizeX + 10;
 export const beltSizeY = 15;

@@ -5,9 +5,6 @@ import {
   ankleSizeX,
   ankleSizeY,
   ankleSizeZ,
-  armSizeX,
-  armSizeY,
-  armSizeZ,
   beltPositionY,
   beltSizeX,
   beltSizeY,
@@ -40,6 +37,9 @@ import {
   legSizeX,
   legSizeY,
   legSizeZ,
+  lowerArmSizeX,
+  lowerArmSizeY,
+  lowerArmSizeZ,
   mainHairSizeX,
   mainHairSizeY,
   mainHairSizeZ,
@@ -47,6 +47,9 @@ import {
   thumbSizeX,
   thumbSizeY,
   thumbSizeZ,
+  upperArmSizeX,
+  upperArmSizeY,
+  upperArmSizeZ,
 } from "./units";
 
 export class MiniMe {
@@ -123,22 +126,44 @@ export class MiniMe {
     const head = new THREE.Mesh(headGeometry, this.skinMat);
     head.position.set(0, headPositionY, 0);
 
-    /**
-     * Eyes
-     */
-    const eyes = new THREE.Group();
+    const [eyes, eyeBrowns]: THREE.Group[] = this.createEyesAndEyebrowns(head);
+    const mouth: THREE.Group = this.createMouth(head);
+    const [glasses, ears]: THREE.Group[] = this.createGlassesAndEars(head);
+
+    head.add(eyes, eyeBrowns, mouth, glasses, ears);
+    this.character.add(head);
+  };
+
+  private createEyesAndEyebrowns = (head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>): THREE.Group[] => {
     const eyeGeometry = new THREE.BoxGeometry(eyeSizeX, eyeSizeY, eyeSizeZ);
+    const eyes = this.createEyes(head, eyeGeometry);
+    const eyeBrowns = this.createEyeBrowns(head, eyeGeometry);
+
+    return [eyes, eyeBrowns];
+  };
+
+  private createEyes = (
+    head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>,
+    eyeGeometry: THREE.BoxGeometry,
+  ): THREE.Group => {
+    const eyes = new THREE.Group();
 
     const leftEye = new THREE.Mesh(eyeGeometry, this.eyeMat);
     leftEye.position.set(head.geometry.parameters.width / 4, eyePositionY, -head.geometry.parameters.depth / 2 - 2);
 
     const rightEye = new THREE.Mesh(eyeGeometry, this.eyeMat);
     rightEye.position.set(-head.geometry.parameters.width / 4, eyePositionY, -head.geometry.parameters.depth / 2 - 2);
+
+    const [leftRetina, rightRetina]: THREE.Mesh<THREE.BoxGeometry, THREE.Material>[] = this.createRetinas();
+    leftEye.add(leftRetina);
+    rightEye.add(rightRetina);
+
     eyes.add(leftEye, rightEye);
 
-    /**
-     * Retina
-     */
+    return eyes;
+  };
+
+  private createRetinas = (): THREE.Mesh<THREE.BoxGeometry, THREE.Material>[] => {
     const retinaGeometry = new THREE.BoxGeometry(7.5, 7.5, 1);
 
     const leftRetina = new THREE.Mesh(retinaGeometry, this.retinaMat);
@@ -147,12 +172,13 @@ export class MiniMe {
     const rightRetina = new THREE.Mesh(retinaGeometry, this.retinaMat);
     rightRetina.position.set(2.5, -5, -1);
 
-    rightEye.add(rightRetina);
-    leftEye.add(leftRetina);
+    return [leftRetina, rightRetina];
+  };
 
-    /**
-     * EyeBrowns
-     */
+  private createEyeBrowns = (
+    head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>,
+    eyeGeometry: THREE.BoxGeometry,
+  ): THREE.Group => {
     const eyeBrowns = new THREE.Group();
     const eyeBrownGeometry = new THREE.BoxGeometry(40, 10, 1);
     const leftEyeBrown = new THREE.Mesh(eyeBrownGeometry, this.eyeBrownMat);
@@ -173,9 +199,10 @@ export class MiniMe {
 
     eyeBrowns.add(leftEyeBrown, rightEyeBrown);
 
-    /**
-     * Mouth
-     */
+    return eyeBrowns;
+  };
+
+  private createMouth = (head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>): THREE.Group => {
     const mouth = new THREE.Group();
     const oralCavityGeometry = new THREE.CircleGeometry(25, 5, Math.PI, Math.PI);
     const teethGeometry = new THREE.BoxGeometry(48, 5, 1);
@@ -193,11 +220,19 @@ export class MiniMe {
 
     mouth.add(oralCavity, teeth, tongue);
 
-    /**
-     * Glasses
-     */
-    const glasses = new THREE.Group();
+    return mouth;
+  };
+
+  private createGlassesAndEars = (head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>): THREE.Group[] => {
     const glassGeometry = new THREE.RingGeometry(27, 32, 4);
+    const glasses = this.createGlasses(head, glassGeometry);
+    const ears = this.createEars(head, glassGeometry);
+
+    return [glasses, ears];
+  };
+
+  private createGlasses = (head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>, glassGeometry: THREE.RingGeometry) => {
+    const glasses = new THREE.Group();
     const middleConnectorGeometry = new THREE.BoxGeometry(5, 30, 1);
     const outerConnectorGeometry = new THREE.BoxGeometry(5, 17, 1);
     const sideConnectorGeometry = new THREE.BoxGeometry(5, head.geometry.parameters.depth / 2, 1);
@@ -258,9 +293,13 @@ export class MiniMe {
       rightSideConnector,
     );
 
-    /**
-     * Ears
-     */
+    return glasses;
+  };
+
+  private createEars = (
+    head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>,
+    glassGeometry: THREE.RingGeometry,
+  ): THREE.Group => {
     const ears = new THREE.Group();
     const earGeometry = new THREE.BoxGeometry(10, 30, 25);
 
@@ -276,11 +315,7 @@ export class MiniMe {
 
     ears.add(leftEar, rightEar);
 
-    /**
-     * Combine parts
-     */
-    head.add(eyes, eyeBrowns, glasses, mouth, ears);
-    this.character.add(head);
+    return ears;
   };
 
   private createHairs = () => {
@@ -291,20 +326,16 @@ export class MiniMe {
     let detailHairs: THREE.Group;
     let mainHairGeometry: THREE.BoxGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ);
 
-    // top
     const maxTopHair = headSize / mainHairSizeX;
     this.createTopHair(mainHairs, mainHairGeometry, maxTopHair);
 
-    //back side
     const backHair = headSize / mainHairSizeX + 2;
     this.createBackHair(mainHairs, backHair);
 
-    //side hair
     const maxSideHair = (headSize * 0.75) / mainHairSizeX;
     this.createSideHair(mainHairs, mainHairGeometry, maxSideHair);
     this.createSideHair(mainHairs, mainHairGeometry, maxSideHair, false);
 
-    // details
     detailHairs = this.getDetailHairs();
 
     mainHair = mergeMeshes(mainHairs, this.hairMat);
@@ -491,105 +522,78 @@ export class MiniMe {
     const corpus = new THREE.Mesh(corpusGeometry, this.shirtMat);
     corpus.position.set(0, bodyPositionY, 0);
 
-    this.createArms(corpus);
+    const [leftArm, rightArm]: THREE.Group[] = this.createArms(corpus);
+
+    corpus.add(leftArm, rightArm);
 
     body.add(corpus);
     this.character.add(body);
   };
 
-  private createArms = (corpus: THREE.Mesh<THREE.BoxGeometry, THREE.Material>) => {
-    const upperArmGeometry = new THREE.BoxGeometry(armSizeX, armSizeY, armSizeZ);
-    const lowerArmGeometry = new THREE.BoxGeometry(armSizeX, armSizeY, armSizeZ);
+  private createArms = (corpus: THREE.Mesh<THREE.BoxGeometry, THREE.Material>): THREE.Group[] => {
+    const upperArmGeometry = new THREE.BoxGeometry(upperArmSizeX, upperArmSizeY, upperArmSizeZ);
+    const lowerArmGeometry = new THREE.BoxGeometry(lowerArmSizeX, lowerArmSizeY, lowerArmSizeZ);
     const thumbGeometry = new THREE.BoxGeometry(thumbSizeX, thumbSizeY, thumbSizeZ);
     const fingerGeometry = new THREE.BoxGeometry(fingerSizeX, fingerSizeY, fingerSizeZ);
 
-    corpus.add(this.createLeftArm(corpus.geometry, upperArmGeometry, lowerArmGeometry, thumbGeometry, fingerGeometry));
+    const leftArm = this.createArm(corpus.geometry, upperArmGeometry, lowerArmGeometry, thumbGeometry, fingerGeometry);
+    const rightArm = this.createArm(
+      corpus.geometry,
+      upperArmGeometry,
+      lowerArmGeometry,
+      thumbGeometry,
+      fingerGeometry,
+      false,
+    );
 
-    corpus.add(this.createRightArm(corpus.geometry, upperArmGeometry, lowerArmGeometry, thumbGeometry, fingerGeometry));
+    return [leftArm, rightArm];
   };
 
-  private createLeftArm = (
+  private createArm = (
     corpus: THREE.BoxGeometry,
     upperArmGeometry: THREE.BoxGeometry,
     lowerArmGeometry: THREE.BoxGeometry,
     thumbGeometry: THREE.BoxGeometry,
     fingerGeometry: THREE.BoxGeometry,
+    isLeftArm: boolean = true,
   ) => {
     const arm = new THREE.Group();
+    const hand = new THREE.Group();
+    const sideModificator = isLeftArm ? 1 : -1;
+
     const { upperArm, lowerArm, thumb, fingers } = this.createArmMeshes(
       upperArmGeometry,
       lowerArmGeometry,
       thumbGeometry,
       fingerGeometry,
     );
-    const hand = new THREE.Group();
     hand.add(thumb, fingers);
 
     upperArm.position.set(
-      corpus.parameters.width / 2 + upperArmGeometry.parameters.width / 2,
+      sideModificator * (corpus.parameters.width / 2 + upperArmGeometry.parameters.width / 2),
       corpus.parameters.height / 2 - upperArmGeometry.parameters.height / 2,
       0,
     );
     lowerArm.position.set(
-      corpus.parameters.width / 2 + upperArmGeometry.parameters.width / 2,
-      upperArm.position.y - upperArmGeometry.parameters.height,
+      sideModificator * (corpus.parameters.width / 2 + upperArmGeometry.parameters.width / 2),
+      upperArm.position.y - upperArmGeometry.parameters.height / 2 - lowerArm.geometry.parameters.height / 2,
       0,
     );
     thumb.position.set(
-      corpus.parameters.width / 2 + upperArmGeometry.parameters.width / 2 + thumbGeometry.parameters.width / 2,
+      sideModificator *
+        (corpus.parameters.width / 2 + upperArmGeometry.parameters.width / 2 + thumbGeometry.parameters.width / 2),
       lowerArm.position.y - lowerArmGeometry.parameters.height / 2,
       0,
     );
     fingers.position.set(
-      corpus.parameters.width / 2 + upperArmGeometry.parameters.width / 2 - fingerGeometry.parameters.width / 2,
+      sideModificator *
+        (corpus.parameters.width / 2 + upperArmGeometry.parameters.width / 2 - fingerGeometry.parameters.width / 2),
       lowerArm.position.y - lowerArmGeometry.parameters.height / 2,
       0,
     );
 
     arm.add(upperArm, lowerArm, hand);
 
-    return arm;
-  };
-
-  private createRightArm = (
-    corpus: THREE.BoxGeometry,
-    upperArmGeometry: THREE.BoxGeometry,
-    lowerArmGeometry: THREE.BoxGeometry,
-    thumbGeometry: THREE.BoxGeometry,
-    fingerGeometry: THREE.BoxGeometry,
-  ) => {
-    const arm = new THREE.Group();
-    const { upperArm, lowerArm, thumb, fingers } = this.createArmMeshes(
-      upperArmGeometry,
-      lowerArmGeometry,
-      thumbGeometry,
-      fingerGeometry,
-    );
-    const hand = new THREE.Group();
-    hand.add(thumb, fingers);
-
-    upperArm.position.set(
-      -1 * (corpus.parameters.width / 2 + upperArmGeometry.parameters.width / 2),
-      corpus.parameters.height / 2 - upperArmGeometry.parameters.height / 2,
-      0,
-    );
-    lowerArm.position.set(
-      -1 * (corpus.parameters.width / 2 + upperArmGeometry.parameters.width / 2),
-      upperArm.position.y - upperArmGeometry.parameters.height,
-      0,
-    );
-    thumb.position.set(
-      -1 * (corpus.parameters.width / 2 + upperArmGeometry.parameters.width / 2 + thumbGeometry.parameters.width / 2),
-      lowerArm.position.y - lowerArmGeometry.parameters.height / 2,
-      0,
-    );
-    fingers.position.set(
-      -1 * (corpus.parameters.width / 2 + upperArmGeometry.parameters.width / 2 - fingerGeometry.parameters.width / 2),
-      lowerArm.position.y - lowerArmGeometry.parameters.height / 2,
-      0,
-    );
-
-    arm.add(upperArm, lowerArm, hand);
     return arm;
   };
 
