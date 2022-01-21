@@ -10,6 +10,7 @@ interface IProps {
 const StyledButton = styled(Button)`
   margin: 5px 0 5px 10px;
   font-size: 14px;
+  width: 100%;
 
   &:hover {
     background-color: ${(props) => props.theme.colors.mainblack};
