@@ -93,9 +93,9 @@ export class MiniMe {
       color: "808080",
       side: THREE.DoubleSide,
     });
-    this.legMat = new THREE.MeshLambertMaterial({ color: "#0066cc" });
+    this.legMat = new THREE.MeshLambertMaterial({ color: "#003049" });
     this.legSeperatorMat = new THREE.MeshLambertMaterial({ color: "#181114" });
-    this.footMat = new THREE.MeshLambertMaterial({ color: "#cc5439" });
+    this.footMat = new THREE.MeshLambertMaterial({ color: "#f77f00" });
     this.hairMat = new THREE.MeshLambertMaterial({ color: "#bf9e37", side: THREE.DoubleSide });
 
     this.draw();
@@ -420,13 +420,27 @@ export class MiniMe {
 
   private getDetailHairs = () => {
     const detailHairs: THREE.Group = new THREE.Group();
-
-    // hair lowest stripe
     let hairGeometry = new THREE.BoxGeometry(headSize * 0.8, mainHairSizeY, 10);
+    const hairPositionZ = (-headSize * 0.75) / 2 - hairGeometry.parameters.depth / 2;
+
+    this.createFrontHairParting(detailHairs, hairPositionZ, hairGeometry);
+
+    this.createFrontHairRightSideDetails(detailHairs, hairPositionZ);
+
+    this.createBackHairDetails(detailHairs);
+
+    return detailHairs;
+  };
+
+  private createFrontHairParting = (
+    detailHairs: THREE.Group,
+    hairPositionZ: number,
+    hairGeometry: THREE.BoxGeometry,
+  ) => {
+    // hair lowest stripe
     let hair = new THREE.Mesh(hairGeometry, this.hairMat);
     let hairPositionX = headSize / 2 - hairGeometry.parameters.width / 2 + mainHairSizeX;
     let hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 2 - hairGeometry.parameters.height;
-    let hairPositionZ = (-headSize * 0.75) / 2 - hairGeometry.parameters.depth / 2;
     hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
     detailHairs.add(hair);
 
@@ -435,7 +449,6 @@ export class MiniMe {
     hair = new THREE.Mesh(hairGeometry, this.hairMat);
     hairPositionX = headSize / 2 - hairGeometry.parameters.width / 2 + mainHairSizeX;
     hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 2;
-    hairPositionZ = (-headSize * 0.75) / 2 - hairGeometry.parameters.depth / 2;
     hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
     detailHairs.add(hair);
 
@@ -444,34 +457,15 @@ export class MiniMe {
     hair = new THREE.Mesh(hairGeometry, this.hairMat);
     hairPositionX = headSize / 2 - hairGeometry.parameters.width / 2 + mainHairSizeX;
     hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 2 + hairGeometry.parameters.height;
-    hairPositionZ = (-headSize * 0.75) / 2 - hairGeometry.parameters.depth / 2;
     hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
     detailHairs.add(hair);
+  };
 
-    // hair parting fourth lowest stripe
-    hairGeometry = new THREE.BoxGeometry(headSize * 0.5, mainHairSizeY, 10);
-    hair = new THREE.Mesh(hairGeometry, this.hairMat);
-    hairPositionX = headSize / 2 - hairGeometry.parameters.width / 2 + mainHairSizeX;
-    hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 2 + 2 * hairGeometry.parameters.height;
-    hairPositionZ = (-headSize * 0.75) / 2 - hairGeometry.parameters.depth / 2;
-    hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
-    //detailHairs.add(hair);
-
-    // hair parting fifth stripe
-    hairGeometry = new THREE.BoxGeometry(headSize * 0.25, mainHairSizeY, 10);
-    hair = new THREE.Mesh(hairGeometry, this.hairMat);
-    hairPositionX = headSize / 2 - hairGeometry.parameters.width / 2 + mainHairSizeX;
-    hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 2 + 3 * hairGeometry.parameters.height;
-    hairPositionZ = (-headSize * 0.75) / 2 - hairGeometry.parameters.depth / 2;
-    hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
-    //detailHairs.add(hair);
-
-    // hair parting right stripes
-    hairGeometry = new THREE.BoxGeometry(headSize / 4, mainHairSizeY, 10);
-    hair = new THREE.Mesh(hairGeometry, this.hairMat);
-    hairPositionX = -headSize / 2 - mainHairSizeX / 2;
-    hairPositionY = headPositionY + headSize / 2 - mainHairSizeY + 1.2;
-    hairPositionZ = (-headSize * 0.75) / 2 - hairGeometry.parameters.depth / 2;
+  private createFrontHairRightSideDetails = (detailHairs: THREE.Group, hairPositionZ: number) => {
+    let hairGeometry = new THREE.BoxGeometry(headSize / 4, mainHairSizeY, 10);
+    let hair = new THREE.Mesh(hairGeometry, this.hairMat);
+    let hairPositionX = -headSize / 2 - mainHairSizeX / 2;
+    let hairPositionY = headPositionY + headSize / 2 - mainHairSizeY + 1.2;
     hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
     hair.rotateZ(this.deg2rad(90));
     detailHairs.add(hair);
@@ -480,7 +474,6 @@ export class MiniMe {
     hair = new THREE.Mesh(hairGeometry, this.hairMat);
     hairPositionX = -headSize / 2 - mainHairSizeX / 2 + hairGeometry.parameters.depth;
     hairPositionY = headPositionY + headSize / 2 - 6.5;
-    hairPositionZ = (-headSize * 0.75) / 2 - hairGeometry.parameters.depth / 2;
     hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
     hair.rotateZ(this.deg2rad(90));
     detailHairs.add(hair);
@@ -489,7 +482,6 @@ export class MiniMe {
     hair = new THREE.Mesh(hairGeometry, this.hairMat);
     hairPositionX = -headSize / 2 - mainHairSizeX / 2 + 2 * hairGeometry.parameters.depth;
     hairPositionY = headPositionY + headSize / 2 - 3;
-    hairPositionZ = (-headSize * 0.75) / 2 - hairGeometry.parameters.depth / 2;
     hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
     hair.rotateZ(this.deg2rad(90));
     detailHairs.add(hair);
@@ -497,8 +489,7 @@ export class MiniMe {
     hairGeometry = new THREE.BoxGeometry(headSize / 5, mainHairSizeY, 10);
     hair = new THREE.Mesh(hairGeometry, this.hairMat);
     hairPositionX = -headSize / 2 - mainHairSizeX / 2 + 3 * hairGeometry.parameters.depth;
-    hairPositionY = headPositionY + headSize / 2;
-    hairPositionZ = (-headSize * 0.75) / 2 - hairGeometry.parameters.depth / 2;
+    hairPositionY = headPositionY + headSize / 2 - 3;
     hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
     hair.rotateZ(this.deg2rad(90));
     detailHairs.add(hair);
@@ -506,13 +497,51 @@ export class MiniMe {
     hairGeometry = new THREE.BoxGeometry(headSize / 5, mainHairSizeY, 10);
     hair = new THREE.Mesh(hairGeometry, this.hairMat);
     hairPositionX = -headSize / 2 - mainHairSizeX / 2 + 4 * hairGeometry.parameters.depth;
-    hairPositionY = headPositionY + headSize / 2;
-    hairPositionZ = (-headSize * 0.75) / 2 - hairGeometry.parameters.depth / 2;
+    hairPositionY = headPositionY + headSize / 2 - 3;
     hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
     hair.rotateZ(this.deg2rad(90));
     detailHairs.add(hair);
 
-    return detailHairs;
+    hairGeometry = new THREE.BoxGeometry(headSize * 0.16, mainHairSizeY, 10);
+    hair = new THREE.Mesh(hairGeometry, this.hairMat);
+    hairPositionX = -headSize / 2 - mainHairSizeX / 2 + 5 * hairGeometry.parameters.depth;
+    hairPositionY = headPositionY + headSize / 2;
+    hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
+    hair.rotateZ(this.deg2rad(90));
+    detailHairs.add(hair);
+  };
+
+  private createBackHairDetails = (detailHairs: THREE.Group) => {
+    const maxBackDetailsHair = headSize / mainHairSizeX + 2;
+    for (let i = 0; i < maxBackDetailsHair; i++) {
+      const half = Math.floor((maxBackDetailsHair - 1) / 2);
+      const sameStartSameEndIdx = i > half ? half - (i - half) : i;
+      const base = 12;
+      const step = 7;
+      let factor = this.getFactorForBackHairDetails(sameStartSameEndIdx);
+
+      const backHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ * 0.6);
+      const hair = new THREE.Mesh(backHairGeometry, this.hairMat);
+      const hairPositionX = headSize / 2 + mainHairSizeX / 2 - i * mainHairSizeX;
+      const hairPositionZ = mainHairSizeZ / 2;
+      const hairPositionY =
+        headPositionY + headSize / 2 + mainHairSizeY - backHairGeometry.parameters.depth / 2 - (base + factor * step);
+
+      hair.rotateX(this.deg2rad(90));
+      hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
+
+      detailHairs.add(hair);
+    }
+  };
+
+  private getFactorForBackHairDetails = (idx: number): number => {
+    if (idx <= 1) return 0;
+
+    if (idx <= 3) return 1;
+
+    if (idx <= 5) return 2;
+
+    return 3;
   };
 
   private createBody = () => {
