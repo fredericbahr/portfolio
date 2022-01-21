@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { mergeMeshes } from "./characterUtils";
 import {
   anklePositonY,
   ankleSizeX,
@@ -92,7 +93,7 @@ export class MiniMe {
     this.legMat = new THREE.MeshLambertMaterial({ color: "#0066cc" });
     this.legSeperatorMat = new THREE.MeshLambertMaterial({ color: "#181114" });
     this.footMat = new THREE.MeshLambertMaterial({ color: "#cc5439" });
-    this.hairMat = new THREE.MeshLambertMaterial({ color: "#bf9e37" });
+    this.hairMat = new THREE.MeshLambertMaterial({ color: "#bf9e37", side: THREE.DoubleSide });
 
     this.draw();
   }
@@ -283,13 +284,37 @@ export class MiniMe {
   };
 
   private createHairs = () => {
-    const hairs: THREE.Group = new THREE.Group();
+    const hair: THREE.Group = new THREE.Group();
+    let mainHair: THREE.Mesh;
+    let detailHair: THREE.Mesh;
     const mainHairs: THREE.Group = new THREE.Group();
     let detailHairs: THREE.Group;
     let mainHairGeometry: THREE.BoxGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ);
 
     // top
     const maxTopHair = headSize / mainHairSizeX;
+    this.createTopHair(mainHairs, mainHairGeometry, maxTopHair);
+
+    //back side
+    const backHair = headSize / mainHairSizeX + 2;
+    this.createBackHair(mainHairs, backHair);
+
+    //side hair
+    const maxSideHair = (headSize * 0.75) / mainHairSizeX;
+    this.createSideHair(mainHairs, mainHairGeometry, maxSideHair);
+    this.createSideHair(mainHairs, mainHairGeometry, maxSideHair, false);
+
+    // details
+    detailHairs = this.getDetailHairs();
+
+    mainHair = mergeMeshes(mainHairs, this.hairMat);
+    detailHair = mergeMeshes(detailHairs, this.hairMat);
+
+    hair.add(mainHair, detailHair);
+    this.character.add(hair);
+  };
+
+  private createTopHair = (mainHairs: THREE.Group, mainHairGeometry: THREE.BoxGeometry, maxTopHair: number) => {
     for (let i = 0; i < maxTopHair; i++) {
       const hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
       const hairPositionX = headSize / 2 - mainHairSizeX / 2 - i * mainHairSizeX;
@@ -297,9 +322,9 @@ export class MiniMe {
       hair.position.set(hairPositionX, hairPositionY, 0);
       mainHairs.add(hair);
     }
+  };
 
-    //back side
-    const backHair = headSize / mainHairSizeX + 2;
+  private createBackHair = (mainHairs: THREE.Group, backHair: number) => {
     for (let i = 0; i < backHair; i++) {
       const backHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ * 0.6);
       const hair = new THREE.Mesh(backHairGeometry, this.hairMat);
@@ -310,13 +335,18 @@ export class MiniMe {
       hair.rotateX(this.deg2rad(90));
       mainHairs.add(hair);
     }
+  };
 
-    //left side
-    const maxSideHair = (headSize * 0.75) / mainHairSizeX;
+  private createSideHair = (
+    mainHairs: THREE.Group,
+    mainHairGeometry: THREE.BoxGeometry,
+    maxSideHair: number,
+    isLeftSide: boolean = true,
+  ) => {
     for (let i = 0; i < maxSideHair; i++) {
       let hair: THREE.Mesh;
-
-      const hairPositionX = headSize / 2 + mainHairSizeX / 2;
+      const sideMultiplier = isLeftSide ? 1 : -1;
+      const hairPositionX = sideMultiplier * (headSize / 2 + mainHairSizeX / 2);
       const hairPositionZ = (-headSize * 0.75) / 2 + i * mainHairSizeX;
 
       if (i === 12) {
@@ -355,56 +385,6 @@ export class MiniMe {
       hair.rotateX(this.deg2rad(90));
       mainHairs.add(hair);
     }
-
-    //right side
-    for (let i = 0; i < maxSideHair; i++) {
-      let hair: THREE.Mesh;
-
-      const hairPositionX = -1 * (headSize / 2 + mainHairSizeX / 2);
-      const hairPositionZ = (-headSize * 0.75) / 2 + i * mainHairSizeX;
-
-      if (i === 12) {
-        mainHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2 + 25);
-        hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
-        const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 4 - mainHairSizeY - 23.1;
-        hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
-      } else if (i === 0) {
-        mainHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2 + 10);
-        hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
-        const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 4 - mainHairSizeY - 15.6;
-        hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
-      } else if (i === 1) {
-        mainHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2 + 7.5);
-        hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
-        const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 4 - mainHairSizeY - 14.35;
-        hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
-      } else if (i >= 10) {
-        mainHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2 + 10);
-        hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
-        const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 4 - mainHairSizeY - 15.6;
-        hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
-      } else if (i < 4 || i >= 8) {
-        mainHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2);
-        hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
-        const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 4 - mainHairSizeY - 10.6;
-        hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
-      } else {
-        mainHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ * 0.4 + 3);
-        hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
-        const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 4 - mainHairSizeY - 6.5;
-        hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
-      }
-
-      hair.rotateY(this.deg2rad(90));
-      hair.rotateX(this.deg2rad(90));
-      mainHairs.add(hair);
-    }
-
-    // details
-    detailHairs = this.getDetailHairs();
-
-    hairs.add(mainHairs, detailHairs);
-    this.character.add(hairs);
   };
 
   private getDetailHairs = () => {
