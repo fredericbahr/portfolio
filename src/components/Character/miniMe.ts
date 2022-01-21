@@ -16,6 +16,9 @@ import {
   buckleSizeX,
   buckleSizeY,
   buckleSizeZ,
+  buttonSizeX,
+  buttonSizeY,
+  buttonSizeZ,
   eyePositionY,
   eyeSizeX,
   eyeSizeY,
@@ -71,6 +74,7 @@ export class MiniMe {
   private legSeperatorMat: THREE.Material;
   private footMat: THREE.Material;
   private hairMat: THREE.Material;
+  private buttonMat: THREE.Material;
 
   constructor() {
     this.character = new THREE.Group();
@@ -96,7 +100,8 @@ export class MiniMe {
     this.legMat = new THREE.MeshLambertMaterial({ color: "#003049" });
     this.legSeperatorMat = new THREE.MeshLambertMaterial({ color: "#181114" });
     this.footMat = new THREE.MeshLambertMaterial({ color: "#f77f00" });
-    this.hairMat = new THREE.MeshLambertMaterial({ color: "#bf9e37", side: THREE.DoubleSide });
+    this.hairMat = new THREE.MeshLambertMaterial({ color: "#ad9032" });
+    this.buttonMat = new THREE.MeshLambertMaterial({ color: "#808080", side: THREE.DoubleSide });
 
     this.draw();
   }
@@ -553,10 +558,38 @@ export class MiniMe {
 
     const [leftArm, rightArm]: THREE.Group[] = this.createArms(corpus);
 
-    corpus.add(leftArm, rightArm);
+    const buttons: THREE.Group = this.createButtons();
+
+    corpus.add(leftArm, rightArm, buttons);
 
     body.add(corpus);
     this.character.add(body);
+  };
+
+  private createButtons = (): THREE.Group => {
+    const buttons: THREE.Group = new THREE.Group();
+
+    const totalButtons = 4;
+
+    for (let i = 0; i < totalButtons; i++) {
+      const button = this.createButton(i);
+      buttons.add(button);
+    }
+
+    return buttons;
+  };
+
+  private createButton = (factor: number): THREE.Mesh => {
+    const buttonPositionYOffset = -35;
+    const buttonPositionYStep = 50;
+    const buttonGeometry = new THREE.BoxGeometry(buttonSizeX, buttonSizeY, buttonSizeZ);
+    const button = new THREE.Mesh(buttonGeometry, this.buttonMat);
+    const buttonPositionZ = -bodySizeZ / 2 - 1;
+    const buttonPositionX = 0;
+    const buttonPositionY = buttonPositionYOffset + bodySizeY / 2 - factor * buttonPositionYStep;
+    button.position.set(buttonPositionX, buttonPositionY, buttonPositionZ);
+
+    return button;
   };
 
   private createArms = (corpus: THREE.Mesh<THREE.BoxGeometry, THREE.Material>): THREE.Group[] => {

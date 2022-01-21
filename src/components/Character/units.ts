@@ -20,12 +20,16 @@ export const bodySizeZ = headSize * 0.75;
 
 export const bodyPositionY = 200;
 
+export const buttonSizeX = 10;
+export const buttonSizeY = buttonSizeX;
+export const buttonSizeZ = 1;
+
 export const upperArmSizeX = 40;
-export const upperArmSizeY = 80;
+export const upperArmSizeY = 140;
 export const upperArmSizeZ = 50;
 
 export const lowerArmSizeX = 40;
-export const lowerArmSizeY = 140;
+export const lowerArmSizeY = 75;
 export const lowerArmSizeZ = 50;
 
 export const thumbSizeX = 20;

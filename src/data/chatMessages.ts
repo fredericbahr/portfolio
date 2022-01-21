@@ -23,8 +23,8 @@ const showCV: IChatAction = {
   messges: [
     { message: "Hey, im interested in your CV!", owner: "customer" },
     { message: "Thanks for reaching out to me.", owner: "bot" },
-    { message: "Underneath you can dowload my CV.", owner: "bot" },
-    { type: "pdf", owner: "bot", url: Lebenslauf, fileName: "fredericbahr_cv" },
+    { message: "Underneath you can download my CV.", owner: "bot" },
+    { type: "pdf", owner: "bot", url: Lebenslauf, fileName: "cv_fredericbahr" },
   ],
   furtherActions: ["sayHello", "directChat"],
 };
