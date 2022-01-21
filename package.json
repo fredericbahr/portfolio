@@ -1,6 +1,6 @@
 {
-  "name": "personal-website-fredericbahr",
-  "homepage": "https://fredericbahr.github.io/personal-website-fredericbahr",
+  "name": "personal-website",
+  "homepage": "https://fredericbahr.github.io/portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
