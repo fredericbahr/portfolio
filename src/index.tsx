@@ -9,6 +9,8 @@ import { theme } from "./styles/styledComponentsTheme";
 import { muiTheme } from "./styles/muiTheme";
 import { GlobalStyle } from "./styles/globalStyles";
 
+import "./i18n/i18n"
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -16,7 +18,7 @@ ReactDOM.render(
         <MUIThemeProvider theme={muiTheme}>
           <ThemeProvider theme={theme}>
             <GlobalStyle />
-            <App />
+              <App />
           </ThemeProvider>
         </MUIThemeProvider>
       </StyledEngineProvider>

@@ -49,6 +49,10 @@
 ## Internationalization
 
 - [react-i18next](https://react.i18next.com/)
+- [custom hook implementation](https://github.com/calendso/calendso/blob/main/lib/hooks/useLocale.ts)
+- [custom hook usage](https://github.com/calendso/calendso/blob/main/pages/auth/login.tsx#L30-L45)
+- [language definition](https://github.com/calendso/calendso/blob/main/public/static/locales/de/common.json)
+- [passing in custom data](https://github.com/calendso/calendso/blob/main/ee/components/TrialBanner.tsx#L24)
 
 ---
 

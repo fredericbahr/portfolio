@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { navLinks } from "../../data/navLinks";
 import { INavLink } from "../../interfaces/nav";
 import { navbarDelay, navbarItemBaseDelay, navbarItemExtraDelay, transition } from "../../utils/constants";
+import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 
 const StyledNav = styled.nav`
   flex: 1;
@@ -21,6 +22,7 @@ const StyledOl = styled.ol`
   list-style: none;
   counter-reset: item 0;
   margin-right: 1vmax;
+  align-items: center;
 `;
 
 const StyledLi = styled.li`
@@ -67,6 +69,11 @@ export const Navbar = () => {
               </Slide>
             );
           })}
+        <Slide in={isMounted} timeout={navbarItemBaseDelay + navLinks.length * navbarItemExtraDelay}>
+          <StyledLi>
+            <LanguageSwitcher />
+          </StyledLi>
+        </Slide>
       </StyledOl>
     </StyledNav>
   );
