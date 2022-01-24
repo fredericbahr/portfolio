@@ -3,7 +3,7 @@
  * @param owner the owner of the message
  */
 export interface IChatTextMessage {
-  message: String;
+  message: string;
   owner: "bot" | "customer";
 }
 
@@ -16,20 +16,20 @@ export interface IChatTextMessage {
 export interface IChatDownload {
   type: "pdf" | "img";
   owner: "bot";
-  url: String;
-  fileName: String;
+  url: string;
+  fileName: string;
 }
 
 export interface IChatFormElement {
   type: "text" | "textarea" | "email" | "date" | "tel";
   required: boolean;
-  name: String;
-  label: String;
+  name: string;
+  label: string;
 }
 
 export interface IChatForm {
   formElements: IChatFormElement[];
-  formSubmitID: String;
+  formSubmitID: string;
 }
 
 /**
@@ -38,9 +38,9 @@ export interface IChatForm {
  * @param furtherActions the keys of further actions
  */
 export interface IChatAction {
-  actionText: String;
+  actionText: string;
   messges: IChatMessage[];
-  furtherActions?: String[];
+  furtherActions?: string[];
 }
 
 export type IChatMessage = IChatTextMessage | IChatDownload | IChatForm;

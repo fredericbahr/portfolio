@@ -2,7 +2,7 @@ import { IChatTextMessage, IChatAction, IChatFormElement } from "../interfaces/c
 import Lebenslauf from "../assets/pdf/lebenslauf.pdf";
 
 export const initialMessages: IChatTextMessage[] = [
-  { message: "Hi, I´m Frederic`s ChatBot 🤖", owner: "bot" },
+  { message: "chatbot.initialMessage.firstMessage", owner: "bot" },
   { message: "How can i help you?", owner: "bot" },
 ];
 

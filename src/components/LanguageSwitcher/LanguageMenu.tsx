@@ -18,8 +18,8 @@ export const LanguageMenu = ({ open, anchorElement, onClose, handleClose }: IPro
 
   return (
     <Menu open={open} anchorEl={anchorElement} onClose={onClose}>
-      <MenuItem onClick={() => handleClick("en")}>{t("languageMenu_english")}</MenuItem>
-      <MenuItem onClick={() => handleClick("de")}>{t("languageMenu_german")}</MenuItem>
+      <MenuItem onClick={() => handleClick("en")}>{t("languageMenu.english")}</MenuItem>
+      <MenuItem onClick={() => handleClick("de")}>{t("languageMenu.german")}</MenuItem>
     </Menu>
   );
 };

@@ -8,6 +8,7 @@ import { ChatDownload } from "./ChatDownload";
 import ChatAction from "./ChatAction";
 import { initialActions, actionRepository, initialMessages } from "../../../data/chatMessages";
 import { ChatFormMessage } from "./ChatFormMessage";
+import { useTranslation } from "react-i18next";
 
 const StyledCardContent = styled(CardContent)`
   flex-grow: 1;
@@ -26,6 +27,7 @@ const StyledDiv = styled.div`
 `;
 
 const ChatMessages = () => {
+  const { t } = useTranslation();
   const [messages, setTextMessages] = useState<IChatMessage[]>(initialMessages);
   const [actions, setActions] = useState<IChatAction[]>(initialActions);
 
@@ -49,7 +51,7 @@ const ChatMessages = () => {
       if (isChatTextMessage(message)) {
         return (
           <ChatText key={idx} owner={message.owner}>
-            {message.message}
+            {t(message.message)}
           </ChatText>
         );
       }

@@ -1,5 +1,6 @@
 import { lighten, Slide, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
 import { introductionDelay, typewriterDeleteDelay, typewriterInitialDelay } from "../../utils/constants";
@@ -41,6 +42,7 @@ const StyledText = styled(Typography)`
 `;
 
 export const Introduction = () => {
+  const { t } = useTranslation();
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -54,31 +56,31 @@ export const Introduction = () => {
       <Grid>
         <TextWrapper>
           <StyledBeforeTypwriter variant="h6" component={"p"}>
-            Hi, I am{" "}
+            {t("introduction.hi")}{" "}
           </StyledBeforeTypwriter>
           <Typewriter
             onInit={(typewriter) => {
               typewriter
                 .pauseFor(typewriterInitialDelay)
-                .typeString("Frederic Bahr")
+                .typeString(t("introduction.name"))
                 .pauseFor(typewriterDeleteDelay)
                 .deleteAll()
-                .typeString("a Media Informatics student.")
+                .typeString(t("introduction.student"))
                 .pauseFor(typewriterDeleteDelay)
                 .deleteAll()
-                .typeString("a Frontend Web Developer.")
+                .typeString(t("introduction.jobdescription"))
                 .pauseFor(typewriterDeleteDelay)
                 .deleteAll()
-                .typeString("Frederic Bahr")
+                .typeString(t("introduction.name"))
                 .start();
             }}
           />
-          <StyledSubtitle>I develop occasionally well assets for the web.</StyledSubtitle>
+          <StyledSubtitle>{t("introduction.subtitle")}</StyledSubtitle>
           <StyledText>
-            I am a Software Engineer spezializing in building digital experience from the frontend perspective.
-            Currently studying Media Informatics (Master) at{" "}
-            <StyledLink url="https://www.htwk-leipzig.de/startseite/">HTWK</StyledLink> and developing UI-Components at{" "}
-            <StyledLink url="https://www.ipoque.com/">ipoque GmbH</StyledLink>.
+            {t("introduction.info.firstText")}{" "}
+            <StyledLink url="https://www.htwk-leipzig.de/startseite/">{t("introduction.info.htwkLink")}</StyledLink>{" "}
+            {t("introduction.info.secondText")}{" "}
+            <StyledLink url="https://www.ipoque.com/">{t("introduction.info.jobLink")}</StyledLink>.
           </StyledText>
         </TextWrapper>
         <Character />

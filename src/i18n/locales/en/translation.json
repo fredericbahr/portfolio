@@ -1,4 +1,47 @@
 {
-  "languageMenu_english": "English",
-  "languageMenu_german": "German"
+  "navbar": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects"
+  },
+  "languageMenu": {
+    "tooltip": "Select your language",
+    "english": "English",
+    "german": "German"
+  },
+  "introduction": {
+    "hi": "Hi, I am",
+    "name": "Frederic Bahr",
+    "student": "a Media Informatics student",
+    "jobdescription": "a Frontend Web Developer",
+    "subtitle": "I develop occasionally well assets for the web.",
+    "info": {
+      "firstText": "I am a Software Engineer spezializing in building digital experience from the frontend perspective. Currently studying Media Informatics (Master) at",
+      "secondText": "and developing UI-Components at",
+      "htwkLink": "HTWK",
+      "jobLink": "ipoque GmbH"
+    }
+  },
+  "chatbot": {
+    "initialMessage": {
+      "firstMessage": "Hi, I´m Frederic`s ChatBot 🤖",
+      "secondMessage": "How can i help you?"
+    },
+    "sayHello": {
+      "firstMessage": "",
+      "secondMessage": "",
+      "thirdMessage": "",
+      "fourthMessage": "",
+      "fifthMessage": ""
+    },
+    "showCV": {
+
+    },
+    "sendAnotherMessage": {
+
+    },
+    "directChat": {
+
+    }
+  }
 }
