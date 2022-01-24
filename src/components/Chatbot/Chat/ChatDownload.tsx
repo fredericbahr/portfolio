@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { IChatDownload } from "../../../interfaces/chat";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
 import styled from "styled-components";
 import useElementDimensions from "../../../utils/hooks/useElementDimension";
@@ -14,6 +13,7 @@ import {
 } from "@mui/material";
 import pdfFileIcon from "../../../assets/img/pdf-file.svg";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
+import { IChatDownload } from "../interface";
 
 const StyledCard = styled(Card)`
   margin: 0.5rem 0;

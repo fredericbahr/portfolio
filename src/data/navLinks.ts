@@ -1,4 +1,4 @@
-import { INavLink } from "../interfaces/nav";
+import { INavLink } from "../components/Navbar/interface";
 
 export const navLinks: INavLink[] = [
   {

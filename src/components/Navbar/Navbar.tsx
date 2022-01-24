@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { NavHashLink } from "react-router-hash-link";
 import styled from "styled-components";
 import { navLinks } from "../../data/navLinks";
-import { INavLink } from "../../interfaces/nav";
 import { navbarDelay, navbarItemBaseDelay, navbarItemExtraDelay, transition } from "../../utils/constants";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
+import { INavLink } from "./interface";
 
 const StyledNav = styled.nav`
   flex: 1;

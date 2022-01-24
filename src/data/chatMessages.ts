@@ -1,4 +1,4 @@
-import { IChatTextMessage, IChatAction, IChatFormElement } from "../interfaces/chat";
+import { IChatTextMessage, IChatAction, IChatFormElement } from "../components/Chatbot/interface";
 import Lebenslauf from "../assets/pdf/lebenslauf.pdf";
 
 export const initialMessages: IChatTextMessage[] = [

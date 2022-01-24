@@ -2,13 +2,13 @@ import { CardActions, CardContent } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import ChatText from "./ChatText";
-import { IChatAction, IChatMessage } from "../../../interfaces/chat";
 import { isChatDownload, isChatForm, isChatTextMessage } from "../../../utils/typePredicates";
 import { ChatDownload } from "./ChatDownload";
 import ChatAction from "./ChatAction";
 import { initialActions, actionRepository, initialMessages } from "../../../data/chatMessages";
 import { ChatFormMessage } from "./ChatFormMessage";
 import { useTranslation } from "react-i18next";
+import { IChatMessage, IChatAction } from "../interface";
 
 const StyledCardContent = styled(CardContent)`
   flex-grow: 1;
