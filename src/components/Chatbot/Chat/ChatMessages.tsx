@@ -129,7 +129,7 @@ const ChatMessages = () => {
       <StyledCardActions>
         {actions.map((actionMessage: IChatAction, idx: number) => (
           <ChatAction key={idx} handleAction={() => handleChatAction(actionMessage)}>
-            {actionMessage.actionText}
+            {t(actionMessage.actionText)}
           </ChatAction>
         ))}
       </StyledCardActions>

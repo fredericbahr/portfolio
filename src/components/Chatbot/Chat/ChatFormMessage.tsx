@@ -16,6 +16,7 @@ import { IChatForm, IChatFormElement } from "../../../interfaces/chat";
 import styled from "styled-components";
 import { Close } from "@mui/icons-material";
 import { TransitionProps } from "@mui/material/transitions";
+import { TFunction, useTranslation } from "react-i18next";
 
 const StyledDialog = styled(Dialog)`
   & .MuiPaper-root {
@@ -94,7 +95,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const renderFormElements = (formElements: IChatFormElement[]) => {
+const renderFormElements = (formElements: IChatFormElement[], t: TFunction<"translation", undefined>) => {
   return formElements.map((formElement: IChatFormElement, idx: number) => {
     const renderedFormElement =
       formElement.type === "textarea" ? (
@@ -105,7 +106,7 @@ const renderFormElements = (formElements: IChatFormElement[]) => {
           size="small"
           name={formElement.name.toString()}
           required={formElement.required}
-          label={formElement.label}
+          label={t(formElement.label)}
         />
       ) : (
         <StyledTextField
@@ -113,7 +114,7 @@ const renderFormElements = (formElements: IChatFormElement[]) => {
           type={formElement.type}
           name={formElement.name.toString()}
           required={formElement.required}
-          label={formElement.label}
+          label={t(formElement.label)}
           size="small"
         />
       );
@@ -122,6 +123,7 @@ const renderFormElements = (formElements: IChatFormElement[]) => {
 };
 
 export const ChatFormMessage = ({ formElements, formSubmitID }: IChatForm) => {
+  const { t } = useTranslation();
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -147,7 +149,7 @@ export const ChatFormMessage = ({ formElements, formSubmitID }: IChatForm) => {
       <StyledDialogContent>
         <StyledDialogContentText></StyledDialogContentText>
         <StyledForm method="POST" action={`https://formsubmit.co/${formSubmitID}`} id="contact-form">
-          {renderFormElements(formElements)}
+          {renderFormElements(formElements, t)}
           <input type="hidden" name="_next" value="https://fredericbahr.github.io" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="text" name="_honey" style={{ display: "none" }} />

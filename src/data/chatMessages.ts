@@ -3,27 +3,27 @@ import Lebenslauf from "../assets/pdf/lebenslauf.pdf";
 
 export const initialMessages: IChatTextMessage[] = [
   { message: "chatbot.initialMessage.firstMessage", owner: "bot" },
-  { message: "How can i help you?", owner: "bot" },
+  { message: "chatbot.initialMessage.secondMessage", owner: "bot" },
 ];
 
 const sayHello: IChatAction = {
-  actionText: "I just wanted to say hello",
+  actionText: "chatbot.sayHello.actionText",
   messges: [
-    { message: "Hi, whats up?", owner: "customer" },
-    { message: "Well hello there, nice to meet you!", owner: "bot" },
-    { message: "Thanks for looking at my personal website.", owner: "bot" },
-    { message: "I hope you enjoy my work.", owner: "bot" },
-    { message: "Can I help you with anything else?", owner: "bot" },
+    { message: "chatbot.sayHello.firstMessage", owner: "customer" },
+    { message: "chatbot.sayHello.secondMessage", owner: "bot" },
+    { message: "chatbot.sayHello.thirdMessage", owner: "bot" },
+    { message: "chatbot.sayHello.fourthMessage", owner: "bot" },
+    { message: "chatbot.sayHello.fifthMessage", owner: "bot" },
   ],
   furtherActions: ["showCV", "directChat"],
 };
 
 const showCV: IChatAction = {
-  actionText: "I want to see your CV.",
+  actionText: "chatbot.showCV.actionText",
   messges: [
-    { message: "Hey, im interested in your CV!", owner: "customer" },
-    { message: "Thanks for reaching out to me.", owner: "bot" },
-    { message: "Underneath you can download my CV.", owner: "bot" },
+    { message: "chatbot.showCV.firstMessage", owner: "customer" },
+    { message: "chatbot.showCV.secondMessage", owner: "bot" },
+    { message: "chatbot.showCV.thirdMessage", owner: "bot" },
     { type: "pdf", owner: "bot", url: Lebenslauf, fileName: "cv_fredericbahr" },
   ],
   furtherActions: ["sayHello", "directChat"],
@@ -32,53 +32,53 @@ const showCV: IChatAction = {
 const directChatFormElements: IChatFormElement[] = [
   {
     name: "name",
-    label: "Name",
+    label: "chatbot.formElementsLabel.name",
     required: true,
     type: "text",
   },
   {
     name: "subject",
-    label: "Subject",
+    label: "chatbot.formElementsLabel.subject",
     required: true,
     type: "text",
   },
   {
     name: "email",
-    label: "E-Mail",
+    label: "chatbot.formElementsLabel.email",
     required: true,
     type: "email",
   },
   {
     name: "message",
-    label: "Message",
+    label: "chatbot.formElementsLabel.message",
     required: true,
     type: "textarea",
   },
 ];
 
 const sendAnotherMessage: IChatAction = {
-  actionText: "Send another message",
+  actionText: "chatbot.sendAnotherMessage.actionText",
   messges: [
-    { message: "I would like to send another message.", owner: "customer" },
-    { message: "Ok, no problem.", owner: "bot" },
+    { message: "chatbot.sendAnotherMessage.firstMessage", owner: "customer" },
+    { message: "chatbot.sendAnotherMessage.secondMessage", owner: "bot" },
     {
       formElements: directChatFormElements,
-      formSubmitID: "fredericbahr1@gmail.com",
+      formSubmitID: "46ac44df0ea8d59a83d300a64c763539",
     },
   ],
   furtherActions: ["sendAnotherMessage", "sayHello", "showCV"],
 };
 
 const directChat: IChatAction = {
-  actionText: "I want to talk to you directly.",
+  actionText: "chatbot.directChat.actionText",
   messges: [
     {
-      message: "I really like your Chatbot, but i would rather talk to you directly.",
+      message: "chatbot.directChat.firstMessage",
       owner: "customer",
     },
-    { message: "Sad times, but I respect your decision.", owner: "bot" },
+    { message: "chatbot.directChat.secondMessage", owner: "bot" },
     {
-      message: "Send my master a message and he will answer as soon as possible!",
+      message: "chatbot.directChat.thirdMessage",
       owner: "bot",
     },
     {
