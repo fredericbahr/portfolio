@@ -14,6 +14,10 @@ export const mainHairSizeX = 10;
 export const mainHairSizeY = 10;
 export const mainHairSizeZ = headSize * 0.75;
 
+export const topHairDetailsSizeX = 10;
+export const topHairDetailsSizeY = 10;
+export const topHairDetailsSizeZ = 75;
+
 export const bodySizeX = 200;
 export const bodySizeY = 250;
 export const bodySizeZ = headSize * 0.75;

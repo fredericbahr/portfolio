@@ -10,21 +10,10 @@ const StyledDiv = styled.div`
 
 export const Character = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const character = new MiniMe();
+  const shouldAnimate = useRef(true);
 
   useEffect(() => {
-    let mouse = {
-      x: {
-        current: 0,
-        previous: 0,
-        calc: 0,
-      },
-      y: {
-        current: 0,
-        previous: 0,
-        calc: 0,
-      },
-    };
-
     const scene = new THREE.Scene();
 
     const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 4000);
@@ -44,16 +33,7 @@ export const Character = () => {
     ref?.current?.appendChild(renderer.domElement);
 
     const init = () => {
-      window.addEventListener("load", () => {
-        document.addEventListener("mousemove", mousemove, false);
-      });
-    };
-
-    const mousemove = (event: MouseEvent) => {
-      mouse.x.current = event.clientX;
-      mouse.y.current = event.clientY;
-      mouse.x.calc = mouse.x.current - window.innerWidth / 2;
-      mouse.y.calc = mouse.y.current - window.innerHeight / 2;
+      window.addEventListener("load", () => {});
     };
 
     const createLight = () => {
@@ -65,7 +45,6 @@ export const Character = () => {
     };
 
     const createCharacter = () => {
-      const character = new MiniMe();
       scene.add(character.character);
     };
 
@@ -80,10 +59,15 @@ export const Character = () => {
         camera.updateProjectionMatrix();
       }
     }
-
     const animate = function () {
-      resizeCanvasToDisplaySize();
       requestAnimationFrame(animate);
+
+      if (shouldAnimate.current) {
+        character.animate();
+        shouldAnimate.current = false;
+      }
+
+      resizeCanvasToDisplaySize();
       controls.update();
       renderer.render(scene, camera);
     };

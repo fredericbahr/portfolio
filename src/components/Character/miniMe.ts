@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { mergeMeshes } from "./characterUtils";
+import { IArmMeshes } from "./interface";
 import {
   anklePositonY,
   ankleSizeX,
@@ -50,11 +51,17 @@ import {
   thumbSizeX,
   thumbSizeY,
   thumbSizeZ,
+  topHairDetailsSizeX,
+  topHairDetailsSizeY,
+  topHairDetailsSizeZ,
   upperArmSizeX,
   upperArmSizeY,
   upperArmSizeZ,
 } from "./units";
 
+/**
+ * Class for creating the replication of myself
+ */
 export class MiniMe {
   public character: THREE.Group;
 
@@ -76,6 +83,9 @@ export class MiniMe {
   private hairMat: THREE.Material;
   private buttonMat: THREE.Material;
 
+  /**
+   * defines the materials and calls draw
+   */
   constructor() {
     this.character = new THREE.Group();
 
@@ -94,7 +104,7 @@ export class MiniMe {
     this.shirtMat = new THREE.MeshLambertMaterial({ color: "#cc0e00" });
     this.beltMat = new THREE.MeshLambertMaterial({ color: "#181114" });
     this.buckleMat = new THREE.MeshLambertMaterial({
-      color: "808080",
+      color: "#808080",
       side: THREE.DoubleSide,
     });
     this.legMat = new THREE.MeshLambertMaterial({ color: "#003049" });
@@ -106,6 +116,10 @@ export class MiniMe {
     this.draw();
   }
 
+  /**
+   * Sets the material of the color
+   * @param colorIndex the index of the color that is set
+   */
   public setShirtMat(colorIndex: number) {
     const colors = ["#cc0e00", "#0aa5ff"];
     this.shirtMat = new THREE.MeshLambertMaterial({
@@ -123,6 +137,9 @@ export class MiniMe {
     return degrees * (Math.PI / halfCircleDegree);
   };
 
+  /**
+   * creates the head of the character
+   */
   private createHead = () => {
     /**
      * Head
@@ -139,6 +156,11 @@ export class MiniMe {
     this.character.add(head);
   };
 
+  /**
+   * Creates the eyes and eyebrowns of the character
+   * @param head the mesh representing the head of the character
+   * @returns {THREE.Group} an array containing the eyes and eyeBrowns
+   */
   private createEyesAndEyebrowns = (head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>): THREE.Group[] => {
     const eyeGeometry = new THREE.BoxGeometry(eyeSizeX, eyeSizeY, eyeSizeZ);
     const eyes = this.createEyes(head, eyeGeometry);
@@ -147,6 +169,12 @@ export class MiniMe {
     return [eyes, eyeBrowns];
   };
 
+  /**
+   * Creates the eyes of the character
+   * @param head the mesh representing the head of the character
+   * @param eyeGeometry the geometry for the eyes
+   * @returns {THREE.Group} the eyes of the character
+   */
   private createEyes = (
     head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>,
     eyeGeometry: THREE.BoxGeometry,
@@ -168,6 +196,10 @@ export class MiniMe {
     return eyes;
   };
 
+  /**
+   * Creates the retinas of the character
+   * @returns an array containing the meshes representing the left and right retina
+   */
   private createRetinas = (): THREE.Mesh<THREE.BoxGeometry, THREE.Material>[] => {
     const retinaGeometry = new THREE.BoxGeometry(7.5, 7.5, 1);
 
@@ -180,6 +212,12 @@ export class MiniMe {
     return [leftRetina, rightRetina];
   };
 
+  /**
+   * Creates the eyebrowns of the character
+   * @param head the mesh representing the head of the character
+   * @param eyeGeometry the geometry of the eyes
+   * @returns {THREE.Group} the eyebrowns of hte character
+   */
   private createEyeBrowns = (
     head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>,
     eyeGeometry: THREE.BoxGeometry,
@@ -207,6 +245,11 @@ export class MiniMe {
     return eyeBrowns;
   };
 
+  /**
+   * Creates the mouth of the character
+   * @param head  the mesh representing the head of the character
+   * @returns the mouth of the character
+   */
   private createMouth = (head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>): THREE.Group => {
     const mouth = new THREE.Group();
     const oralCavityGeometry = new THREE.CircleGeometry(25, 5, Math.PI, Math.PI);
@@ -228,6 +271,11 @@ export class MiniMe {
     return mouth;
   };
 
+  /**
+   * Creates the glasses and ears of the character
+   * @param head the mesh representing the head of the character
+   * @returns an array containing the glasses and ears
+   */
   private createGlassesAndEars = (head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>): THREE.Group[] => {
     const glassGeometry = new THREE.RingGeometry(27, 32, 4);
     const glasses = this.createGlasses(head, glassGeometry);
@@ -236,6 +284,12 @@ export class MiniMe {
     return [glasses, ears];
   };
 
+  /**
+   * Creates the glasses of the character
+   * @param head the mesh representing the head of the character
+   * @param glassGeometry the geometry of the glasses
+   * @returns the glasses of the character
+   */
   private createGlasses = (head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>, glassGeometry: THREE.RingGeometry) => {
     const glasses = new THREE.Group();
     const middleConnectorGeometry = new THREE.BoxGeometry(5, 30, 1);
@@ -301,6 +355,12 @@ export class MiniMe {
     return glasses;
   };
 
+  /**
+   * Creates the ears of the character
+   * @param head the mesh representing the head of the character
+   * @param glassGeometry the geometry of classes
+   * @returns the ears of the character
+   */
   private createEars = (
     head: THREE.Mesh<THREE.BoxGeometry, THREE.Material>,
     glassGeometry: THREE.RingGeometry,
@@ -323,45 +383,59 @@ export class MiniMe {
     return ears;
   };
 
+  /**
+   * Creates the hairs of the character
+   */
   private createHairs = () => {
     const hair: THREE.Group = new THREE.Group();
     let mainHair: THREE.Mesh;
     let detailHair: THREE.Mesh;
-    const mainHairs: THREE.Group = new THREE.Group();
+    const basicHairs: THREE.Group = new THREE.Group();
     let detailHairs: THREE.Group;
-    let mainHairGeometry: THREE.BoxGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ);
+    let baiscHairGeometry: THREE.BoxGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ);
 
     const maxTopHair = headSize / mainHairSizeX;
-    this.createTopHair(mainHairs, mainHairGeometry, maxTopHair);
+    this.createTopHair(basicHairs, baiscHairGeometry, maxTopHair);
 
-    const backHair = headSize / mainHairSizeX + 2;
-    this.createBackHair(mainHairs, backHair);
+    const maxBackHair = headSize / mainHairSizeX + 2;
+    this.createBackHair(basicHairs, maxBackHair);
 
     const maxSideHair = (headSize * 0.75) / mainHairSizeX;
-    this.createSideHair(mainHairs, mainHairGeometry, maxSideHair);
-    this.createSideHair(mainHairs, mainHairGeometry, maxSideHair, false);
+    this.createSideHair(basicHairs, baiscHairGeometry, maxSideHair);
+    this.createSideHair(basicHairs, baiscHairGeometry, maxSideHair, false);
 
-    detailHairs = this.getDetailHairs();
+    detailHairs = this.createDetailHairs();
 
-    mainHair = mergeMeshes(mainHairs, this.hairMat);
+    mainHair = mergeMeshes(basicHairs, this.hairMat);
     detailHair = mergeMeshes(detailHairs, this.hairMat);
 
-    hair.add(mainHair, detailHair);
+    hair.add(mainHair, detailHairs);
     this.character.add(hair);
   };
 
-  private createTopHair = (mainHairs: THREE.Group, mainHairGeometry: THREE.BoxGeometry, maxTopHair: number) => {
+  /**
+   * Creates the basic top hair of the character
+   * @param basicHairs the group containing the basic hairs of the character
+   * @param baiscHairGeometry the geometry of the basic hair
+   * @param maxTopHair how many blocks are needed for the top hairs
+   */
+  private createTopHair = (basicHairs: THREE.Group, baiscHairGeometry: THREE.BoxGeometry, maxTopHair: number) => {
+    const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 2;
     for (let i = 0; i < maxTopHair; i++) {
-      const hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
+      const hair = new THREE.Mesh(baiscHairGeometry, this.hairMat);
       const hairPositionX = headSize / 2 - mainHairSizeX / 2 - i * mainHairSizeX;
-      const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 2;
       hair.position.set(hairPositionX, hairPositionY, 0);
-      mainHairs.add(hair);
+      basicHairs.add(hair);
     }
   };
 
-  private createBackHair = (mainHairs: THREE.Group, backHair: number) => {
-    for (let i = 0; i < backHair; i++) {
+  /**
+   * Creates the basic back hair of the character
+   * @param basicHairs the group containing the basic hairs of the character
+   * @param maxBackHair how many blocks are needed for the back hairs
+   */
+  private createBackHair = (basicHairs: THREE.Group, maxBackHair: number) => {
+    for (let i = 0; i < maxBackHair; i++) {
       const backHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ * 0.6);
       const hair = new THREE.Mesh(backHairGeometry, this.hairMat);
       const hairPositionX = headSize / 2 + mainHairSizeX / 2 - i * mainHairSizeX;
@@ -369,13 +443,20 @@ export class MiniMe {
       const hairPositionZ = mainHairSizeZ / 2;
       hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
       hair.rotateX(this.deg2rad(90));
-      mainHairs.add(hair);
+      basicHairs.add(hair);
     }
   };
 
+  /**
+   * Creates the basic side hairs of the character
+   * @param basicHairs the group containing the basic hairs of the character
+   * @param baiscHairGeometry  the geometry of basic hairs
+   * @param maxSideHair how many blocks are needed for the side hairs
+   * @param {boolean} isLeftSide whether it should be rendered on the left or right side
+   */
   private createSideHair = (
-    mainHairs: THREE.Group,
-    mainHairGeometry: THREE.BoxGeometry,
+    basicHairs: THREE.Group,
+    baiscHairGeometry: THREE.BoxGeometry,
     maxSideHair: number,
     isLeftSide: boolean = true,
   ) => {
@@ -386,44 +467,48 @@ export class MiniMe {
       const hairPositionZ = (-headSize * 0.75) / 2 + i * mainHairSizeX;
 
       if (i === 12) {
-        mainHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2 + 25);
-        hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
+        baiscHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2 + 25);
+        hair = new THREE.Mesh(baiscHairGeometry, this.hairMat);
         const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 4 - mainHairSizeY - 23.1;
         hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
       } else if (i === 0) {
-        mainHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2 + 10);
-        hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
+        baiscHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2 + 10);
+        hair = new THREE.Mesh(baiscHairGeometry, this.hairMat);
         const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 4 - mainHairSizeY - 15.6;
         hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
       } else if (i === 1) {
-        mainHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2 + 7.5);
-        hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
+        baiscHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2 + 7.5);
+        hair = new THREE.Mesh(baiscHairGeometry, this.hairMat);
         const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 4 - mainHairSizeY - 14.35;
         hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
       } else if (i >= 10) {
-        mainHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2 + 10);
-        hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
+        baiscHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2 + 10);
+        hair = new THREE.Mesh(baiscHairGeometry, this.hairMat);
         const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 4 - mainHairSizeY - 15.6;
         hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
       } else if (i < 4 || i >= 8) {
-        mainHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2);
-        hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
+        baiscHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ / 2);
+        hair = new THREE.Mesh(baiscHairGeometry, this.hairMat);
         const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 4 - mainHairSizeY - 10.6;
         hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
       } else {
-        mainHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ * 0.4 + 3);
-        hair = new THREE.Mesh(mainHairGeometry, this.hairMat);
+        baiscHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ * 0.4 + 3);
+        hair = new THREE.Mesh(baiscHairGeometry, this.hairMat);
         const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 4 - mainHairSizeY - 6.5;
         hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
       }
 
       hair.rotateY(this.deg2rad(90));
       hair.rotateX(this.deg2rad(90));
-      mainHairs.add(hair);
+      basicHairs.add(hair);
     }
   };
 
-  private getDetailHairs = () => {
+  /**
+   * Creates the detail hairs of the character
+   * @returns the detail hairs of the character
+   */
+  private createDetailHairs = (): THREE.Group => {
     const detailHairs: THREE.Group = new THREE.Group();
     let hairGeometry = new THREE.BoxGeometry(headSize * 0.8, mainHairSizeY, 10);
     const hairPositionZ = (-headSize * 0.75) / 2 - hairGeometry.parameters.depth / 2;
@@ -437,6 +522,12 @@ export class MiniMe {
     return detailHairs;
   };
 
+  /**
+   * Creates the hair parting on the front left side
+   * @param detailHairs the group containing the detail hairs of the character
+   * @param hairPositionZ the position of the hair on the z-axis
+   * @param hairGeometry the geometry of the hair
+   */
   private createFrontHairParting = (
     detailHairs: THREE.Group,
     hairPositionZ: number,
@@ -466,6 +557,11 @@ export class MiniMe {
     detailHairs.add(hair);
   };
 
+  /**
+   * Creates the details on the right side
+   * @param detailHairs the group containing the detail hairs of the character
+   * @param hairPositionZ the position of the hair on the z-axis
+   */
   private createFrontHairRightSideDetails = (detailHairs: THREE.Group, hairPositionZ: number) => {
     let hairGeometry = new THREE.BoxGeometry(headSize / 4, mainHairSizeY, 10);
     let hair = new THREE.Mesh(hairGeometry, this.hairMat);
@@ -516,16 +612,35 @@ export class MiniMe {
     detailHairs.add(hair);
   };
 
+  // private createTopHairDetails = (detailHairs: THREE.Group) => {
+  //   const maxTopHairDetails = (headSize * 0.63) / topHairDetailsSizeX - 1;
+  //   const geometry = new THREE.BoxGeometry(topHairDetailsSizeX, topHairDetailsSizeY, topHairDetailsSizeZ);
+  //   const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 2 + topHairDetailsSizeY;
+  //   const hairPositionZ = (-headSize * 0.75) / 2 + topHairDetailsSizeZ / 2;
+
+  //   for (let i = 0; i < maxTopHairDetails; i++) {
+  //     const hairPositionX = headSize / 2 - mainHairSizeX / 2 + topHairDetailsSizeX - i * topHairDetailsSizeX;
+  //     const hair = new THREE.Mesh(geometry, this.hairMat);
+  //     hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
+  //     detailHairs.add(hair);
+  //   }
+  // };
+
+  /**
+   * Creates the detail hairs on the back
+   * @param detailHairs the group containing the detail hairs of the character
+   */
   private createBackHairDetails = (detailHairs: THREE.Group) => {
     const maxBackDetailsHair = headSize / mainHairSizeX + 2;
+    const backHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ * 0.6);
+    const half = Math.floor((maxBackDetailsHair - 1) / 2);
+    const base = 12;
+    const step = 7;
+
     for (let i = 0; i < maxBackDetailsHair; i++) {
-      const half = Math.floor((maxBackDetailsHair - 1) / 2);
       const sameStartSameEndIdx = i > half ? half - (i - half) : i;
-      const base = 12;
-      const step = 7;
       let factor = this.getFactorForBackHairDetails(sameStartSameEndIdx);
 
-      const backHairGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ * 0.6);
       const hair = new THREE.Mesh(backHairGeometry, this.hairMat);
       const hairPositionX = headSize / 2 + mainHairSizeX / 2 - i * mainHairSizeX;
       const hairPositionZ = mainHairSizeZ / 2;
@@ -539,6 +654,11 @@ export class MiniMe {
     }
   };
 
+  /**
+   * Gets the factor for positioning the back side hair blocks
+   * @param idx the index of the loop
+   * @returns {number} the factor for the positioning
+   */
   private getFactorForBackHairDetails = (idx: number): number => {
     if (idx <= 1) return 0;
 
@@ -549,6 +669,9 @@ export class MiniMe {
     return 3;
   };
 
+  /**
+   * Creates the body of the character
+   */
   private createBody = () => {
     const corpusGeometry = new THREE.BoxGeometry(bodySizeX, bodySizeY, bodySizeZ);
     const body = new THREE.Group();
@@ -566,6 +689,10 @@ export class MiniMe {
     this.character.add(body);
   };
 
+  /**
+   * Creates the buttons on the shirt
+   * @returns the buttons created
+   */
   private createButtons = (): THREE.Group => {
     const buttons: THREE.Group = new THREE.Group();
 
@@ -579,6 +706,11 @@ export class MiniMe {
     return buttons;
   };
 
+  /**
+   * Creates a single button of the shirt
+   * @param factor the factor for positiong
+   * @returns a single button of the shirt
+   */
   private createButton = (factor: number): THREE.Mesh => {
     const buttonPositionYOffset = -35;
     const buttonPositionYStep = 50;
@@ -592,6 +724,11 @@ export class MiniMe {
     return button;
   };
 
+  /**
+   * Creates the arms of the character
+   * @param corpus the mesh representing the corpus of the character
+   * @returns an array containing the left and right arm
+   */
   private createArms = (corpus: THREE.Mesh<THREE.BoxGeometry, THREE.Material>): THREE.Group[] => {
     const upperArmGeometry = new THREE.BoxGeometry(upperArmSizeX, upperArmSizeY, upperArmSizeZ);
     const lowerArmGeometry = new THREE.BoxGeometry(lowerArmSizeX, lowerArmSizeY, lowerArmSizeZ);
@@ -611,6 +748,16 @@ export class MiniMe {
     return [leftArm, rightArm];
   };
 
+  /**
+   * Creates one arm
+   * @param corpus the mesh representing the corpus of the character
+   * @param upperArmGeometry the geometry of the upper arm
+   * @param lowerArmGeometry the geometry of the lower arm
+   * @param thumbGeometry the geometry of the thumb
+   * @param fingerGeometry the geometry of the finger
+   * @param {boolean} isLeftArm whether its the left or right arm
+   * @returns the created arm
+   */
   private createArm = (
     corpus: THREE.BoxGeometry,
     upperArmGeometry: THREE.BoxGeometry,
@@ -659,12 +806,20 @@ export class MiniMe {
     return arm;
   };
 
+  /**
+   * Creates the arm meshes
+   * @param upperArmGeometry the geometry of the upper arm
+   * @param lowerArmGeometry the geomtry of the lower arm
+   * @param thumbGeometry the geometry of the thumb
+   * @param fingerGeometry the geometry of the finger
+   * @returns an object containing the meshes
+   */
   private createArmMeshes = (
     upperArmGeometry: THREE.BoxGeometry,
     lowerArmGeometry: THREE.BoxGeometry,
     thumbGeometry: THREE.BoxGeometry,
     fingerGeometry: THREE.BoxGeometry,
-  ) => {
+  ): IArmMeshes => {
     const upperArm = new THREE.Mesh(upperArmGeometry, this.shirtMat);
     const lowerArm = new THREE.Mesh(lowerArmGeometry, this.skinMat);
     const thumb = new THREE.Mesh(thumbGeometry, this.skinMat);
@@ -673,6 +828,9 @@ export class MiniMe {
     return { upperArm, lowerArm, thumb, fingers };
   };
 
+  /**
+   * Creates the belt of the character
+   */
   private createBelt = () => {
     const beltGeometry = new THREE.BoxGeometry(beltSizeX, beltSizeY, beltSizeZ);
     const buckleGeometry = new THREE.BoxGeometry(buckleSizeX, buckleSizeY, buckleSizeZ);
@@ -687,6 +845,9 @@ export class MiniMe {
     this.character.add(belt);
   };
 
+  /**
+   * Creates the leg of the character
+   */
   private createLegs = () => {
     const legs = new THREE.Group();
     const legGeometry = new THREE.BoxGeometry(legSizeX, legSizeY, legSizeZ);
@@ -705,6 +866,9 @@ export class MiniMe {
     this.character.add(legs);
   };
 
+  /**
+   * creates the feet of the character
+   */
   private createFeet = () => {
     const feet = new THREE.Group();
     const ankleGeometry = new THREE.BoxGeometry(ankleSizeX, ankleSizeY, ankleSizeZ);
@@ -724,6 +888,9 @@ export class MiniMe {
     this.character.add(feet);
   };
 
+  /**
+   * draws the character
+   */
   public draw = () => {
     this.createHead();
     this.createHairs();
@@ -731,5 +898,11 @@ export class MiniMe {
     this.createBelt();
     this.createLegs();
     this.createFeet();
+  };
+
+  public animate = () => {
+    //console.log(this.character);
+    console.log("character");
+    //stopAnimation();
   };
 }
