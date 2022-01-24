@@ -51,7 +51,7 @@ const ChatMessages = () => {
       if (isChatTextMessage(message)) {
         return (
           <ChatText key={idx} owner={message.owner}>
-            {t(message.message)}
+            {t(message.message as any)}
           </ChatText>
         );
       }
@@ -129,7 +129,7 @@ const ChatMessages = () => {
       <StyledCardActions>
         {actions.map((actionMessage: IChatAction, idx: number) => (
           <ChatAction key={idx} handleAction={() => handleChatAction(actionMessage)}>
-            {t(actionMessage.actionText)}
+            {t(actionMessage.actionText as any)}
           </ChatAction>
         ))}
       </StyledCardActions>

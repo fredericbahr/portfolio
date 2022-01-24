@@ -106,7 +106,7 @@ const renderFormElements = (formElements: IChatFormElement[], t: TFunction<"tran
           size="small"
           name={formElement.name.toString()}
           required={formElement.required}
-          label={t(formElement.label)}
+          label={t(formElement.label as any)}
         />
       ) : (
         <StyledTextField
@@ -114,7 +114,7 @@ const renderFormElements = (formElements: IChatFormElement[], t: TFunction<"tran
           type={formElement.type}
           name={formElement.name.toString()}
           required={formElement.required}
-          label={t(formElement.label)}
+          label={t(formElement.label as any)}
           size="small"
         />
       );
