@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { Vector3 } from "three";
 import { mergeMeshes } from "./characterUtils";
 import { IArmMeshes } from "./interface";
 import {
@@ -51,9 +52,6 @@ import {
   thumbSizeX,
   thumbSizeY,
   thumbSizeZ,
-  topHairDetailsSizeX,
-  topHairDetailsSizeY,
-  topHairDetailsSizeZ,
   upperArmSizeX,
   upperArmSizeY,
   upperArmSizeZ,
@@ -888,6 +886,11 @@ export class MiniMe {
     this.character.add(feet);
   };
 
+  private transform = () => {
+    this.character.translateY(-50);
+    this.character.scale.set(1.1, 1.1, 1.1);
+  };
+
   /**
    * draws the character
    */
@@ -898,6 +901,7 @@ export class MiniMe {
     this.createBelt();
     this.createLegs();
     this.createFeet();
+    this.transform();
   };
 
   public animate = () => {

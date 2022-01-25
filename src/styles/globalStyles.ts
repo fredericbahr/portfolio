@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 body {
   margin: 0;
-  font-family: "Roboto", "Oxygen",
+  font-family: "Fira Code", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -11,6 +11,7 @@ body {
   overflow-x: hidden;
   font-size: 14px;
   color: ${(props) => props.theme.colors.whitefontcolor};
+  counter-reset: section 0;
 }
 
 code {
@@ -43,5 +44,20 @@ canvas { width: 100%; height: 100%; display: block;}
   background-color: #cc0e00;
   border-radius: 0px;
   border: 0px none #cc0e00;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 5vh;
+  width: 100%;
+  
+  &:before {
+    counter-increment: section;
+    content: '0' counter(section) '.';
+    color: ${(props) => props.theme.colors.mainred};
+    font-size: 1.3rem;
+    margin-right: 15px;
+    font-family: "Fira Code";
+  }
 }
 `;

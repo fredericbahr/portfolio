@@ -30,7 +30,7 @@ const StyledContentWrapper = styled.div`
 `;
 
 function App() {
-  const [isInAnimation, setIsInAnimation] = useState(false);
+  const [isInAnimation, setIsInAnimation] = useState(true);
 
   useEffect(() => {
     const id = setTimeout(() => {

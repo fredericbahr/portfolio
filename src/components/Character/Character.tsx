@@ -30,7 +30,7 @@ export const Character = () => {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.update();
 
-    ref?.current?.appendChild(renderer.domElement);
+    ref?.current?.replaceChildren(renderer.domElement);
 
     const init = () => {
       window.addEventListener("load", () => {});

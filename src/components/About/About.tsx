@@ -1,15 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledDiv = styled.div`
-  width: 100vw;
+const StyledSection = styled.section`
+  width: 85%;
   height: 100vh;
+  margin: 0 auto;
 `;
 
 export default function About() {
   return (
-    <StyledDiv id="about">
-      <p>About</p>
-    </StyledDiv>
+    <StyledSection id="about">
+      <h2>About</h2>
+    </StyledSection>
   );
 }

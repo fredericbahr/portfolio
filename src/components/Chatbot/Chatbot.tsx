@@ -3,9 +3,9 @@ import Chat from "./Chat/Chat";
 import FAB from "./FAB";
 
 const Chatbot = () => {
-  const [isOpen, setisOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  return isOpen ? <Chat clickHandler={() => setisOpen(false)} /> : <FAB clickHandler={() => setisOpen(true)} />;
+  return isOpen ? <Chat clickHandler={() => setIsOpen(false)} /> : <FAB clickHandler={() => setIsOpen(true)} />;
 };
 
 export default Chatbot;

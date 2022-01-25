@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material/styles";
 export const muiTheme = createTheme({
   typography: {
     fontFamily: [
-      //'"Fira Code"',
+      "Fira Code",
       "Roboto",
       '"Oxygen"',
       '"Ubuntu"',

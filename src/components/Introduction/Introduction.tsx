@@ -1,4 +1,4 @@
-import { lighten, Slide, Typography } from "@mui/material";
+import { Grow, lighten, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
@@ -15,28 +15,29 @@ type TypographyProps = {
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
-  width: 85vw;
   /** 50px navbar and 2*5vh margin */
   min-height: calc(100vh - 50px - 10vh);
   margin: 5vh auto;
 `;
 
-const TextWrapper = styled.div``;
+const TextWrapper = styled.div`
+  margin-left: 7.5vw;
+`;
 
 const StyledBeforeTypwriter = styled(Typography)<TypographyProps>`
   color: ${(props) => lighten(props.theme.colors.mainblack, 0.4)};
-  font-size: 1.2rem;
-  margin-bottom: 3vh;
+  font-size: 1rem;
+  margin-bottom: 5vh;
 `;
 
 const StyledSubtitle = styled(Typography)`
   color: ${(props) => lighten(props.theme.colors.mainblack, 0.8)};
-  font-size: 2rem;
+  font-size: 1.5rem;
 `;
 
 const StyledText = styled(Typography)`
-  font-size: 1.2rem;
-  margin-top: 5vh;
+  font-size: 1.1rem;
+  margin-top: 10vh;
   color: ${(props) => lighten(props.theme.colors.mainblack, 0.8)};
   width: 75%;
 `;
@@ -44,15 +45,16 @@ const StyledText = styled(Typography)`
 export const Introduction = () => {
   const { t } = useTranslation();
   const [isMounted, setIsMounted] = useState(false);
+  //const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    //const timeout = setTimeout(() => setIsMounted(true), introductionDelay);
-    const timeout = setTimeout(() => setIsMounted(true), 0);
+    const timeout = setTimeout(() => setIsMounted(true), introductionDelay);
+    //const timeout = setTimeout(() => setIsMounted(true), 0);
     return () => clearTimeout(timeout);
   }, []);
 
   return (
-    <Slide direction="right" in={isMounted} timeout={400}>
+    <Grow in={isMounted} timeout={400}>
       <Grid>
         <TextWrapper>
           <StyledBeforeTypwriter variant="h6" component={"p"}>
@@ -85,6 +87,6 @@ export const Introduction = () => {
         </TextWrapper>
         <Character />
       </Grid>
-    </Slide>
+    </Grow>
   );
 };

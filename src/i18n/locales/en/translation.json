@@ -16,7 +16,7 @@
     "jobdescription": "a Frontend Web Developer",
     "subtitle": "I develop occasionally well assets for the web.",
     "info": {
-      "firstText": "I am a Software Engineer spezializing in building digital experience from the frontend perspective. Currently studying Media Informatics (Master) at",
+      "firstText": "I´m a Software Engineer spezializing in building digital experience from the frontend perspective. Currently studying Media Informatics (Master) at",
       "secondText": "and developing UI-Components at",
       "htwkLink": "HTWK",
       "jobLink": "ipoque GmbH"
@@ -59,5 +59,8 @@
       "email": "E-Mail",
       "message": "Message"
     }
+  },
+  "experience": {
+    "headline": "Experience"
   }
 }
