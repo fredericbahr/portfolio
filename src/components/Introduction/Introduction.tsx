@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Typewriter from "typewriter-effect";
 import { introductionDelay, typewriterDeleteDelay, typewriterInitialDelay } from "../../utils/constants";
 import { Character } from "../Character/Character";
+import { CTAButton } from "../util-components/CTAButton";
 import { StyledLink } from "../util-components/StyledLink";
 import "./Introduction.css";
 
@@ -21,7 +22,7 @@ const Grid = styled.div`
 `;
 
 const TextWrapper = styled.div`
-  margin-left: 7.5vw;
+  margin: 7vh 0 0 7.5vw;
 `;
 
 const StyledBeforeTypwriter = styled(Typography)<TypographyProps>`
@@ -40,6 +41,11 @@ const StyledText = styled(Typography)`
   margin-top: 10vh;
   color: ${(props) => lighten(props.theme.colors.mainblack, 0.8)};
   width: 75%;
+`;
+
+const StyledCTAButton = styled(CTAButton)`
+  display: block;
+  margin: 15vh 0 3vh 0;
 `;
 
 export const Introduction = () => {
@@ -84,6 +90,7 @@ export const Introduction = () => {
             {t("introduction.info.secondText")}{" "}
             <StyledLink url="https://www.ipoque.com/">{t("introduction.info.jobLink")}</StyledLink>.
           </StyledText>
+          <StyledCTAButton>Contact me!</StyledCTAButton>
         </TextWrapper>
         <Character />
       </Grid>

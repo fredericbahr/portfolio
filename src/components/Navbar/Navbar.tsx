@@ -28,6 +28,7 @@ const StyledOl = styled.ol`
 const StyledLi = styled.li`
   counter-increment: item 1;
   margin: 0 10px;
+  font-size: 0.8rem;
 `;
 
 const StyledNavHashLink = styled(NavHashLink)`

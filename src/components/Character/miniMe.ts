@@ -888,7 +888,7 @@ export class MiniMe {
 
   private transform = () => {
     this.character.translateY(-50);
-    this.character.scale.set(1.1, 1.1, 1.1);
+    this.character.scale.set(1.05, 1.05, 1.05);
   };
 
   /**

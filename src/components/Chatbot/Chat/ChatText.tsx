@@ -16,6 +16,7 @@ const StyledMessage = styled.p<IProps>`
   box-sizing: border-box;
   padding: 0.5rem 1rem;
   margin: 0.5rem 0;
+  font-size: 0.8rem;
   background: ${(props) => (props.owner === "bot" ? "rgba(70, 77, 66, 0.15)" : "black")};
   color: ${(props) => (props.owner === "bot" ? "black" : "white")};
   border-radius: ${(props) =>

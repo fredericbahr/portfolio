@@ -17,6 +17,7 @@ import { Close } from "@mui/icons-material";
 import { TransitionProps } from "@mui/material/transitions";
 import { TFunction, useTranslation } from "react-i18next";
 import { IChatFormElement, IChatForm } from "../interface";
+import { lighten, darken } from "@mui/system";
 
 const StyledDialog = styled(Dialog)`
   & .MuiPaper-root {
@@ -27,6 +28,12 @@ const StyledDialog = styled(Dialog)`
 
 const StyledTitleWrapper = styled.div`
   margin-right: 40px;
+`;
+
+const StyledIconButton = styled(IconButton)`
+  &:hover {
+    background-color: ${(props) => darken(props.theme.colors.mainblack, 0.3)};
+  }
 `;
 
 const StyledDialogTitle = styled(DialogTitle)`
@@ -132,7 +139,7 @@ export const ChatFormMessage = ({ formElements, formSubmitID }: IChatForm) => {
   }, []);
 
   return (
-    <StyledDialog open={isDialogOpen} TransitionComponent={Transition}>
+    <StyledDialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)} TransitionComponent={Transition}>
       <StyledDialogTitle>
         <StyledTitleWrapper>
           <Typography gutterBottom component="p">
@@ -142,9 +149,9 @@ export const ChatFormMessage = ({ formElements, formSubmitID }: IChatForm) => {
             I will get back to you as soon as possible.
           </Typography>
         </StyledTitleWrapper>
-        <IconButton onClick={() => setIsDialogOpen(false)}>
+        <StyledIconButton onClick={() => setIsDialogOpen(false)}>
           <StyledClose />
-        </IconButton>
+        </StyledIconButton>
       </StyledDialogTitle>
       <StyledDialogContent>
         <StyledDialogContentText></StyledDialogContentText>

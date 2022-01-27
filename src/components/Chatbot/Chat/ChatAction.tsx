@@ -9,7 +9,7 @@ interface IProps {
 
 const StyledButton = styled(Button)`
   margin: 5px 0 5px 10px;
-  font-size: 14px;
+  font-size: 0.8rem;
   width: 100%;
 
   &:hover {

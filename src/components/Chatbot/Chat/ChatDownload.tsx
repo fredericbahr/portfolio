@@ -23,7 +23,7 @@ const StyledCard = styled(Card)`
 `;
 
 const StyledCardContent = styled(CardContent)`
-  padding: 16px 16px 0 16px;
+  padding: 0.8rem 0.8rem 0 0.8rem;
 `;
 
 const StyledPage = styled(Page)`
@@ -39,7 +39,7 @@ const StyledCardActions = styled(CardActions)`
 `;
 
 const StyledTypography = styled(Typography)`
-  font-size: 14px;
+  font-size: 0.8rem;
 `;
 
 const StyledImg = styled.img`

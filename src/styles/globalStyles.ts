@@ -1,6 +1,19 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+
+$laptop-size: 1600px;
+
+html {
+  font-size: 20px;
+
+  
+  @media (max-width: $laptop-size) {
+    font-size: 16px; 
+  }
+  
+}
+
 body {
   margin: 0;
   font-family: "Fira Code", "Roboto", "Oxygen",
@@ -9,7 +22,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  font-size: 14px;
   color: ${(props) => props.theme.colors.whitefontcolor};
   counter-reset: section 0;
 }
@@ -44,20 +56,5 @@ canvas { width: 100%; height: 100%; display: block;}
   background-color: #cc0e00;
   border-radius: 0px;
   border: 0px none #cc0e00;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 5vh;
-  width: 100%;
-  
-  &:before {
-    counter-increment: section;
-    content: '0' counter(section) '.';
-    color: ${(props) => props.theme.colors.mainred};
-    font-size: 1.3rem;
-    margin-right: 15px;
-    font-family: "Fira Code";
-  }
 }
 `;
