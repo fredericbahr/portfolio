@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { SectionHeadline } from "../util-components/SectionHeadline";
 
 const StyledSection = styled.section`
   width: 85%;
@@ -10,7 +11,7 @@ const StyledSection = styled.section`
 const Projects = () => {
   return (
     <StyledSection id="projects">
-      <h2>Projects</h2>
+      <SectionHeadline>Projects</SectionHeadline>
     </StyledSection>
   );
 };

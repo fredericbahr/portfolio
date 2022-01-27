@@ -2,6 +2,7 @@ import { Tab, Tabs, Box, Typography } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import { SectionHeadline } from "../util-components/SectionHeadline";
 import { TabPanel } from "./TabPanel";
 
 const StyledSection = styled.section`
@@ -14,7 +15,12 @@ const TabWrapper = styled.div`
   display: flex;
 `;
 
+const StyledTabs = styled(Tabs)`
+  height: 100%;
+`;
+
 const StyledTab = styled(Tab)`
+  font-size: 1.1rem;
   color: ${(props) => props.theme.colors.mainwhite};
 `;
 
@@ -28,7 +34,7 @@ const Experience = () => {
 
   return (
     <StyledSection id="experiesection">
-      <h2>{t("experience.headline")}</h2>
+      <SectionHeadline>{t("experience.headline")}</SectionHeadline>
       <TabWrapper>
         <TabPanel value={value} index={0}>
           Item One
@@ -42,12 +48,12 @@ const Experience = () => {
         <TabPanel value={value} index={3}>
           Item Four
         </TabPanel>
-        <Tabs orientation="vertical" variant="scrollable" onChange={handleChange} value={value}>
-          <StyledTab label="one"></StyledTab>
-          <StyledTab label="two"></StyledTab>
-          <StyledTab label="three"></StyledTab>
-          <StyledTab label="fourth"></StyledTab>
-        </Tabs>
+        <StyledTabs orientation="vertical" variant="scrollable" onChange={handleChange} value={value}>
+          <StyledTab label={t("experience.work4.name")}></StyledTab>
+          <StyledTab label={t("experience.work3.name")}></StyledTab>
+          <StyledTab label={t("experience.work2.name")}></StyledTab>
+          <StyledTab label={t("experience.work1.name")}></StyledTab>
+        </StyledTabs>
       </TabWrapper>
     </StyledSection>
   );

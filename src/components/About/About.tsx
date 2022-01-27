@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { SectionHeadline } from "../util-components/SectionHeadline";
 
 const StyledSection = styled.section`
   width: 85%;
@@ -10,7 +11,7 @@ const StyledSection = styled.section`
 export default function About() {
   return (
     <StyledSection id="about">
-      <h2>About</h2>
+      <SectionHeadline>About</SectionHeadline>
     </StyledSection>
   );
 }

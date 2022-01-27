@@ -61,6 +61,20 @@
     }
   },
   "experience": {
-    "headline": "Experience"
+    "headline": "Experience",
+    "work1": {
+      "name": "GDMcom GmbH"
+    },
+    "work2": {
+      "name": "ipoque GmbH"
+    },
+    
+    "work3": {
+      "name": "ipoque GmbH"
+    },
+    
+    "work4": {
+      "name": "ipoque GmbH"
+    }
   }
 }
