@@ -1,6 +1,7 @@
 import { Grow, lighten, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
 import { introductionDelay, typewriterDeleteDelay, typewriterInitialDelay } from "../../utils/constants";
@@ -44,14 +45,19 @@ const StyledText = styled(Typography)`
 `;
 
 const StyledCTAButton = styled(CTAButton)`
-  display: block;
-  margin: 15vh 0 3vh 0;
+  margin: 6vh 0 3vh 0;
+  padding: 1vh 2vw;
+  font-size: 1rem;
 `;
 
 export const Introduction = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [isMounted, setIsMounted] = useState(false);
-  //const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleClick = () => {
+    navigate("contact", { replace: true });
+  };
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), introductionDelay);
@@ -90,7 +96,7 @@ export const Introduction = () => {
             {t("introduction.info.secondText")}{" "}
             <StyledLink url="https://www.ipoque.com/">{t("introduction.info.jobLink")}</StyledLink>.
           </StyledText>
-          <StyledCTAButton>Contact me!</StyledCTAButton>
+          <StyledCTAButton onClick={handleClick}>Contact me!</StyledCTAButton>
         </TextWrapper>
         <Character />
       </Grid>
