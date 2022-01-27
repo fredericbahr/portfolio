@@ -4,6 +4,10 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { SectionHeadline } from "../util-components/SectionHeadline";
 import { TabPanel } from "./TabPanel";
+import { GDMcomWorkingStudent } from "./workplaces/GDMcomWorkingStudent";
+import { IpoqueBachelor } from "./workplaces/IpoqueBachelor";
+import { IpoqueIntern } from "./workplaces/IpoqueIntern";
+import { IpoqueWorkingStudent } from "./workplaces/IpoqueWorkingStudent";
 
 const StyledSection = styled.section`
   width: 85%;
@@ -21,6 +25,8 @@ const StyledTabs = styled(Tabs)`
 
 const StyledTab = styled(Tab)`
   font-size: 1.1rem;
+  text-transform: none;
+  font-weight: 400;
   color: ${(props) => props.theme.colors.mainwhite};
 `;
 
@@ -33,20 +39,20 @@ const Experience = () => {
   };
 
   return (
-    <StyledSection id="experiesection">
+    <StyledSection id="experience">
       <SectionHeadline>{t("experience.headline")}</SectionHeadline>
       <TabWrapper>
         <TabPanel value={value} index={0}>
-          Item One
+          <IpoqueWorkingStudent />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two
+          <IpoqueBachelor />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          Item Three
+          <IpoqueIntern />
         </TabPanel>
         <TabPanel value={value} index={3}>
-          Item Four
+          <GDMcomWorkingStudent />
         </TabPanel>
         <StyledTabs orientation="vertical" variant="scrollable" onChange={handleChange} value={value}>
           <StyledTab label={t("experience.work4.name")}></StyledTab>

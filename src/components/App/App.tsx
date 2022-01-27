@@ -10,6 +10,7 @@ import { Header } from "./Header";
 import AnimatedLogo from "../Logo/AnimatedLogo";
 import styled from "styled-components";
 import { Introduction } from "../Introduction/Introduction";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 const StyledLogoWrapper = styled.div`
   display: flex;
@@ -31,6 +32,12 @@ const StyledContentWrapper = styled.div`
 
 function App() {
   const [isInAnimation, setIsInAnimation] = useState(true);
+  const navigate = useNavigate();
+
+  const handleHomeClick = () => {
+    setIsInAnimation(true);
+    navigate("/");
+  };
 
   useEffect(() => {
     const id = setTimeout(() => {
@@ -45,12 +52,22 @@ function App() {
     </StyledLogoWrapper>
   ) : (
     <StyledContentWrapper>
-      <Header homeClickHandler={() => setIsInAnimation(true)} />
-      <Introduction />
-      <About />
-      <Experience />
-      <Projects />
-      <Chatbot />
+      <Header homeClickHandler={handleHomeClick} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Introduction />
+              <About />
+              <Experience />
+              <Projects />
+              <Chatbot />
+            </>
+          }
+        />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </StyledContentWrapper>
   );
 }
