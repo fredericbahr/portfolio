@@ -36,7 +36,7 @@ function App() {
 
   const handleHomeClick = () => {
     setIsInAnimation(true);
-    navigate("/");
+    navigate("/", {replace: true});
   };
 
   useEffect(() => {
@@ -54,6 +54,7 @@ function App() {
     <StyledContentWrapper>
       <Header homeClickHandler={handleHomeClick} />
       <Routes>
+        {/* TODO: refactor items into one component */}
         <Route
           path="/"
           element={
@@ -67,6 +68,13 @@ function App() {
           }
         />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<>
+              <Introduction />
+              <About />
+              <Experience />
+              <Projects />
+              <Chatbot />
+            </>} />
       </Routes>
     </StyledContentWrapper>
   );

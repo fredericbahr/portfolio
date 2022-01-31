@@ -1,17 +1,25 @@
 import { createGlobalStyle } from "styled-components";
 
+export const breakpoints = {
+  xl: "1536px",
+  lg: "1200px",
+  md: "900px",
+  sm: "600px",
+  xs: "0px",
+};
+
 export const GlobalStyle = createGlobalStyle`
-
-$laptop-size: 1600px;
-
 html {
   font-size: 20px;
 
-  
-  @media (max-width: $laptop-size) {
-    font-size: 16px; 
+  @media screen and (min-width: ${breakpoints.lg}) and (max-width: ${breakpoints.xl}) {
+    font-size: 16px;
   }
-  
+
+  @media screen and (max-width: ${breakpoints.lg}){
+    font-size: 14px;
+  }
+
 }
 
 body {

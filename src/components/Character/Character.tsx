@@ -3,6 +3,8 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { MiniMe } from "./miniMe";
 import styled from "styled-components";
+import { useMediaQuery } from "@mui/material";
+import { breakpoints } from "../../styles/globalStyles";
 
 const StyledDiv = styled.div`
   cursor: crosshair;
@@ -12,6 +14,7 @@ export const Character = () => {
   const ref = useRef<HTMLDivElement>(null);
   const character = new MiniMe();
   const shouldAnimate = useRef(true);
+  const mediaQuery = useMediaQuery(`(min-width: ${breakpoints.md})`);
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -76,7 +79,7 @@ export const Character = () => {
     createLight();
     createCharacter();
     animate();
-  }, []);
+  }, [mediaQuery]);
 
-  return <StyledDiv ref={ref} id="character"></StyledDiv>;
+  return mediaQuery ? <StyledDiv ref={ref} id="character"></StyledDiv> : null;
 };

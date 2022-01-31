@@ -1,9 +1,10 @@
-import { AppBar, IconButton, Slide, Toolbar, useScrollTrigger, darken } from "@mui/material";
+import { AppBar, IconButton, Slide, Toolbar, useScrollTrigger, darken, useMediaQuery } from "@mui/material";
 import React from "react";
 import Logo from "../Logo/Logo";
 import styled from "styled-components";
 import { Navbar } from "../Navbar/Navbar";
 import { timeout } from "../../utils/constants";
+import { breakpoints } from "../../styles/globalStyles";
 
 interface IProps {
   homeClickHandler: () => void;
@@ -40,11 +41,12 @@ export const Header = ({ homeClickHandler }: IProps) => {
     target: window,
     threshold: 50,
   });
+  const staticPosition = useMediaQuery(`(max-width: ${breakpoints.md})`)
 
   return (
     <>
       <Slide direction="down" in={!trigger} timeout={timeout}>
-        <StyledAppBar color="inherit">
+        <StyledAppBar color="inherit" position={staticPosition ? "absolute": "fixed"}>
           <Slide direction="down" in={!trigger} timeout={timeout}>
             <StyledIconButton onClick={homeClickHandler}>
               <StyledLogo />

@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
+import { breakpoints } from "../../styles/globalStyles";
 import { introductionDelay, typewriterDeleteDelay, typewriterInitialDelay } from "../../utils/constants";
 import { Character } from "../Character/Character";
 import { CTAButton } from "../util-components/CTAButton";
@@ -20,6 +21,10 @@ const Grid = styled.div`
   /** 50px navbar and 2*5vh margin */
   min-height: calc(100vh - 50px - 10vh);
   margin: 5vh auto;
+
+  @media (max-width: ${breakpoints.md}) {
+    display: flex;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -42,6 +47,10 @@ const StyledText = styled(Typography)`
   margin-top: 10vh;
   color: ${(props) => lighten(props.theme.colors.mainblack, 0.8)};
   width: 75%;
+
+  @media screen and (max-width: ${breakpoints.md}) {
+    width: 100%;
+  }
 `;
 
 const StyledCTAButton = styled(CTAButton)`
