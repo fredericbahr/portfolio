@@ -1,10 +1,14 @@
-import { IconButton, Menu, Slide } from "@mui/material";
+import { IconButton, lighten, List, ListItem, ListItemButton, Slide, SwipeableDrawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
 import styled from "styled-components";
-import { navbarItemBaseDelay, navbarItemExtraDelay } from "../../utils/constants";
+import { navbarItemBaseDelay, navbarItemExtraDelay, transition } from "../../utils/constants";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
+import { NavHashLink } from "react-router-hash-link";
+import { navLinks } from "../../data/navLinks";
+import { INavLink } from "./interface";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   isMounted: boolean;
@@ -42,28 +46,69 @@ const StyledCloseIcon = styled(CloseIcon)`
   color: ${(props) => props.theme.colors.mainwhite};
 
   &:hover {
-      cursor: pointer;
+    cursor: pointer;
+  }
+`;
+
+const StyledSwipeableDrawer = styled(SwipeableDrawer)`
+  & .MuiPaper-root {
+    background-color: transparent;
+  }
+`;
+
+const DrawerWrapper = styled.div`
+  display: grid;
+  flex-direction: column;
+  place-content: center;
+  background-color: ${(props) => lighten(props.theme.colors.mainblack, 0.3)};
+  border-radius: 8px 8px 0 0;
+`;
+
+const Puller = styled.div`
+  display: flex;
+  width: 2rem;
+  height: 6px;
+  background-color: ${(props) => lighten(props.theme.colors.mainblack, 0.05)};
+  border-radius: 3px;
+  margin-top: 0.75rem;
+  justify-self: center;
+`;
+
+const StyledListItemButton = styled(ListItemButton)`
+  color: ${(props) => props.theme.colors.mainwhite};
+  transition: ${transition};
+
+  &:hover {
+    color: ${(props) => props.theme.colors.mainred};
+  }
+`;
+
+const StyledNavHashLink = styled(NavHashLink)`
+  text-decoration: none;
+  color: inherit;
+  transition: ${transition};
+  font-size: 1.3rem;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.mainred};
   }
 `;
 
 export const MenuNavbar = ({ isMounted }: IProps) => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
+  const drawerBleeding = 56;
+  const { t } = useTranslation();
+  const [open, setOpen] = React.useState(false);
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setOpen(newOpen);
   };
 
   const MenuIconButton = open ? (
-    <IconButton onClick={handleClose}>
+    <IconButton onClick={toggleDrawer(false)}>
       <StyledCloseIcon />
     </IconButton>
   ) : (
-    <IconButton onClick={handleClick}>
+    <IconButton onClick={toggleDrawer(true)}>
       <StyledMenuIcon />
     </IconButton>
   );
@@ -82,7 +127,31 @@ export const MenuNavbar = ({ isMounted }: IProps) => {
           </Slide>
         </StyledOl>
       </StyledNav>
-      <Menu open={open} anchorEl={anchorEl} onClose={handleClose}></Menu>
+      <StyledSwipeableDrawer
+        anchor="bottom"
+        open={open}
+        onClose={toggleDrawer(false)}
+        onOpen={toggleDrawer(true)}
+        swipeAreaWidth={drawerBleeding}
+        disableSwipeToOpen={false}
+      >
+        <DrawerWrapper>
+          <Puller />
+          <List>
+            {navLinks.map((link: INavLink, idx: number) => {
+              return (
+                <ListItem>
+                  <StyledListItemButton>
+                    <StyledNavHashLink smooth to={link.url} onClick={toggleDrawer(false)}>
+                      {t(link.title as any)}
+                    </StyledNavHashLink>
+                  </StyledListItemButton>
+                </ListItem>
+              );
+            })}
+          </List>
+        </DrawerWrapper>
+      </StyledSwipeableDrawer>
     </>
   );
 };

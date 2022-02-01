@@ -1,5 +1,6 @@
 import { Slide } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { NavHashLink } from "react-router-hash-link";
 import styled from "styled-components";
 import { navLinks } from "../../data/navLinks";
@@ -8,7 +9,7 @@ import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { INavLink } from "./interface";
 
 interface IProps {
-    isMounted: boolean
+  isMounted: boolean;
 }
 
 const StyledNav = styled.nav`
@@ -51,7 +52,9 @@ const StyledNavHashLink = styled(NavHashLink)`
   }
 `;
 
-export const SideBySideNavbar = ({isMounted}: IProps) => {
+export const SideBySideNavbar = ({ isMounted }: IProps) => {
+  const { t } = useTranslation();
+
   return (
     <StyledNav>
       <StyledOl>
@@ -61,7 +64,7 @@ export const SideBySideNavbar = ({isMounted}: IProps) => {
               <Slide key={idx} in={isMounted} timeout={navbarItemBaseDelay + idx * navbarItemExtraDelay}>
                 <StyledLi key={idx}>
                   <StyledNavHashLink smooth to={link.url}>
-                    {link.title}
+                    {t(link.title as any)}
                   </StyledNavHashLink>
                 </StyledLi>
               </Slide>

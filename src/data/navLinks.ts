@@ -2,15 +2,15 @@ import { INavLink } from "../components/Navbar/interface";
 
 export const navLinks: INavLink[] = [
   {
-    title: "About",
+    title: "navbar.about",
     url: "/#about",
   },
   {
-    title: "Experience",
+    title: "navbar.experience",
     url: "/#experience",
   },
   {
-    title: "Projects",
+    title: "navbar.projects",
     url: "/#projects",
   },
 ];
