@@ -29,6 +29,10 @@ const Grid = styled.div`
 
 const TextWrapper = styled.div`
   margin: 7vh 0 0 7.5vw;
+
+  @media screen and (max-width: ${breakpoints.md}) {
+    margin: 7vh 0.5rem 0 0.5rem;
+  }
 `;
 
 const StyledBeforeTypwriter = styled(Typography)<TypographyProps>`

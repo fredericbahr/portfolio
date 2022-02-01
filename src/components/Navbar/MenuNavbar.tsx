@@ -77,6 +77,7 @@ const Puller = styled.div`
 const StyledListItemButton = styled(ListItemButton)`
   color: ${(props) => props.theme.colors.mainwhite};
   transition: ${transition};
+  justify-content: center;
 
   &:hover {
     color: ${(props) => props.theme.colors.mainred};
@@ -141,7 +142,7 @@ export const MenuNavbar = ({ isMounted }: IProps) => {
             {navLinks.map((link: INavLink, idx: number) => {
               return (
                 <ListItem>
-                  <StyledListItemButton>
+                  <StyledListItemButton >
                     <StyledNavHashLink smooth to={link.url} onClick={toggleDrawer(false)}>
                       {t(link.title as any)}
                     </StyledNavHashLink>
