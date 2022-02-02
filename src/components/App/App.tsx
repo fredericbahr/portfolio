@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import About from "../About/About";
-import NotFound from "../NotFound/NotFound";
-import Experience from "../Experience/Experience";
-import Projects from "../Projects/Projects";
 import Contact from "../Contact/Contact";
-import Chatbot from "../Chatbot/Chatbot";
 import { Header } from "./Header";
 import AnimatedLogo from "../Logo/AnimatedLogo";
 import styled from "styled-components";
-import { Introduction } from "../Introduction/Introduction";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import { Portfolio } from "./Portfolio";
 
 const StyledLogoWrapper = styled.div`
   display: flex;
@@ -36,7 +31,7 @@ function App() {
 
   const handleHomeClick = () => {
     setIsInAnimation(true);
-    navigate("/", {replace: true});
+    navigate("/", { replace: true });
   };
 
   useEffect(() => {
@@ -54,27 +49,9 @@ function App() {
     <StyledContentWrapper>
       <Header homeClickHandler={handleHomeClick} />
       <Routes>
-        {/* TODO: refactor items into one component */}
-        <Route
-          path="/"
-          element={
-            <>
-              <Introduction />
-              <About />
-              <Experience />
-              <Projects />
-              <Chatbot />
-            </>
-          }
-        />
+        <Route path="/" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<>
-              <Introduction />
-              <About />
-              <Experience />
-              <Projects />
-              <Chatbot />
-            </>} />
+        <Route path="*" element={<Portfolio />} />
       </Routes>
     </StyledContentWrapper>
   );
