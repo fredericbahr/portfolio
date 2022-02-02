@@ -41,13 +41,13 @@ const Experience = () => {
       <SectionHeadline>{t("experience.headline")}</SectionHeadline>
       <TabWrapper>
         {experiences.map((experience: IExperience) => (
-          <TabPanel value={value} index={experience.index}>
+          <TabPanel key={experience.index} value={value} index={experience.index}>
             {experience.component}
           </TabPanel>
         ))}
         <StyledTabs orientation="vertical" variant="scrollable" onChange={handleChange} value={value}>
           {experiences.map((experience: IExperience) => (
-            <StyledTab label={t(experience.title as any)}></StyledTab>
+            <StyledTab key={experience.index} label={t(experience.title as any)}></StyledTab>
           ))}
         </StyledTabs>
       </TabWrapper>
