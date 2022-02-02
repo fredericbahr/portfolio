@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import styled from "styled-components";
 
 interface IProbs {
@@ -16,7 +16,7 @@ export const TabPanel = ({ children, value, index }: IProbs) => {
     <StyledWrapper role="tabpanel" hidden={value !== index}>
       {value === index && (
         <Box>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </StyledWrapper>
