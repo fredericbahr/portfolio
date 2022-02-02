@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { SectionHeadline } from "../util-components/SectionHeadline";
 
@@ -9,9 +10,10 @@ const StyledSection = styled.section`
 `;
 
 export default function About() {
+  const {t} = useTranslation();
   return (
     <StyledSection id="about">
-      <SectionHeadline>About</SectionHeadline>
+      <SectionHeadline>{t("sections.about")}</SectionHeadline>
     </StyledSection>
   );
 }

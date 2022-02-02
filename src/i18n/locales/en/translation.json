@@ -1,4 +1,9 @@
 {
+  "sections": {
+    "about": "About me",
+    "experience": "Experience",
+    "projects": "Projects"
+  },
   "navbar": {
     "about": "About me",
     "experience": "Experience",
@@ -68,11 +73,11 @@
     "work2": {
       "name": "ipoque GmbH"
     },
-    
+
     "work3": {
       "name": "ipoque GmbH"
     },
-    
+
     "work4": {
       "name": "ipoque GmbH"
     }
