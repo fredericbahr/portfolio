@@ -1,13 +1,11 @@
-import { Tab, Tabs, Box, Typography } from "@mui/material";
+import { Tab, Tabs } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import { experiences } from "../../data/experiences";
 import { SectionHeadline } from "../util-components/SectionHeadline";
+import { IExperience } from "./interface";
 import { TabPanel } from "./TabPanel";
-import { GDMcomWorkingStudent } from "./workplaces/GDMcomWorkingStudent";
-import { IpoqueBachelor } from "./workplaces/IpoqueBachelor";
-import { IpoqueIntern } from "./workplaces/IpoqueIntern";
-import { IpoqueWorkingStudent } from "./workplaces/IpoqueWorkingStudent";
 
 const StyledSection = styled.section`
   width: 85%;
@@ -42,23 +40,15 @@ const Experience = () => {
     <StyledSection id="experience">
       <SectionHeadline>{t("experience.headline")}</SectionHeadline>
       <TabWrapper>
-        <TabPanel value={value} index={0}>
-          <IpoqueWorkingStudent />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <IpoqueBachelor />
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          <IpoqueIntern />
-        </TabPanel>
-        <TabPanel value={value} index={3}>
-          <GDMcomWorkingStudent />
-        </TabPanel>
+        {experiences.map((experience: IExperience) => (
+          <TabPanel value={value} index={experience.index}>
+            {experience.component}
+          </TabPanel>
+        ))}
         <StyledTabs orientation="vertical" variant="scrollable" onChange={handleChange} value={value}>
-          <StyledTab label={t("experience.work4.name")}></StyledTab>
-          <StyledTab label={t("experience.work3.name")}></StyledTab>
-          <StyledTab label={t("experience.work2.name")}></StyledTab>
-          <StyledTab label={t("experience.work1.name")}></StyledTab>
+          {experiences.map((experience: IExperience) => (
+            <StyledTab label={t(experience.title as any)}></StyledTab>
+          ))}
         </StyledTabs>
       </TabWrapper>
     </StyledSection>
