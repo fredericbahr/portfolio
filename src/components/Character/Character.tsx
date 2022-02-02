@@ -12,10 +12,10 @@ const StyledDiv = styled.div`
 
 export const Character = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const character = new MiniMe();
   const shouldAnimate = useRef(true);
   const mediaQuery = useMediaQuery(`(min-width: ${breakpoints.md})`);
-
+  const character = new MiniMe();
+  
   useEffect(() => {
     const scene = new THREE.Scene();
 
@@ -79,7 +79,8 @@ export const Character = () => {
     createLight();
     createCharacter();
     animate();
-  }, [mediaQuery]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return mediaQuery ? <StyledDiv ref={ref} id="character"></StyledDiv> : null;
 };

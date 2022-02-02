@@ -405,7 +405,6 @@ export class MiniMe {
     detailHairs = this.createDetailHairs();
 
     mainHair = mergeMeshes(basicHairs, this.hairMat);
-    detailHair = mergeMeshes(detailHairs, this.hairMat);
 
     hair.add(mainHair, detailHairs);
     this.character.add(hair);
