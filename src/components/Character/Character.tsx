@@ -15,7 +15,7 @@ export const Character = () => {
   const shouldAnimate = useRef(true);
   const mediaQuery = useMediaQuery(`(min-width: ${breakpoints.md})`);
   const character = new MiniMe();
-  
+
   useEffect(() => {
     const scene = new THREE.Scene();
 
@@ -79,8 +79,8 @@ export const Character = () => {
     createLight();
     createCharacter();
     animate();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ref, character]);
 
   return mediaQuery ? <StyledDiv ref={ref} id="character"></StyledDiv> : null;
 };

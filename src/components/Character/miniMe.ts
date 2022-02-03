@@ -1,5 +1,4 @@
 import * as THREE from "three";
-import { Vector3 } from "three";
 import { mergeMeshes } from "./characterUtils";
 import { IArmMeshes } from "./interface";
 import {
@@ -387,7 +386,6 @@ export class MiniMe {
   private createHairs = () => {
     const hair: THREE.Group = new THREE.Group();
     let mainHair: THREE.Mesh;
-    let detailHair: THREE.Mesh;
     const basicHairs: THREE.Group = new THREE.Group();
     let detailHairs: THREE.Group;
     let baiscHairGeometry: THREE.BoxGeometry = new THREE.BoxGeometry(mainHairSizeX, mainHairSizeY, mainHairSizeZ);
@@ -901,6 +899,7 @@ export class MiniMe {
     this.createLegs();
     this.createFeet();
     this.transform();
+    console.log("drawing");
   };
 
   public animate = () => {
