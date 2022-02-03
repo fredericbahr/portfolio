@@ -5,6 +5,8 @@ export interface IExperience {
   companyUrl: string;
   jobTitle: string;
   timeRange: ITimeRange;
+  description: string | string[];
+  technologies?: string[];
 }
 
 export interface ITimeRange {

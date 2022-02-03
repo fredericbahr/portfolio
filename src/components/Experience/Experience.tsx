@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { experiences } from "../../data/experiences";
 import { SectionHeadline } from "../util-components/SectionHeadline";
+import { Description } from "./components/Description";
+import { Technologies } from "./components/Technologies";
 import { TimeRange } from "./components/TimeRange";
 import { WorkingTitle } from "./components/WorkingTitle";
 import { IExperience } from "./interface";
@@ -29,8 +31,7 @@ const StyledTab = styled(Tab)`
 `;
 
 const StyledTabPanel = styled(TabPanel)`
-  display: flex;
-  flex-direction: column;
+  align-self: start;
 `;
 
 const Experience = () => {
@@ -53,7 +54,8 @@ const Experience = () => {
               companyUrl={experience.companyUrl}
             />
             <TimeRange from={experience.timeRange.from} to={experience.timeRange.to} />
-            
+            <Description description={experience.description} />
+            {experience.technologies && <Technologies technologies={experience.technologies} />}
           </StyledTabPanel>
         ))}
         <Tabs orientation="vertical" variant="scrollable" onChange={handleChange} value={value}>

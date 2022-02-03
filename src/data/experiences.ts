@@ -9,8 +9,10 @@ export const experiences: IExperience[] = [
     jobTitle: "experience.jobTitles.working-student",
     timeRange: {
       from: "2021-01-01",
-      to: "Present",
+      to: "experience.time-present",
     },
+    description: ["tesadfadft", "test"],
+    technologies: ["Lit", "Angular", "TypeScript", "DSL", "Meta Programming", "Compiler"],
   },
   {
     index: 1,
@@ -22,6 +24,12 @@ export const experiences: IExperience[] = [
       from: "2021-07-01",
       to: "2020-10-01",
     },
+    description: [
+      "experience.work-ipoque-bachelor.statement1",
+      "experience.work-ipoque-bachelor.statement2",
+      "experience.work-ipoque-bachelor.statement3",
+    ],
+    technologies: ["DSL", "JavaScript", "Meta Programming", "Compiler"],
   },
   {
     index: 2,
@@ -33,6 +41,12 @@ export const experiences: IExperience[] = [
       from: "2021-03-01",
       to: "2021-05-31",
     },
+    description: [
+      "experience.work-ipoque-intern.statement1",
+      "experience.work-ipoque-intern.statement2",
+      "experience.work-ipoque-intern.statement3",
+    ],
+    technologies: ["Angular", "TypeScript", "Generic Components"],
   },
   {
     index: 3,
@@ -43,6 +57,12 @@ export const experiences: IExperience[] = [
     timeRange: {
       from: "2019-06-01",
       to: "2020-12-01",
-    }
+    },
+    description: [
+      "experience.work-gdmcom.statement1",
+      "experience.work-gdmcom.statement2",
+      "experience.work-gdmcom.statement3",
+    ],
+    technologies: ["VBA", "Microsoft Office Suite", "Automation"],
   },
 ];

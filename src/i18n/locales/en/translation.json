@@ -71,6 +71,21 @@
       "working-student": "Working Student",
       "intern": "Internship",
       "bachelor-thesis": "Bachelor Thesis "
+    },
+    "time-present": "Present",
+    "work-gdmcom": {
+      "statement1": "Working student in the Information and Communication Technology department",
+      "statement2": "Automation of recurring tasks in the domain of Microsoft Office Suite and file storages",
+      "statement3": "Implementing a prototype for the automated creation of an overview of business locations from file directories"
+    },
+    "work-ipoque-intern": {
+      "statement1": "Creation of generic Angular components to display UI-components in a showcase",
+      "statement2": "Implementing the components with variable configuration patterns for user-defined control of the resulting visualization",
+      "statement3": "Automated rendering of various form elements based on a custom configuration"
+    },
+    "work-ipoque-bachelor": {
+      "statement1": "",
+      "statement2": ""
     }
   }
 }

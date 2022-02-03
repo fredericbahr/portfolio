@@ -1,4 +1,91 @@
 {
-  "languageMenu_english": "Englisch",
-  "languageMenu_german": "Deutsch"
+  "sections": {
+    "about": "About me",
+    "experience": "Experience",
+    "projects": "Projects"
+  },
+  "navbar": {
+    "about": "About me",
+    "experience": "Experience",
+    "projects": "Projects"
+  },
+  "languageMenu": {
+    "tooltip": "Select your language",
+    "english": "English",
+    "german": "German"
+  },
+  "introduction": {
+    "hi": "Hi, I am",
+    "name": "Frederic Bahr",
+    "student": "a Media Informatics student",
+    "jobdescription": "a Frontend Web Developer",
+    "subtitle": "I develop occasionally well assets for the web.",
+    "info": {
+      "firstText": "I´m a Software Engineer spezializing in building digital experience from the frontend perspective. Currently studying Media Informatics (Master) at",
+      "secondText": "and developing UI-Components at",
+      "htwkLink": "HTWK",
+      "jobLink": "ipoque GmbH"
+    }
+  },
+  "chatbot": {
+    "tooltip": "Open the chatbot",
+    "initialMessage": {
+      "firstMessage": "Hi, I´m Frederic`s ChatBot 🤖",
+      "secondMessage": "How can i help you?"
+    },
+    "sayHello": {
+      "actionText": "I just wanted to say hello",
+      "firstMessage": "Hi, whats up?",
+      "secondMessage": "Well hello there, nice to meet you!",
+      "thirdMessage": "Thanks for looking at my personal website.",
+      "fourthMessage": "I hope you enjoy my work.",
+      "fifthMessage": "Can I help you with anything else?"
+    },
+    "showCV": {
+      "actionText": "I want to see your CV.",
+      "firstMessage": "Hey, im interested in your CV!",
+      "secondMessage": "Thanks for reaching out to me.",
+      "thirdMessage": "Underneath you can download my CV."
+    },
+    "sendAnotherMessage": {
+      "actionText": "Send another message",
+      "firstMessage": "I would like to send another message.",
+      "secondMessage": "Ok, no problem."
+    },
+    "directChat": {
+      "actionText": "I want to talk to you directly.",
+      "firstMessage": "I really like your Chatbot, but i would rather talk to you directly.",
+      "secondMessage": "Sad times, but I respect your decision.",
+      "thirdMessage": "Send my master a message and he will answer as soon as possible!"
+    },
+    "formElementsLabel": {
+      "name": "Name",
+      "subject": "Subject",
+      "email": "E-Mail",
+      "message": "Message"
+    }
+  },
+  "experience": {
+    "headline": "Experience",
+    "jobTitles": {
+      "working-student": "Working Student",
+      "intern": "Internship",
+      "bachelor-thesis": "Bachelor Thesis "
+    },
+    "time-present": "bis Heute",
+    "work-gdmcom": {
+      "statement1": "Werkstudent in der Abteilung Informations- und Kommunikationstechnologie",
+      "statement2": "Automatisierung von wiederkehrenden Aufgaben im Bereich der Microsoft Office Suite und Dateisystemen",
+      "statement3": "Implementierung eines Prototyps für die automatisierte Erstellung einer Übersicht von Unternehmensstandorten aus Dateiverzeichnissen"
+    },
+    "work-ipoque-intern": {
+      "statement1": "Erstellung generischer Angularkomponenten zur Darstellung von UI-Komponenten in einem Showcase",
+      "statement2": "Implementieren der Komponenten mit variablen Konfigurationsmustern zur benutzerdefinierten Steuerung der Visualisierung",
+      "statement3": "Automatisiertes Rendern verschiedener Formularelemente aufgrundlage einer benutzerdefinierten Konfiguration"
+    },
+    "work-ipoque-bachelor": {
+      "statement1": "",
+      "statement2": ""
+    }
+  }
 }
