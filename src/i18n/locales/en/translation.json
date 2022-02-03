@@ -67,23 +67,10 @@
   },
   "experience": {
     "headline": "Experience",
-    "work1": {
-      "name": "GDMcom GmbH",
-      "working-title": "Working Student"
-    },
-    "work2": {
-      "name": "ipoque GmbH",
-      "working-title": "Internship"
-    },
-
-    "work3": {
-      "name": "ipoque GmbH",
-      "working-title": "Bachelor Thesis "
-    },
-
-    "work4": {
-      "name": "ipoque GmbH",
-      "working-title": "Working Student"
+    "jobTitles": {
+      "working-student": "Working Student",
+      "intern": "Internship",
+      "bachelor-thesis": "Bachelor Thesis "
     }
   }
 }

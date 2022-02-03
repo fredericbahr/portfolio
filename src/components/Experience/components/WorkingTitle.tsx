@@ -6,7 +6,7 @@ import { StyledLink } from "../../util-components/StyledLink";
 interface IProps {
   title: string;
   companyName: string;
-  url: string;
+  companyUrl: string;
 }
 
 type TypographyType = React.ComponentType<TypographyProps<"span", { component: "span" }>>;
@@ -24,12 +24,12 @@ const At: TypographyType = styled(Typography)`
 
 
 
-export const WorkingTitle = ({ title, companyName, url }: IProps) => {
+export const WorkingTitle = ({ title, companyName, companyUrl }: IProps) => {
   return (
     <Wrapper>
       <Title component="span">{title}</Title>
       <At component="span">@</At>
-      <StyledLink url={url}>{companyName}</StyledLink>
+      <StyledLink url={companyUrl}>{companyName}</StyledLink>
     </Wrapper>
   );
 };
