@@ -16,11 +16,9 @@ const StyledSection = styled.section`
 `;
 
 const TabWrapper = styled.div`
-  display: flex;
-`;
-
-const StyledTabs = styled(Tabs)`
-  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
 `;
 
 const StyledTab = styled(Tab)`
@@ -55,13 +53,14 @@ const Experience = () => {
               companyUrl={experience.companyUrl}
             />
             <TimeRange from={experience.timeRange.from} to={experience.timeRange.to} />
+            
           </StyledTabPanel>
         ))}
-        <StyledTabs orientation="vertical" variant="scrollable" onChange={handleChange} value={value}>
+        <Tabs orientation="vertical" variant="scrollable" onChange={handleChange} value={value}>
           {experiences.map((experience: IExperience) => (
             <StyledTab key={experience.index} label={t(experience.shortCompanyName as any)}></StyledTab>
           ))}
-        </StyledTabs>
+        </Tabs>
       </TabWrapper>
     </StyledSection>
   );
