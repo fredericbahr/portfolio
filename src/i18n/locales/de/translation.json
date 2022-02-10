@@ -84,8 +84,9 @@
       "statement3": "Automatisiertes Rendern verschiedener Formularelemente aufgrundlage einer benutzerdefinierten Konfiguration"
     },
     "work-ipoque-bachelor": {
-      "statement1": "",
-      "statement2": ""
+      "statement1": "Konzeption, Entwurf und Implementierung einer domänenspezifischen Sprache für die Erstellung von Komponentenquellcode",
+      "statement2": "Entwerfen und Implementieren eines Compilers für eine eigene Programmiersprache",
+      "statement3": "Generierung von generischem Angular-Quellcode und eigene Lösungsansätze mithilfe von Design Patterns (Modularisierung, Dependency Injection, etc.)"
     }
   }
 }

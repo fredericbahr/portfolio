@@ -29,7 +29,7 @@ export const experiences: IExperience[] = [
       "experience.work-ipoque-bachelor.statement2",
       "experience.work-ipoque-bachelor.statement3",
     ],
-    technologies: ["DSL", "JavaScript", "Meta Programming", "Compiler"],
+    technologies: ["DSL", "JavaScript", "Typescript", "Jest", "Meta Programming", "Compiler"],
   },
   {
     index: 2,

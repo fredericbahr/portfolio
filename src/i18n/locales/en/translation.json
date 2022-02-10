@@ -84,8 +84,9 @@
       "statement3": "Automated rendering of various form elements based on a custom configuration"
     },
     "work-ipoque-bachelor": {
-      "statement1": "",
-      "statement2": ""
+      "statement1": "Conception, design and implementation of a domain-specific language for the creation of component source code",
+      "statement2": "Designing and implementing a compiler for a custom programming language",
+      "statement3": "Generation of generic Angular source code and own solution approaches using design patterns (modularization, dependency injection, etc.)"
     }
   }
 }
