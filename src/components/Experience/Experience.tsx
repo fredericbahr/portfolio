@@ -1,8 +1,9 @@
-import { Tab, Tabs } from "@mui/material";
+import { Tab, Tabs, useMediaQuery } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { experiences } from "../../data/experiences";
+import { breakpoints } from "../../styles/globalStyles";
 import { SectionHeadline } from "../util-components/SectionHeadline";
 import { Description } from "./components/Description";
 import { Technologies } from "./components/Technologies";
@@ -10,6 +11,9 @@ import { TimeRange } from "./components/TimeRange";
 import { WorkingTitle } from "./components/WorkingTitle";
 import { IExperience } from "./interface";
 import { TabPanel } from "./TabPanel";
+import { lighten } from "@mui/system";
+
+type IOrientation = "vertical" | "horizontal";
 
 const StyledSection = styled.section`
   width: 85%;
@@ -20,7 +24,18 @@ const StyledSection = styled.section`
 const TabWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
-  align-items: center;
+
+  @media screen and (max-width: ${breakpoints.sm}) {
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr;
+  }
+`;
+
+const StyledTabs = styled(Tabs)`
+  @media screen and (max-width: ${breakpoints.sm}) {
+    grid-row: 1/2;
+    margin-bottom: 3vh;
+  }
 `;
 
 const StyledTab = styled(Tab)`
@@ -28,6 +43,10 @@ const StyledTab = styled(Tab)`
   text-transform: none;
   font-weight: 400;
   color: ${(props) => props.theme.colors.mainwhite};
+
+  &.Mui-selected {
+    background-color: ${(props) => lighten(props.theme.colors.mainblack, 0.05)};
+  }
 `;
 
 const StyledTabPanel = styled(TabPanel)`
@@ -37,6 +56,10 @@ const StyledTabPanel = styled(TabPanel)`
 const Experience = () => {
   const [value, setValue] = React.useState(0);
   const { t } = useTranslation();
+  const mobileView = useMediaQuery(`(max-width: ${breakpoints.sm})`);
+  const orientation: IOrientation = mobileView ? "horizontal" : "vertical";
+
+  console.log(mobileView);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -58,11 +81,18 @@ const Experience = () => {
             {experience.technologies && <Technologies technologies={experience.technologies} />}
           </StyledTabPanel>
         ))}
-        <Tabs orientation="vertical" variant="scrollable" onChange={handleChange} value={value}>
+        <StyledTabs
+          orientation={orientation}
+          variant="scrollable"
+          scrollButtons="auto"
+          allowScrollButtonsMobile
+          onChange={handleChange}
+          value={value}
+        >
           {experiences.map((experience: IExperience) => (
             <StyledTab key={experience.index} label={t(experience.shortCompanyName as any)}></StyledTab>
           ))}
-        </Tabs>
+        </StyledTabs>
       </TabWrapper>
     </StyledSection>
   );

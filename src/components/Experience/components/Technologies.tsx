@@ -6,23 +6,26 @@ interface IProps {
   technologies: string[];
 }
 
-const StyledStack = styled(Stack)`
-  margin-top: 3vh;
+const Wrapper = styled.div`
+  display: flex;
+  margin-top: 2rem;
+  flex-wrap: wrap;
 `;
 
 const Item = styled(Paper)`
   font-size: 0.8rem;
   padding: 0.25rem 0.5rem;
+  margin: 0.5rem;
   background-color: ${(props) => lighten(props.theme.colors.mainblack, 0.15)};
   color: ${(props) => darken(props.theme.colors.mainwhite, 0.15)};
 `;
 
 export const Technologies = ({ technologies = [] }: IProps) => {
   return (
-    <StyledStack direction="row" spacing={2}>
+    <Wrapper>
       {technologies.map((technology: string) => (
         <Item>{technology}</Item>
       ))}
-    </StyledStack>
+    </Wrapper>
   );
 };
