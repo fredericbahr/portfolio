@@ -7,5 +7,5 @@ const Wrapper = styled.div`
 `;
 
 export default function Contact() {
-  return <Wrapper>hi</Wrapper>;
+  return <Wrapper>Contact</Wrapper>;
 }
