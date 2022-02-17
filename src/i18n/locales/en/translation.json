@@ -36,7 +36,7 @@
     "sayHello": {
       "actionText": "I just wanted to say hello",
       "firstMessage": "Hi, whats up?",
-      "secondMessage": "Well hello there, nice to meet you!",
+      "secondMessage": "Well hello there, nice to meet you!👋",
       "thirdMessage": "Thanks for looking at my personal website.",
       "fourthMessage": "I hope you enjoy my work.",
       "fifthMessage": "Can I help you with anything else?"
@@ -87,6 +87,11 @@
       "statement1": "Conception, design and implementation of a domain-specific language for the creation of component source code",
       "statement2": "Designing and implementing a compiler for a custom programming language",
       "statement3": "Generation of generic Angular source code and own solution approaches using design patterns (modularization, dependency injection, etc.)"
+    },
+    "work-ipoque-working-student": {
+      "statement1": "Further development of the DSL and the associated compiler with implementation of plugins for various IDEs",
+      "statement2": "Development of internal automation scripts for the continuous delivery pipeline",
+      "statement3": "Development of unit tests for all modules of the compiler"
     }
   }
 }

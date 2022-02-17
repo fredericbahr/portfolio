@@ -87,6 +87,11 @@
       "statement1": "Konzeption, Entwurf und Implementierung einer domänenspezifischen Sprache für die Erstellung von Komponentenquellcode",
       "statement2": "Entwerfen und Implementieren eines Compilers für eine eigene Programmiersprache",
       "statement3": "Generierung von generischem Angular-Quellcode und eigene Lösungsansätze mithilfe von Design Patterns (Modularisierung, Dependency Injection, etc.)"
+    },
+    "work-ipoque-working-student": {
+      "statement1": "Weiterentwicklung der DSL und des dazugehörigen Compilers mit Implementierung von Plugins für diverse IDE´s",
+      "statement2": "Entwicklung interner Automatisierungsskripte für die Continuous Delivery-Pipeline",
+      "statement3": "Entwicklung von Unit-Tests für alle Module des Compilers"
     }
   }
 }

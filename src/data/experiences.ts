@@ -11,8 +11,12 @@ export const experiences: IExperience[] = [
       from: "2021-01-01",
       to: "experience.time-present",
     },
-    description: ["tesadfadft", "test"],
-    technologies: ["Lit", "Angular", "TypeScript", "DSL", "Meta Programming", "Compiler"],
+    description: [
+      "experience.work-ipoque-working-student.statement1",
+      "experience.work-ipoque-working-student.statement2",
+      "experience.work-ipoque-working-student.statement3",
+    ],
+    technologies: ["Angular", "TypeScript", "DSL", "Meta Programming", "Compiler", "Jest"],
   },
   {
     index: 1,

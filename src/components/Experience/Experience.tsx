@@ -17,8 +17,7 @@ type IOrientation = "vertical" | "horizontal";
 
 const StyledSection = styled.section`
   width: 85%;
-  height: 100vh;
-  margin: 0 auto;
+  margin: 0 auto 25vh auto;
 `;
 
 const TabWrapper = styled.div`
