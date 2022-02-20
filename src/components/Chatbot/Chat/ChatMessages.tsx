@@ -1,14 +1,14 @@
 import { CardActions, CardContent } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
-import ChatText from "./ChatText";
-import { isChatDownload, isChatForm, isChatTextMessage } from "../../../utils/typePredicates";
-import { ChatDownload } from "./ChatDownload";
-import ChatAction from "./ChatAction";
-import { initialActions, actionRepository, initialMessages } from "../../../data/chatMessages";
-import { ChatFormMessage } from "./ChatFormMessage";
 import { useTranslation } from "react-i18next";
-import { IChatMessage, IChatAction } from "../interface";
+import styled from "styled-components";
+import { actionRepository, initialActions, initialMessages } from "../../../data/chatMessages";
+import { isChatDownload, isChatForm, isChatTextMessage } from "../../../utils/typePredicates";
+import { IChatAction, IChatMessage } from "../interface";
+import ChatAction from "./ChatAction";
+import { ChatDownload } from "./ChatDownload";
+import { ChatFormMessage } from "./ChatFormMessage";
+import ChatText from "./ChatText";
 
 const StyledCardContent = styled(CardContent)`
   flex-grow: 1;

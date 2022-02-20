@@ -11,7 +11,6 @@ interface IProps {
 
 type TypographyType = React.ComponentType<TypographyProps<"span", { component: "span" }>>;
 
-
 const Wrapper = styled.h3`
   display: flex;
 `;
@@ -21,8 +20,6 @@ const Title: TypographyType = styled(Typography)``;
 const At: TypographyType = styled(Typography)`
   margin: 0 10px;
 `;
-
-
 
 export const WorkingTitle = ({ title, companyName, companyUrl }: IProps) => {
   return (

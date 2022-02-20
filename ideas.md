@@ -82,12 +82,13 @@
 ## Projects
 
 ### Idea
+
 - Two/Three detailed projects with visual thumbnails
 - Grid with other projects (if all)
 - [Archive](https://brittanychiang.com/archive)
 
-
 ### Projects
+
 - DAG
 - Angular Generic Control Panel Component
 - DSL <-> Compiler
@@ -107,6 +108,7 @@
 - Metis zum Laufen bekommen --> Screenshot
 
 ## Contact Form
+
 - Extra Seite
 - Chatbot verlinkt auf Seite
 - [Idea1](https://dribbble.com/shots/14139115-Contact-Form-02)

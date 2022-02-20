@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
-import Contact from "../Contact/Contact";
-import { Header } from "./Header";
-import AnimatedLogo from "../Logo/AnimatedLogo";
-import styled from "styled-components";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import Contact from "../Contact/Contact";
+import AnimatedLogo from "../Logo/AnimatedLogo";
+import "./App.css";
+import { Header } from "./Header";
 import { Portfolio } from "./Portfolio";
 
 const StyledLogoWrapper = styled.div`

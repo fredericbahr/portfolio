@@ -1,8 +1,8 @@
-import React from "react";
-import moment from "moment";
 import { darken, Typography, TypographyProps } from "@mui/material";
-import styled from "styled-components";
+import moment from "moment";
+import React from "react";
 import { useTranslation } from "react-i18next";
+import styled from "styled-components";
 
 interface IProps {
   from: string;

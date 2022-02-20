@@ -1,4 +1,5 @@
 import { Tab, Tabs, useMediaQuery } from "@mui/material";
+import { lighten } from "@mui/system";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
@@ -11,7 +12,6 @@ import { TimeRange } from "./components/TimeRange";
 import { WorkingTitle } from "./components/WorkingTitle";
 import { IExperience } from "./interface";
 import { TabPanel } from "./TabPanel";
-import { lighten } from "@mui/system";
 
 type IOrientation = "vertical" | "horizontal";
 

@@ -1,14 +1,14 @@
-import { IconButton, lighten, List, ListItem, ListItemButton, Slide, SwipeableDrawer } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
+import { IconButton, lighten, List, ListItem, ListItemButton, Slide, SwipeableDrawer } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { NavHashLink } from "react-router-hash-link";
 import styled from "styled-components";
+import { navLinks } from "../../data/navLinks";
 import { navbarItemBaseDelay, navbarItemExtraDelay, transition } from "../../utils/constants";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
-import { NavHashLink } from "react-router-hash-link";
-import { navLinks } from "../../data/navLinks";
 import { INavLink } from "./interface";
-import { useTranslation } from "react-i18next";
 
 interface IProps {
   isMounted: boolean;
@@ -142,7 +142,7 @@ export const MenuNavbar = ({ isMounted }: IProps) => {
             {navLinks.map((link: INavLink, idx: number) => {
               return (
                 <ListItem>
-                  <StyledListItemButton >
+                  <StyledListItemButton>
                     <StyledNavHashLink smooth to={link.url} onClick={toggleDrawer(false)}>
                       {t(link.title as any)}
                     </StyledNavHashLink>

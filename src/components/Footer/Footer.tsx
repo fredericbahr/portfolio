@@ -18,7 +18,7 @@ const StyledTypography = styled(Typography)`
 const StyledInspiration = styled(Typography)`
   font-size: 0.65rem;
   margin-top: 0.3rem;
-`
+`;
 
 export const Footer = () => {
   return (

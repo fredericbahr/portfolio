@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { NavHashLink } from "react-router-hash-link";
 import styled from "styled-components";
 import { navLinks } from "../../data/navLinks";
-import { transition, navbarItemBaseDelay, navbarItemExtraDelay } from "../../utils/constants";
+import { navbarItemBaseDelay, navbarItemExtraDelay, transition } from "../../utils/constants";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { INavLink } from "./interface";
 

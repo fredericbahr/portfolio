@@ -1,9 +1,9 @@
 import { Translate } from "@mui/icons-material";
 import { IconButton, Tooltip } from "@mui/material";
 import React, { useState } from "react";
-import { LanguageMenu } from "./LanguageMenu";
-import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import styled from "styled-components";
+import { LanguageMenu } from "./LanguageMenu";
 
 const StyledTranslate = styled(Translate)`
   color: white;

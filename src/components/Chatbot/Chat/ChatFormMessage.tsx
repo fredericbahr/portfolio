@@ -1,3 +1,4 @@
+import { Close } from "@mui/icons-material";
 import {
   alpha,
   Button,
@@ -11,13 +12,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { Close } from "@mui/icons-material";
 import { TransitionProps } from "@mui/material/transitions";
-import { TFunction, useTranslation } from "react-i18next";
-import { IChatFormElement, IChatForm } from "../interface";
 import { darken } from "@mui/system";
+import React, { useEffect, useState } from "react";
+import { TFunction, useTranslation } from "react-i18next";
+import styled from "styled-components";
+import { IChatForm, IChatFormElement } from "../interface";
 
 const StyledDialog = styled(Dialog)`
   & .MuiPaper-root {

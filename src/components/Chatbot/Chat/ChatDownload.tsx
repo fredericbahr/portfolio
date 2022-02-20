@@ -1,7 +1,4 @@
-import React, { useRef } from "react";
-import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
-import styled from "styled-components";
-import useElementDimensions from "../../../utils/hooks/useElementDimension";
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import {
   Card,
   CardActionArea,
@@ -11,8 +8,11 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
+import React, { useRef } from "react";
+import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
+import styled from "styled-components";
 import pdfFileIcon from "../../../assets/img/pdf-file.svg";
-import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
+import useElementDimensions from "../../../utils/hooks/useElementDimension";
 import { IChatDownload } from "../interface";
 
 const StyledCard = styled(Card)`

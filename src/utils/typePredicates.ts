@@ -1,5 +1,4 @@
-import { IChatMessage, IChatTextMessage, IChatDownload, IChatForm } from "../components/Chatbot/interface";
-
+import { IChatDownload, IChatForm, IChatMessage, IChatTextMessage } from "../components/Chatbot/interface";
 
 export function isChatTextMessage(message: IChatMessage): message is IChatTextMessage {
   return (message as IChatTextMessage).message !== undefined;

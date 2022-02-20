@@ -1,15 +1,14 @@
+import { StyledEngineProvider, ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App/App";
-import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { StyledEngineProvider, ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
 import { ThemeProvider } from "styled-components";
-import { theme } from "./styles/styledComponentsTheme";
-import { muiTheme } from "./styles/muiTheme";
+import App from "./components/App/App";
+import "./i18n/i18n";
+import reportWebVitals from "./reportWebVitals";
 import { GlobalStyle } from "./styles/globalStyles";
-
-import "./i18n/i18n"
+import { muiTheme } from "./styles/muiTheme";
+import { theme } from "./styles/styledComponentsTheme";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,7 +17,7 @@ ReactDOM.render(
         <MUIThemeProvider theme={muiTheme}>
           <ThemeProvider theme={theme}>
             <GlobalStyle />
-              <App />
+            <App />
           </ThemeProvider>
         </MUIThemeProvider>
       </StyledEngineProvider>

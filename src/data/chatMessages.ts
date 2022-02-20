@@ -1,5 +1,5 @@
-import { IChatTextMessage, IChatAction, IChatFormElement } from "../components/Chatbot/interface";
 import Lebenslauf from "../assets/pdf/lebenslauf.pdf";
+import { IChatAction, IChatFormElement, IChatTextMessage } from "../components/Chatbot/interface";
 
 export const initialMessages: IChatTextMessage[] = [
   { message: "chatbot.initialMessage.firstMessage", owner: "bot" },

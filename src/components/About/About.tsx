@@ -10,7 +10,7 @@ const StyledSection = styled.section`
 `;
 
 export default function About() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   return (
     <StyledSection id="about">
       <SectionHeadline>{t("sections.about")}</SectionHeadline>
