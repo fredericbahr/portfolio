@@ -25,7 +25,7 @@ const FAB = ({ clickHandler }: IProps) => {
 
   return (
     <Grow in>
-      <Tooltip title={t("chatbot.tooltip") as string}>
+      <Tooltip title={t("chatbot.tooltip")}>
         <StyledFab onClick={clickHandler} color="primary">
           <ChatBubbleOutline />
         </StyledFab>

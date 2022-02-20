@@ -27,6 +27,9 @@
       "jobLink": "ipoque GmbH"
     }
   },
+  "miniMe": {
+    "gadget": "Select a gadget"
+  },
   "chatbot": {
     "tooltip": "Open the chatbot",
     "initialMessage": {

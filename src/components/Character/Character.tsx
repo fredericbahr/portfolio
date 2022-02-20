@@ -1,13 +1,30 @@
+import { useMediaQuery } from "@mui/material";
 import React, { useEffect, useRef } from "react";
+import styled from "styled-components";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { MiniMe } from "./miniMe";
-import styled from "styled-components";
-import { useMediaQuery } from "@mui/material";
 import { breakpoints } from "../../styles/globalStyles";
+import { GadgetSelector } from "./GadgetSelector/GadgetSelector";
+import { MiniMe } from "./miniMe";
+
+const Wrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
 
 const StyledDiv = styled.div`
   cursor: crosshair;
+  width: 100%;
+  height: 100%;
+`;
+
+const GadgetWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 45%;
+  left: 25%;
 `;
 
 export const Character = () => {
@@ -79,8 +96,14 @@ export const Character = () => {
     createLight();
     createCharacter();
     animate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref, character]);
 
-  return mediaQuery ? <StyledDiv ref={ref} id="character"></StyledDiv> : null;
+  return mediaQuery ? (
+    <Wrapper>
+      <StyledDiv ref={ref} id="character"></StyledDiv>
+      <GadgetWrapper>
+        <GadgetSelector />
+      </GadgetWrapper>
+    </Wrapper>
+  ) : null;
 };
