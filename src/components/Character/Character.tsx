@@ -1,11 +1,22 @@
-import { useMediaQuery } from "@mui/material";
-import React, { useEffect, useRef } from "react";
+import KeyboardIcon from "@mui/icons-material/Keyboard";
+import LaptopIcon from "@mui/icons-material/Laptop";
+import { IconButton, lighten, Stack, Tooltip, useMediaQuery } from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { EmptyIcon } from "../../assets/Icons/EmptyIcon";
 import { breakpoints } from "../../styles/globalStyles";
 import { GadgetSelector } from "./GadgetSelector/GadgetSelector";
+import { HorizontalLine } from "./GadgetSelector/HorizontalLine";
 import { MiniMe } from "./miniMe";
+
+interface IGadget {
+  id: number;
+  icon: JSX.Element;
+  name: string;
+}
 
 const Wrapper = styled.div`
   position: relative;
@@ -23,15 +34,57 @@ const GadgetWrapper = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 45%;
-  left: 25%;
+  top: 38%;
+  left: 15%;
+`;
+
+const StyledHorizontalLine = styled(HorizontalLine)`
+  width: 2.5rem;
+`;
+
+const StyledEmptyIcon = styled(EmptyIcon)`
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: 10px;
+  background-color: ${(props) => lighten(props.theme.colors.mainblack, 0.25)};
+
+  & g {
+    fill: ${(props) => props.theme.colors.whitefontcolor};
+  }
+`;
+
+const StyledIconButton = styled(IconButton)`
+  padding: 0;
+  margin: 0 5px;
+`;
+
+const StyledLaptopIcon = styled(LaptopIcon)`
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: 10px;
+  color: ${(props) => props.theme.colors.whitefontcolor};
+  background-color: ${(props) => lighten(props.theme.colors.mainblack, 0.1)};
+`;
+
+const StyledKeyboardIcon = styled(KeyboardIcon)`
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: 10px;
+  color: ${(props) => props.theme.colors.whitefontcolor};
+  background-color: ${(props) => lighten(props.theme.colors.mainblack, 0.1)};
+`;
+
+const StyledTooltip = styled(Tooltip)`
+  padding: 0;
 `;
 
 export const Character = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const [gadgetIconIndex, setGadgetIconIndex] = useState(0);
   const shouldAnimate = useRef(true);
   const mediaQuery = useMediaQuery(`(min-width: ${breakpoints.md})`);
   const character = new MiniMe();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -98,11 +151,46 @@ export const Character = () => {
     animate();
   }, [ref, character]);
 
+  useEffect(() => {
+    character.setGadget(gadgetIconIndex);
+  }, [gadgetIconIndex]);
+
+  const gadgets: IGadget[] = [
+    {
+      id: 0,
+      icon: <StyledEmptyIcon />,
+      name: "empty",
+    },
+    {
+      id: 1,
+      icon: <StyledLaptopIcon />,
+      name: "laptop",
+    },
+    {
+      id: 2,
+      icon: <StyledKeyboardIcon />,
+      name: "keyboard",
+    },
+  ];
+
+  const renderGadgets = () => {
+    return gadgets
+      .filter((gadget: IGadget) => gadget.id !== gadgetIconIndex)
+      .map((gadget: IGadget) => (
+        <StyledTooltip title={t(`miniMe.${gadget.name}` as any)}>
+          <StyledIconButton onClick={() => setGadgetIconIndex(gadget.id)}>{gadget.icon}</StyledIconButton>
+        </StyledTooltip>
+      ));
+  };
+
   return mediaQuery ? (
     <Wrapper>
       <StyledDiv ref={ref} id="character"></StyledDiv>
       <GadgetWrapper>
-        <GadgetSelector />
+        <Stack direction="row" spacing={2}>
+          <GadgetSelector anchorIcon={gadgets[gadgetIconIndex].icon}>{renderGadgets()}</GadgetSelector>
+          <StyledHorizontalLine />
+        </Stack>
       </GadgetWrapper>
     </Wrapper>
   ) : null;

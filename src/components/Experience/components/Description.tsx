@@ -40,8 +40,8 @@ export const Description = ({ description, className }: IProps) => {
   const { t } = useTranslation();
 
   const renderUnorderedList = (descriptions: string[]) => {
-    const listItems = descriptions.map((description: string) => (
-      <StyledListItem>{t(description as any)}</StyledListItem>
+    const listItems = descriptions.map((description: string, idx: number) => (
+      <StyledListItem key={idx}>{t(description as any)}</StyledListItem>
     ));
 
     return <StyledList>{listItems}</StyledList>;

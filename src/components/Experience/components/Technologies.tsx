@@ -23,8 +23,8 @@ const Item = styled(Paper)`
 export const Technologies = ({ technologies = [] }: IProps) => {
   return (
     <Wrapper>
-      {technologies.map((technology: string) => (
-        <Item>{technology}</Item>
+      {technologies.map((technology: string, idx: number) => (
+        <Item key={idx}>{technology}</Item>
       ))}
     </Wrapper>
   );

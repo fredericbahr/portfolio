@@ -79,6 +79,7 @@ export class MiniMe {
   private footMat: THREE.Material;
   private hairMat: THREE.Material;
   private buttonMat: THREE.Material;
+  private gadget: THREE.Mesh | null;
 
   /**
    * defines the materials and calls draw
@@ -110,6 +111,7 @@ export class MiniMe {
     this.hairMat = new THREE.MeshLambertMaterial({ color: "#ad9032" });
     this.buttonMat = new THREE.MeshLambertMaterial({ color: "#808080", side: THREE.DoubleSide });
 
+    this.gadget = null;
     this.draw();
   }
 
@@ -888,6 +890,14 @@ export class MiniMe {
     this.character.scale.set(1.05, 1.05, 1.05);
   };
 
+  private createLaptop = () => {
+    console.log("Laptop");
+  };
+
+  private createKeyboard = () => {
+    console.log("Keyboard");
+  };
+
   /**
    * draws the character
    */
@@ -900,6 +910,12 @@ export class MiniMe {
     this.createFeet();
     this.transform();
     console.log("drawing");
+  };
+
+  public setGadget = (idx: number) => {
+    const gadgets = [null, this.createLaptop(), this.createKeyboard()];
+
+    this.gadget = gadgets[idx];
   };
 
   public animate = () => {

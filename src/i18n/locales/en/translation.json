@@ -28,7 +28,10 @@
     }
   },
   "miniMe": {
-    "gadget": "Select a gadget"
+    "gadget": "Select a gadget",
+    "empty": "Nothing",
+    "laptop": "Laptop",
+    "keyboard": "Keyboard"
   },
   "chatbot": {
     "tooltip": "Open the chatbot",
