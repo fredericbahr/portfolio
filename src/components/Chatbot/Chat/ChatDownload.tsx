@@ -9,11 +9,12 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useRef } from "react";
-import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
+import { Document, Page, pdfjs } from "react-pdf";
 import styled from "styled-components";
 import pdfFileIcon from "../../../assets/img/pdf-file.svg";
 import useElementDimensions from "../../../utils/hooks/useElementDimension";
 import { IChatDownload } from "../interface";
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
 
 const StyledCard = styled(Card)`
   margin: 0.5rem 0;
@@ -65,6 +66,7 @@ export const ChatDownload = ({ type, url, fileName }: IChatDownload) => {
   };
 
   const renderPDFDownlaod = () => {
+    console.log("URL:", url);
     return (
       <StyledCard ref={ref}>
         <CardActionArea onClick={() => handleDownload()}>
