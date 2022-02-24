@@ -70,3 +70,13 @@ export const footSizeZ = legSizeZ + 20;
 export const footPositionZ = -18.5;
 export const anklePositonY = legPositionY - legSizeY / 2 - ankleSizeY / 2;
 export const footPositionY = anklePositonY - ankleSizeY / 2;
+
+export const keyboardScale = 700;
+export const keyboardPositionX = 120;
+export const keyboardPositionY = -165;
+export const keyboardPositionZ = 15;
+
+export const laptopScale = 50;
+export const laptopPositionX = 120;
+export const laptopPositionY = -150;
+export const laptopPositionZ = 15;

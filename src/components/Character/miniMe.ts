@@ -1,4 +1,6 @@
 import * as THREE from "three";
+import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
+import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import { mergeMeshes } from "./characterUtils";
 import { IArmMeshes } from "./interface";
 import {
@@ -34,6 +36,14 @@ import {
   footSizeZ,
   headPositionY,
   headSize,
+  keyboardPositionX,
+  keyboardPositionY,
+  keyboardPositionZ,
+  keyboardScale,
+  laptopPositionX,
+  laptopPositionY,
+  laptopPositionZ,
+  laptopScale,
   legPositionY,
   legSeperatorSizeX,
   legSeperatorSizeY,
@@ -79,7 +89,7 @@ export class MiniMe {
   private footMat: THREE.Material;
   private hairMat: THREE.Material;
   private buttonMat: THREE.Material;
-  private gadget: THREE.Mesh | null;
+  private gadget: THREE.Group | null;
 
   /**
    * defines the materials and calls draw
@@ -775,6 +785,14 @@ export class MiniMe {
     );
     hand.add(thumb, fingers);
 
+    if (!isLeftArm) {
+      console.log("gadget: ", this.gadget);
+      if (this.gadget) {
+        console.log("adding gadget");
+        hand.add(this.gadget);
+      }
+    }
+
     upperArm.position.set(
       sideModificator * (corpus.parameters.width / 2 + upperArmGeometry.parameters.width / 2),
       corpus.parameters.height / 2 - upperArmGeometry.parameters.height / 2,
@@ -890,12 +908,39 @@ export class MiniMe {
     this.character.scale.set(1.05, 1.05, 1.05);
   };
 
-  private createLaptop = () => {
-    console.log("Laptop");
+  private createLaptop = async () => {
+    const mtlLoader = new MTLLoader();
+    const objLoader = new OBJLoader();
+
+    const materials = await mtlLoader.loadAsync("./src/assets/models/laptop/laptop.mtl");
+    materials.preload();
+    objLoader.setMaterials(materials);
+
+    const laptop = await objLoader.loadAsync("./src/assets/models/laptop/laptop.obj");
+    laptop.scale.set(laptopScale, laptopScale, laptopScale);
+    laptop.position.set(laptopPositionX, laptopPositionY, laptopPositionZ);
+    laptop.rotation.set(this.deg2rad(90), this.deg2rad(180), this.deg2rad(90));
+
+    this.gadget = laptop;
+    this.draw();
   };
 
-  private createKeyboard = () => {
-    console.log("Keyboard");
+  private createKeyboard = async () => {
+    const mtlLoader = new MTLLoader();
+    const objLoader = new OBJLoader();
+    console.log(mtlLoader.path);
+
+    const materials = await mtlLoader.loadAsync("./src/assets/models/keyboard/keyboard.mtl");
+    materials.preload();
+    objLoader.setMaterials(materials);
+
+    const keyboard = await objLoader.loadAsync("./src/assets/models/keyboard/keyboard.obj");
+    keyboard.scale.set(keyboardScale, keyboardScale, keyboardScale);
+    keyboard.position.set(keyboardPositionX, keyboardPositionY, keyboardPositionZ);
+    keyboard.rotation.set(this.deg2rad(90), 0, this.deg2rad(-90));
+
+    this.gadget = keyboard;
+    this.draw();
   };
 
   /**
@@ -912,10 +957,13 @@ export class MiniMe {
     console.log("drawing");
   };
 
-  public setGadget = (idx: number) => {
-    const gadgets = [null, this.createLaptop(), this.createKeyboard()];
+  public setGadget = async (idx: number) => {
+    const gadgets = [null, this.createLaptop, this.createKeyboard];
 
-    this.gadget = gadgets[idx];
+    const gadget = gadgets[idx];
+    if (gadget) {
+      gadget();
+    }
   };
 
   public animate = () => {
