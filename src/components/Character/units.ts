@@ -76,7 +76,7 @@ export const keyboardPositionX = 120;
 export const keyboardPositionY = -165;
 export const keyboardPositionZ = 15;
 
-export const laptopScale = 50;
+export const laptopScale = 7;
 export const laptopPositionX = 120;
-export const laptopPositionY = -150;
-export const laptopPositionZ = 15;
+export const laptopPositionY = -165;
+export const laptopPositionZ = 5;

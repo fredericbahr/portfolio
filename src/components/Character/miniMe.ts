@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import { mergeMeshes } from "./characterUtils";
@@ -786,9 +787,7 @@ export class MiniMe {
     hand.add(thumb, fingers);
 
     if (!isLeftArm) {
-      console.log("gadget: ", this.gadget);
       if (this.gadget) {
-        console.log("adding gadget");
         hand.add(this.gadget);
       }
     }
@@ -908,20 +907,32 @@ export class MiniMe {
     this.character.scale.set(1.05, 1.05, 1.05);
   };
 
+  // private createLaptop = async () => {
+  //   const mtlLoader = new MTLLoader();
+  //   const objLoader = new OBJLoader();
+
+  //   const materials = await mtlLoader.loadAsync("./src/assets/models/laptop/laptop.mtl");
+  //   materials.preload();
+  //   objLoader.setMaterials(materials);
+
+  //   const laptop = await objLoader.loadAsync("./src/assets/models/laptop/laptop.obj");
+  //   laptop.scale.set(laptopScale, laptopScale, laptopScale);
+  //   laptop.position.set(laptopPositionX, laptopPositionY, laptopPositionZ);
+  //   laptop.rotation.set(this.deg2rad(90), this.deg2rad(180), this.deg2rad(90));
+
+  //   this.gadget = laptop;
+  //   this.draw();
+  // };
+
   private createLaptop = async () => {
-    const mtlLoader = new MTLLoader();
-    const objLoader = new OBJLoader();
+    const loader = new GLTFLoader();
+    const laptop = await loader.loadAsync("src/assets/models/laptop/closed-laptop.gltf");
 
-    const materials = await mtlLoader.loadAsync("./src/assets/models/laptop/laptop.mtl");
-    materials.preload();
-    objLoader.setMaterials(materials);
+    laptop.scene.scale.set(laptopScale, laptopScale, laptopScale);
+    laptop.scene.position.set(laptopPositionX, laptopPositionY, laptopPositionZ);
+    laptop.scene.rotation.set(this.deg2rad(90), 0, this.deg2rad(-90));
 
-    const laptop = await objLoader.loadAsync("./src/assets/models/laptop/laptop.obj");
-    laptop.scale.set(laptopScale, laptopScale, laptopScale);
-    laptop.position.set(laptopPositionX, laptopPositionY, laptopPositionZ);
-    laptop.rotation.set(this.deg2rad(90), this.deg2rad(180), this.deg2rad(90));
-
-    this.gadget = laptop;
+    this.gadget = laptop.scene;
     this.draw();
   };
 
