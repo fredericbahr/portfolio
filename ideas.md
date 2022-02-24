@@ -79,6 +79,11 @@
 - [Tutorial](https://tympanus.net/codrops/2021/10/04/creating-3d-characters-in-three-js/)
 - [Insp](https://codepen.io/eroxburgh/pen/gOayPKV) - make it as dev (computer, mouse, etc)
 
+### Speechbuble
+- [CodePen](https://codepen.io/kirstenallen/pen/MWwPYYm)
+- [CodePen2](https://codepen.io/rikschennink/pen/mjywQb)
+- [CodePen3](https://codepen.io/Kosai106/pen/eZvJwY)
+
 ## Projects
 
 ### Idea
