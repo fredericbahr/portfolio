@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
 import { breakpoints } from "../../styles/globalStyles";
-import { introductionDelay, typewriterDeleteDelay, typewriterInitialDelay } from "../../utils/constants";
+import { introductionDelay, timeout, typewriterDeleteDelay, typewriterInitialDelay } from "../../utils/constants";
 import { Character } from "../Character/Character";
 import { CTAButton } from "../util-components/CTAButton";
 import { StyledLink } from "../util-components/StyledLink";
@@ -79,7 +79,7 @@ export const Introduction = () => {
   }, []);
 
   return (
-    <Grow in={isMounted} timeout={400}>
+    <Grow in={isMounted} timeout={timeout}>
       <Grid>
         <TextWrapper>
           <StyledBeforeTypwriter variant="h6" component={"p"}>
