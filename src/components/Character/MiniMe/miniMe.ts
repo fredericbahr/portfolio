@@ -2,8 +2,8 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
-import { mergeMeshes } from "./characterUtils";
-import { IArmMeshes } from "./interface";
+import { mergeMeshes } from "../characterUtils";
+import { IArmMeshes } from "../interface";
 import {
   anklePositonY,
   ankleSizeX,
@@ -65,7 +65,7 @@ import {
   upperArmSizeX,
   upperArmSizeY,
   upperArmSizeZ,
-} from "./units";
+} from "../units";
 
 /**
  * Class for creating the replication of myself
@@ -903,26 +903,8 @@ export class MiniMe {
   };
 
   private transform = () => {
-    this.character.translateY(-50);
-    this.character.scale.set(1.05, 1.05, 1.05);
+    this.character.translateY(-75);
   };
-
-  // private createLaptop = async () => {
-  //   const mtlLoader = new MTLLoader();
-  //   const objLoader = new OBJLoader();
-
-  //   const materials = await mtlLoader.loadAsync("./src/assets/models/laptop/laptop.mtl");
-  //   materials.preload();
-  //   objLoader.setMaterials(materials);
-
-  //   const laptop = await objLoader.loadAsync("./src/assets/models/laptop/laptop.obj");
-  //   laptop.scale.set(laptopScale, laptopScale, laptopScale);
-  //   laptop.position.set(laptopPositionX, laptopPositionY, laptopPositionZ);
-  //   laptop.rotation.set(this.deg2rad(90), this.deg2rad(180), this.deg2rad(90));
-
-  //   this.gadget = laptop;
-  //   this.draw();
-  // };
 
   private createLaptop = async () => {
     const loader = new GLTFLoader();
@@ -939,7 +921,6 @@ export class MiniMe {
   private createKeyboard = async () => {
     const mtlLoader = new MTLLoader();
     const objLoader = new OBJLoader();
-    console.log(mtlLoader.path);
 
     const materials = await mtlLoader.loadAsync("./src/assets/models/keyboard/keyboard.mtl");
     materials.preload();
@@ -965,7 +946,6 @@ export class MiniMe {
     this.createLegs();
     this.createFeet();
     this.transform();
-    console.log("drawing");
   };
 
   public setGadget = async (idx: number) => {
@@ -975,11 +955,5 @@ export class MiniMe {
     if (gadget) {
       gadget();
     }
-  };
-
-  public animate = () => {
-    //console.log(this.character);
-    console.log("character");
-    //stopAnimation();
   };
 }
