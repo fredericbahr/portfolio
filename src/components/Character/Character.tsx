@@ -1,6 +1,6 @@
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import LaptopIcon from "@mui/icons-material/Laptop";
-import { IconButton, lighten, Stack, Tooltip, useMediaQuery } from "@mui/material";
+import { Fade, IconButton, lighten, Stack, Tooltip, useMediaQuery } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
@@ -8,9 +8,11 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { EmptyIcon } from "../../assets/Icons/EmptyIcon";
 import { breakpoints } from "../../styles/globalStyles";
+import { timeout } from "../../utils/constants";
 import { GadgetSelector } from "./GadgetSelector/GadgetSelector";
 import { HorizontalLine } from "./GadgetSelector/HorizontalLine";
-import { MiniMe } from "./miniMe";
+import miniMeSingleton from "./MiniMe/miniMeSingleton";
+import { TextBubble } from "./TextBubble/TextBubble";
 
 interface IGadget {
   id: number;
@@ -32,8 +34,6 @@ const StyledDiv = styled.div`
 
 const GadgetWrapper = styled.div`
   position: absolute;
-  width: 100%;
-  height: 100%;
   top: 38%;
   left: 15%;
 `;
@@ -78,12 +78,19 @@ const StyledTooltip = styled(Tooltip)`
   padding: 0;
 `;
 
+const BubbleWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 5%;
+`;
+
 export const Character = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [gadgetIconIndex, setGadgetIconIndex] = useState(0);
-  const shouldAnimate = useRef(true);
+  const [gadgetIconIndex, setGadgetIconIndex] = useState<number>(0);
+  const [bubbleText, setBubbleText] = useState<string | null>("miniMe.hiBubbleText");
+  const bubbleTimeout = 6000;
   const mediaQuery = useMediaQuery(`(min-width: ${breakpoints.md})`);
-  const character = new MiniMe();
+  const character = miniMeSingleton.getMiniMe();
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -103,7 +110,7 @@ export const Character = () => {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.update();
 
-    ref?.current?.replaceChildren(renderer.domElement);
+    ref.current?.replaceChildren(renderer.domElement);
 
     const init = () => {
       window.addEventListener("load", () => {});
@@ -134,12 +141,6 @@ export const Character = () => {
     }
     const animate = function () {
       requestAnimationFrame(animate);
-
-      if (shouldAnimate.current) {
-        character.animate();
-        shouldAnimate.current = false;
-      }
-
       resizeCanvasToDisplaySize();
       controls.update();
       renderer.render(scene, camera);
@@ -149,11 +150,19 @@ export const Character = () => {
     createLight();
     createCharacter();
     animate();
-  }, [ref, character]);
+  });
 
   useEffect(() => {
     character.setGadget(gadgetIconIndex);
   }, [gadgetIconIndex]);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setBubbleText(null);
+    }, bubbleTimeout);
+
+    return () => clearTimeout(timeoutId);
+  }, [bubbleText]);
 
   const gadgets: IGadget[] = [
     {
@@ -176,9 +185,16 @@ export const Character = () => {
   const renderGadgets = () => {
     return gadgets
       .filter((gadget: IGadget) => gadget.id !== gadgetIconIndex)
-      .map((gadget: IGadget) => (
-        <StyledTooltip title={t(`miniMe.${gadget.name}` as any)}>
-          <StyledIconButton onClick={() => setGadgetIconIndex(gadget.id)}>{gadget.icon}</StyledIconButton>
+      .map((gadget: IGadget, idx: number) => (
+        <StyledTooltip key={idx} title={t(`miniMe.${gadget.name}` as any)}>
+          <StyledIconButton
+            onClick={() => {
+              setGadgetIconIndex(gadget.id);
+              setBubbleText(gadget.name === "empty" ? null : `miniMe.${gadget.name}BubbleText`);
+            }}
+          >
+            {gadget.icon}
+          </StyledIconButton>
         </StyledTooltip>
       ));
   };
@@ -192,6 +208,11 @@ export const Character = () => {
           <StyledHorizontalLine />
         </Stack>
       </GadgetWrapper>
+      <Fade in={Boolean(bubbleText)} timeout={timeout}>
+        <BubbleWrapper>
+          <TextBubble show={Boolean(bubbleText)} text={t(bubbleText as any)} />
+        </BubbleWrapper>
+      </Fade>
     </Wrapper>
   ) : null;
 };

@@ -31,7 +31,10 @@
     "gadget": "Select a gadget",
     "empty": "Nothing",
     "laptop": "Laptop",
-    "keyboard": "Keyboard"
+    "keyboard": "Keyboard",
+    "hiBubbleText": "Hello there! Come play with me",
+    "laptopBubbleText": "Look, my new laptop!",
+    "keyboardBubbleText": "Look, my new keyboard!"
   },
   "chatbot": {
     "tooltip": "Open the chatbot",
