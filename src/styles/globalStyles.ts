@@ -32,6 +32,7 @@ body {
   overflow-x: hidden;
   color: ${(props) => props.theme.colors.whitefontcolor};
   counter-reset: section 0;
+  background-color: ${props => props.theme.colors.mainblack};
 }
 
 code {
