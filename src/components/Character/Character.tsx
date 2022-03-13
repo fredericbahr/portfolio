@@ -94,7 +94,9 @@ export const Character = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
+    console.log("im running useeffect")
     const scene = new THREE.Scene();
+    scene.clear();
 
     const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 4000);
 

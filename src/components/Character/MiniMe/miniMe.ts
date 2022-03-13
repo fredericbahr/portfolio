@@ -123,6 +123,7 @@ export class MiniMe {
     this.buttonMat = new THREE.MeshLambertMaterial({ color: "#808080", side: THREE.DoubleSide });
 
     this.gadget = null;
+
     this.draw();
   }
 
@@ -918,6 +919,10 @@ export class MiniMe {
     this.draw();
   };
 
+  /**
+   * Creates the keyboard
+   * Loads the model and transforms it to correct position/size
+   */
   private createKeyboard = async () => {
     const mtlLoader = new MTLLoader();
     const objLoader = new OBJLoader();
@@ -932,13 +937,25 @@ export class MiniMe {
     keyboard.rotation.set(this.deg2rad(90), 0, this.deg2rad(-90));
 
     this.gadget = keyboard;
+
+    console.log(this.gadget);
     this.draw();
+  };
+
+  /**
+   * Resets the character
+   * Resets position and deletes children
+   */
+  private reset = () => {
+    this.character.clear();
+    this.character.position.set(0, 0, 0);
   };
 
   /**
    * draws the character
    */
   public draw = () => {
+    this.reset();
     this.createHead();
     this.createHairs();
     this.createBody();
@@ -948,12 +965,16 @@ export class MiniMe {
     this.transform();
   };
 
+  /**
+   * Set gadget of the character in the right arm
+   * @param idx the index of the gadget
+   */
   public setGadget = async (idx: number) => {
     const gadgets = [null, this.createLaptop, this.createKeyboard];
 
     const gadget = gadgets[idx];
     if (gadget) {
-      gadget();
+      await gadget();
     }
   };
 }
