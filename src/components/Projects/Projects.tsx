@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { SectionHeadline } from "../util-components/SectionHeadline";
+import { ProjectOverview } from "./ProjectOverview/ProjectOverview";
 
 const StyledSection = styled.section`
   width: 85%;
@@ -14,6 +15,7 @@ const Projects = () => {
   return (
     <StyledSection id="projects">
       <SectionHeadline>{t("sections.projects")}</SectionHeadline>
+      <ProjectOverview />
     </StyledSection>
   );
 };
