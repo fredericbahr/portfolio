@@ -39,7 +39,7 @@ const GadgetWrapper = styled.div`
 `;
 
 const StyledHorizontalLine = styled(HorizontalLine)`
-  width: 2.5rem;
+  width: 2rem;
 `;
 
 const StyledEmptyIcon = styled(EmptyIcon)`
@@ -94,7 +94,6 @@ export const Character = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    console.log("im running useeffect")
     const scene = new THREE.Scene();
     scene.clear();
 
@@ -103,9 +102,6 @@ export const Character = () => {
     camera.position.set(0, 400, -1000);
     camera.lookAt(new THREE.Vector3(0, 0, 0));
 
-    const axesHelper = new THREE.AxesHelper(2000);
-    scene.add(axesHelper);
-
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
 
@@ -113,10 +109,6 @@ export const Character = () => {
     controls.update();
 
     ref.current?.replaceChildren(renderer.domElement);
-
-    const init = () => {
-      window.addEventListener("load", () => {});
-    };
 
     const createLight = () => {
       const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.7);
@@ -148,7 +140,6 @@ export const Character = () => {
       renderer.render(scene, camera);
     };
 
-    init();
     createLight();
     createCharacter();
     animate();
@@ -184,6 +175,11 @@ export const Character = () => {
     },
   ];
 
+  /**
+   * renders the gadgets
+   * Maps the gadgets to their ui
+   * @returns
+   */
   const renderGadgets = () => {
     return gadgets
       .filter((gadget: IGadget) => gadget.id !== gadgetIconIndex)

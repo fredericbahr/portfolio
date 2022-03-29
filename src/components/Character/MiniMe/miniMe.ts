@@ -621,20 +621,6 @@ export class MiniMe {
     detailHairs.add(hair);
   };
 
-  // private createTopHairDetails = (detailHairs: THREE.Group) => {
-  //   const maxTopHairDetails = (headSize * 0.63) / topHairDetailsSizeX - 1;
-  //   const geometry = new THREE.BoxGeometry(topHairDetailsSizeX, topHairDetailsSizeY, topHairDetailsSizeZ);
-  //   const hairPositionY = headPositionY + headSize / 2 + mainHairSizeY / 2 + topHairDetailsSizeY;
-  //   const hairPositionZ = (-headSize * 0.75) / 2 + topHairDetailsSizeZ / 2;
-
-  //   for (let i = 0; i < maxTopHairDetails; i++) {
-  //     const hairPositionX = headSize / 2 - mainHairSizeX / 2 + topHairDetailsSizeX - i * topHairDetailsSizeX;
-  //     const hair = new THREE.Mesh(geometry, this.hairMat);
-  //     hair.position.set(hairPositionX, hairPositionY, hairPositionZ);
-  //     detailHairs.add(hair);
-  //   }
-  // };
-
   /**
    * Creates the detail hairs on the back
    * @param detailHairs the group containing the detail hairs of the character
@@ -903,11 +889,26 @@ export class MiniMe {
     this.character.add(feet);
   };
 
+  /**
+   * Transforms the character on the y-axis
+   */
   private transform = () => {
-    this.character.translateY(-75);
+    this.character.translateY(-150);
+    this.character.scale.set(1.1, 1.1, 1.1);
   };
 
-  private createLaptop = async () => {
+  /**
+   * Sets no gadgets
+   */
+  private setNoGadget = () => {
+    this.gadget = null;
+  };
+
+  /**
+   * Sets the laptop as gadget
+   * Loads the model and transforms it to correct position/size
+   */
+  private setLaptop = async () => {
     const loader = new GLTFLoader();
     const laptop = await loader.loadAsync("src/assets/models/laptop/closed-laptop.gltf");
 
@@ -916,14 +917,13 @@ export class MiniMe {
     laptop.scene.rotation.set(this.deg2rad(90), 0, this.deg2rad(-90));
 
     this.gadget = laptop.scene;
-    this.draw();
   };
 
   /**
-   * Creates the keyboard
+   * Sets the keyboard as gadget
    * Loads the model and transforms it to correct position/size
    */
-  private createKeyboard = async () => {
+  private setKeyboard = async () => {
     const mtlLoader = new MTLLoader();
     const objLoader = new OBJLoader();
 
@@ -937,9 +937,6 @@ export class MiniMe {
     keyboard.rotation.set(this.deg2rad(90), 0, this.deg2rad(-90));
 
     this.gadget = keyboard;
-
-    console.log(this.gadget);
-    this.draw();
   };
 
   /**
@@ -970,11 +967,12 @@ export class MiniMe {
    * @param idx the index of the gadget
    */
   public setGadget = async (idx: number) => {
-    const gadgets = [null, this.createLaptop, this.createKeyboard];
+    const gadgets = [this.setNoGadget, this.setLaptop, this.setKeyboard];
 
     const gadget = gadgets[idx];
     if (gadget) {
       await gadget();
     }
+    this.draw();
   };
 }
