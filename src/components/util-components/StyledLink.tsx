@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { transition } from "../../utils/constants";
 
 interface IProps {
-  url: string;
+  url?: string;
 }
 
 const Link = styled.a`
