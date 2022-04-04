@@ -8,7 +8,6 @@ interface IProps {
 
 const Wrapper = styled.div`
   display: flex;
-  margin-top: 2rem;
   flex-wrap: wrap;
 `;
 
