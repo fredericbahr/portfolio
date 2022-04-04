@@ -89,8 +89,9 @@
 ### Idea
 
 - Two/Three detailed projects with visual thumbnails
-- Grid with other projects (if all)
+- Grid with other projects (if all) -> [idea](https://www.kemiadeleke.com/#portfolio)
 - [Archive](https://brittanychiang.com/archive)
+
 
 ### Projects
 
