@@ -17,6 +17,7 @@ const StyledCard = styled(Card)`
   right: 2vmax;
   width: 25vw;
   height: 75vh;
+  z-index: 3;
 
   @media screen and (max-width: ${breakpoints.md}) {
     width: 100%;
