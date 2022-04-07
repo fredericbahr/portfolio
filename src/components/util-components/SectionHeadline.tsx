@@ -9,6 +9,7 @@ const StyledHeadline = styled.h2`
   font-size: 2rem;
   margin-bottom: 5vh;
   width: 100%;
+  text-transform: uppercase;
 
   &:before {
     counter-increment: section;

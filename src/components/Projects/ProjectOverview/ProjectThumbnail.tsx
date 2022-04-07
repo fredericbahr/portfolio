@@ -6,13 +6,14 @@ import { transition } from "../../../utils/constants";
 interface IProps {
   imgUrl: string;
   altText?: string;
+  leftSideThumbnail: boolean;
   onClick: () => void;
 }
 
-const StyledFigure = styled.figure`
+const StyledFigure = styled.figure<{ leftSideThumbnail: boolean }>`
   background-color: ${(props) => lighten(props.theme.colors.mainred, 0.25)};
   overflow: hidden;
-  grid-column: 1/7;
+  grid-column: ${(props) => (props.leftSideThumbnail ? "1/7" : "7/-1")};
   grid-row: 1/2;
   cursor: pointer;
 `;
@@ -31,9 +32,9 @@ const StyledImage = styled.img`
   }
 `;
 
-export const ProjectThumbnail = ({ imgUrl, altText, onClick }: IProps) => {
+export const ProjectThumbnail = ({ imgUrl, altText, leftSideThumbnail, onClick }: IProps) => {
   return (
-    <StyledFigure onClick={onClick}>
+    <StyledFigure onClick={onClick} leftSideThumbnail={leftSideThumbnail}>
       <StyledImage src={imgUrl} alt={altText} />
     </StyledFigure>
   );

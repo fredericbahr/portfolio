@@ -4,20 +4,19 @@ import { Technologies } from "../../util-components/Technologies";
 
 interface IProps {
   technologies: string[];
+  leftSideThumbnail: boolean;
 }
 
-const Wrapper = styled.div`
-  grid-column: 2/-1;
+const Wrapper = styled.div<{ leftSideThumbnail: boolean }>`
+  grid-column: ${(props) => (props.leftSideThumbnail ? "2/-1" : "1/-1")};
   display: flex;
-  justify-content: end;
-  align-items: flex-end;
+  justify-content: ${(props) => (props.leftSideThumbnail ? "flex-end" : "flex-start")};
+  align-items: center;
 `;
 
-
-
-export const ProjectTechnologies = ({ technologies }: IProps) => {
+export const ProjectTechnologies = ({ technologies, leftSideThumbnail }: IProps) => {
   return (
-    <Wrapper>
+    <Wrapper leftSideThumbnail={leftSideThumbnail}>
       <Technologies technologies={technologies} />
     </Wrapper>
   );
