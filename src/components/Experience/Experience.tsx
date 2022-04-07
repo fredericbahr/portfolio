@@ -66,7 +66,7 @@ const Experience = () => {
 
   return (
     <StyledSection id="experience">
-      <SectionHeadline>{t("experience.headline")}</SectionHeadline>
+      <SectionHeadline>{t("sections.experience")}</SectionHeadline>
       <TabWrapper>
         {experiences.map((experience: IExperience) => (
           <StyledTabPanel key={experience.index} value={value} index={experience.index}>
