@@ -3,13 +3,13 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Typewriter from "typewriter-effect";
 import { breakpoints } from "../../styles/globalStyles";
-import { introductionDelay, timeout, typewriterDeleteDelay, typewriterInitialDelay } from "../../utils/constants";
+import { introductionDelay, timeout } from "../../utils/constants";
 import { Character } from "../Character/Character";
 import { CTAButton } from "../util-components/CTAButton";
 import { StyledLink } from "../util-components/StyledLink";
 import "./Introduction.css";
+import { TypeWriterEffect } from "./TypeWriterEffect";
 
 type TypographyProps = {
   component: React.ElementType;
@@ -74,7 +74,6 @@ export const Introduction = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), introductionDelay);
-    //const timeout = setTimeout(() => setIsMounted(true), 0);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -85,23 +84,7 @@ export const Introduction = () => {
           <StyledBeforeTypwriter variant="h6" component={"p"}>
             {t("introduction.hi")}{" "}
           </StyledBeforeTypwriter>
-          <Typewriter
-            onInit={(typewriter) => {
-              typewriter
-                .pauseFor(typewriterInitialDelay)
-                .typeString(t("introduction.name"))
-                .pauseFor(typewriterDeleteDelay)
-                .deleteAll()
-                .typeString(t("introduction.student"))
-                .pauseFor(typewriterDeleteDelay)
-                .deleteAll()
-                .typeString(t("introduction.jobdescription"))
-                .pauseFor(typewriterDeleteDelay)
-                .deleteAll()
-                .typeString(t("introduction.name"))
-                .start();
-            }}
-          />
+          <TypeWriterEffect isMounted={isMounted} />
           <StyledSubtitle>{t("introduction.subtitle")}</StyledSubtitle>
           <StyledText>
             {t("introduction.info.firstText")}{" "}
