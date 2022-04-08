@@ -96,18 +96,18 @@
   "projects": {
     "dsl": {
       "headline": "Domänenspezifische Sprache",
-      "description": "",
-      "technologies": ["Compiler", "JavaScript", ""]
+      "description": "Eine domänenspezifische Sprache für die unkomplizierte und ausdrucksstarke Erstellung eines Showcases für UI-Komponenten.",
+      "technologies": ["Compiler", "JavaScript", "VSC Extension", "Intellij Plugin", "Betriebsgeheimnis"]
     },
     "dag": {
       "headline": "Gerichteter azyklischer Graph Visualisierung",
-      "description": "",
-      "technologies": ["TypeScript", "Algorithmen", "Visualisierung"]
+      "description": "Eine Implementierung des Sugiyama-Algorithmus unter Verwendung der Barycenter-Heuristik. Die App visualisiert einen gerichteten azyklischen Graphen mit Hilfe von D3.",
+      "technologies": ["TypeScript", "D3.js", "Algorithmen", "Visualisierung", "Universität"]
     },
     "weatherData": {
       "headline": "XML Wetterdaten Visualisierung",
       "description": "",
-      "technologies": ["XML", "XML Schema Definition", "DTD", "XSL Transformation"]
+      "technologies": ["XML", "XML Schema Definition", "DTD", "XSL Transformation", "D3.js", "Universität"]
     }
   }
 }

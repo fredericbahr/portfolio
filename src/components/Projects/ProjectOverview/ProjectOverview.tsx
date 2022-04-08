@@ -85,7 +85,7 @@ export const ProjectOverview = ({ projectOverview, leftSideThumbnail = true }: I
             {t(projectOverview.headline as any)}
           </StyledHeading>
         </ProjectHeadline>
-        <ProjectDescription leftSideThumbnail={leftSideThumbnail} description={projectOverview.description} />
+        <ProjectDescription leftSideThumbnail={leftSideThumbnail} description={t(projectOverview.description as any)} />
         <ProjectTechnologies leftSideThumbnail={leftSideThumbnail} technologies={projectOverview.technologies ?? []} />
       </ProjectContentWrapper>
     </Wrapper>
