@@ -1,6 +1,8 @@
+import { useMediaQuery } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import { breakpoints } from "../../../styles/globalStyles";
 import { ProjectDescription } from "./ProjectDescription";
 import { ProjectTechnologies } from "./ProjectTechnologies";
 import { ProjectThumbnail } from "./ProjectThumbnail";
@@ -27,6 +29,11 @@ const Wrapper = styled.div`
   &:first-of-type {
     margin-top: 1rem;
   }
+
+  @media screen and (max-width: ${breakpoints.md}) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const ProjectContentWrapper = styled.div<{ leftSideThumbnail: boolean }>`
@@ -38,7 +45,7 @@ const ProjectContentWrapper = styled.div<{ leftSideThumbnail: boolean }>`
 `;
 
 const ProjectHeadline = styled.div<{ leftSideThumbnail: boolean }>`
-  grid-column: ${(props) => (props.leftSideThumbnail ? "2/-1" : "1/-1")};
+  grid-column: ${(props) => (props.leftSideThumbnail ? "2/-1" : "1/7")};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,9 +53,14 @@ const ProjectHeadline = styled.div<{ leftSideThumbnail: boolean }>`
   color: ${(props) => props.theme.colors.mainwhite};
 `;
 
-const StyledHeading = styled.h3`
+const StyledHeading = styled.h3<{ leftSideThumbnail: boolean }>`
   cursor: pointer;
   font-size: 1.75rem;
+  text-align: ${(props) => (props.leftSideThumbnail ? "right" : "left")};
+
+  @media screen and (max-width: ${breakpoints.md}) {
+    margin: 0.25rem 0 2rem 0;
+  }
 `;
 
 const StyledSubHeadline = styled.h4`
@@ -57,8 +69,9 @@ const StyledSubHeadline = styled.h4`
 `;
 
 export const ProjectOverview = ({ projectOverview, leftSideThumbnail = true }: IProps) => {
-  const {t} = useTranslation()
-  return (
+  const { t } = useTranslation();
+  const mediaQuery = useMediaQuery(`(max-width: ${breakpoints.md})`);
+  return !mediaQuery ? (
     <Wrapper>
       <ProjectThumbnail
         leftSideThumbnail={leftSideThumbnail}
@@ -68,11 +81,23 @@ export const ProjectOverview = ({ projectOverview, leftSideThumbnail = true }: I
       <ProjectContentWrapper leftSideThumbnail={leftSideThumbnail}>
         <ProjectHeadline leftSideThumbnail={leftSideThumbnail}>
           <StyledSubHeadline>{projectOverview.subheadline}</StyledSubHeadline>
-          <StyledHeading onClick={() => alert("Hi")}>{t(projectOverview.headline as any)}</StyledHeading>
+          <StyledHeading leftSideThumbnail={leftSideThumbnail} onClick={() => alert("Hi")}>
+            {t(projectOverview.headline as any)}
+          </StyledHeading>
         </ProjectHeadline>
         <ProjectDescription leftSideThumbnail={leftSideThumbnail} description={projectOverview.description} />
         <ProjectTechnologies leftSideThumbnail={leftSideThumbnail} technologies={projectOverview.technologies ?? []} />
       </ProjectContentWrapper>
+    </Wrapper>
+  ) : (
+    <Wrapper>
+      <StyledSubHeadline>{projectOverview.subheadline}</StyledSubHeadline>
+      <StyledHeading leftSideThumbnail={false} onClick={() => alert("Hi")}>
+        {t(projectOverview.headline as any)}
+      </StyledHeading>
+      <ProjectThumbnail leftSideThumbnail={false} onClick={() => alert("Hi")} imgUrl={projectOverview.imgUrl} />
+      <ProjectDescription leftSideThumbnail={false} description={projectOverview.description} />
+      <ProjectTechnologies leftSideThumbnail={false} technologies={projectOverview.technologies ?? []} />
     </Wrapper>
   );
 };

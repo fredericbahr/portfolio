@@ -5,11 +5,13 @@ import styled from "styled-components";
 
 interface IProps {
   technologies: string[];
+  justifyContent?: "flex-start" | "flex-end" | "center";
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<Pick<IProps, "justifyContent">>`
   display: flex;
   flex-wrap: wrap;
+  justify-content: ${props => props.justifyContent};
 `;
 
 const Item = styled(Paper)`
@@ -18,12 +20,20 @@ const Item = styled(Paper)`
   margin: 0.5rem;
   background-color: ${(props) => lighten(props.theme.colors.mainblack, 0.15)};
   color: ${(props) => darken(props.theme.colors.mainwhite, 0.15)};
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 `;
 
-export const Technologies = ({ technologies = [] }: IProps) => {
+export const Technologies = ({ technologies = [], justifyContent = "flex-start" }: IProps) => {
   const { t } = useTranslation();
   return (
-    <Wrapper>
+    <Wrapper justifyContent={justifyContent}>
       {technologies.map((technology: string, idx: number) => (
         <Item key={idx}>{t(technology as any)}</Item>
       ))}

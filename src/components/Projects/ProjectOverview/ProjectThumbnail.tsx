@@ -1,6 +1,7 @@
 import { lighten } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
+import { breakpoints } from "../../../styles/globalStyles";
 import { transition } from "../../../utils/constants";
 
 interface IProps {
@@ -17,19 +18,23 @@ const StyledFigure = styled.figure<{ leftSideThumbnail: boolean }>`
   grid-row: 1/2;
   cursor: pointer;
   transition: ${transition};
+  display: flex;
 `;
 
 const StyledImage = styled.img`
   opacity: 0.7;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   -webkit-transition: ${transition};
   transition: ${transition};
 
   &:hover {
     opacity: 1;
     transform: scale(1.05);
+  }
+
+  @media screen and (max-width: ${breakpoints.md}) {
+    opacity: 1;
   }
 `;
 
