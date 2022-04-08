@@ -8,14 +8,15 @@ interface IProps {
   leftSideThumbnail: boolean;
 }
 
-const Wrapper = styled.div<{ leftSideThumbnail: boolean }>`
+const Wrapper = styled.p<{ leftSideThumbnail: boolean }>`
   background-color: ${(props) => lighten(props.theme.colors.mainblack, 0.1)};
-  padding: 0 1.25rem;
+  padding: 0.75rem 1.25rem;
   grid-column: 1/-1;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  white-space: pre-line;
 
   @media screen and (max-width: ${breakpoints.md}) {
     margin: 2rem 0 1rem 0;
