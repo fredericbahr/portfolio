@@ -1,5 +1,6 @@
 import { darken, lighten, Paper } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 interface IProps {
@@ -20,10 +21,11 @@ const Item = styled(Paper)`
 `;
 
 export const Technologies = ({ technologies = [] }: IProps) => {
+  const { t } = useTranslation();
   return (
     <Wrapper>
       {technologies.map((technology: string, idx: number) => (
-        <Item key={idx}>{technology}</Item>
+        <Item key={idx}>{t(technology as any)}</Item>
       ))}
     </Wrapper>
   );

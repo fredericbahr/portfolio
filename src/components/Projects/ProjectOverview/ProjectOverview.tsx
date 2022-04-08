@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { ProjectDescription } from "./ProjectDescription";
 import { ProjectTechnologies } from "./ProjectTechnologies";
@@ -56,6 +57,7 @@ const StyledSubHeadline = styled.h4`
 `;
 
 export const ProjectOverview = ({ projectOverview, leftSideThumbnail = true }: IProps) => {
+  const {t} = useTranslation()
   return (
     <Wrapper>
       <ProjectThumbnail
@@ -66,7 +68,7 @@ export const ProjectOverview = ({ projectOverview, leftSideThumbnail = true }: I
       <ProjectContentWrapper leftSideThumbnail={leftSideThumbnail}>
         <ProjectHeadline leftSideThumbnail={leftSideThumbnail}>
           <StyledSubHeadline>{projectOverview.subheadline}</StyledSubHeadline>
-          <StyledHeading onClick={() => alert("Hi")}>{projectOverview.headline}</StyledHeading>
+          <StyledHeading onClick={() => alert("Hi")}>{t(projectOverview.headline as any)}</StyledHeading>
         </ProjectHeadline>
         <ProjectDescription leftSideThumbnail={leftSideThumbnail} description={projectOverview.description} />
         <ProjectTechnologies leftSideThumbnail={leftSideThumbnail} technologies={projectOverview.technologies ?? []} />

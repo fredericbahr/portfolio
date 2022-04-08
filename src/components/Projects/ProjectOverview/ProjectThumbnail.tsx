@@ -11,11 +11,12 @@ interface IProps {
 }
 
 const StyledFigure = styled.figure<{ leftSideThumbnail: boolean }>`
-  background-color: ${(props) => lighten(props.theme.colors.mainred, 0.25)};
+  background-color: ${(props) => lighten(props.theme.colors.mainred, 0.22)};
   overflow: hidden;
   grid-column: ${(props) => (props.leftSideThumbnail ? "1/7" : "7/-1")};
   grid-row: 1/2;
   cursor: pointer;
+  transition: ${transition};
 `;
 
 const StyledImage = styled.img`

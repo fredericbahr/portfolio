@@ -92,5 +92,22 @@
       "statement2": "Entwicklung interner Automatisierungsskripte für die Continuous Delivery-Pipeline",
       "statement3": "Entwicklung von Unit-Tests für alle Module des Compilers"
     }
+  },
+  "projects": {
+    "dsl": {
+      "headline": "Domänenspezifische Sprache",
+      "description": "",
+      "technologies": ["Compiler", "JavaScript", ""]
+    },
+    "dag": {
+      "headline": "Gerichteter azyklischer Graph Visualisierung",
+      "description": "",
+      "technologies": ["TypeScript", "Algorithmen", "Visualisierung"]
+    },
+    "weatherData": {
+      "headline": "XML Wetterdaten Visualisierung",
+      "description": "",
+      "technologies": ["XML", "XML Schema Definition", "DTD", "XSL Transformation"]
+    }
   }
 }
