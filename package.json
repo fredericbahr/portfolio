@@ -1,12 +1,12 @@
 {
   "name": "personal-website",
-  "homepage": "https://fredericbahr.github.io/portfolio",
+  "homepage": "https://fredericbahr.github.io/portfolio/",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "init": "npm ci",
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "tsc --noEmit && vite build --base=/portfolio/",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
