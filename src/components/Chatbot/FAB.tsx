@@ -11,6 +11,8 @@ const StyledFab = styled(Fab)`
   bottom: 1vmax;
   right: 2vmax;
 
+  z-index: 10;
+
   &:hover {
     background-color: ${(props) => darken(props.theme.colors.mainblack, 1)};
   }
