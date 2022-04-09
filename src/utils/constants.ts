@@ -31,7 +31,7 @@ export const introductionDelay = 1000;
 /**
  * The delay for the typewriter to initially start
  */
-export const typewriterInitialDelay = introductionDelay + 500;
+export const typewriterInitialDelay = introductionDelay + 100;
 
 /**
  * The delay for the typewriter before deleting chars
