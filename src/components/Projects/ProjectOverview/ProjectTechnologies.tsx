@@ -11,7 +11,7 @@ const Wrapper = styled.div<{ leftSideThumbnail: boolean }>`
   grid-column: ${(props) => (props.leftSideThumbnail ? "2/-1" : "1/7")};
   display: flex;
   justify-content: ${(props) => (props.leftSideThumbnail ? "flex-end" : "flex-start")};
-  align-items: center;
+  align-items: flex-end;
 `;
 
 export const ProjectTechnologies = ({ technologies, leftSideThumbnail }: IProps) => {

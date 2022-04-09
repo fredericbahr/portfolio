@@ -48,7 +48,7 @@ const ProjectHeadline = styled.div<{ leftSideThumbnail: boolean }>`
   grid-column: ${(props) => (props.leftSideThumbnail ? "2/-1" : "1/7")};
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: ${(props) => (props.leftSideThumbnail ? "flex-end" : "flex-start")};
   color: ${(props) => props.theme.colors.mainwhite};
 `;

@@ -11,6 +11,7 @@ interface IProps {
 const Wrapper = styled.p<{ leftSideThumbnail: boolean }>`
   background-color: ${(props) => lighten(props.theme.colors.mainblack, 0.1)};
   padding: 0.75rem 1.25rem;
+  margin: 1rem 0;
   grid-column: 1/-1;
   z-index: 1;
   display: flex;
