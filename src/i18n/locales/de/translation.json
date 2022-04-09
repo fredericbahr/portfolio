@@ -106,7 +106,7 @@
     },
     "weatherData": {
       "headline": "XML Wetterdaten Visualisierung",
-      "description": "",
+      "description": "Definition eines XML Schematas basierend auf Wetterdaten des U.S. Climate Reference Networks. Die XML-Struktur wird mithilfe von XSL Transformation und D3.js visualisiert.",
       "technologies": ["XML", "XML Schema Definition", "DTD", "XSL Transformation", "D3.js", "Universität"]
     }
   }
