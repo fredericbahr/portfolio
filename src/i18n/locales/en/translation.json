@@ -87,19 +87,19 @@
       "statement3": "Implementing a prototype for the automated creation of an overview of business locations from file directories"
     },
     "work-ipoque-intern": {
-      "statement1": "Creation of generic Angular components to display UI-components in a showcase",
-      "statement2": "Implementing the components with variable configuration patterns for user-defined control of the resulting visualization",
+      "statement1": "Creation of generic Angular component(s) to present UI-components via a showcase",
+      "statement2": "Asynchronous implementation of business/render logic using RxJS",
       "statement3": "Automated rendering of various form elements based on a custom configuration"
     },
     "work-ipoque-bachelor": {
       "statement1": "Conception, design and implementation of a domain-specific language for the creation of component source code",
       "statement2": "Designing and implementing a compiler for a custom programming language",
-      "statement3": "Generation of generic Angular source code and own solution approaches using design patterns (modularization, dependency injection, etc.)"
+      "statement3": "Generation of generic Angular source code based on domain-specific solution approaches using different design patterns (dependency injection, inversion of control, etc.)"
     },
     "work-ipoque-working-student": {
-      "statement1": "Further development of the DSL and the associated compiler with implementation of plugins for various IDEs",
-      "statement2": "Development of internal automation scripts for the continuous delivery pipeline",
-      "statement3": "Development of unit tests for all modules of the compiler"
+      "statement1": "Further development of a domain specific language and the associated compiler with implementation of plugins for various IDEs",
+      "statement2": "Development of DevOps oriented automation scripts for continuous delivery pipelines",
+      "statement3": "Implementing various tests (unit test, integration tests, end-2-end) for the quality accurance"
     }
   },
   "projects": {

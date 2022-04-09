@@ -79,18 +79,18 @@
     },
     "work-ipoque-intern": {
       "statement1": "Erstellung generischer Angularkomponenten zur Darstellung von UI-Komponenten in einem Showcase",
-      "statement2": "Implementieren der Komponenten mit variablen Konfigurationsmustern zur benutzerdefinierten Steuerung der Visualisierung",
+      "statement2": "Asynchrone Implementierung der Business-/Renderlogik durch Benutzung von RxJS",
       "statement3": "Automatisiertes Rendern verschiedener Formularelemente aufgrundlage einer benutzerdefinierten Konfiguration"
     },
     "work-ipoque-bachelor": {
       "statement1": "Konzeption, Entwurf und Implementierung einer domänenspezifischen Sprache für die Erstellung von Komponentenquellcode",
       "statement2": "Entwerfen und Implementieren eines Compilers für eine eigene Programmiersprache",
-      "statement3": "Generierung von generischem Angular-Quellcode und eigene Lösungsansätze mithilfe von Design Patterns (Modularisierung, Dependency Injection, etc.)"
+      "statement3": "Generierung von generischem Angular-Quellcode auf Basis von domänen-spezifischen Lösungsansätze mithilfe von Design Patterns (Dependency Injection, Inversion of control, etc.)"
     },
     "work-ipoque-working-student": {
       "statement1": "Weiterentwicklung der DSL und des dazugehörigen Compilers mit Implementierung von Plugins für diverse IDE´s",
-      "statement2": "Entwicklung interner Automatisierungsskripte für die Continuous Delivery-Pipeline",
-      "statement3": "Entwicklung von Unit-Tests für alle Module des Compilers"
+      "statement2": "Entwicklung von DevOps-orientierten Automatisierungsskripten für Continuous Delivery-Pipelines",
+      "statement3": "Schreiben verschiedener Tests (Unit-Tests, Integrationtests, End-2-End) zur Qualitätssicherung"
     }
   },
   "projects": {
