@@ -96,7 +96,7 @@ export const ProjectOverview = ({ projectOverview, leftSideThumbnail = true }: I
         {t(projectOverview.headline as any)}
       </StyledHeading>
       <ProjectThumbnail leftSideThumbnail={false} onClick={() => alert("Hi")} imgUrl={projectOverview.imgUrl} />
-      <ProjectDescription leftSideThumbnail={false} description={projectOverview.description} />
+      <ProjectDescription leftSideThumbnail={false} description={t(projectOverview.description as any)} />
       <ProjectTechnologies leftSideThumbnail={false} technologies={projectOverview.technologies ?? []} />
     </Wrapper>
   );
