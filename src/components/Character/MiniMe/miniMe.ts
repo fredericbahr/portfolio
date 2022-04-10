@@ -893,7 +893,7 @@ export class MiniMe {
    * Transforms the character on the y-axis
    */
   private transform = () => {
-    this.character.translateY(-150);
+    this.character.translateY(-250);
     this.character.scale.set(1.1, 1.1, 1.1);
   };
 

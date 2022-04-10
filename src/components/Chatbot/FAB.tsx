@@ -4,6 +4,7 @@ import { darken, lighten } from "@mui/system";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import { breakpoints } from "../../styles/globalStyles";
 
 const StyledFab = styled(Fab)`
   background-color: ${(props) => lighten(props.theme.colors.mainblack, 0.05)};
@@ -15,6 +16,10 @@ const StyledFab = styled(Fab)`
 
   &:hover {
     background-color: ${(props) => darken(props.theme.colors.mainblack, 1)};
+  }
+
+  @media screen and (max-width: ${breakpoints.md}) {
+    bottom: 5vh;
   }
 `;
 

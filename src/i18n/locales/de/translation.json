@@ -56,7 +56,7 @@
       "actionText": "Ich will mit dir persönlich reden.",
       "firstMessage": "Ich mag deinen Chatbot sehr, aber ich würde gerne mit dir direkt reden.",
       "secondMessage": "Schade, aber ich respektiere deine Entscheidung.",
-      "thirdMessage": "Schicke meinem Meister eine Nachricht, er wird so schnell wie möglich antworten!"
+      "thirdMessage": "Schicke meinem Schöpfer eine Nachricht, er wird so schnell wie möglich antworten!"
     },
     "formElementsLabel": {
       "name": "Name",
@@ -67,7 +67,7 @@
   },
   "experience": {
     "jobTitles": {
-      "working-student": "Werksstudent",
+      "working-student": "Werkstudent",
       "intern": "Praktikum",
       "bachelor-thesis": "Bachelor Thesis "
     },
