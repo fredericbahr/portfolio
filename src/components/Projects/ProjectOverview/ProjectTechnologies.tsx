@@ -17,7 +17,11 @@ const Wrapper = styled.div<{ leftSideThumbnail: boolean }>`
 export const ProjectTechnologies = ({ technologies, leftSideThumbnail }: IProps) => {
   return (
     <Wrapper leftSideThumbnail={leftSideThumbnail}>
-      <Technologies justifyContent={leftSideThumbnail ? "flex-end" : "flex-start"} technologies={technologies} />
+      <Technologies
+        margin={leftSideThumbnail ? "0.5rem 0 0.5rem 1rem" : "0.5rem 1rem 0.5rem 0"}
+        justifyContent={leftSideThumbnail ? "flex-end" : "flex-start"}
+        technologies={technologies}
+      />
     </Wrapper>
   );
 };
