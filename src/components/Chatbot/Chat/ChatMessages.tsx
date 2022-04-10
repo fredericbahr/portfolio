@@ -20,7 +20,7 @@ const StyledCardActions = styled(CardActions)`
 `;
 
 const StyledDiv = styled.div`
-  overflow-y: scroll;
+  overflow-y: auto;
   flex-grow: 1;
   display: flex;
   flex-direction: column;

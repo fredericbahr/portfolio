@@ -18,6 +18,10 @@ type IOrientation = "vertical" | "horizontal";
 const StyledSection = styled.section`
   width: 85%;
   margin: 0 auto 25vh auto;
+
+  @media screen and (max-width: ${breakpoints.md}) {
+    margin: 0 auto 10vh auto;
+  }
 `;
 
 const TabWrapper = styled.div`
@@ -57,8 +61,6 @@ const Experience = () => {
   const { t } = useTranslation();
   const mobileView = useMediaQuery(`(max-width: ${breakpoints.sm})`);
   const orientation: IOrientation = mobileView ? "horizontal" : "vertical";
-
-  console.log(mobileView);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);

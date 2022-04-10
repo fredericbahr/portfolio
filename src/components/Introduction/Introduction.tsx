@@ -15,35 +15,42 @@ type TypographyProps = {
   component: React.ElementType;
 };
 
-const Grid = styled.div`
+const Grid = styled.section`
   display: grid;
   grid-template-columns: 2fr 1fr;
   /** 50px navbar and 2*5vh margin */
   min-height: calc(100vh - 50px - 10vh);
-  margin: 5vh auto;
+  width: 85%;
+  margin: 0 auto 25vh auto;
 
   @media (max-width: ${breakpoints.md}) {
     display: flex;
+    min-height: auto;
+    margin: 0 auto 10vh auto;
   }
 `;
 
 const TextWrapper = styled.div`
-  margin: 7vh 0 0 7.5vw;
-
-  @media screen and (max-width: ${breakpoints.md}) {
-    margin: 7vh 0.5rem 0 0.5rem;
-  }
+  margin-top: 5vh;
 `;
 
 const StyledBeforeTypwriter = styled(Typography)<TypographyProps>`
   color: ${(props) => lighten(props.theme.colors.mainblack, 0.4)};
   font-size: 1rem;
   margin-bottom: 5vh;
+
+  @media screen and (max-width: ${breakpoints.md}) {
+    margin-bottom: 2vh;
+  }
 `;
 
 const StyledSubtitle = styled(Typography)`
   color: ${(props) => lighten(props.theme.colors.mainblack, 0.8)};
   font-size: 1.5rem;
+
+  @media screen and (max-width: ${breakpoints.md}) {
+    margin-top: 3vh;
+  }
 `;
 
 const StyledText = styled(Typography)`
@@ -54,6 +61,7 @@ const StyledText = styled(Typography)`
 
   @media screen and (max-width: ${breakpoints.md}) {
     width: 100%;
+    margin-top: 5vh;
   }
 `;
 
@@ -61,6 +69,11 @@ const StyledCTAButton = styled(CTAButton)`
   margin: 6vh 0 3vh 0;
   padding: 1vh 2vw;
   font-size: 1rem;
+
+  @media screen and (max-width: ${breakpoints.md}) {
+    margin: 6vh 0;
+    width: 50%;
+  }
 `;
 
 export const Introduction = () => {

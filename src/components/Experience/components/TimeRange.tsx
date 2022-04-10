@@ -26,9 +26,25 @@ export const TimeRange = ({ from, to }: IProps) => {
 
   return (
     <div>
-      <StyledTypography component="span">{moment(from).format("MMMM YYYY")}</StyledTypography>
+      <StyledTypography component="span">
+        {t("{{val, datetime}}" as any, {
+          val: new Date(from),
+          formatParams: {
+            val: { year: "numeric", month: "long" },
+          },
+        })}
+      </StyledTypography>
       <StyledTypography component="span">{" - "}</StyledTypography>
-      <StyledTypography component="span">{isDate(to) ? moment(to).format("MMMM YYYY") : t(to as any)}</StyledTypography>
+      <StyledTypography component="span">
+        {isDate(to)
+          ? t("{{val, datetime}}" as any, {
+              val: new Date(to),
+              formatParams: {
+                val: { year: "numeric", month: "long" },
+              },
+            })
+          : t(to as any)}
+      </StyledTypography>
     </div>
   );
 };

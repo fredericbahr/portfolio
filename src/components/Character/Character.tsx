@@ -34,8 +34,8 @@ const StyledDiv = styled.div`
 
 const GadgetWrapper = styled.div`
   position: absolute;
-  top: 38%;
-  left: 15%;
+  top: 41%;
+  left: 7%;
 `;
 
 const StyledHorizontalLine = styled(HorizontalLine)`
@@ -80,7 +80,7 @@ const StyledTooltip = styled(Tooltip)`
 
 const BubbleWrapper = styled.div`
   position: absolute;
-  top: 0;
+  top: 6vh;
   left: 5%;
 `;
 
