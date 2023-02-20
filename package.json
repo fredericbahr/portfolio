@@ -85,5 +85,8 @@
     "extends": [
       "react-app"
     ]
+  },
+  "volta": {
+    "node": "19.6.1"
   }
 }
