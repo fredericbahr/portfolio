@@ -10,13 +10,15 @@
  * See LICENSE for licensing information.
  */
 
-import react from "@vitejs/plugin-react";
-import { defineConfig } from "vite";
+import "./index.css";
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  server: {
-    port: 3000
-  },
-  plugins: [react()],
-});
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+import App from "./App.tsx";
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);

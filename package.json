@@ -1,92 +1,41 @@
 {
-  "name": "personal-website",
-  "homepage": "https://fredericbahr.github.io/portfolio/",
-  "version": "0.1.0",
+  "name": "vite-project",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "init": "npm ci",
     "dev": "vite",
-    "build": "tsc --noEmit && vite build --base=/portfolio/",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx,json,md}": [
-      "prettier --check"
-    ]
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@mui/icons-material": "^5.1.0",
-    "@mui/material": "^5.1.0",
-    "@mui/styled-engine-sc": "^5.1.0",
-    "@testing-library/jest-dom": "^5.15.0",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "@vitejs/plugin-react": "^1.2.0",
-    "history": "^5.1.0",
-    "i18next": "^21.6.7",
-    "i18next-browser-languagedetector": "^6.1.2",
-    "i18next-http-backend": "^1.3.2",
-    "moment": "^2.29.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-i18next": "^11.15.3",
-    "react-pdf": "^5.5.0",
-    "react-router-dom": "^6.0.2",
-    "react-router-hash-link": "^2.4.3",
-    "react-transition-group": "^4.4.2",
-    "styled-components": "^5.3.3",
-    "three": "^0.136.0",
-    "typescript": "^4.4.4",
-    "typewriter-effect": "^2.18.2",
-    "web-vitals": "^1.1.2"
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "framer-motion": "^11.0.5",
+    "prettier": "^3.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.3",
-    "@types/node": "^16.11.9",
-    "@types/react": "^17.0.34",
-    "@types/react-dom": "^17.0.11",
-    "@types/react-pdf": "^5.0.9",
-    "@types/react-router-hash-link": "^2.4.4",
-    "@types/styled-components": "^5.1.15",
-    "@types/three": "^0.135.0",
-    "eslint-config-react-app": "^6.0.0",
-    "gh-pages": "^3.2.3",
-    "husky": "^7.0.4",
-    "lint-staged": "^11.2.6",
-    "prettier": "2.4.1",
-    "prettier-plugin-organize-imports": "^2.3.4",
-    "react-scripts": "4.0.3",
-    "vite": "^2.8.4",
-    "vite-plugin-shim-react-pdf": "^1.0.5"
-  },
-  "alias": {
-    "@mui/styled-engine": "@mui/styled-engine-sc"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
-  },
-  "volta": {
-    "node": "19.6.1"
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-header": "^3.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-simple-import-sort": "^12.0.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.0"
   }
 }
