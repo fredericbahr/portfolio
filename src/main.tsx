@@ -12,13 +12,19 @@
 
 import "./index.css";
 
+import { ColorModeScript } from "@chakra-ui/react";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
 import App from "./App.tsx";
+import { ColorSchemeProvider } from "./context/ColorSchemeContext.tsx";
+import { bordeauxTheme } from "./theme.ts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <ColorModeScript initialColorMode={bordeauxTheme.config.initialColorMode} />
+    <ColorSchemeProvider>
+      <App />
+    </ColorSchemeProvider>
   </React.StrictMode>,
 );

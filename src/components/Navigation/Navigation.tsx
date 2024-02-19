@@ -10,19 +10,11 @@
  * See LICENSE for licensing information.
  */
 
-import { ChakraProvider } from "@chakra-ui/react";
+import React from "react";
 
-import { Header } from "./components/Header/Header";
-import { useColorScheme } from "./context/ColorSchemeContext";
-
-function App() {
-  const { colorScheme } = useColorScheme();
-
-  return (
-    <ChakraProvider theme={colorScheme}>
-      <Header />
-    </ChakraProvider>
-  );
-}
-
-export default App;
+/**
+ * Component for rendering the navigation of the application
+ */
+export const Navigation = () => {
+  return <div>Navigation</div>;
+};
