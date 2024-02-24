@@ -10,23 +10,24 @@
  * See LICENSE for licensing information.
  */
 
-import { Box, Flex } from "@chakra-ui/react";
-import React from "react";
+import { Flex, IconButton } from "@chakra-ui/react";
 
 import Logo from "../Logo/Logo";
-import { Navigation } from "../Navigation/Navigation";
-
-interface IHeaderProps {
-  children: React.ReactNode;
-}
+import { Navigation } from "./Navigation/Navigation";
 
 /**
  * Component for rendering the header of the application
  */
 export const Header = () => {
   return (
-    <Flex as="header" flexDirection="row    " width="full" padding={2} marginBottom={{ base: 0, lg: 2 }}>
-      <Logo maxH={12} />
+    <Flex as="header" flexDirection="row" width="full" padding={2} marginBottom={{ base: 0, lg: 2 }}>
+      <IconButton
+        icon={<Logo maxH={12} />}
+        aria-label="Logo"
+        variant="ghost"
+        marginLeft={6}
+        onClick={() => window.location.reload()}
+      />
       <Navigation />
     </Flex>
   );
