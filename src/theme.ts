@@ -20,12 +20,21 @@ const config: ThemeConfig = {
   useSystemColorMode: false,
 };
 
+/** customizations for the chakra-ui components */
+const components = {
+  Heading: {
+    baseStyle: {
+      fontFamily: "'Orbitron', sans-serif",
+    },
+  },
+};
 /**
  * The custom bordeaux chakra-ui theme
  */
 export const bordeauxTheme = extendTheme(
   {
     config,
+    components,
     colors: {
       brand: {
         50: "#FFB7B1",
@@ -50,6 +59,7 @@ export const bordeauxTheme = extendTheme(
 export const greenTheme = extendTheme(
   {
     config,
+    components,
     colors: {
       brand: {
         50: "#9ad1a1",
@@ -74,6 +84,7 @@ export const greenTheme = extendTheme(
 export const limeTheme = extendTheme(
   {
     config,
+    components,
     colors: {
       brand: {
         50: "#99f0c5",

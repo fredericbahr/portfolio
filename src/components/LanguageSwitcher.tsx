@@ -25,13 +25,20 @@ import {
   Portal,
   Text,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { Translate } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 
 export const LanguageSwitcher = () => {
+  /** translation hook to get access to the translate function and i18n context */
   const { t, i18n } = useTranslation();
+
+  /** background hover color for the language optons */
   const backgroundHoverColor = useColorModeValue("gray.100", "gray.800");
+
+  /** state and function for opening the popover */
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   /**
    * Handles the change of the language
@@ -39,10 +46,11 @@ export const LanguageSwitcher = () => {
    */
   const handleLanguageChange = (language: string) => {
     i18n.changeLanguage(language);
+    onClose();
   };
 
   return (
-    <Popover placement="bottom-end" closeOnEsc>
+    <Popover placement="bottom-end" closeOnEsc onClose={onClose} onOpen={onOpen} isOpen={isOpen}>
       <PopoverTrigger>
         <IconButton aria-label="Change language" icon={<Icon as={Translate} />} variant="outline" colorScheme="gray" />
       </PopoverTrigger>

@@ -12,8 +12,9 @@
 
 import { Box, Link, ListItem, OrderedList } from "@chakra-ui/react";
 
-import { ColorThemePicker } from "../../ColorThemePicker/ColorThemePicker";
-import { LanguageSwitcher } from "../../LanguageSwitcher/LanguageSwitcher";
+import { ColorThemePicker } from "../../../components/ColorThemePicker/ColorThemePicker";
+import { LanguageSwitcher } from "../../../components/LanguageSwitcher";
+
 
 /**
  * Component for rendering the navigation of the application

@@ -12,7 +12,7 @@
 
 import { Flex, IconButton } from "@chakra-ui/react";
 
-import Logo from "../Logo/Logo";
+import Logo from "../../components/Logo/Logo";
 import { Navigation } from "./Navigation/Navigation";
 
 /**

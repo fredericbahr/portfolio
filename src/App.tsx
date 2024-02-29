@@ -15,9 +15,10 @@ import "./i18n/i18n";
 import { ChakraProvider, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
-import { Header } from "./components/Header/Header";
+import { Layout } from "./components/Layout";
 import AnimatedLogo from "./components/Logo/AnimatedLogo";
 import { useColorScheme } from "./context/ColorSchemeContext";
+import { Hero } from "./sections/Hero/Hero";
 
 function App() {
   const { colorScheme } = useColorScheme();
@@ -37,7 +38,9 @@ function App() {
           <AnimatedLogo height="30vh" />
         </Flex>
       ) : (
-        <Header />
+        <Layout>
+          <Hero />
+        </Layout>
       )}
     </ChakraProvider>
   );
