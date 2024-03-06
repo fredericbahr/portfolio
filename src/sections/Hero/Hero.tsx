@@ -10,8 +10,9 @@
  * See LICENSE for licensing information.
  */
 
-import { Button, Heading, Text, useColorMode, VStack } from "@chakra-ui/react";
+import { Heading, Text, useColorMode, VStack } from "@chakra-ui/react";
 
+import { Button } from "../../components/Button/Button";
 import { Spotlight } from "../../components/Spotlight";
 import { useHeroKeywords } from "../../hooks/useHeroKeywords";
 
@@ -33,11 +34,11 @@ export const Hero = () => {
           </Heading>
         </VStack>
         <Text fontSize="xl" maxWidth="50%">
-          Mein Fokus liegt auf der Entwicklung innovativer Lösungen, um Prozesse zu optimieren und zu digitalisieren und
-          dabei die Nutzererfahrung zu steigern.
+          Ich entwickle leidenschaftlich innovative Lösungen zur Optimierung von Arbeitsabläufen und Steigerung der
+          Produktivität der Nutzer durch benutzerfreundliche Webanwendungen.
         </Text>
 
-        <Button size="lg" variant="outline">
+        <Button>
           Kontakt
         </Button>
       </VStack>

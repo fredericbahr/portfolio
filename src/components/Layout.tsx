@@ -10,10 +10,10 @@
  * See LICENSE for licensing information.
  */
 
-import {  Container, VStack } from "@chakra-ui/react";
+import { Container, VStack } from "@chakra-ui/react";
 
 import { Header } from "../sections/Header/Header";
-
+import { Socials } from "./Socials/Socials";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -24,9 +24,8 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <VStack minHeight="100vh">
       <Header />
-      <Container maxWidth="80%">
-        {children}
-      </Container>
+      <Container maxWidth="80%">{children}</Container>
+      <Socials />
     </VStack>
   );
 };
