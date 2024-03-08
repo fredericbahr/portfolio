@@ -12,6 +12,7 @@
 
 import { Container, VStack } from "@chakra-ui/react";
 
+import { Chatbot } from "../sections/Chatbot/Chatbot";
 import { Header } from "../sections/Header/Header";
 import { Socials } from "./Socials/Socials";
 
@@ -26,6 +27,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <Header />
       <Container maxWidth="80%">{children}</Container>
       <Socials />
+      <Chatbot />
     </VStack>
   );
 };

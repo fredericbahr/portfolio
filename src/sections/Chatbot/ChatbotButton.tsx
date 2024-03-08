@@ -21,7 +21,17 @@ interface ChatbotButtonProps {
 export const ChatbotButton = ({ onClick }: ChatbotButtonProps) => {
   return (
     <Tooltip label="Chatbot" hasArrow openDelay={300}>
-      <IconButton aria-label="Chatbot" icon={<Icon as={Chat} />} onClick={onClick} />
+      <IconButton
+        aria-label="Chatbot"
+        icon={<Icon as={Chat} boxSize={8} />}
+        position="fixed"
+        bottom="5%"
+        right="5%"
+        size="lg"
+        variant="outline"
+        colorScheme="gray"
+        onClick={onClick}
+      />
     </Tooltip>
   );
 };

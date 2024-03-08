@@ -33,27 +33,11 @@ export interface IChatDownload {
 }
 
 /**
- * Interface for a chat form element
- * @param type - the type of the form element
- * @param required - if the form element is required
- * @param name - the name of the form element
- * @param label - the label of the form element
+ * Interface for a chat redirect message
+ * @param url - the url to redirect to
  */
-export interface IChatFormElement {
-  type: "text" | "textarea" | "email" | "date" | "tel";
-  required: boolean;
-  name: string;
-  label: string;
-}
-
-/**
- * Interface for a chat form
- * @param formElements - the form elements of the form
- * @param formSubmitID - the id of the submit button
- */
-export interface IChatForm {
-  formElements: IChatFormElement[];
-  formSubmitID: string;
+export interface IChatRedirect {
+  url: string;
 }
 
 /**
@@ -68,4 +52,4 @@ export interface IChatAction {
   furtherActions?: string[];
 }
 
-export type IChatMessage = IChatTextMessage | IChatDownload | IChatForm;
+export type IChatMessage = IChatTextMessage | IChatDownload | IChatRedirect;

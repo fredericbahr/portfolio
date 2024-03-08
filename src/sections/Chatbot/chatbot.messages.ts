@@ -1,16 +1,16 @@
 /*
  * COPYRIGHT (C) 2024 Frederic Bahr
- * 
+ *
  * The PROGRAM is protected by national and international copyright laws and conventions.
  * The copyright lies with Frederic Bahr, unless expressly stated otherwise.
  * All rights reserved.
  * Especially the reproduction and distribution of the PROGRAM without written permission of
  * the copyright owner is prohibited.
- * 
+ *
  * See LICENSE for licensing information.
-*/
+ */
 
-import { IChatAction, IChatFormElement,IChatTextMessage } from "./chatbot.interface";
+import { IChatAction, IChatFormElement, IChatTextMessage } from "./chatbot.interface";
 
 // import Lebenslauf from "../assets/pdf/lebenslauf.pdf";
 
@@ -37,49 +37,14 @@ const showCV: IChatAction = {
     { message: "chatbot.showCV.firstMessage", owner: "customer" },
     { message: "chatbot.showCV.secondMessage", owner: "bot" },
     { message: "chatbot.showCV.thirdMessage", owner: "bot" },
-    { type: "pdf", owner: "bot", url: "my-lebenslauf-url", fileName: "cv_fredericbahr" },
-  ],
-  furtherActions: ["sayHello", "directChat"],
-};
-
-const directChatFormElements: IChatFormElement[] = [
-  {
-    name: "name",
-    label: "chatbot.formElementsLabel.name",
-    required: true,
-    type: "text",
-  },
-  {
-    name: "subject",
-    label: "chatbot.formElementsLabel.subject",
-    required: true,
-    type: "text",
-  },
-  {
-    name: "email",
-    label: "chatbot.formElementsLabel.email",
-    required: true,
-    type: "email",
-  },
-  {
-    name: "message",
-    label: "chatbot.formElementsLabel.message",
-    required: true,
-    type: "textarea",
-  },
-];
-
-const sendAnotherMessage: IChatAction = {
-  actionText: "chatbot.sendAnotherMessage.actionText",
-  messges: [
-    { message: "chatbot.sendAnotherMessage.firstMessage", owner: "customer" },
-    { message: "chatbot.sendAnotherMessage.secondMessage", owner: "bot" },
     {
-      formElements: directChatFormElements,
-      formSubmitID: "46ac44df0ea8d59a83d300a64c763539",
+      type: "pdf",
+      owner: "bot",
+      url: "https://drive.google.com/file/d/1Z4UuiS-oCssqXiaCgjE0WRWvXZoB0irb/view?usp=drive_link",
+      fileName: "cv_fredericbahr",
     },
   ],
-  furtherActions: ["sendAnotherMessage", "sayHello", "showCV"],
+  furtherActions: ["sayHello", "directChat"],
 };
 
 const directChat: IChatAction = {
@@ -99,7 +64,7 @@ const directChat: IChatAction = {
       formSubmitID: "46ac44df0ea8d59a83d300a64c763539",
     },
   ],
-  furtherActions: ["sendAnotherMessage", "sayHello", "showCV"],
+  furtherActions: ["sayHello", "showCV"],
 };
 
 export const actionRepository: Map<string, IChatAction> = new Map<string, IChatAction>();

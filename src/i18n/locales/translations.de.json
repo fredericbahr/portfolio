@@ -1,1 +1,29 @@
-{}
+{
+  "chatbot": {
+    "tooltip": "Chatbot öffnen",
+    "initialMessage": {
+      "firstMessage": "Hi, Ich bin Frederic`s ChatBot 🤖",
+      "secondMessage": "Wie kann ich dir helfen?"
+    },
+    "sayHello": {
+      "actionText": "Ich wollte nur einmal Hallo sagen",
+      "firstMessage": "Hi, wie gehts?",
+      "secondMessage": "Hey, schön dich kennenzulernen!",
+      "thirdMessage": "Danke dass du dir mein Portfolio anschaust.",
+      "fourthMessage": "Ich hoffe dir gefällt meine Arbeit.",
+      "fifthMessage": "Kann ich dir sonst irgendwie helfen?"
+    },
+    "showCV": {
+      "actionText": "Zeig mir deinen Lebenslauf.",
+      "firstMessage": "Hey, ich interessiere mich für deinen Lebenslauf!",
+      "secondMessage": "Danke für dein Interesse.",
+      "thirdMessage": "Unten kannst du meinen Lebenslauf herunterladen."
+    },
+    "directChat": {
+      "actionText": "Ich will mit dir persönlich reden.",
+      "firstMessage": "Ich mag deinen Chatbot sehr, aber ich würde gerne mit dir direkt reden.",
+      "secondMessage": "Schade, aber ich respektiere deine Entscheidung.",
+      "thirdMessage": "Schicke meinem Schöpfer eine Nachricht, er wird so schnell wie möglich antworten!"
+    }
+  }
+}
