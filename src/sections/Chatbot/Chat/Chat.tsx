@@ -24,10 +24,10 @@ interface ChatProps {
  */
 export const Chat = ({ onClick }: ChatProps) => {
   return (
-    <Card position="fixed" bottom="5%" right="5%" maxWidth="25vw" maxHeight="65vh" overflowY="auto">
+    <Card position="fixed" bottom="5%" right="5%" maxWidth="25vw" maxHeight="65vh">
       <ChatHeader onClick={onClick} />
 
-      <CardBody>
+      <CardBody overflowY="auto">
         <ChatMessages />
       </CardBody>
     </Card>

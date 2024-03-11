@@ -10,6 +10,9 @@
  * See LICENSE for licensing information.
  */
 
+import "react-pdf/dist/Page/TextLayer.css";
+import "react-pdf/dist/Page/AnnotationLayer.css";
+
 import {
   Box,
   Card,
@@ -21,7 +24,7 @@ import {
   IconButton,
   Spinner,
   Text,
-  Tooltip
+  Tooltip,
 } from "@chakra-ui/react";
 import { DownloadSimple } from "@phosphor-icons/react";
 import { useRef } from "react";
@@ -36,8 +39,8 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/l
  * Component to render the chat download
  */
 export const ChatDownload = ({ type, url, fileName }: IChatDownload) => {
-  const ref = useRef(null);
-  const size = useElementDimensions(ref.current);
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const size = useElementDimensions(cardRef.current);
 
   /**
    * Creates an anchor element and sets the download and href
@@ -53,26 +56,26 @@ export const ChatDownload = ({ type, url, fileName }: IChatDownload) => {
   };
 
   const renderPDFDownlaod = () => {
-    console.log("URL:", url);
+    console.log("URL:", url, size);
     return (
       <Flex width="full">
-        <Card onClick={() => handleDownload()}>
-          <CardBody>
-            <Document file={url} renderMode="svg">
-              <Box as={Page} pageNumber={1} height={size.width} loading="Laden" />
+        <Card onClick={() => handleDownload()} _hover={{ cursor: "pointer" }}>
+          <CardBody ref={cardRef}>
+            <Document file={url}>
+              <Page pageNumber={1} width={size.width} loading="Laden" />
             </Document>
           </CardBody>
           <CardFooter width="full" padding={2}>
-            <HStack width="full">
+            <HStack width="full" justifyContent="space-between">
               <Text fontSize="sm">{fileName}.pdf</Text>
               <Tooltip label="Herunterladen" hasArrow openDelay={300}>
-              <IconButton
-                onClick={() => handleDownload()}
-                aria-label="Download"
-                icon={<Icon as={DownloadSimple} />}
-                variant="ghost"
-                colorScheme="gray"
-              />
+                <IconButton
+                  onClick={() => handleDownload()}
+                  aria-label="Download"
+                  icon={<Icon as={DownloadSimple} />}
+                  variant="ghost"
+                  colorScheme="gray"
+                />
               </Tooltip>
             </HStack>
           </CardFooter>

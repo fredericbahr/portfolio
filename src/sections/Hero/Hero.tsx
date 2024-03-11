@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Heading, Text, useColorMode, VStack } from "@chakra-ui/react";
+import { Heading, HStack,Image, Text, useColorMode, VStack } from "@chakra-ui/react";
 
 import { Button } from "../../components/Button/Button";
 import { Spotlight } from "../../components/Spotlight";
@@ -25,7 +25,7 @@ export const Hero = () => {
   const keywords: string = useHeroKeywords();
 
   return (
-    <>
+    <HStack>
       <VStack alignItems="start" marginTop={32} spacing={8}>
         <VStack alignItems="start" spacing={2}>
           <Text fontSize="xl">Hey, ich bin</Text>
@@ -38,11 +38,9 @@ export const Hero = () => {
           Produktivität der Nutzer durch benutzerfreundliche Webanwendungen.
         </Text>
 
-        <Button>
-          Kontakt
-        </Button>
+        <Button>Kontakt</Button>
       </VStack>
       {colorMode === "dark" && <Spotlight />}
-    </>
+    </HStack>
   );
 };

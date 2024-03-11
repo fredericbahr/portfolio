@@ -10,9 +10,8 @@
  * See LICENSE for licensing information.
  */
 
-import { IChatAction, IChatFormElement, IChatTextMessage } from "./chatbot.interface";
-
-// import Lebenslauf from "../assets/pdf/lebenslauf.pdf";
+import Lebenslauf from "../../assets/lebenslauf.pdf";
+import { IChatAction, IChatTextMessage } from "./chatbot.interface";
 
 export const initialMessages: IChatTextMessage[] = [
   { message: "chatbot.initialMessage.firstMessage", owner: "bot" },
@@ -40,7 +39,7 @@ const showCV: IChatAction = {
     {
       type: "pdf",
       owner: "bot",
-      url: "https://drive.google.com/file/d/1Z4UuiS-oCssqXiaCgjE0WRWvXZoB0irb/view?usp=drive_link",
+      url: Lebenslauf,
       fileName: "cv_fredericbahr",
     },
   ],
@@ -60,8 +59,7 @@ const directChat: IChatAction = {
       owner: "bot",
     },
     {
-      formElements: directChatFormElements,
-      formSubmitID: "46ac44df0ea8d59a83d300a64c763539",
+      url: "/contact",
     },
   ],
   furtherActions: ["sayHello", "showCV"],
@@ -72,6 +70,5 @@ export const actionRepository: Map<string, IChatAction> = new Map<string, IChatA
 actionRepository.set("sayHello", sayHello);
 actionRepository.set("showCV", showCV);
 actionRepository.set("directChat", directChat);
-actionRepository.set("sendAnotherMessage", sendAnotherMessage);
 
 export const initialActions: IChatAction[] = [sayHello, showCV, directChat];

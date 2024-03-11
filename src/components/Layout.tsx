@@ -25,7 +25,11 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <VStack minHeight="100vh">
       <Header />
-      <Container maxWidth="80%">{children}</Container>
+      <Container maxWidth="80%" style={{counterReset: "heading 0"}}>
+        <VStack width="full" alignItems="start" spacing={16}>
+          {children}
+        </VStack>
+      </Container>
       <Socials />
       <Chatbot />
     </VStack>

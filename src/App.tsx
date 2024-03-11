@@ -18,7 +18,9 @@ import { useEffect, useState } from "react";
 import { Layout } from "./components/Layout";
 import AnimatedLogo from "./components/Logo/AnimatedLogo";
 import { useColorScheme } from "./context/ColorSchemeContext";
+import { Experience } from "./sections/Experience/Experience";
 import { Hero } from "./sections/Hero/Hero";
+import { Projects } from "./sections/Projects/Projects";
 
 function App() {
   const { colorScheme } = useColorScheme();
@@ -40,6 +42,8 @@ function App() {
       ) : (
         <Layout>
           <Hero />
+          <Experience />
+          <Projects />
         </Layout>
       )}
     </ChakraProvider>
