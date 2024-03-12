@@ -23,7 +23,7 @@ interface LayoutProps {
 /** component for defining the layout of the portfolio */
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <VStack minHeight="100vh">
+    <VStack minHeight="100vh" marginBottom={10}>
       <Header />
       <Container maxWidth="80%" style={{counterReset: "heading 0"}}>
         <VStack width="full" alignItems="start" spacing={16}>

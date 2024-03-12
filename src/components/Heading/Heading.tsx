@@ -27,6 +27,8 @@ export const Heading = ({ children }: HeadingProps) => {
       fontSize="4xl"
       display="flex"
       alignItems="center"
+      justifyContent="center"
+      width="full"
       style={{ counterIncrement: "heading 1" }}
       _before={{
         content: "'0' counter(heading) '.'",
