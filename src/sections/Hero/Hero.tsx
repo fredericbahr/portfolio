@@ -38,7 +38,7 @@ export const Hero = () => {
           Produktivität der Nutzer durch benutzerfreundliche Webanwendungen.
         </Text>
 
-        <Button>Kontakt</Button>
+        <Button label="Kontakt"></Button>
       </VStack>
       {colorMode === "dark" && <Spotlight />}
     </HStack>
