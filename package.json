@@ -17,6 +17,7 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@phosphor-icons/react": "^2.0.15",
+    "date-fns": "^3.5.0",
     "framer-motion": "^11.0.5",
     "i18next": "^23.10.0",
     "prettier": "^3.2.5",
