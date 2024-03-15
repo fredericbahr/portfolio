@@ -18,11 +18,10 @@ import ReactDOM from "react-dom/client";
 
 import App from "./App.tsx";
 import { ColorSchemeProvider } from "./context/ColorSchemeContext.tsx";
-import { bordeauxTheme } from "./theme.ts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ColorModeScript initialColorMode={bordeauxTheme.config.initialColorMode} />
+    <ColorModeScript initialColorMode="dark" />
     <ColorSchemeProvider>
       <App />
     </ColorSchemeProvider>

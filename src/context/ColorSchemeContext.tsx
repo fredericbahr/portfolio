@@ -52,7 +52,7 @@ export const ColorSchemeProvider = ({ children }: { children: React.ReactNode })
       return colorSchemeMap.get(colorSchemeName as ColorSchemeName);
     }
 
-    return bordeauxTheme;
+    return greenTheme;
   };
 
   /** the current color scheme */
