@@ -11,14 +11,13 @@
  */
 
 import {
-  Box,
   Button,
-  TabIndicator,
   TabList,
   TabPanel,
   TabPanels,
   Tabs,
   Text,
+  useColorModeValue,
   useMultiStyleConfig,
   useTab,
 } from "@chakra-ui/react";
@@ -36,9 +35,21 @@ const CustomTab = React.forwardRef((props: CustomTabProps, ref: Ref<HTMLElement>
   const tabProps = useTab({ ...props, ref });
   const isSelected: boolean = !!tabProps["aria-selected"];
   const styles = useMultiStyleConfig("Tabs", tabProps);
+  const nonActiveBorderColor = useColorModeValue("gray.300", "gray.400");
 
   return (
-    <Button __css={styles.tab} {...tabProps} textTransform="uppercase" paddingX={3} paddingY={1}>
+    <Button
+      __css={styles.tab}
+      {...tabProps}
+      textTransform="uppercase"
+      paddingX={3}
+      paddingY={1}
+      minWidth={16}
+      borderBottom="2px solid"
+      borderColor={isSelected ? "brand.300" : nonActiveBorderColor}
+      pointerEvents="none"
+      fontSize="sm"
+    >
       <Text as="span" visibility={isSelected ? "visible" : "hidden"}>
         {tabProps.children}
       </Text>
@@ -52,9 +63,9 @@ const CustomTab = React.forwardRef((props: CustomTabProps, ref: Ref<HTMLElement>
 export const ProjectTabs = ({ children }: ProjectTabsProps) => {
   return (
     <Tabs defaultIndex={1}>
-      <TabList>
+      <TabList border="none" gap={4}>
         <CustomTab></CustomTab>
-        <CustomTab>Featured</CustomTab>
+        <CustomTab>Auswahl</CustomTab>
         <CustomTab></CustomTab>
         <CustomTab></CustomTab>
       </TabList>

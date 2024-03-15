@@ -30,6 +30,7 @@ export const Heading = ({ children }: HeadingProps) => {
       justifyContent="center"
       width="full"
       style={{ counterIncrement: "heading 1" }}
+      // Counter Index
       _before={{
         content: "'0' counter(heading) '.'",
         marginRight: 3,
@@ -38,13 +39,14 @@ export const Heading = ({ children }: HeadingProps) => {
         alignSelf: "flex-end",
         marginBottom: 1.5,
       }}
+      // Dash
       _after={{
         content: "''",
         display: "block",
         width: "100%",
         height: 0.25,
         backgroundColor: "gray.300",
-        marginLeft: 6,
+        marginLeft: 8,
         marginTop: 3,
         minWidth: "lg",
       }}
