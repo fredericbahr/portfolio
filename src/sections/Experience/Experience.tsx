@@ -17,6 +17,7 @@ import {
   AccordionItem,
   AccordionPanel,
   Divider,
+  Flex,
   Heading as ChakraHeading,
   HStack,
   Icon,
@@ -33,6 +34,8 @@ import { CaretDown, Link as LinkIcon, MapPinLine, Terminal } from "@phosphor-ico
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
 
+import cv from "../../assets/lebenslauf.pdf";
+import { Button } from "../../components/Button/Button";
 import { Heading } from "../../components/Heading/Heading";
 import { experiences, IExperience } from "./experience";
 
@@ -44,11 +47,21 @@ export const Experience = () => {
   const borderColor = useColorModeValue("gray.800", "gray.200");
   const dividerColor = useColorModeValue("gray.500", "gray.400");
 
+  /**
+   * Handles the download of the CV by creating a new link element and clicking it
+   */
+  const handleCVDownload = () => {
+    const button = document.createElement("a");
+    button.href = cv;
+    button.download = "Lebenslauf_Frederic_Bahr.pdf";
+    button.click();
+  };
+
   return (
-    <VStack width="full" alignItems="start" spacing={4}>
+    <VStack width="full" alignItems="start" spacing={8}>
       <Heading>Erfahrung</Heading>
 
-      <VStack width="full" spacing={8}>
+      <VStack width="full" spacing={12}>
         <ChakraHeading as="h3" width="full" textAlign="center" fontSize="xl">
           Meine bisherige professionelle Erfahrung
         </ChakraHeading>
@@ -130,6 +143,10 @@ export const Experience = () => {
             </AccordionItem>
           ))}
         </Accordion>
+
+        <Flex width="full" justifyContent="center">
+          <Button label="Lebenslauf" onClick={handleCVDownload} />
+        </Flex>
       </VStack>
     </VStack>
   );
