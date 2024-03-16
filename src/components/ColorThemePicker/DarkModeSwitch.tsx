@@ -10,23 +10,24 @@
  * See LICENSE for licensing information.
  */
 
-import { Icon, IconButton, Tooltip, useColorMode } from "@chakra-ui/react";
+import { Icon, IconButton, IconButtonProps, Tooltip, useColorMode } from "@chakra-ui/react";
 import { Moon, Sun } from "@phosphor-icons/react";
 
 /**
  * Component for displaying a dark mode switch
  */
-export const DarkModeSwitch = () => {
+export const DarkModeSwitch = (props: Partial<IconButtonProps>) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Tooltip label="Dark mode" aria-label="Dark mode switch" hasArrow openDelay={300}>
       <IconButton
-        aria-label="Dark mode switch"
         icon={<Icon as={colorMode === "light" ? Moon : Sun} />}
         variant="outline"
         colorScheme="gray"
         onClick={toggleColorMode}
+        {...props}
+        aria-label="Dark mode switch"
       />
     </Tooltip>
   );

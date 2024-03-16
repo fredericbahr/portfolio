@@ -13,6 +13,7 @@
 import { Container, VStack } from "@chakra-ui/react";
 
 import { Chatbot } from "../sections/Chatbot/Chatbot";
+import { Footer } from "../sections/Footer/Footer";
 import { Header } from "../sections/Header/Header";
 import { Socials } from "./Socials/Socials";
 
@@ -25,7 +26,7 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <VStack minHeight="100vh" marginBottom={10}>
       <Header />
-      <Container maxWidth="80%" style={{counterReset: "heading 0"}}>
+      <Container maxWidth="80%" style={{ counterReset: "heading 0" }}>
         <VStack width="full" alignItems="start" spacing={16}>
           {children}
         </VStack>

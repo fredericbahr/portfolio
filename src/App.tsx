@@ -19,6 +19,7 @@ import { Layout } from "./components/Layout";
 import AnimatedLogo from "./components/Logo/AnimatedLogo";
 import { useColorScheme } from "./context/ColorSchemeContext";
 import { Experience } from "./sections/Experience/Experience";
+import { Footer } from "./sections/Footer/Footer";
 import { Hero } from "./sections/Hero/Hero";
 import { Projects } from "./sections/Projects/Projects";
 
@@ -44,6 +45,7 @@ function App() {
           <Hero />
           <Experience />
           <Projects />
+          <Footer />
         </Layout>
       )}
     </ChakraProvider>
