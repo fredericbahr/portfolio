@@ -1,9 +1,55 @@
 {
+  "navigation": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact me",
+    "themeSwitch": {
+      "title": "Customize the ui",
+      "light": "Light mode",
+      "dark": "Dark mode",
+      "bordeaux": "Bordeaux",
+      "green": "Green",
+      "lime": "Lime"
+    },
+    "languageSwitch": {
+      "title": "Customize the language",
+      "german": "German",
+      "english": "English"
+    }
+  },
   "hero": {
-    "subtitle": "I specialize in creating innovative solutions designed to streamline processes, drive digital transformation, and enhance the customer experience."
+    "intro": "Hey, I am",
+    "subtitle": "I specialize in creating innovative solutions designed to streamline processes, drive digital transformation, and enhance the customer experience.",
+    "contact": "Contact me"
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "My professional journey",
+    "jobTitles": {
+      "softwareDeveloper": "Software Developer",
+      "workingStudent": "Working Student",
+      "intern": "Intern",
+      "bachelor": "Bachelor thesis",
+      "master": "Master thesis"
+    },
+    "present": "Present",
+    "cv": "Curriculum Vitae"
+  },
+  "projects": {
+    "title": "Projects",
+    "tab": "Featured"
+  },
+  "footer": {
+    "text": "Developed by Frederic Bahr with"
   },
   "chatbot": {
     "tooltip": "Open the chatbot",
+    "header": {
+      "title": "Chatbot",
+      "subtitle": "Ask me anything!",
+      "close": "Close"
+    },
     "initialMessage": {
       "firstMessage": "Hi, I´m Frederic`s ChatBot 🤖",
       "secondMessage": "How can i help you?"
@@ -20,7 +66,8 @@
       "actionText": "I want to see your CV.",
       "firstMessage": "Hey, im interested in your CV!",
       "secondMessage": "Thanks for reaching out to me.",
-      "thirdMessage": "Underneath you can download my CV."
+      "thirdMessage": "Underneath you can download my CV.",
+      "download": "Download CV"
     },
     "directChat": {
       "actionText": "I want to talk to you directly.",

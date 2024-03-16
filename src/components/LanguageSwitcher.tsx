@@ -59,7 +59,7 @@ export const LanguageSwitcher = () => {
         <PopoverContent>
           <PopoverArrow />
           <PopoverHeader display="flex" alignItems="center">
-            Passe die Sprache an
+            {t("navigation.languageSwitch.title")}
           </PopoverHeader>
           <PopoverBody padding={0}>
             <List spacing={2}>
@@ -72,7 +72,7 @@ export const LanguageSwitcher = () => {
                 onClick={() => handleLanguageChange("de")}
               >
                 <Text paddingY={2} paddingX={4}>
-                  Deutsch
+                  {t("navigation.languageSwitch.german")}
                 </Text>
               </ListItem>
               <ListItem
@@ -83,7 +83,7 @@ export const LanguageSwitcher = () => {
                 onClick={() => handleLanguageChange("en")}
               >
                 <Text paddingY={2} paddingX={4}>
-                  English
+                  {t("navigation.languageSwitch.english")}
                 </Text>
               </ListItem>
             </List>

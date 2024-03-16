@@ -12,7 +12,7 @@
 
 import { useLayoutEffect, useState } from "react";
 
-interface ElementDimension {
+export interface ElementDimension {
   width: number;
   height: number;
 }

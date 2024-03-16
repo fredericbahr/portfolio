@@ -22,6 +22,7 @@ import {
   useTab,
 } from "@chakra-ui/react";
 import React, { Ref } from "react";
+import { useTranslation } from "react-i18next";
 
 interface CustomTabProps {
   children?: React.ReactNode;
@@ -61,11 +62,13 @@ const CustomTab = React.forwardRef((props: CustomTabProps, ref: Ref<HTMLElement>
  * Component for displaying the project tabs
  */
 export const ProjectTabs = ({ children }: ProjectTabsProps) => {
+  const { t } = useTranslation();
+
   return (
     <Tabs defaultIndex={1}>
       <TabList border="none" gap={4}>
         <CustomTab></CustomTab>
-        <CustomTab>Auswahl</CustomTab>
+        <CustomTab>{t("projects.tab")}</CustomTab>
         <CustomTab></CustomTab>
         <CustomTab></CustomTab>
       </TabList>

@@ -11,6 +11,7 @@
  */
 
 import { Avatar, CardHeader, CloseButton, Heading, HStack, Icon, Tooltip, VStack } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 import { ChatbotIcon } from "../ChatbotIcon";
 
@@ -22,6 +23,8 @@ interface ChatHeaderProps {
  * Component to render the header of the chat
  */
 export const ChatHeader = ({ onClick }: ChatHeaderProps) => {
+  const { t } = useTranslation();
+
   return (
     <CardHeader paddingX={4} paddingY={4}>
       <VStack>
@@ -29,14 +32,14 @@ export const ChatHeader = ({ onClick }: ChatHeaderProps) => {
           <Avatar icon={<ChatbotIcon />} colorScheme="gray" />
           <VStack flex={1}>
             <Heading as="h2" fontSize="md">
-              Chatbot
+              {t("chatbot.header.title")}
             </Heading>
             <Heading as="h3" fontSize="sm" fontWeight="normal">
-              Stell mir eine Frage!
+              {t("chatbot.header.subtitle")}
             </Heading>
           </VStack>
 
-          <Tooltip label="Schließen" hasArrow openDelay={300}>
+          <Tooltip label={t("chatbot.header.close")} hasArrow openDelay={300}>
             <CloseButton onClick={onClick} />
           </Tooltip>
         </HStack>

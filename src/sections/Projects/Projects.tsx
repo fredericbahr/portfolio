@@ -11,6 +11,7 @@
  */
 
 import { Flex, Grid, VStack } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 import { Heading } from "../../components/Heading/Heading";
 import { ProjectTabs } from "./ProjectTabs";
@@ -20,9 +21,11 @@ import { ProjectTile } from "./ProjectTile";
  * Component for displaying the projects section
  */
 export const Projects = () => {
+  const { t } = useTranslation();
+
   return (
     <VStack width="full" alignItems="start" spacing={4} style={{ counterReset: "projects 0" }}>
-      <Heading>Projekte</Heading>
+      <Heading>{t("projects.title")}</Heading>
 
       <Flex width="full" justifyContent="center">
         <ProjectTabs />

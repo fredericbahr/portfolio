@@ -17,6 +17,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useEffect } from "react";
 import { useDencrypt } from "use-dencrypt-effect";
 
 interface ButtonProps extends ChakraButtonProps {
@@ -31,6 +32,10 @@ export const Button = ({ label, ...rest }: ButtonProps) => {
   const hoverColor = useColorModeValue("white", "gray.800");
 
   const [dencryptText, dencrypt] = useDencrypt(label);
+
+  useEffect(() => {
+    dencrypt(label);
+  }, [label, dencrypt]);
 
   return (
     <ChakraButton

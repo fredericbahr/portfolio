@@ -11,15 +11,17 @@
  */
 
 import { Box, Link, ListItem, OrderedList } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 import { ColorThemePicker } from "../../../components/ColorThemePicker/ColorThemePicker";
 import { LanguageSwitcher } from "../../../components/LanguageSwitcher";
-
 
 /**
  * Component for rendering the navigation of the application
  */
 export const Navigation = () => {
+  const { t } = useTranslation();
+
   return (
     <Box as="nav" flex={1} display="flex" justifyContent="end" alignItems="center" marginRight={8} gap={8}>
       <OrderedList display="flex" flexDirection="row" gap={8} style={{ counterReset: "navitem 0" }}>
@@ -37,7 +39,7 @@ export const Navigation = () => {
               fontSize: "sm",
             }}
           >
-            Über mich
+            {t("navigation.about")}
           </Link>
         </ListItem>
         <ListItem style={{ counterIncrement: "navitem 1" }} listStyleType="none">
@@ -54,7 +56,7 @@ export const Navigation = () => {
               fontSize: "sm",
             }}
           >
-            Erfahrung
+            {t("navigation.experience")}
           </Link>
         </ListItem>
         <ListItem style={{ counterIncrement: "navitem 1" }} listStyleType="none">
@@ -71,7 +73,7 @@ export const Navigation = () => {
               fontSize: "sm",
             }}
           >
-            Projekte
+            {t("navigation.projects")}
           </Link>
         </ListItem>
         <ListItem style={{ counterIncrement: "navitem 1" }} listStyleType="none">
@@ -88,7 +90,7 @@ export const Navigation = () => {
               fontSize: "sm",
             }}
           >
-            Kontakt
+            {t("navigation.contact")}
           </Link>
         </ListItem>
       </OrderedList>

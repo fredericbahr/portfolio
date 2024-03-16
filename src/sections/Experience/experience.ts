@@ -10,10 +10,18 @@
  * See LICENSE for licensing information.
  */
 
+enum JobTitle {
+  SoftwareDeveloper = "softwareDeveloper",
+  WorkingStudent = "workingStudent",
+  Intern = "intern",
+  BachelorStudent = "bachelor",
+  MasterStudent = "master",
+}
+
 /** shape of the experience data */
 export interface IExperience {
   /** the title of the position */
-  title: string;
+  title: JobTitle;
   /** the company */
   company: string;
   /** the companies url */
@@ -32,17 +40,20 @@ export interface IExperience {
 
 export const experiences: IExperience[] = [
   {
-    title: "Werkstudent",
+    title: JobTitle.WorkingStudent,
     company: "ipoque GmbH",
     companyUrl: "https://www.ipoque.com/",
     startDate: "2021-01-01",
     endDate: "present",
     location: "Leipzig, Deutschland",
-    description: ["Implementierung einer Komponentenbibliothek", "Pflegen eines internen Frontend Frameworks für Micro Frontends"],
+    description: [
+      "Implementierung einer Komponentenbibliothek",
+      "Pflegen eines internen Frontend Frameworks für Micro Frontends",
+    ],
     skills: ["TypeScript", "Micro Frontends", "Web Components", "Lit", "React", "Angular"],
   },
   {
-    title: "Werkstudent",
+    title: JobTitle.WorkingStudent,
     company: "GDMcom GmbH",
     companyUrl: "https://gdmcom.de/",
     startDate: "2019-06-01",

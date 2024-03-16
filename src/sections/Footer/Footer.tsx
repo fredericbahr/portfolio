@@ -11,6 +11,7 @@
  */
 
 import { HStack, Text } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 import { BinaryIcon } from "../../components/BinaryIcon";
 import { DarkModeSwitch } from "../../components/ColorThemePicker/DarkModeSwitch";
@@ -19,10 +20,12 @@ import { DarkModeSwitch } from "../../components/ColorThemePicker/DarkModeSwitch
  * Component for rendering the footer of the portfolio
  */
 export const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <HStack width="full" marginTop={6}>
       <Text fontSize="sm" display="flex" gap={1} flex={1}>
-        © 2024 Entwickelt von Frederic Bahr mit <BinaryIcon color="brand.500" />
+        © 2024 {t("footer.text")} <BinaryIcon color="brand.500" />
       </Text>
 
       <DarkModeSwitch variant="ghost" justifySelf="end" />

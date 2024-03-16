@@ -33,6 +33,7 @@ import {
 import { CaretDown, Link as LinkIcon, MapPinLine, Terminal } from "@phosphor-icons/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
+import { useTranslation } from "react-i18next";
 
 import cv from "../../assets/lebenslauf.pdf";
 import { Button } from "../../components/Button/Button";
@@ -44,6 +45,8 @@ const isSingleDescription = (description: string | string[]): description is str
  * Component for displaying the experience section
  */
 export const Experience = () => {
+  const { t, i18n } = useTranslation();
+
   const borderColor = useColorModeValue("gray.800", "gray.200");
   const dividerColor = useColorModeValue("gray.500", "gray.400");
 
@@ -59,11 +62,11 @@ export const Experience = () => {
 
   return (
     <VStack width="full" alignItems="start" spacing={8}>
-      <Heading>Erfahrung</Heading>
+      <Heading>{t("experience.title")}</Heading>
 
       <VStack width="full" spacing={12}>
         <ChakraHeading as="h3" width="full" textAlign="center" fontSize="xl">
-          Meine bisherige professionelle Erfahrung
+          {t("experience.subtitle")}
         </ChakraHeading>
 
         <Accordion allowMultiple width="full" display="flex" flexDirection="column" gap={6}>
@@ -75,7 +78,7 @@ export const Experience = () => {
                     <AccordionButton paddingX={4} paddingY={3}>
                       <HStack width="full" justifyContent="space-between" marginRight={4}>
                         <HStack spacing={1}>
-                          <Text as="span">{experience.title}</Text>
+                          <Text as="span">{t(`experience.jobTitles.${experience.title}`)}</Text>
                           <Text as="span" color="brand.500">
                             @
                           </Text>
@@ -85,10 +88,15 @@ export const Experience = () => {
                         </HStack>
 
                         <Text as="span" fontSize="md">
-                          {format(new Date(experience.startDate), "MMM yyyy", { locale: de })} -{" "}
+                          {format(new Date(experience.startDate), "MMM yyyy", {
+                            locale: i18n.language === "de" ? de : undefined,
+                          })}{" "}
+                          -{" "}
                           {experience.endDate === "present"
-                            ? "Heute"
-                            : format(new Date(experience.endDate), "MMM yyyy", { locale: de })}
+                            ? t("experience.present")
+                            : format(new Date(experience.endDate), "MMM yyyy", {
+                                locale: i18n.language === "de" ? de : undefined,
+                              })}
                         </Text>
                       </HStack>
                       <AccordionIcon as={CaretDown} />
@@ -145,7 +153,7 @@ export const Experience = () => {
         </Accordion>
 
         <Flex width="full" justifyContent="center">
-          <Button label="Lebenslauf" onClick={handleCVDownload} />
+          <Button label={t("experience.cv")} onClick={handleCVDownload} />
         </Flex>
       </VStack>
     </VStack>

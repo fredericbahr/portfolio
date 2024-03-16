@@ -1,6 +1,55 @@
 {
+  "navigation": {
+    "about": "Über mich",
+    "experience": "Erfahrung",
+    "projects": "Projekte",
+    "contact": "Kontakt",
+    "themeSwitch": {
+      "title": "Passe die UI an",
+      "light": "Heller Modus",
+      "dark": "Dunkler Modus",
+      "bordeaux": "Bordeaux",
+      "green": "Grün",
+      "lime": "Limette"
+    },
+    "languageSwitch": {
+      "title": "Passe die Sprache an",
+      "german": "Deutsch",
+      "english": "Englisch"
+    }
+  },
+  "hero": {
+    "intro": "Hey, ich bin",
+    "subtitle": "Ich entwickle leidenschaftlich innovative Lösungen zur Optimierung von Arbeitsabläufen und Steigerung der Produktivität der Nutzer durch benutzerfreundliche Webanwendungen.",
+    "contact": "Kontakt"
+  },
+  "experience": {
+    "title": "Erfahrung",
+    "subtitle": "Mein bisheriger Werdegang",
+    "jobTitles": {
+      "softwareDeveloper": "Software Developer",
+      "workingStudent": "Werkstudent",
+      "intern": "Praktikant",
+      "bachelor": "Bachelorand",
+      "master": "Masterand"
+    },
+    "present": "Heute",
+    "cv": "Lebenslauf"
+  },
+  "projects": {
+    "title": "Projekte",
+    "tab": "Auswahl"
+  },
+  "footer": {
+    "text": "Entwickelt von Frederic Bahr"
+  },
   "chatbot": {
     "tooltip": "Chatbot öffnen",
+    "header": {
+      "title": "Chatbot",
+      "subtitle": "Stell mir eine Frage!",
+      "close": "Schließen"
+    },
     "initialMessage": {
       "firstMessage": "Hi, Ich bin Frederic`s ChatBot 🤖",
       "secondMessage": "Wie kann ich dir helfen?"
@@ -17,7 +66,8 @@
       "actionText": "Zeig mir deinen Lebenslauf.",
       "firstMessage": "Hey, ich interessiere mich für deinen Lebenslauf!",
       "secondMessage": "Danke für dein Interesse.",
-      "thirdMessage": "Unten kannst du meinen Lebenslauf herunterladen."
+      "thirdMessage": "Unten kannst du meinen Lebenslauf herunterladen.",
+      "download": "Lebenslauf herunterladen"
     },
     "directChat": {
       "actionText": "Ich will mit dir persönlich reden.",

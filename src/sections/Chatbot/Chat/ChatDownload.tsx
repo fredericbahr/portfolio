@@ -27,11 +27,12 @@ import {
   Tooltip,
 } from "@chakra-ui/react";
 import { DownloadSimple } from "@phosphor-icons/react";
-import { useRef } from "react";
+import { MutableRefObject, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Document, Page, pdfjs } from "react-pdf";
 
 import { IChatDownload } from "../chatbot.interface";
-import { useElementDimensions } from "../hooks/useElementDimensions";
+import { ElementDimension, useElementDimensions } from "../hooks/useElementDimensions";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
 
@@ -39,8 +40,10 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/l
  * Component to render the chat download
  */
 export const ChatDownload = ({ type, url, fileName }: IChatDownload) => {
-  const cardRef = useRef<HTMLDivElement | null>(null);
-  const size = useElementDimensions(cardRef.current);
+  const { t } = useTranslation();
+
+  const cardRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
+  const size: ElementDimension = useElementDimensions(cardRef.current);
 
   /**
    * Creates an anchor element and sets the download and href
@@ -56,7 +59,6 @@ export const ChatDownload = ({ type, url, fileName }: IChatDownload) => {
   };
 
   const renderPDFDownlaod = () => {
-    console.log("URL:", url, size);
     return (
       <Flex width="full">
         <Card onClick={() => handleDownload()} _hover={{ cursor: "pointer" }}>
@@ -68,7 +70,7 @@ export const ChatDownload = ({ type, url, fileName }: IChatDownload) => {
           <CardFooter width="full" padding={2}>
             <HStack width="full" justifyContent="space-between">
               <Text fontSize="sm">{fileName}.pdf</Text>
-              <Tooltip label="Herunterladen" hasArrow openDelay={300}>
+              <Tooltip label={t("chatbot.showCV.download")} hasArrow openDelay={300}>
                 <IconButton
                   onClick={() => handleDownload()}
                   aria-label="Download"

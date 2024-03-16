@@ -23,9 +23,11 @@ import {
   PopoverHeader,
   PopoverTrigger,
   Portal,
+  Text,
   Tooltip,
 } from "@chakra-ui/react";
 import { Palette } from "@phosphor-icons/react";
+import { useTranslation } from "react-i18next";
 
 import { useColorScheme } from "../../context/ColorSchemeContext";
 import { DarkModeSwitch } from "./DarkModeSwitch";
@@ -46,12 +48,13 @@ enum Theme {
 
 /** enum mapping a display name to the responding theme */
 enum ThemeName {
-  Bordeaux = "Bordeaux",
-  Green = "Grün",
-  Lime = "Lime",
+  Bordeaux = "bordeaux",
+  Green = "green",
+  Lime = "lime",
 }
 
 export const ColorThemePicker = () => {
+  const { t } = useTranslation();
   const { setColorScheme } = useColorScheme();
 
   /**
@@ -72,13 +75,18 @@ export const ColorThemePicker = () => {
         <PopoverContent>
           <PopoverArrow />
           <PopoverHeader display="flex" alignItems="center">
-            Passe die UI an <PopoverCloseButton />
+            <Text as="span">{t("navigation.themeSwitch.title")}</Text> <PopoverCloseButton />
           </PopoverHeader>
           <PopoverBody>
             <HStack alignItems="center" gap={4} wrap="wrap" width="full" justifyContent="space-evenly">
               <DarkModeSwitch />
               {Object.entries(Theme).map(([key, value]) => (
-                <Tooltip label={ThemeName[key as keyof typeof ThemeName]} aria-label="Violett" hasArrow key={value}>
+                <Tooltip
+                  label={t(`navigation.themeSwitch.${ThemeName[key as keyof typeof ThemeName]}`)}
+                  aria-label={ThemeName[key as keyof typeof ThemeName]}
+                  hasArrow
+                  key={value}
+                >
                   <Box
                     backgroundColor={Color[key as keyof typeof Color]}
                     minWidth="2rem"

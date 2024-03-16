@@ -29,6 +29,7 @@ export const Heading = ({ children }: HeadingProps) => {
       alignItems="center"
       justifyContent="center"
       width="full"
+      marginTop={12}
       style={{ counterIncrement: "heading 1" }}
       // Counter Index
       _before={{
