@@ -121,7 +121,7 @@ export const Experience = () => {
                         </HStack>
                       </HStack>
 
-                      <List marginLeft={2}>
+                      <List marginLeft={2} spacing={2}>
                         {isSingleDescription(experience.description) ? (
                           <ListItem>
                             <ListIcon as={Terminal} color="green.500" />
@@ -130,7 +130,7 @@ export const Experience = () => {
                         ) : (
                           <>
                             {experience.description.map((description: string) => (
-                              <ListItem>
+                              <ListItem display="flex">
                                 <ListIcon as={Terminal} color="green.500" />
                                 {description}
                               </ListItem>

@@ -14,6 +14,7 @@ import "./i18n/i18n";
 
 import { ChakraProvider, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 
 import { Layout } from "./components/Layout";
 import AnimatedLogo from "./components/Logo/AnimatedLogo";
@@ -36,18 +37,26 @@ function App() {
 
   return (
     <ChakraProvider theme={colorScheme}>
-      {isInitialAnimation ? (
-        <Flex justifyContent="center" alignItems="center" height="100vh">
-          <AnimatedLogo height="30vh" />
-        </Flex>
-      ) : (
-        <Layout>
-          <Hero />
-          <Experience />
-          <Projects />
-          <Footer />
-        </Layout>
-      )}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            isInitialAnimation ? (
+              <Flex justifyContent="center" alignItems="center" height="100vh">
+                <AnimatedLogo height="30vh" />
+              </Flex>
+            ) : (
+              <Layout>
+                <Hero />
+                <Experience />
+                <Projects />
+                <Footer />
+              </Layout>
+            )
+          }
+        />
+        <Route path="/test" element={<p>Test</p>} />
+      </Routes>
     </ChakraProvider>
   );
 }

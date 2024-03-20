@@ -25,6 +25,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^14.0.5",
     "react-pdf": "^7.7.1",
+    "react-router-dom": "^6.22.3",
     "use-dencrypt-effect": "^2.0.0"
   },
   "devDependencies": {

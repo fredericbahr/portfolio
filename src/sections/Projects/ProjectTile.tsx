@@ -10,20 +10,45 @@
  * See LICENSE for licensing information.
  */
 
-import { GridItem, GridItemProps, Heading, Text, useColorModeValue, useToken, VStack } from "@chakra-ui/react";
+import {
+  GridItem,
+  GridItemProps,
+  Heading,
+  HStack,
+  Icon,
+  IconButton,
+  Text,
+  useColorModeValue,
+  useToken,
+  VStack,
+} from "@chakra-ui/react";
+import { GithubLogo, Link as LinkIcon } from "@phosphor-icons/react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface ProjectTileProps extends GridItemProps {
   title?: string;
   description?: string;
   url?: string;
   backgroundType?: "none" | "lines" | "contour";
+  links?: {
+    github?: string;
+    website?: string;
+  };
 }
 
 /**
  * Component for displaying a single project tile
  */
-export const ProjectTile = ({ title, description, url, backgroundType = "none", ...props }: ProjectTileProps) => {
+export const ProjectTile = ({
+  title,
+  description,
+  url,
+  backgroundType = "none",
+  links,
+  ...props
+}: ProjectTileProps) => {
+  const navigate = useNavigate();
   const [gray200, gray700] = useToken("colors", ["gray.200", "gray.700"]).map((color: string) =>
     color.replace("#", "%23").toLowerCase(),
   );
@@ -64,8 +89,16 @@ export const ProjectTile = ({ title, description, url, backgroundType = "none", 
     return {};
   };
 
+  /**
+   * Handles the click on the project tile to navigate to the project detail page
+   */
   const handleProjectTileClick = () => {
-    // navigate to url
+    navigate(url || "/");
+  };
+
+  const handleProjectLinkClick = (event: React.SyntheticEvent, link: string) => {
+    event.stopPropagation();
+    navigate(link);
   };
 
   return (
@@ -104,6 +137,10 @@ export const ProjectTile = ({ title, description, url, backgroundType = "none", 
         "&:hover .project-counter:before": {
           color: "brand.500",
         },
+
+        "&:hover .project-links": {
+          display: "flex",
+        },
       }}
       _hover={{
         border: "all",
@@ -117,9 +154,9 @@ export const ProjectTile = ({ title, description, url, backgroundType = "none", 
       onClick={handleProjectTileClick}
       {...props}
     >
-      <VStack spacing={0}>
+      <VStack spacing={3}>
         {title && (
-          <>
+          <VStack spacing={0}>
             <Text
               as="span"
               className="project-counter"
@@ -134,8 +171,28 @@ export const ProjectTile = ({ title, description, url, backgroundType = "none", 
             <Heading as="h3" color={fontColor}>
               {title}
             </Heading>
-          </>
+          </VStack>
         )}
+        <HStack className="project-links" display="none">
+          {links?.website && (
+            <IconButton
+              icon={<Icon as={LinkIcon} />}
+              aria-label="website"
+              variant="ghost"
+              colorScheme="gray"
+              onClick={(event) => handleProjectLinkClick(event, links.website || "/")}
+            />
+          )}
+          {links?.github && (
+            <IconButton
+              icon={<Icon as={GithubLogo} />}
+              aria-label="github"
+              variant="ghost"
+              colorScheme="gray"
+              onClick={(event) => handleProjectLinkClick(event, links.github || "/")}
+            />
+          )}
+        </HStack>
       </VStack>
     </GridItem>
   );

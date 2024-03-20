@@ -32,7 +32,12 @@ export const Projects = () => {
       </Flex>
 
       <Grid width="full" gridTemplateColumns="repeat(4, 1fr)" gridTemplateRows="repeat(2, 1fr)">
-        <ProjectTile title="Project 1" backgroundType="contour" />
+        <ProjectTile
+          title="Project 1"
+          backgroundType="contour"
+          links={{ github: "https://github.com/fredericbahr/portfolio" }}
+          url="test"
+        />
         <ProjectTile title="Project 2" />
         <ProjectTile title="Project 3" backgroundType="contour" />
         <ProjectTile title="Project 4" backgroundType="lines" />
