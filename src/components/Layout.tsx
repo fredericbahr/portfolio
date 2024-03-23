@@ -29,6 +29,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <Container maxWidth="80%" style={{ counterReset: "heading 0" }}>
         <VStack width="full" alignItems="start" spacing={16}>
           {children}
+          <Footer />
         </VStack>
       </Container>
       <Socials />

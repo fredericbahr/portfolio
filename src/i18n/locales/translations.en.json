@@ -39,7 +39,50 @@
   },
   "projects": {
     "title": "Projects",
-    "tab": "Featured"
+    "tab": "Featured",
+    "website": "Website",
+    "github": "GitHub",
+    "projectTitles": {
+      "kirmize": "Kirmize",
+      "portfolio": "Portfolio",
+      "chatbot": "QUAtsCH Chatbot ´22",
+      "multimediaDB": "Multimedia Database Veterinary Practice",
+      "eaFlowShop": "EA Flow Shop Optimization",
+      "weatherData": "XML Weather Data Visiualization"
+    },
+    "details": {
+      "focus": "Focus",
+      "period": "Period",
+      "present": "Present",
+      "goal": "Goal",
+      "implementation": "Implementation",
+      "technologies": "Technologies",
+      "screenshots": "Screenshots",
+      "kirmize": {
+        "focus": "Web Development",
+        "subtitle": "A mobil web application for the digitalization of planning appointments."
+      },
+      "portfolio": {
+        "focus": "Web Development",
+        "subtitle": "My personal portfolio website to showcase my work."
+      },
+      "chatbot": {
+        "focus": "Question Answering System",
+        "subtitle": "A prototype of a chatbot for the Landesanstalt für Umwelt Baden-Württemberg."
+      },
+      "multimediaDB": {
+        "focus": "Database Management, Advanced Searching",
+        "subtitle": "A prototypical software using multimedia database for the digitalization of veterinary practices (Case Study)."
+      },
+      "eaFlowShop": {
+        "focus": "Optimization, Evolutionary Algorithm",
+        "subtitle": "An evolutionary algorithm for the optimization of flow shop scheduling problems."
+      },
+      "weatherData": {
+        "focus": "Data Visualization",
+        "subtitle": "A web application for the visualization of weather data based on XML files."
+      }
+    }
   },
   "footer": {
     "text": "Developed by Frederic Bahr with"

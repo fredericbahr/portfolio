@@ -39,10 +39,53 @@
   },
   "projects": {
     "title": "Projekte",
-    "tab": "Auswahl"
+    "tab": "Auswahl",
+    "website": "Webseite",
+    "github": "GitHub",
+    "projectTitles": {
+      "kirmize": "Kirmize",
+      "portfolio": "Portfolio",
+      "chatbot": "QUAtsCH Chatbot ´22",
+      "multimediaDB": "Multimedia Datenbank Tierartzpraxis",
+      "eaFlowShop": "EA Flow Shop Optimierung",
+      "weatherData": "XML Wetterdaten Visualisierung"
+    },
+    "details": {
+      "focus": "Fokus",
+      "period": "Zeitraum",
+      "present": "Heute",
+      "goal": "Ziel",
+      "implementation": "Umsetzung",
+      "technologies": "Technologien",
+      "screenshots": "Screenshots",
+      "kirmize": {
+        "focus": "Webentwicklung",
+        "subtitle": "Die mobile Webanwendung für die Kirmes zur Planung von Terminen."
+      },
+      "portfolio": {
+        "focus": "Webentwicklung",
+        "subtitle": "Implementierung meiner persönlichen Portfolio-Webseite."
+      },
+      "chatbot": {
+        "focus": "Question Answering Systeme",
+        "subtitle": "Ein Projekt zur Entwicklung eines Chatbots für die Landesanstalt für Umwelt Baden-Württemberg."
+      },
+      "multimediaDB": {
+        "focus": "Multimedia Datenbanken, Fortgeschrittene Suchalgorithmen",
+        "subtitle": "Eine Implementierung einer Software zur Verwendung einer Multimedia Datenbank in einer Tierartztpraxis."
+      },
+      "eaFlowShop": {
+        "focus": "Optimierung, Evolutionäre Algorithmen",
+        "subtitle": "Ein evolutionärer Algorithmus (GA) zur Optimierung von Flow-Shop Problemen."
+      },
+      "weatherData": {
+        "focus": "Data Visualization",
+        "subtitle": "Projekt zur Visualisierung von Wetterdaten aus einer XML-Datei."
+      }
+    }
   },
   "footer": {
-    "text": "Entwickelt von Frederic Bahr"
+    "text": "Entwickelt von Frederic Bahr mit"
   },
   "chatbot": {
     "tooltip": "Chatbot öffnen",

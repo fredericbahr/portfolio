@@ -62,7 +62,7 @@ export const Experience = () => {
 
   return (
     <VStack width="full" alignItems="start" spacing={8}>
-      <Heading>{t("experience.title")}</Heading>
+      <Heading id="experience">{t("experience.title")}</Heading>
 
       <VStack width="full" spacing={12}>
         <ChakraHeading as="h3" width="full" textAlign="center" fontSize="xl">
@@ -70,8 +70,8 @@ export const Experience = () => {
         </ChakraHeading>
 
         <Accordion allowMultiple width="full" display="flex" flexDirection="column" gap={6}>
-          {experiences.map((experience: IExperience) => (
-            <AccordionItem border="1px solid" borderColor={borderColor}>
+          {experiences.map((experience: IExperience, idx: number) => (
+            <AccordionItem border="1px solid" borderColor={borderColor} key={`experience-${idx}`}>
               {({ isExpanded }) => (
                 <>
                   <ChakraHeading as="h4" fontSize="lg">

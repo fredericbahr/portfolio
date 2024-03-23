@@ -27,7 +27,7 @@ export const Navigation = () => {
       <OrderedList display="flex" flexDirection="row" gap={8} style={{ counterReset: "navitem 0" }}>
         <ListItem style={{ counterIncrement: "navitem 1" }} listStyleType="none">
           <Link
-            href="/about"
+            href="/#about"
             _hover={{
               textDecoration: "none",
               color: "brand.500",
@@ -44,7 +44,7 @@ export const Navigation = () => {
         </ListItem>
         <ListItem style={{ counterIncrement: "navitem 1" }} listStyleType="none">
           <Link
-            href="/experience"
+            href="/#experience"
             _hover={{
               textDecoration: "none",
               color: "brand.500",
@@ -61,7 +61,7 @@ export const Navigation = () => {
         </ListItem>
         <ListItem style={{ counterIncrement: "navitem 1" }} listStyleType="none">
           <Link
-            href="/projects"
+            href="/#projects"
             _hover={{
               textDecoration: "none",
               color: "brand.500",

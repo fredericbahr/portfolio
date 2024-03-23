@@ -14,15 +14,16 @@ import "./i18n/i18n";
 
 import { ChakraProvider, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import { Layout } from "./components/Layout";
 import AnimatedLogo from "./components/Logo/AnimatedLogo";
 import { useColorScheme } from "./context/ColorSchemeContext";
 import { Experience } from "./sections/Experience/Experience";
-import { Footer } from "./sections/Footer/Footer";
 import { Hero } from "./sections/Hero/Hero";
+import { EAFlowShop, Kirmize, MMDB, Portfolio, QuatschChatbot, WeatherData } from "./sections/Projects";
 import { Projects } from "./sections/Projects/Projects";
+
 
 function App() {
   const { colorScheme } = useColorScheme();
@@ -50,12 +51,63 @@ function App() {
                 <Hero />
                 <Experience />
                 <Projects />
-                <Footer />
               </Layout>
             )
           }
         />
-        <Route path="/test" element={<p>Test</p>} />
+
+        {/* Project Routes */}
+        <Route
+          path="/kirmize"
+          element={
+            <Layout>
+              <Kirmize />
+            </Layout>
+          }
+        />
+        <Route
+          path="/portfolio"
+          element={
+            <Layout>
+              <Portfolio />
+            </Layout>
+          }
+        />
+        <Route
+          path="/quatsch-chatbot-2022"
+          element={
+            <Layout>
+              <QuatschChatbot />
+            </Layout>
+          }
+        />
+        <Route
+          path="/multimedia-database-veterinary-practice"
+          element={
+            <Layout>
+              <MMDB />
+            </Layout>
+          }
+        />
+        <Route
+          path="/ea-flow-shop-optimizer"
+          element={
+            <Layout>
+              <EAFlowShop />
+            </Layout>
+          }
+        />
+        <Route
+          path="/xml-weather-visualization"
+          element={
+            <Layout>
+              <WeatherData />
+            </Layout>
+          }
+        />
+
+        {/* Fallback Route */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </ChakraProvider>
   );

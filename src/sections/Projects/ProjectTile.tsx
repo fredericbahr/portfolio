@@ -18,19 +18,27 @@ import {
   Icon,
   IconButton,
   Text,
+  Tooltip,
   useColorModeValue,
   useToken,
   VStack,
 } from "@chakra-ui/react";
 import { GithubLogo, Link as LinkIcon } from "@phosphor-icons/react";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+
+export type ProjectBackgroundType = "none" | "lines" | "contour";
+
+export interface ProjectLinks {
+  github?: string;
+  website?: string;
+}
 
 interface ProjectTileProps extends GridItemProps {
   title?: string;
-  description?: string;
   url?: string;
-  backgroundType?: "none" | "lines" | "contour";
+  backgroundType?: ProjectBackgroundType;
   links?: {
     github?: string;
     website?: string;
@@ -40,22 +48,31 @@ interface ProjectTileProps extends GridItemProps {
 /**
  * Component for displaying a single project tile
  */
-export const ProjectTile = ({
-  title,
-  description,
-  url,
-  backgroundType = "none",
-  links,
-  ...props
-}: ProjectTileProps) => {
+export const ProjectTile = ({ title, url, backgroundType = "none", links, ...props }: ProjectTileProps) => {
+  /** hook for navigating */
   const navigate = useNavigate();
+
+  /** hook for translations */
+  const { t } = useTranslation();
+
+  /** stringified token of the chakra ui colors */
   const [gray200, gray700] = useToken("colors", ["gray.200", "gray.700"]).map((color: string) =>
     color.replace("#", "%23").toLowerCase(),
   );
+
+  /** background color of the tile */
   const backgroundColor = useColorModeValue("white", "gray.800");
+
+  /** border color of the color */
   const borderColor = useColorModeValue("gray.300", "gray.600");
+
+  /** line color of the background image */
   const linesColor = useColorModeValue("gray.100", "gray.700");
+
+  /** contour color of the background image */
   const contourColor = useColorModeValue(gray200, gray700);
+
+  /** font color of the tile */
   const fontColor = useColorModeValue("blackAlpha.800", "whiteAlpha.800");
 
   /**
@@ -96,16 +113,22 @@ export const ProjectTile = ({
     navigate(url || "/");
   };
 
+  /**
+   * Handles the click on a project link to navigate to the respective page
+   */
   const handleProjectLinkClick = (event: React.SyntheticEvent, link: string) => {
     event.stopPropagation();
-    navigate(link);
+
+    window.open(link, "_blank");
   };
 
   return (
     <GridItem
+      key={title}
+      className="project-tile"
       border="2px solid"
       borderColor={borderColor}
-      paddingX={3}
+      paddingX={6}
       paddingY={1}
       display="flex"
       justifyContent="center"
@@ -117,21 +140,21 @@ export const ProjectTile = ({
       transitionTimingFunction="ease-in-out"
       style={{ counterIncrement: title && "projects 1" }}
       sx={{
-        "&:not(:last-child):not(:first-child):not(:hover)": {
-          borderLeft: "none",
+        "&:has(+ .project-tile)": {
+          borderRight: "none",
         },
 
         "&:last-child:not(:hover)": {
           borderLeft: "none",
         },
 
-        "&:nth-child(4n+1):not(:hover)": {
-          borderLeft: "2px !important",
-          borderLeftColor: `${borderColor} !important`,
-        },
-
         "&:nth-child(n+5):not(:hover)": {
           borderTop: "none",
+        },
+
+        "&:hover": {
+          border: "2px solid",
+          borderColor: "brand.500",
         },
 
         "&:hover .project-counter:before": {
@@ -175,22 +198,26 @@ export const ProjectTile = ({
         )}
         <HStack className="project-links" display="none">
           {links?.website && (
-            <IconButton
-              icon={<Icon as={LinkIcon} />}
-              aria-label="website"
-              variant="ghost"
-              colorScheme="gray"
-              onClick={(event) => handleProjectLinkClick(event, links.website || "/")}
-            />
+            <Tooltip label={t("projects.website")} hasArrow openDelay={300}>
+              <IconButton
+                icon={<Icon as={LinkIcon} />}
+                aria-label="website"
+                variant="ghost"
+                colorScheme="gray"
+                onClick={(event) => handleProjectLinkClick(event, links.website || "/")}
+              />
+            </Tooltip>
           )}
           {links?.github && (
-            <IconButton
-              icon={<Icon as={GithubLogo} />}
-              aria-label="github"
-              variant="ghost"
-              colorScheme="gray"
-              onClick={(event) => handleProjectLinkClick(event, links.github || "/")}
-            />
+            <Tooltip label={t("projects.github")} hasArrow openDelay={300}>
+              <IconButton
+                icon={<Icon as={GithubLogo} />}
+                aria-label="github"
+                variant="ghost"
+                colorScheme="gray"
+                onClick={(event) => handleProjectLinkClick(event, links.github || "/")}
+              />
+            </Tooltip>
           )}
         </HStack>
       </VStack>

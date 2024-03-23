@@ -15,14 +15,16 @@ import React from "react";
 
 interface HeadingProps {
   children: React.ReactNode;
+  id?: string;
 }
 
 /**
  * Component for displaying a heading section with a number and a dash
  */
-export const Heading = ({ children }: HeadingProps) => {
+export const Heading = ({ children, id }: HeadingProps) => {
   return (
     <ChakraHeading
+      id={id}
       as="h2"
       fontSize="4xl"
       display="flex"

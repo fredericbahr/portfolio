@@ -14,6 +14,7 @@ import { Flex, Grid, VStack } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
 import { Heading } from "../../components/Heading/Heading";
+import { Project, projects } from "./projects";
 import { ProjectTabs } from "./ProjectTabs";
 import { ProjectTile } from "./ProjectTile";
 
@@ -25,31 +26,29 @@ export const Projects = () => {
 
   return (
     <VStack width="full" alignItems="start" spacing={4} style={{ counterReset: "projects 0" }}>
-      <Heading>{t("projects.title")}</Heading>
+      <Heading id="projects">{t("projects.title")}</Heading>
 
       <Flex width="full" justifyContent="center">
         <ProjectTabs />
       </Flex>
 
       <Grid width="full" gridTemplateColumns="repeat(4, 1fr)" gridTemplateRows="repeat(2, 1fr)">
-        <ProjectTile
-          title="Project 1"
-          backgroundType="contour"
-          links={{ github: "https://github.com/fredericbahr/portfolio" }}
-          url="test"
-        />
-        <ProjectTile title="Project 2" />
-        <ProjectTile title="Project 3" backgroundType="contour" />
-        <ProjectTile title="Project 4" backgroundType="lines" />
-        <ProjectTile
-          borderLeft="none"
-          borderBottom="none"
-          borderTop="none"
-          _hover={{}}
-          sx={{ "&": { borderLeft: "none" } }}
-        />
-        <ProjectTile title="Project 5" backgroundType="lines" />
-        <ProjectTile title="Project 6" />
+        {projects.map((project: Project | null, idx: number) => (
+          <>
+            {project ? (
+              <ProjectTile
+                key={project.title}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                title={t(`projects.projectTitles.${project.title}` as any)}
+                backgroundType={project.backgroundType}
+                links={project.links}
+                url={project.url}
+              />
+            ) : (
+              <div className="project-tile-placeholder" key={`project-tile-placeholder-${idx}`}></div>
+            )}
+          </>
+        ))}
       </Grid>
     </VStack>
   );
