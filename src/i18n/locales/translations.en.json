@@ -64,7 +64,9 @@
       },
       "portfolio": {
         "focus": "Web Development",
-        "subtitle": "My personal portfolio website to showcase my work."
+        "subtitle": "My personal portfolio website to showcase my work.",
+        "goal": "The goal of creating my own portfolio was to highlight my previous projects and experiences in order to showcase my skills and expertise. Additionally, it served as practice to improve skills such as design and animation. Lastly, a portfolio enhances online presence and facilitates contact with potential employers or clients.",
+        "implementation": "First, I researched what features make a good portfolio and gathered inspiration. Then, I planned the structure of my website and created a concept. Subsequently, the portfolio was implemented using React, ChakraUI, and Framer Motion. Deployment is done via GitHub Pages."
       },
       "chatbot": {
         "focus": "Question Answering System",

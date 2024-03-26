@@ -46,19 +46,27 @@ export const Kirmize = () => {
 
       <VStack marginTop={16} spacing={16} width="full" alignItems="start">
         <VStack width="full" alignItems="start">
-          <Heading as="h2">{t("projects.details.goal")}</Heading>
+          <Heading as="h2" fontSize="3xl">
+            {t("projects.details.goal")}
+          </Heading>
         </VStack>
 
         <VStack width="full" alignItems="start">
-          <Heading as="h2">{t("projects.details.implementation")}</Heading>
+          <Heading as="h2" fontSize="3xl">
+            {t("projects.details.implementation")}
+          </Heading>
         </VStack>
 
         <VStack width="full" alignItems="start">
-          <Heading as="h2">{t("projects.details.technologies")}</Heading>
+          <Heading as="h2" fontSize="3xl">
+            {t("projects.details.technologies")}
+          </Heading>
         </VStack>
 
         <VStack width="full" alignItems="start">
-          <Heading as="h2">{t("projects.details.screenshots")}</Heading>
+          <Heading as="h2" fontSize="3xl">
+            {t("projects.details.screenshots")}
+          </Heading>
         </VStack>
       </VStack>
     </VStack>

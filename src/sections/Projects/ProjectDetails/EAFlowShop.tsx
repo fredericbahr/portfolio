@@ -15,6 +15,7 @@ import { format } from "date-fns";
 import { de } from "date-fns/locale";
 import { useTranslation } from "react-i18next";
 
+import flowShopHeroImage from "../../../assets/projects/ea-flow-shop/flow-shop-hero.jpg";
 import { ProjectDetailHeader } from "./ProjectDetailHeader";
 
 /**
@@ -37,28 +38,31 @@ export const EAFlowShop = () => {
         subtitle={t("projects.details.eaFlowShop.subtitle")}
       />
 
-      <Image
-        src="https://s3-ap-south-1.amazonaws.com/static.awfis.com/wp-content/uploads/2017/07/07184649/ProjectManagement.jpg"
-        width="full"
-        maxHeight="35vh"
-        objectFit="contain"
-      />
+      <Image src={flowShopHeroImage} width="full" maxHeight="50vh" objectFit="cover" />
 
       <VStack marginTop={16} spacing={16} width="full" alignItems="start">
         <VStack width="full" alignItems="start">
-          <Heading as="h2">{t("projects.details.goal")}</Heading>
+          <Heading as="h2" fontSize="3xl">
+            {t("projects.details.goal")}
+          </Heading>
         </VStack>
 
         <VStack width="full" alignItems="start">
-          <Heading as="h2">{t("projects.details.implementation")}</Heading>
+          <Heading as="h2" fontSize="3xl">
+            {t("projects.details.implementation")}
+          </Heading>
         </VStack>
 
         <VStack width="full" alignItems="start">
-          <Heading as="h2">{t("projects.details.technologies")}</Heading>
+          <Heading as="h2" fontSize="3xl">
+            {t("projects.details.technologies")}
+          </Heading>
         </VStack>
 
         <VStack width="full" alignItems="start">
-          <Heading as="h2">{t("projects.details.screenshots")}</Heading>
+          <Heading as="h2" fontSize="3xl">
+            {t("projects.details.screenshots")}
+          </Heading>
         </VStack>
       </VStack>
     </VStack>

@@ -64,11 +64,17 @@
       },
       "portfolio": {
         "focus": "Webentwicklung",
-        "subtitle": "Implementierung meiner persönlichen Portfolio-Webseite."
+        "subtitle": "Implementierung meiner persönlichen Portfolio-Webseite.",
+        "goal": "Das Ziel der Entwicklug meines eigenen Portfolios war es, meine bisherigen Projekte und Erfahrungen hervorzuheben, um so meine Fähigkeiten und Kenntnisse zu präsentieren. Zusätzlich diente es als Übung, um meine Fähigkeiten in Bereichen wie Design und Animation zu verbessern. Schließlich erhöht ein Portfolio die Online-Präsenz und erleichtert die Kontaktaufnahme mit potenziellen Arbeitgebern oder Kunden.",
+        "implementation": "Zunächst habe ich recherchiert, welche Merkmale in gutes Portfolio erfüllt und dazu Inspirationen gesammelt. Anschließend habe ich die Struktur meiner Webseite geplant und ein Konzept erstellt. Anschließend wurde das Portfolio mit React, ChakraUI und Framer Motion umgesetzt. Das Deployment erfolgt über GitHub Pages."
       },
       "chatbot": {
         "focus": "Question Answering Systeme",
-        "subtitle": "Ein Projekt zur Entwicklung eines Chatbots für die Landesanstalt für Umwelt Baden-Württemberg."
+        "subtitle": "Ein Projekt zur Entwicklung eines Chatbots für die Landesanstalt für Umwelt Baden-Württemberg.",
+        "goal": "Die Landesanstalt für Umwelt Baden-Württemberg erfasst in einem Netz aus Messstationen Umweltdaten. Aus diesen Daten können Beobachtungen abgeleitet werden, um Aussagen über den Zustand der Ökosysteme zu treffen. Der öffentliche Zugang ermöglicht sowohl Forscher:innen als auch Privatpersonen eine Exploration der beobachteten Biotope. Die Menge und Komplexität der erfassten Daten erfordert neben einem vereinfachten Zugang für die diversen Benutzergruppen auch eine nachvollziehbare Aufbereitung der Informationen. Das Ziel dieses Projekts war es, die Umweltdaten über ein Frage-Antwort-System zugänglich zu machen und die korrekte Eingabe mithilfe von Chatbot-Funktionen zu stützen. Wesentlich hierbei war die Erzeugung eines Kontexts, in welchem eine Frage gestellt werden kann, sodass sie den Anforderungen der Datenquellen entspricht. Des Weiteren war eine Präzisierung der Frage, die Verarbeitung der Datensätze und dessen Darstellung relevant, um die Zugänglichkeit für den jeweiligen Benutzer zu gewährleisten.",
+        "implementation": "Um die Projektziele zu erfüllen, wurde eine webbasierte Anwendung entwickelt, welche die jeweiligen Anforderungen bedienen kann. Zur Bearbeitung der Chatbot-Funktionalität wurde der Rasa-Technologie-Stack* benutzt, welcher sowohl die Eingabe in einer webbasierten Oberflächen, die Zuweisung von natürlichsprachigen Anfragen zu Computer-Befehlen als auch die Ausführung der Befehle möglich macht. Das Frage-Antwort-System wurde mithilfe des Qanary-Technologie-Stack** umgesetzt. Diese Technologie ermöglicht es, einzelne Wissensfragmente aus der an das System gestellten Frage zu extrahieren und den Kontext der Frage herzustellen, sodass die Datenquellen abgefragt werden können. Die Präzisierung der Frage, die Verarbeitung und Darstellung der Datensätze konnte ebenfalls über diesen Mechanismus integriert werden.",
+        "rasa-detail": "Der Rasa-Technologie-Stack besteht aus Rasa-Chat, Rasa Open Source und Rasa Action Server:",
+        "qanary-detail": "Der Qanary-Technologie-Stack besteht aus einer Referenzimplementierung zur Erstellung von Fragebeantwortunssystemen nach der Qanary-Methodik:"
       },
       "multimediaDB": {
         "focus": "Multimedia Datenbanken, Fortgeschrittene Suchalgorithmen",
