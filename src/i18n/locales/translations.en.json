@@ -70,11 +70,17 @@
       },
       "chatbot": {
         "focus": "Question Answering System",
-        "subtitle": "A prototype of a chatbot for the Landesanstalt für Umwelt Baden-Württemberg."
+        "subtitle": "A prototype of a chatbot for the Landesanstalt für Umwelt Baden-Württemberg.",
+        "goal": "The Landesanstalt für Umwelt Baden-Württemberg captures environmental data through a network of monitoring stations. From these data, observations can be derived to make statements about the state of ecosystems. Public access enables both researchers and private individuals to explore the observed biotopes. The quantity and complexity of the collected data require not only simplified access for various user groups but also a comprehensible preparation of the information. The goal of this project was to make environmental data accessible through a question-answer system and to support correct input using chatbot functions. Essential here was the creation of a context in which a question can be asked so that it corresponds to the requirements of the data sources. Furthermore, the clarification of the question, the processing of the data sets, and their presentation were relevant to ensure accessibility for the respective user.",
+        "implementation": "To fulfill the project goals, a web-based application was developed, which can meet the respective requirements. For the implementation of the chatbot functionality, the Rasa technology stack* was used, which enables both input in a web-based interface, the mapping of natural language queries to computer commands and the execution of commands. The question-answering system was implemented using the Qanary technology stack**. This technology allows for the extraction of individual knowledge fragments from the question posed to the system and establishing the context of the question so that the data sources can be queried. The clarification of the question, the processing, and presentation of the data sets could also be integrated through this mechanism.",
+        "rasa-detail": "The Rasa technology stack consists of Rasa Chat, Rasa Open Source, and Rasa Action Server:",
+        "qanary-detail": "The Qanary technology stack consists of a reference implementation for creating question answering systems based on the Qanary methodology:"
       },
       "multimediaDB": {
         "focus": "Database Management, Advanced Searching",
-        "subtitle": "A prototypical software using multimedia database for the digitalization of veterinary practices (Case Study)."
+        "subtitle": "A prototypical software using multimedia database for the digitalization of veterinary practices (Case Study).",
+        "goal": "The goal of this university project was to showcase and learn the usage of a multimedia database, specifically PostgreSQL, within a near-real-world context. Ultimately an advances searching functionality based on one of the diverse media types needed to be implemented. The project was conducted in a team of two students and was supervised by a professor. The project was part of the course 'Multimedia Database Systems' and was realised in about 6 weeks.",
+        "implementation": "To achieve the defined goal, a system tailored for veterinary practices was developed, allowing for the storage of customer, animal, and medication data. The implementation of various search techniques involved advanced filtering of medication data, database-based full-text search and finding animals based on image comparisons. The introduction of these search techniques aims to enhance the usability and functionality of the system within the veterinary domain. In this project, we gained initial practical experience in database design and implementation, as well as the utilization of multimedia data in specialized applications."
       },
       "eaFlowShop": {
         "focus": "Optimization, Evolutionary Algorithm",

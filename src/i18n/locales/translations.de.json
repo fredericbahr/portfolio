@@ -78,7 +78,9 @@
       },
       "multimediaDB": {
         "focus": "Multimedia Datenbanken, Fortgeschrittene Suchalgorithmen",
-        "subtitle": "Eine Implementierung einer Software zur Verwendung einer Multimedia Datenbank in einer Tierartztpraxis."
+        "subtitle": "Eine Implementierung einer Software zur Verwendung einer Multimedia Datenbank in einer Tierartztpraxis.",
+        "goal": "Das Ziel dieses Universitätsprojekts war es, die Verwendung einer Multimediadatenbank, insbesondere PostgreSQL, in einem nahezu realen Kontext zu präsentieren und zu erlernen. Letztendlich sollte eine erweiterte Suchfunktionalität basierend auf einem der vielfältigen Medientypen implementiert werden. Das Projekt wurde von einem Team aus zwei Studenten durchgeführt und von einem Professor betreut. Es war Teil des Kurses Multimediadatenbanksysteme und wurde in etwa 6 Wochen umgesetzt.",
+        "implementation": "Um das definierte Ziel zu erreichen, wurde ein auf die Bedürfnisse von Tierarztpraxen zugeschnittenes System entwickelt, das die Speicherung von Kunden-, Tier- und Medikamentendaten ermöglicht. Die Implementierung verschiedene Suchtechniken bezieht sich auf eine erweiterte Filterung von Medikamentendaten, eine datenbankbasierte Volltextsuche und das Finden von Tieren auf Basis von Bildvergleichen. Die Einführung dieser Suchtechniken soll die Benutzerfreundlichkeit und Funktionalität des Systems im veterinärmedizinischen Bereich verbessern. In diesem Projekt lernten wir erste praktische Erfahrungen in der Datenbankgestaltung und -implementierung sowie der Nutzung von Multimediadaten in spezialisierten Anwendungen sammeln."
       },
       "eaFlowShop": {
         "focus": "Optimierung, Evolutionäre Algorithmen",

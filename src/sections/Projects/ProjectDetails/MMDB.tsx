@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Heading, Image, VStack } from "@chakra-ui/react";
+import { Heading, Image, VStack, Text, Tag, HStack } from "@chakra-ui/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
 import { useTranslation } from "react-i18next";
@@ -40,22 +40,35 @@ export const MMDB = () => {
 
       <Image src={mmdbVeteranHeroImage} width="full" maxHeight="50vh" objectFit="cover" />
       <VStack marginTop={16} spacing={16} width="full" alignItems="start">
-        <VStack width="full" alignItems="start">
+        <VStack width="full" alignItems="start" spacing={4}>
           <Heading as="h2" fontSize="3xl">
             {t("projects.details.goal")}
           </Heading>
+
+          <Text>{t("projects.details.multimediaDB.goal")}</Text>
         </VStack>
 
-        <VStack width="full" alignItems="start">
+        <VStack width="full" alignItems="start" spacing={4}>
           <Heading as="h2" fontSize="3xl">
             {t("projects.details.implementation")}
           </Heading>
+
+          <Text>{t("projects.details.multimediaDB.implementation")}</Text>
         </VStack>
 
-        <VStack width="full" alignItems="start">
+        <VStack width="full" alignItems="start" spacing={4}>
           <Heading as="h2" fontSize="3xl">
             {t("projects.details.technologies")}
           </Heading>
+
+          <HStack>
+            <Tag>TypeScript</Tag>
+            <Tag>React</Tag>
+            <Tag>Chakra UI</Tag>
+            <Tag>Express</Tag>
+            <Tag>Prisma</Tag>
+            <Tag>Postgres</Tag>
+          </HStack>
         </VStack>
 
         <VStack width="full" alignItems="start">

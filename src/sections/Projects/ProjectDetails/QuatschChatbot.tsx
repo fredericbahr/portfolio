@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { HStack, Heading, Image, Tag, Text, VStack } from "@chakra-ui/react";
+import { Heading, HStack, Image, Link, Tag, Text, VStack } from "@chakra-ui/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
 import { useTranslation } from "react-i18next";
@@ -59,6 +59,21 @@ export const QuatschChatbot = () => {
           </Heading>
 
           <Text>{t("projects.details.chatbot.implementation")}</Text>
+
+          <VStack width="full" alignItems="start">
+            <Text>
+              * {t("projects.details.chatbot.rasa-detail")}{" "}
+              <Link href="https://rasa.com/" isExternal color="brand.500">
+                Rasa
+              </Link>
+            </Text>
+            <Text>
+              ** {t("projects.details.chatbot.qanary-detail")}{" "}
+              <Link href="https://github.com/WDAqua/Qanary" isExternal color="brand.500">
+                Qanary
+              </Link>
+            </Text>
+          </VStack>
         </VStack>
 
         <VStack width="full" alignItems="start" spacing={4}>
