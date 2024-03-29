@@ -10,7 +10,8 @@
  * See LICENSE for licensing information.
  */
 
-import { Heading, HStack, Image, Tag, Text, VStack } from "@chakra-ui/react";
+import { Heading, HStack, Icon, Image, Link, Tag, Text, VStack } from "@chakra-ui/react";
+import { GithubLogo, Link as LinkIcon } from "@phosphor-icons/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
 import { useTranslation } from "react-i18next";
@@ -40,7 +41,19 @@ export const Portfolio = () => {
 
       <Image src={portfolioHeroImage} width="full" maxHeight="50vh" objectFit="cover" />
 
-      <VStack marginTop={16} spacing={16} width="full" alignItems="start">
+      <HStack marginTop={8} spacing={8} width="full" alignItems="center">
+        <Link href="https://fredericbahr.github.io/portfolio/" display="flex" gap={2}>
+          <Icon as={LinkIcon} boxSize={6} />
+          <Text as="span">Website</Text>
+        </Link>
+
+        <Link href="https://github.com/fredericbahr/portfolio" display="flex" gap={2}>
+          <Icon as={GithubLogo} boxSize={6} />
+          <Text as="span">Github</Text>
+        </Link>
+      </HStack>
+
+      <VStack marginTop={4} spacing={16} width="full" alignItems="start">
         <VStack width="full" alignItems="start" spacing={4}>
           <Heading as="h2" fontSize="3xl">
             {t("projects.details.goal")}

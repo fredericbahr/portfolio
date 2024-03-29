@@ -10,12 +10,18 @@
  * See LICENSE for licensing information.
  */
 
-import { Heading, Image, VStack } from "@chakra-ui/react";
+import { Box, Heading, HStack, Icon, Image, Link, Tag, Text, VStack } from "@chakra-ui/react";
+import { GithubLogo } from "@phosphor-icons/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import screenshot1 from "../../../assets/projects/weather-data/screenshot-1.png";
+import screenshot2 from "../../../assets/projects/weather-data/screenshot-2.png";
+import screenshot3 from "../../../assets/projects/weather-data/screenshot-3.png";
 import weatherDataHeroImage from "../../../assets/projects/weather-data/weather-data-hero.jpg";
+import { ImageSlider } from "../../../components/ImageSlider";
 import { ProjectDetailHeader } from "./ProjectDetailHeader";
 
 /**
@@ -24,6 +30,17 @@ import { ProjectDetailHeader } from "./ProjectDetailHeader";
 export const WeatherData = () => {
   /** translation hook */
   const { t, i18n } = useTranslation();
+
+  /** state to manage the slider index */
+  const [sliderIndex, setSliderIndex] = useState<number>(0);
+
+  /**
+   * Handles the change of the slider index
+   * @param index - the new index
+   */
+  const handleSliderIndexChange = (index: number) => {
+    setSliderIndex(index);
+  };
 
   return (
     <VStack width="full" alignItems="start" spacing={8} marginTop={16}>
@@ -40,29 +57,54 @@ export const WeatherData = () => {
 
       <Image src={weatherDataHeroImage} width="full" maxHeight="50vh" objectFit="cover" />
 
-      <VStack marginTop={16} spacing={16} width="full" alignItems="start">
-        <VStack width="full" alignItems="start">
+      <HStack marginTop={8} spacing={8} width="full" alignItems="center">
+        <Link href="https://github.com/fredericbahr/dbs_weatherdata" display="flex" gap={2}>
+          <Icon as={GithubLogo} boxSize={6} />
+          <Text as="span">Github</Text>
+        </Link>
+      </HStack>
+
+      <VStack marginTop={4} spacing={16} width="full" alignItems="start">
+        <VStack width="full" alignItems="start" spacing={4}>
           <Heading as="h2" fontSize="3xl">
             {t("projects.details.goal")}
           </Heading>
+
+          <Text>{t("projects.details.weatherData.goal")}</Text>
         </VStack>
 
-        <VStack width="full" alignItems="start">
+        <VStack width="full" alignItems="start" spacing={4}>
           <Heading as="h2" fontSize="3xl">
             {t("projects.details.implementation")}
           </Heading>
+
+          <Text>{t("projects.details.weatherData.implementation")}</Text>
         </VStack>
 
-        <VStack width="full" alignItems="start">
+        <VStack width="full" alignItems="start" spacing={4}>
           <Heading as="h2" fontSize="3xl">
             {t("projects.details.technologies")}
           </Heading>
+
+          <HStack>
+            <Tag>XML</Tag>
+            <Tag>XSL Transformation</Tag>
+            <Tag>D3.js</Tag>
+          </HStack>
         </VStack>
 
-        <VStack width="full" alignItems="start">
+        <VStack width="full" alignItems="start" spacing={4}>
           <Heading as="h2" fontSize="3xl">
             {t("projects.details.screenshots")}
           </Heading>
+
+          <Box alignSelf="center" width="full">
+            <ImageSlider
+              images={[screenshot1, screenshot2, screenshot3]}
+              index={sliderIndex}
+              onIndexChange={handleSliderIndexChange}
+            ></ImageSlider>
+          </Box>
         </VStack>
       </VStack>
     </VStack>
