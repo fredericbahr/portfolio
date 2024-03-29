@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Divider, Heading, HStack, Stat, StatHelpText,StatLabel, VStack } from "@chakra-ui/react";
+import { Divider, Heading, HStack, Stack, Stat, StatHelpText, StatLabel, VStack } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
 interface ProjectDetailHeaderProps {
@@ -28,28 +28,41 @@ export const ProjectDetailHeader = ({ focus, period, subtitle, title }: ProjectD
   const { t } = useTranslation();
 
   return (
-    <HStack width="full" justifyContent="space-between" alignItems="start">
-      <VStack width="full" maxWidth="65%" alignItems="start" spacing={4}>
-        <Heading as="h1" color="brand.500" fontSize="5xl">
+    <Stack direction={{ base: "column", lg: "row" }} width="full" justifyContent="space-between" alignItems="start">
+      <VStack width="full" maxWidth={{ base: "full", lg: "65%" }} alignItems="start" spacing={{ base: 6, lg: 4 }}>
+        <Heading as="h1" color="brand.500" fontSize={{ base: "3xl", lg: "5xl" }}>
           {title}
         </Heading>
-        <Heading as="h2" fontSize="lg" fontWeight={400}>
+        <Heading as="h2" fontSize={{ base: "md", lg: "lg" }} fontWeight={400}>
           {subtitle}
         </Heading>
-        <Divider borderTopWidth="3px" width="10%" borderColor="brand.500" />
+        <Divider
+          borderTopWidth={{ base: "2px", lg: "3px" }}
+          width={{ base: "full", lg: "10%" }}
+          borderColor="brand.500"
+        />
       </VStack>
 
-      <HStack spacing={16} whiteSpace="nowrap">
+      <Stack
+        direction={{ base: "column", lg: "row" }}
+        spacing={{ base: 4, lg: 16 }}
+        whiteSpace="nowrap"
+        marginTop={{ base: 4, lg: 0 }}
+      >
         <Stat>
           <StatLabel>{t("projects.details.period")}</StatLabel>
-          <StatHelpText margin={0}>{period}</StatHelpText>
+          <StatHelpText margin={0} style={{ textWrap: "wrap" }}>
+            {period}
+          </StatHelpText>
         </Stat>
 
         <Stat>
           <StatLabel>{t("projects.details.focus")}</StatLabel>
-          <StatHelpText margin={0}>{focus}</StatHelpText>
+          <StatHelpText margin={0} style={{ textWrap: "wrap" }}>
+            {focus}
+          </StatHelpText>
         </Stat>
-      </HStack>
-    </HStack>
+      </Stack>
+    </Stack>
   );
 };

@@ -131,5 +131,9 @@
       "secondMessage": "Schade, aber ich respektiere deine Entscheidung.",
       "thirdMessage": "Schicke meinem Schöpfer eine Nachricht, er wird so schnell wie möglich antworten!"
     }
+  },
+  "socials": {
+    "github": "GitHub Profil",
+    "linkedin": "LinkedIn Profil"
   }
 }

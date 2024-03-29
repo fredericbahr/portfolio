@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Box, Heading, HStack, Icon, Image, Link, Tag, Text, VStack } from "@chakra-ui/react";
+import { Box, Heading, HStack, Icon, Image, Link, Stack, Tag, Text, VStack } from "@chakra-ui/react";
 import { GithubLogo } from "@phosphor-icons/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
@@ -46,7 +46,7 @@ export const MMDB = () => {
   };
 
   return (
-    <VStack width="full" alignItems="start" spacing={8} marginTop={16}>
+    <VStack width="full" alignItems="start" spacing={{ base: 4, lg: 8 }} marginTop={{ base: 4, lg: 16 }}>
       <ProjectDetailHeader
         focus={t("projects.details.multimediaDB.focus")}
         period={
@@ -58,11 +58,17 @@ export const MMDB = () => {
         subtitle={t("projects.details.multimediaDB.subtitle")}
       />
 
-      <Image src={mmdbVeteranHeroImage} width="full" maxHeight="50vh" objectFit="cover" />
+      <Image
+        src={mmdbVeteranHeroImage}
+        width="full"
+        maxHeight="50vh"
+        objectFit="cover"
+        marginTop={{ base: 4, lg: 0 }}
+      />
 
       <HStack marginTop={8} spacing={8} width="full" alignItems="center">
         <Link href="https://github.com/fredericbahr/mmdba_tierarztpraxis" display="flex" gap={2}>
-          <Icon as={GithubLogo} boxSize={6} />
+          <Icon as={GithubLogo} boxSize={{ base: 5, lg: 6 }} />
           <Text as="span">Github</Text>
         </Link>
       </HStack>
@@ -89,14 +95,14 @@ export const MMDB = () => {
             {t("projects.details.technologies")}
           </Heading>
 
-          <HStack>
-            <Tag>TypeScript</Tag>
-            <Tag>React</Tag>
-            <Tag>Chakra UI</Tag>
-            <Tag>Express</Tag>
-            <Tag>Prisma</Tag>
-            <Tag>Postgres</Tag>
-          </HStack>
+          <Stack direction={{ base: "column", lg: "row" }} width="full">
+            <Tag justifyContent="center">TypeScript</Tag>
+            <Tag justifyContent="center">React</Tag>
+            <Tag justifyContent="center">Chakra UI</Tag>
+            <Tag justifyContent="center">Express</Tag>
+            <Tag justifyContent="center">Prisma</Tag>
+            <Tag justifyContent="center">Postgres</Tag>
+          </Stack>
         </VStack>
 
         <VStack width="full" alignItems="start" spacing={4}>

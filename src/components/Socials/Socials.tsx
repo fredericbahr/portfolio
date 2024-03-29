@@ -10,11 +10,16 @@
  * See LICENSE for licensing information.
  */
 
-import { Box, Icon, Link, List, ListItem, useColorModeValue } from "@chakra-ui/react";
+import { Box, Icon, Link, List, ListItem, Tooltip, useColorModeValue } from "@chakra-ui/react";
 import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
+import { useTranslation } from "react-i18next";
 
 /** Component for displaying the fixed socials */
 export const Socials = () => {
+  /** translation hook */
+  const { t } = useTranslation();
+
+  /** color for the divider */
   const dividerColor = useColorModeValue("gray.600", "gray.200");
 
   return (
@@ -34,31 +39,35 @@ export const Socials = () => {
         }}
       >
         <ListItem>
-          <Link aria-label="Github" isExternal href="https://github.com/fredericbahr">
-            <Icon
-              as={GithubLogo}
-              boxSize={6}
-              transition="all 0.2s ease-in-out"
-              _hover={{
-                color: "brand.500",
-                transform: "translateY(-4px) scale(1.2)",
-              }}
-            />
-          </Link>
+          <Tooltip label={t("socials.github")} hasArrow openDelay={300}>
+            <Link aria-label="Github" isExternal href="https://github.com/fredericbahr">
+              <Icon
+                as={GithubLogo}
+                boxSize={6}
+                transition="all 0.2s ease-in-out"
+                _hover={{
+                  color: "brand.500",
+                  transform: "translateY(-4px) scale(1.2)",
+                }}
+              />
+            </Link>
+          </Tooltip>
         </ListItem>
 
         <ListItem>
-          <Link aria-label="Linkedin" isExternal href="https://www.linkedin.com/in/frederic-bahr-446925251/">
-            <Icon
-              as={LinkedinLogo}
-              boxSize={6}
-              transition="all 0.2s ease-in-out"
-              _hover={{
-                color: "brand.500",
-                transform: "translateY(-4px) scale(1.2)",
-              }}
-            />
-          </Link>
+          <Tooltip label={t("socials.linkedin")} hasArrow openDelay={300}>
+            <Link aria-label="Linkedin" isExternal href="https://www.linkedin.com/in/frederic-bahr-446925251/">
+              <Icon
+                as={LinkedinLogo}
+                boxSize={6}
+                transition="all 0.2s ease-in-out"
+                _hover={{
+                  color: "brand.500",
+                  transform: "translateY(-4px) scale(1.2)",
+                }}
+              />
+            </Link>
+          </Tooltip>
         </ListItem>
       </List>
     </Box>

@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Container, VStack } from "@chakra-ui/react";
+import { Container, useMediaQuery,VStack } from "@chakra-ui/react";
 
 import { Chatbot } from "../sections/Chatbot/Chatbot";
 import { Footer } from "../sections/Footer/Footer";
@@ -23,16 +23,19 @@ interface LayoutProps {
 
 /** component for defining the layout of the portfolio */
 export const Layout = ({ children }: LayoutProps) => {
+  /** flag indicating whether screen is mobile size */
+  const [isMobile] = useMediaQuery("(max-width: 62em)");
+
   return (
     <VStack minHeight="100vh" marginBottom={10}>
       <Header />
-      <Container maxWidth="80%" style={{ counterReset: "heading 0" }}>
+      <Container maxWidth={{ base: "full", lg: "80%" }} style={{ counterReset: "heading 0" }}>
         <VStack width="full" alignItems="start" spacing={16}>
           {children}
           <Footer />
         </VStack>
       </Container>
-      <Socials />
+      {!isMobile && <Socials />}
       <Chatbot />
     </VStack>
   );

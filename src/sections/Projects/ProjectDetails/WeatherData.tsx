@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Box, Heading, HStack, Icon, Image, Link, Tag, Text, VStack } from "@chakra-ui/react";
+import { Box, Heading, HStack, Icon, Image, Link, Stack, Tag, Text, VStack } from "@chakra-ui/react";
 import { GithubLogo } from "@phosphor-icons/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
@@ -43,7 +43,7 @@ export const WeatherData = () => {
   };
 
   return (
-    <VStack width="full" alignItems="start" spacing={8} marginTop={16}>
+    <VStack width="full" alignItems="start" spacing={{ base: 2, lg: 8 }} marginTop={{ base: 4, lg: 16 }}>
       <ProjectDetailHeader
         focus={t("projects.details.weatherData.focus")}
         period={
@@ -55,11 +55,17 @@ export const WeatherData = () => {
         subtitle={t("projects.details.weatherData.subtitle")}
       />
 
-      <Image src={weatherDataHeroImage} width="full" maxHeight="50vh" objectFit="cover" />
+      <Image
+        src={weatherDataHeroImage}
+        width="full"
+        maxHeight="50vh"
+        objectFit="cover"
+        marginTop={{ base: 4, lg: 0 }}
+      />
 
       <HStack marginTop={8} spacing={8} width="full" alignItems="center">
         <Link href="https://github.com/fredericbahr/dbs_weatherdata" display="flex" gap={2}>
-          <Icon as={GithubLogo} boxSize={6} />
+          <Icon as={GithubLogo} boxSize={{ base: 5, lg: 6 }} />
           <Text as="span">Github</Text>
         </Link>
       </HStack>
@@ -86,11 +92,12 @@ export const WeatherData = () => {
             {t("projects.details.technologies")}
           </Heading>
 
-          <HStack>
-            <Tag>XML</Tag>
-            <Tag>XSL Transformation</Tag>
-            <Tag>D3.js</Tag>
-          </HStack>
+          <Stack direction={{ base: "column", lg: "row" }} width="full">
+            <Tag justifyContent="center">XML</Tag>
+            <Tag justifyContent="center">XML Schema Definiton</Tag>
+            <Tag justifyContent="center">XSL Transformation</Tag>
+            <Tag justifyContent="center">D3.js</Tag>
+          </Stack>
         </VStack>
 
         <VStack width="full" alignItems="start" spacing={4}>

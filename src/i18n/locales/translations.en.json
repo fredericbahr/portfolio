@@ -131,5 +131,9 @@
       "secondMessage": "Sad times, but I respect your decision.",
       "thirdMessage": "Send my creator a message and he will answer as soon as possible!"
     }
+  },
+  "socials": {
+    "github": "GitHub Profile",
+    "linkedin": "LinkedIn Profile"
   }
 }

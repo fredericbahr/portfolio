@@ -25,6 +25,7 @@ import {
   List,
   ListIcon,
   ListItem,
+  Stack,
   Tag,
   Text,
   useColorModeValue,
@@ -74,20 +75,22 @@ export const Experience = () => {
             <AccordionItem border="1px solid" borderColor={borderColor} key={`experience-${idx}`}>
               {({ isExpanded }) => (
                 <>
-                  <ChakraHeading as="h4" fontSize="lg">
+                  <ChakraHeading as="h4" fontSize={{ base: "md", lg: "lg" }}>
                     <AccordionButton paddingX={4} paddingY={3}>
                       <HStack width="full" justifyContent="space-between" marginRight={4}>
                         <HStack spacing={1}>
-                          <Text as="span">{t(`experience.jobTitles.${experience.title}`)}</Text>
+                          <Text as="span" fontSize={{ base: "sm", lg: "lg" }}>
+                            {t(`experience.jobTitles.${experience.title}`)}
+                          </Text>
                           <Text as="span" color="brand.500">
                             @
                           </Text>
-                          <Link href={experience.companyUrl} isExternal>
+                          <Link href={experience.companyUrl} isExternal fontSize={{ base: "sm", lg: "lg" }}>
                             {experience.company}
                           </Link>
                         </HStack>
 
-                        <Text as="span" fontSize="md">
+                        <Text as="span" fontSize={{ base: "2xs", lg: "md" }}>
                           {format(new Date(experience.startDate), "MMM yyyy", {
                             locale: i18n.language === "de" ? de : undefined,
                           })}{" "}
@@ -107,43 +110,45 @@ export const Experience = () => {
 
                   <AccordionPanel paddingBottom={4} paddingX={4} fontSize="md" marginTop={2}>
                     <VStack width="full" alignItems="start" spacing={6}>
-                      <HStack spacing={6}>
+                      <Stack direction={{ base: "column", lg: "row" }} spacing={6}>
                         <HStack spacing={1}>
                           <Icon as={MapPinLine} />
-                          <Text>{experience.location}</Text>
+                          <Text fontSize={{ base: "sm", lg: "lg" }}>{experience.location}</Text>
                         </HStack>
 
                         <HStack spacing={1}>
                           <Icon as={LinkIcon} />
-                          <Link href={experience.companyUrl} isExternal>
+                          <Link href={experience.companyUrl} isExternal fontSize={{ base: "sm", lg: "lg" }}>
                             {experience.companyUrl}
                           </Link>
                         </HStack>
-                      </HStack>
+                      </Stack>
 
                       <List marginLeft={2} spacing={2}>
                         {isSingleDescription(experience.description) ? (
                           <ListItem>
                             <ListIcon as={Terminal} color="green.500" />
-                            {experience.description}
+                            <Text fontSize={{ base: "sm", lg: "lg" }}>{experience.description}</Text>
                           </ListItem>
                         ) : (
                           <>
                             {experience.description.map((description: string) => (
                               <ListItem display="flex">
                                 <ListIcon as={Terminal} color="green.500" />
-                                {description}
+                                <Text fontSize={{ base: "sm", lg: "lg" }}>{description}</Text>
                               </ListItem>
                             ))}
                           </>
                         )}
                       </List>
 
-                      <HStack spacing={2}>
+                      <Stack direction={{ base: "column", lg: "row" }} spacing={2} width="full">
                         {experience.skills.map((skill: string) => (
-                          <Tag colorScheme="gray">{skill}</Tag>
+                          <Tag colorScheme="gray" justifyContent="center">
+                            {skill}
+                          </Tag>
                         ))}
-                      </HStack>
+                      </Stack>
                     </VStack>
                   </AccordionPanel>
                 </>
@@ -153,7 +158,7 @@ export const Experience = () => {
         </Accordion>
 
         <Flex width="full" justifyContent="center">
-          <Button label={t("experience.cv")} onClick={handleCVDownload} />
+          <Button size={{ base: "md", lg: "lg" }} label={t("experience.cv")} onClick={handleCVDownload} />
         </Flex>
       </VStack>
     </VStack>

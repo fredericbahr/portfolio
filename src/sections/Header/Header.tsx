@@ -10,25 +10,58 @@
  * See LICENSE for licensing information.
  */
 
-import { Flex, IconButton } from "@chakra-ui/react";
+import { Box, Collapse, Flex, Icon, IconButton, useDisclosure, useMediaQuery } from "@chakra-ui/react";
+import { List as ListIcon, X } from "@phosphor-icons/react";
 
 import Logo from "../../components/Logo/Logo";
+import { MobileNavigation } from "./Navigation/MobileNavigation";
 import { Navigation } from "./Navigation/Navigation";
 
 /**
  * Component for rendering the header of the application
  */
 export const Header = () => {
+  /** flag indicating whether screen is mobile size */
+  const [isMobile] = useMediaQuery("(max-width: 62em)");
+
+  /** state of the mobile navigation */
+  const { isOpen: isMobileNavOpen, onToggle: onToggleMobileNav, onClose: onCloseMobileNav } = useDisclosure();
+
   return (
-    <Flex as="header" flexDirection="row" width="full" padding={2} marginBottom={{ base: 0, lg: 2 }}>
-      <IconButton
-        icon={<Logo maxH={12} />}
-        aria-label="Logo"
-        variant="ghost"
-        marginLeft={6}
-        onClick={() => window.location.reload()}
-      />
-      <Navigation />
-    </Flex>
+    <>
+      <Flex
+        as="header"
+        flexDirection="row"
+        width="full"
+        padding={2}
+        marginBottom={{ base: 0, lg: 2 }}
+        justifyContent={{ base: "space-between", lg: "unset" }}
+      >
+        <IconButton
+          icon={<Logo maxH={12} />}
+          aria-label="Logo"
+          variant="ghost"
+          marginLeft={6}
+          onClick={() => window.location.reload()}
+        />
+        {isMobile && (
+          <IconButton
+            aria-label="Open Menu"
+            icon={isMobileNavOpen ? <Icon as={X} /> : <Icon as={ListIcon} />}
+            onClick={onToggleMobileNav}
+            variant="ghost"
+            colorScheme="gray"
+          />
+        )}
+        {!isMobile && <Navigation />}
+      </Flex>
+      {isMobile && (
+        <Flex justifyContent="center" width="full" margin="0 auto" marginTop={-3}>
+          <Collapse in={isMobileNavOpen} animateOpacity>
+            <MobileNavigation />
+          </Collapse>
+        </Flex>
+      )}
+    </>
   );
 };

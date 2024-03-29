@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Heading, HStack, Icon, Image, Link, Text, VStack } from "@chakra-ui/react";
+import { Heading, HStack, Icon, Image, Link, Stack, Tag, Text, VStack } from "@chakra-ui/react";
 import { GithubLogo, Link as LinkIcon } from "@phosphor-icons/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
@@ -26,7 +26,7 @@ export const Kirmize = () => {
   const { t, i18n } = useTranslation();
 
   return (
-    <VStack width="full" alignItems="start" spacing={8} marginTop={16}>
+    <VStack width="full" alignItems="start" spacing={{ base: 4, lg: 8 }} marginTop={{ base: 4, lg: 16 }}>
       <ProjectDetailHeader
         focus={t("projects.details.kirmize.focus")}
         period={
@@ -43,32 +43,42 @@ export const Kirmize = () => {
         width="full"
         maxHeight="35vh"
         objectFit="contain"
+        marginTop={{ base: 4, lg: 0 }}
       />
 
       <HStack marginTop={8} spacing={8} width="full" alignItems="center">
         <Link href="" display="flex" gap={2}>
-          <Icon as={LinkIcon} boxSize={6} />
+          <Icon as={LinkIcon} boxSize={{ base: 5, lg: 6 }} />
           <Text as="span">Website</Text>
         </Link>
       </HStack>
 
       <VStack marginTop={4} spacing={16} width="full" alignItems="start">
-        <VStack width="full" alignItems="start">
+        <VStack width="full" alignItems="start" spacing={4}>
           <Heading as="h2" fontSize="3xl">
             {t("projects.details.goal")}
           </Heading>
         </VStack>
 
-        <VStack width="full" alignItems="start">
+        <VStack width="full" alignItems="start" spacing={4}>
           <Heading as="h2" fontSize="3xl">
             {t("projects.details.implementation")}
           </Heading>
         </VStack>
 
-        <VStack width="full" alignItems="start">
+        <VStack width="full" alignItems="start" spacing={4}>
           <Heading as="h2" fontSize="3xl">
             {t("projects.details.technologies")}
           </Heading>
+
+          <Stack direction={{ base: "column", lg: "row" }} width="full">
+            <Tag justifyContent="center">TypeScript</Tag>
+            <Tag justifyContent="center">React</Tag>
+            <Tag justifyContent="center">Chakra UI</Tag>
+            <Tag justifyContent="center">Express</Tag>
+            <Tag justifyContent="center">Prisma</Tag>
+            <Tag justifyContent="center">Mongo DB</Tag>
+          </Stack>
         </VStack>
 
         <VStack width="full" alignItems="start">

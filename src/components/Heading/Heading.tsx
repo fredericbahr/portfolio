@@ -26,14 +26,13 @@ export const Heading = ({ children, id }: HeadingProps) => {
     <ChakraHeading
       id={id}
       as="h2"
-      fontSize="4xl"
+      fontSize={{ base: "3xl", lg: "4xl" }}
       display="flex"
       alignItems="center"
       justifyContent="center"
       width="full"
-      marginTop={12}
+      marginTop={{ base: 4, lg: 12 }}
       style={{ counterIncrement: "heading 1" }}
-      // Counter Index
       _before={{
         content: "'0' counter(heading) '.'",
         marginRight: 3,
@@ -45,13 +44,13 @@ export const Heading = ({ children, id }: HeadingProps) => {
       // Dash
       _after={{
         content: "''",
-        display: "block",
+        display: { base: "none", lg: "block" },
         width: "100%",
         height: 0.25,
         backgroundColor: "gray.300",
-        marginLeft: 8,
+        marginLeft: { base: 4, lg: 8 },
         marginTop: 3,
-        minWidth: "lg",
+        minWidth: { base: "unset", lg: "lg" },
       }}
     >
       {children}

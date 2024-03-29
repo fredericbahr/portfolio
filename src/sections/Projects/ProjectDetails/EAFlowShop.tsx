@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Heading, HStack, Icon, Image, Link, Tag, Text, VStack } from "@chakra-ui/react";
+import { Heading, HStack, Icon, Image, Link, Stack, Tag, Text, VStack } from "@chakra-ui/react";
 import { GithubLogo } from "@phosphor-icons/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
@@ -28,7 +28,7 @@ export const EAFlowShop = () => {
   const { t, i18n } = useTranslation();
 
   return (
-    <VStack width="full" alignItems="start" spacing={8} marginTop={16}>
+    <VStack width="full" alignItems="start" spacing={{ base: 4, lg: 8 }} marginTop={{ base: 4, lg: 16 }}>
       <ProjectDetailHeader
         focus={t("projects.details.eaFlowShop.focus")}
         period={
@@ -40,11 +40,11 @@ export const EAFlowShop = () => {
         subtitle={t("projects.details.eaFlowShop.subtitle")}
       />
 
-      <Image src={flowShopHeroImage} width="full" maxHeight="50vh" objectFit="cover" />
+      <Image src={flowShopHeroImage} width="full" maxHeight="50vh" objectFit="cover" marginTop={{ base: 4, lg: 0 }} />
 
       <HStack marginTop={8} spacing={8} width="full" alignItems="center">
         <Link href="https://github.com/fredericbahr/ea-flow-shop" display="flex" gap={2}>
-          <Icon as={GithubLogo} boxSize={6} />
+          <Icon as={GithubLogo} boxSize={{ base: 5, lg: 6 }} />
           <Text as="span">Github</Text>
         </Link>
       </HStack>
@@ -71,9 +71,9 @@ export const EAFlowShop = () => {
             {t("projects.details.technologies")}
           </Heading>
 
-          <HStack>
-            <Tag>TypeScript</Tag>
-          </HStack>
+          <Stack direction={{ base: "column", lg: "row" }} width="full">
+            <Tag justifyContent="center">TypeScript</Tag>
+          </Stack>
         </VStack>
 
         <VStack width="full" alignItems="start" spacing={4}>

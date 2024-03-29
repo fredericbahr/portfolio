@@ -20,6 +20,7 @@ import {
   Text,
   Tooltip,
   useColorModeValue,
+  useMediaQuery,
   useToken,
   VStack,
 } from "@chakra-ui/react";
@@ -54,6 +55,9 @@ export const ProjectTile = ({ title, url, backgroundType = "none", links, ...pro
 
   /** hook for translations */
   const { t } = useTranslation();
+
+  /** flag indicating whether screen is mobile size */
+  const [isMobile] = useMediaQuery("(max-width: 62em)");
 
   /** stringified token of the chakra ui colors */
   const [gray200, gray700] = useToken("colors", ["gray.200", "gray.700"]).map((color: string) =>
@@ -131,7 +135,7 @@ export const ProjectTile = ({ title, url, backgroundType = "none", links, ...pro
       paddingX={6}
       paddingY={1}
       display="flex"
-      justifyContent="center"
+      justifyContent={{ base: "start", lg: "center" }}
       alignItems="center"
       minHeight="2xs"
       minWidth="3xs"
@@ -177,9 +181,9 @@ export const ProjectTile = ({ title, url, backgroundType = "none", links, ...pro
       onClick={handleProjectTileClick}
       {...props}
     >
-      <VStack spacing={3}>
+      <VStack spacing={3} width="full">
         {title && (
-          <VStack spacing={0}>
+          <VStack spacing={0} width="full" alignItems="start">
             <Text
               as="span"
               className="project-counter"
@@ -191,12 +195,17 @@ export const ProjectTile = ({ title, url, backgroundType = "none", links, ...pro
                 display: "block",
               }}
             ></Text>
-            <Heading as="h3" color={fontColor}>
+            <Heading as="h3" color={fontColor} fontSize={{ base: "2xl", lg: "3xl" }}>
               {title}
             </Heading>
           </VStack>
         )}
-        <HStack className="project-links" display="none">
+        <HStack
+          className="project-links"
+          display={{ base: "block", lg: "none" }}
+          justifyContent="start"
+          width={{ base: "full", lg: "auto" }}
+        >
           {links?.website && (
             <Tooltip label={t("projects.website")} hasArrow openDelay={300}>
               <IconButton

@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Flex, Grid, VStack } from "@chakra-ui/react";
+import { Box, Flex, Grid, VStack } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
 import { Heading } from "../../components/Heading/Heading";
@@ -32,7 +32,11 @@ export const Projects = () => {
         <ProjectTabs />
       </Flex>
 
-      <Grid width="full" gridTemplateColumns="repeat(4, 1fr)" gridTemplateRows="repeat(2, 1fr)">
+      <Grid
+        width="full"
+        gridTemplateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }}
+        gridTemplateRows={{ base: "repeat(6, 1fr)", lg: "repeat(2, 1fr)" }}
+      >
         {projects.map((project: Project | null, idx: number) => (
           <>
             {project ? (
@@ -45,7 +49,11 @@ export const Projects = () => {
                 url={project.url}
               />
             ) : (
-              <div className="project-tile-placeholder" key={`project-tile-placeholder-${idx}`}></div>
+              <Box
+                className="project-tile-placeholder"
+                key={`project-tile-placeholder-${idx}`}
+                display={{ base: "none", lg: "block" }}
+              ></Box>
             )}
           </>
         ))}

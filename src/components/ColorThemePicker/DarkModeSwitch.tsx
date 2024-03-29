@@ -29,7 +29,7 @@ export const DarkModeSwitch = (props: Partial<IconButtonProps>) => {
       openDelay={300}
     >
       <IconButton
-        icon={<Icon as={colorMode === "light" ? Moon : Sun} />}
+        icon={<Icon as={colorMode === "light" ? Moon : Sun} boxSize={{ base: 6, lg: 5 }} />}
         variant="outline"
         colorScheme="gray"
         onClick={toggleColorMode}

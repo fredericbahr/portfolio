@@ -28,19 +28,19 @@ export const Hero = () => {
   const keywords: string = useHeroKeywords();
 
   return (
-    <HStack>
-      <VStack alignItems="start" marginTop={32} spacing={8}>
+    <HStack width="full">
+      <VStack alignItems="start" marginTop={{ base: 8, lg: 32 }} spacing={8}>
         <VStack alignItems="start" spacing={2}>
-          <Text fontSize="xl">{t("hero.intro")}</Text>
-          <Heading as="h1" fontSize="7xl" color="brand.500">
+          <Text fontSize={{ base: "sm", lg: "xl" }}>{t("hero.intro")}</Text>
+          <Heading as="h1" fontSize={{ base: "4xl", lg: "7xl" }} color="brand.500" wordBreak="break-word">
             {keywords}
           </Heading>
         </VStack>
-        <Text fontSize="xl" maxWidth="50%">
+        <Text fontSize={{ base: "md", lg: "xl" }} maxWidth={{ base: "full", lg: "50%" }}>
           {t("hero.subtitle")}
         </Text>
 
-        <Button label={t("hero.contact")}></Button>
+        <Button size={{ base: "md", lg: "lg" }} label={t("hero.contact")}></Button>
       </VStack>
       {colorMode === "dark" && <Spotlight />}
     </HStack>

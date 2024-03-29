@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Heading, HStack, Icon, Image, Link, Tag, Text, VStack } from "@chakra-ui/react";
+import { Heading, HStack, Icon, Image, Link, Stack, Tag, Text, VStack } from "@chakra-ui/react";
 import { GithubLogo } from "@phosphor-icons/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
@@ -26,7 +26,7 @@ export const QuatschChatbot = () => {
   const { t, i18n } = useTranslation();
 
   return (
-    <VStack width="full" alignItems="start" spacing={8} marginTop={16}>
+    <VStack width="full" alignItems="start" spacing={{ base: 4, lg: 8 }} marginTop={{ base: 4, lg: 16 }}>
       <ProjectDetailHeader
         focus={t("projects.details.chatbot.focus")}
         period={
@@ -43,11 +43,12 @@ export const QuatschChatbot = () => {
         width="full"
         maxHeight="35vh"
         objectFit="contain"
+        marginTop={{ base: 4, lg: 0 }}
       />
 
       <HStack marginTop={8} spacing={8} width="full" alignItems="center">
         <Link href="https://github.com/fredericbahr/quatsch-project-22" display="flex" gap={2}>
-          <Icon as={GithubLogo} boxSize={6} />
+          <Icon as={GithubLogo} boxSize={{ base: 5, lg: 6 }} />
           <Text as="span">Github</Text>
         </Link>
       </HStack>
@@ -89,13 +90,13 @@ export const QuatschChatbot = () => {
             {t("projects.details.technologies")}
           </Heading>
 
-          <HStack spacing={4}>
-            <Tag>TypeScript</Tag>
-            <Tag>Qanary</Tag>
-            <Tag>Rasa</Tag>
-            <Tag>RDF</Tag>
-            <Tag>Docker</Tag>
-          </HStack>
+          <Stack direction={{ base: "column", lg: "row" }} width="full">
+            <Tag justifyContent="center">TypeScript</Tag>
+            <Tag justifyContent="center">Qanary</Tag>
+            <Tag justifyContent="center">Rasa</Tag>
+            <Tag justifyContent="center">RDF</Tag>
+            <Tag justifyContent="center">Docker</Tag>
+          </Stack>
         </VStack>
 
         <VStack width="full" alignItems="start" spacing={4}>

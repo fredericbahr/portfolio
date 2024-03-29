@@ -20,6 +20,7 @@ import { LanguageSwitcher } from "../../../components/LanguageSwitcher";
  * Component for rendering the navigation of the application
  */
 export const Navigation = () => {
+  /** translation hook */
   const { t } = useTranslation();
 
   return (
