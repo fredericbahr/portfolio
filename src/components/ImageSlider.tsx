@@ -48,14 +48,22 @@ export const ImageSlider = ({ images, index = 0, onIndexChange }: ImageSliderPro
           aria-label="Previous"
           icon={<Icon as={CaretLeft} />}
           onClick={() => onIndexChange(modulo(index - 1, images.length))}
+          size={{ base: "xs", lg: "md" }}
         />
 
-        <Image src={images[index]} objectFit="contain" maxWidth={"70%"} draggable {...swipeHandlers} />
+        <Image
+          src={images[index]}
+          objectFit="contain"
+          maxWidth={{ base: "full", lg: "70%" }}
+          draggable
+          {...swipeHandlers}
+        />
 
         <IconButton
           aria-label="Next"
           icon={<Icon as={CaretRight} />}
           onClick={() => onIndexChange(modulo(index + 1, images.length))}
+          size={{ base: "xs", lg: "md" }}
         />
       </Grid>
 

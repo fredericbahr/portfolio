@@ -24,7 +24,15 @@ interface ChatProps {
  */
 export const Chat = ({ onClick }: ChatProps) => {
   return (
-    <Card position="fixed" bottom="5%" right="5%" maxWidth="25vw" maxHeight="65vh">
+    <Card
+      position="fixed"
+      bottom={{ base: 0, lg: "5%" }}
+      right={{ base: 0, lg: "5%" }}
+      height={{ base: "full", lg: "auto" }}
+      maxWidth={{ base: "full", lg: "25vw" }}
+      maxHeight={{ base: "full", lg: "65vh" }}
+      zIndex={3}
+    >
       <ChatHeader onClick={onClick} />
 
       <CardBody overflowY="auto">

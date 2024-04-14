@@ -23,6 +23,13 @@
     "subtitle": "Ich entwickle leidenschaftlich innovative Lösungen zur Optimierung von Arbeitsabläufen und Steigerung der Produktivität der Nutzer durch benutzerfreundliche Webanwendungen.",
     "contact": "Kontakt"
   },
+  "about": {
+    "title": "Über mich",
+    "introduction": "Hey, ich bin Frederic Bahr, ein leidenschaftlicher Softwareentwickler aus Leipzig, Deutschland. Seit meiner ersten Berührung im Jahr 2017 während eines Schulprojektes entdeckte ich meine Leidenschaft für die Webentwicklung. Seither verbessere und vertiefe ich kontinuierlich meine Fähigkeiten und Kenntnisse. Darüberhinaus bietet mir ein akademischer Hintergrund in Medieninformatik ein solides Fundament und untermauert meine Expertise.",
+    "main": "Besonders fasziniert bin ich von der Entwicklung hochwertiger User Interfaces, die durch eine intuitive Benutzeroberfläche Prozesse für Nutzer vereinfachen. Meine Begeisterung für dieses Feld treibt mich dazu an, stets neue Technologien und Frameworks zu erforschen und mich weiterzuentwickeln. Dabei lege ich großen Wert auf eine saubere und strukturierte Codebasis, die eine Wartbarkeit und Skalierbarkeit gewährleistet.",
+    "volunteering": "Neben meiner beruflichen Tätigkeit entwickel ich in meiner Freizeit eine cloudbasierte Anwendung zur Verwaltung von Terminen für kleine Vereine in meiner Heimat.",
+    "technologies": "Mit einem klaren Fokus auf Qualität und Benutzerfreundlichkeit strebe ich danach, innovative Lösungen zu entwickeln, die einen echten Mehrwert bieten. Dafür verwende ich meistens:"
+  },
   "experience": {
     "title": "Erfahrung",
     "subtitle": "Mein bisheriger Werdegang",

@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Button } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 interface IProps {
@@ -24,7 +24,9 @@ interface IProps {
 export const ChatAction = ({ children, handleAction }: IProps) => {
   return (
     <Button variant="outline" colorScheme="gray" onClick={handleAction}>
-      {children}
+      <Text as="span" width="full" style={{ textWrap: "wrap" }} textAlign={{ base: "start", lg: "center" }}>
+        {children}
+      </Text>
     </Button>
   );
 };

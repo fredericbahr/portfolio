@@ -19,11 +19,11 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import AnimatedLogo from "./components/Logo/AnimatedLogo";
 import { useColorScheme } from "./context/ColorSchemeContext";
+import { About } from "./sections/About/About";
 import { Experience } from "./sections/Experience/Experience";
 import { Hero } from "./sections/Hero/Hero";
 import { EAFlowShop, Kirmize, MMDB, Portfolio, QuatschChatbot, WeatherData } from "./sections/Projects";
 import { Projects } from "./sections/Projects/Projects";
-
 
 function App() {
   const { colorScheme } = useColorScheme();
@@ -49,6 +49,7 @@ function App() {
             ) : (
               <Layout>
                 <Hero />
+                <About />
                 <Experience />
                 <Projects />
               </Layout>

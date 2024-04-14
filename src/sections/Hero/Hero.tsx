@@ -40,7 +40,11 @@ export const Hero = () => {
           {t("hero.subtitle")}
         </Text>
 
-        <Button size={{ base: "md", lg: "lg" }} label={t("hero.contact")}></Button>
+        <Button
+          size={{ base: "md", lg: "lg" }}
+          alignSelf={{ base: "center", lg: "start" }}
+          label={t("hero.contact")}
+        ></Button>
       </VStack>
       {colorMode === "dark" && <Spotlight />}
     </HStack>

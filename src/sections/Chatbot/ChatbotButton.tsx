@@ -31,7 +31,7 @@ export const ChatbotButton = ({ onClick }: ChatbotButtonProps) => {
         bottom="5%"
         right="5%"
         size="lg"
-        variant="outline"
+        variant={{ base: "solid", lg: "outline" }}
         colorScheme="gray"
         onClick={onClick}
       />

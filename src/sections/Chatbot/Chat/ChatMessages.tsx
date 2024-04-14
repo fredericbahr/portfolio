@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { HStack, VStack } from "@chakra-ui/react";
+import { HStack, Stack, VStack } from "@chakra-ui/react";
 import { RefObject, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -126,13 +126,13 @@ export const ChatMessages = () => {
       <VStack width="full" spacing={3}>
         {renderMessages()}
       </VStack>
-      <HStack width="full" flexWrap="wrap">
+      <Stack direction={{ base: "column", lg: "row" }} width="full" flexWrap="wrap">
         {actions.map((actionMessage: IChatAction, idx: number) => (
           <ChatAction key={idx} handleAction={() => handleChatAction(actionMessage)}>
             {t(actionMessage.actionText)}
           </ChatAction>
         ))}
-      </HStack>
+      </Stack>
       <div ref={messagesEndRef} />
     </VStack>
   );

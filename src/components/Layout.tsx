@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Container, useMediaQuery,VStack } from "@chakra-ui/react";
+import { Container, useMediaQuery, VStack } from "@chakra-ui/react";
 
 import { Chatbot } from "../sections/Chatbot/Chatbot";
 import { Footer } from "../sections/Footer/Footer";
@@ -30,7 +30,7 @@ export const Layout = ({ children }: LayoutProps) => {
     <VStack minHeight="100vh" marginBottom={10}>
       <Header />
       <Container maxWidth={{ base: "full", lg: "80%" }} style={{ counterReset: "heading 0" }}>
-        <VStack width="full" alignItems="start" spacing={16}>
+        <VStack width="full" alignItems="start" spacing={{ base: 8, lg: 16 }}>
           {children}
           <Footer />
         </VStack>

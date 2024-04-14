@@ -23,6 +23,13 @@
     "subtitle": "I specialize in creating innovative solutions designed to streamline processes, drive digital transformation, and enhance the customer experience.",
     "contact": "Contact me"
   },
+  "about": {
+    "title": "About me",
+    "introduction": "Hey there, I'm Frederic Bahr, an enthusiastic software developer hailing from Leipzig, Germany. My journey into the world of web development began with a school project back in 2017, igniting a passion that has only grown since. Over time, I've honed and expanded my skills, delving deeper into the intricacies of the field. Moreover, my academic background in media informatics not only lays a strong foundation but also reinforces my expertise in the domain.",
+    "main": "I'm particularly fascinated by the development of high-quality user interfaces that streamline processes for users through an intuitive interface. My enthusiasm for this field drives me to constantly explore new technologies and frameworks and to continue evolving. I place great emphasis on maintaining a clean and structured codebase that ensures maintainability and scalability.",
+    "volunteering": "In addition to my professional work, I develop a cloud-based application in my free time for managing appointments for small local clubs based in my hometown.",
+    "technologies": "With a clear focus on quality and user-friendliness, I strive to develop innovative solutions that provide real value. For this, I mainly use:"
+  },
   "experience": {
     "title": "Experience",
     "subtitle": "My professional journey",

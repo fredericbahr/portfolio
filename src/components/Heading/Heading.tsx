@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Heading as ChakraHeading } from "@chakra-ui/react";
+import { Heading as ChakraHeading, Text } from "@chakra-ui/react";
 import React from "react";
 
 interface HeadingProps {
@@ -53,7 +53,9 @@ export const Heading = ({ children, id }: HeadingProps) => {
         minWidth: { base: "unset", lg: "lg" },
       }}
     >
-      {children}
+      <Text as="span" style={{ textWrap: "nowrap" }}>
+        {children}
+      </Text>
     </ChakraHeading>
   );
 };

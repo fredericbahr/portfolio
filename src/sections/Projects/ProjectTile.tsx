@@ -145,15 +145,42 @@ export const ProjectTile = ({ title, url, backgroundType = "none", links, ...pro
       style={{ counterIncrement: title && "projects 1" }}
       sx={{
         "&:has(+ .project-tile)": {
-          borderRight: "none",
+          borderLeft: isMobile ? "2px solid" : "none",
+          borderBottom: isMobile ? "none" : "2px solid",
+          borderColor: borderColor,
         },
 
-        "&:last-child:not(:hover)": {
+        "&:has(+ .project-tile-placeholder)": {
           borderLeft: "none",
         },
 
         "&:nth-child(n+5):not(:hover)": {
           borderTop: "none",
+        },
+
+        "&:nth-child(1):not(:hover)": {
+          borderLeft: "2px solid",
+          borderColor: borderColor,
+        },
+
+        "&:nth-child(6):not(:hover)": {
+          borderLeft: "2px solid",
+          borderColor: borderColor,
+        },
+
+        "& .project-tile-placeholder": {
+          marginRight: "-2px",
+        },
+
+        "&:nth-child(4):not(:hover)": {
+          borderLeft: isMobile ? "2px solid" : "none",
+          borderColor: borderColor,
+        },
+
+        "&:nth-child(7):not(:hover)": {
+          borderTop: isMobile ? "2px solid" : "none",
+          borderLeft: isMobile ? "2px solid" : "none",
+          borderColor: borderColor,
         },
 
         "&:hover": {
