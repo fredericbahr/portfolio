@@ -38,10 +38,10 @@ export const Projects = () => {
         gridTemplateRows={{ base: "repeat(6, 1fr)", lg: "repeat(2, 1fr)" }}
       >
         {projects.map((project: Project | null, idx: number) => (
-          <>
+          <Box key={`project-tile-wrapper-${idx}`}>
             {project ? (
               <ProjectTile
-                key={project.title}
+                key={`project-tile-${project.title}-${idx}`}
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 title={t(`projects.projectTitles.${project.title}` as any)}
                 backgroundType={project.backgroundType}
@@ -55,7 +55,7 @@ export const Projects = () => {
                 display={{ base: "none", lg: "block" }}
               ></Box>
             )}
-          </>
+          </Box>
         ))}
       </Grid>
     </VStack>

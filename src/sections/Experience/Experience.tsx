@@ -72,7 +72,7 @@ export const Experience = () => {
 
         <Accordion allowMultiple width="full" display="flex" flexDirection="column" gap={6}>
           {experiences.map((experience: IExperience, idx: number) => (
-            <AccordionItem border="1px solid" borderColor={borderColor} key={`experience-${idx}`}>
+            <AccordionItem border="1px solid" borderColor={borderColor} key={`experience-${experience.title}-${idx}`}>
               {({ isExpanded }) => (
                 <>
                   <ChakraHeading as="h4" fontSize={{ base: "md", lg: "lg" }}>
@@ -133,7 +133,7 @@ export const Experience = () => {
                         ) : (
                           <>
                             {experience.description.map((description: string) => (
-                              <ListItem display="flex">
+                              <ListItem display="flex" key={`experience-${experience.title}-${idx}-${description}`}>
                                 <ListIcon as={Terminal} color="green.500" />
                                 <Text fontSize={{ base: "sm", lg: "lg" }}>{description}</Text>
                               </ListItem>
@@ -144,7 +144,11 @@ export const Experience = () => {
 
                       <Stack direction={{ base: "column", lg: "row" }} spacing={2} width="full">
                         {experience.skills.map((skill: string) => (
-                          <Tag colorScheme="gray" justifyContent="center">
+                          <Tag
+                            colorScheme="gray"
+                            justifyContent="center"
+                            key={`experience-${experience.title}-${idx}-${skill}`}
+                          >
                             {skill}
                           </Tag>
                         ))}

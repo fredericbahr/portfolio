@@ -27,7 +27,7 @@ export function isChatTextMessage(message: IChatMessage): message is IChatTextMe
  * @returns true if the message is a download message and predicates the message as IChatDownload
  */
 export function isChatDownload(message: IChatMessage): message is IChatDownload {
-  return (message as IChatDownload).url !== undefined;
+  return (message as IChatDownload).fileName !== undefined;
 }
 
 /**
@@ -36,5 +36,6 @@ export function isChatDownload(message: IChatMessage): message is IChatDownload 
  * @returns true if the message is a form message and predicates the message as IChatRedirect
  */
 export function isChatRedirect(message: IChatMessage): message is IChatRedirect {
+  console.log("message redirect", message);
   return (message as IChatRedirect).url !== undefined;
 }

@@ -20,6 +20,7 @@ import { Layout } from "./components/Layout";
 import AnimatedLogo from "./components/Logo/AnimatedLogo";
 import { useColorScheme } from "./context/ColorSchemeContext";
 import { About } from "./sections/About/About";
+import { Contact } from "./sections/Contact/Contact";
 import { Experience } from "./sections/Experience/Experience";
 import { Hero } from "./sections/Hero/Hero";
 import { EAFlowShop, Kirmize, MMDB, Portfolio, QuatschChatbot, WeatherData } from "./sections/Projects";
@@ -103,6 +104,14 @@ function App() {
           element={
             <Layout>
               <WeatherData />
+            </Layout>
+          }
+        />
+        <Route
+          path="contact"
+          element={
+            <Layout>
+              <Contact />
             </Layout>
           }
         />

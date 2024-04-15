@@ -128,7 +128,6 @@ export const ProjectTile = ({ title, url, backgroundType = "none", links, ...pro
 
   return (
     <GridItem
-      key={title}
       className="project-tile"
       border="2px solid"
       borderColor={borderColor}
@@ -222,7 +221,7 @@ export const ProjectTile = ({ title, url, backgroundType = "none", links, ...pro
                 display: "block",
               }}
             ></Text>
-            <Heading as="h3" color={fontColor} fontSize={{ base: "2xl", lg: "3xl" }}>
+            <Heading as="h3" color={fontColor} fontSize={{ base: "2xl", lg: "3xl" }} wordBreak="break-word">
               {title}
             </Heading>
           </VStack>

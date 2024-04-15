@@ -19,6 +19,7 @@ import { actionRepository, initialActions, initialMessages } from "../chatbot.me
 import { isChatDownload, isChatRedirect, isChatTextMessage } from "../chatbot.utils";
 import { ChatAction } from "./ChatAction";
 import { ChatDownload } from "./ChatDownload";
+import { ChatNavigation } from "./ChatNavigation";
 import { ChatText } from "./ChatText";
 
 /**
@@ -45,6 +46,7 @@ export const ChatMessages = () => {
    * @returns ChatText and ChatDowload Components
    */
   const renderMessages = () => {
+    console.log("messages", messages);
     return messages.map((message: IChatMessage, idx: number) => {
       if (isChatTextMessage(message)) {
         return (
@@ -67,7 +69,8 @@ export const ChatMessages = () => {
       }
 
       if (isChatRedirect(message)) {
-        // return <Navigate to={message.url} />;
+        console.log("rendering chat navigation");
+        return <ChatNavigation key={idx} url={message.url} />;
       }
 
       return null;

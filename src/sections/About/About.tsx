@@ -35,8 +35,8 @@ export const About = () => {
           <Text>{t("about.technologies")}</Text>
 
           <List display="grid" gridTemplateColumns="repeat(2, 1fr)" columnGap={8} rowGap={0.5} alignSelf="start">
-            {technologies.map((technology) => (
-              <ListItem display="flex" alignItems="center">
+            {technologies.map((technology, index) => (
+              <ListItem display="flex" alignItems="center" key={`${technology}-${index}`}>
                 <ListIcon as={Terminal} color="green.500" />
                 <Text fontSize={{ base: "sm", lg: "lg" }}>{technology}</Text>
               </ListItem>
