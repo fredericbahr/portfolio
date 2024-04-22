@@ -27,10 +27,16 @@ interface ButtonProps extends ChakraButtonProps {
 
 /** Component for displaying the hero section */
 export const Button = ({ label, ...rest }: ButtonProps) => {
+  /** background color of the invisible squares to create cut off effect */
   const backgroundColor = useColorModeValue("white", "gray.800");
+
+  /** background color of button on hover */
   const hoverBackgroundColor = useColorModeValue("gray.800", "white");
+
+  /** font color of button on hover */
   const hoverColor = useColorModeValue("white", "gray.800");
 
+  /** hook for dencrypting text */
   const [dencryptText, dencrypt] = useDencrypt(label);
 
   useEffect(() => {

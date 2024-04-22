@@ -142,5 +142,16 @@
   "socials": {
     "github": "GitHub Profile",
     "linkedin": "LinkedIn Profile"
+  },
+  "contact": {
+    "headline": "Get in touch",
+    "subtext": "I'm always open for a good chat, whether it's about a project, a job offer, or just to say hello. Feel free to reach out to me via the contact form or directly via email.",
+    "form": {
+      "headline": "Send me a message!",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send message"
+    }
   }
 }

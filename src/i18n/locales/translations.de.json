@@ -142,5 +142,16 @@
   "socials": {
     "github": "GitHub Profil",
     "linkedin": "LinkedIn Profil"
+  },
+  "contact": {
+    "headline": "Komm' mit mir ins Gespräch - Ich bin nur eine Nachricht entfernt!",
+    "subtext": "Für eine gute Unterhaltung bin ich immer zu haben, sei es über ein Projekt, ein Jobangebot oder einfach nur, um Hallo zu sagen. Zögere nicht, mich über das Kontaktformular oder direkt per E-Mail zu erreichen.",
+    "form": {
+      "headline": "Schreib mir eine Nachricht!",
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Nachricht",
+      "submit": "Senden"
+    }
   }
 }

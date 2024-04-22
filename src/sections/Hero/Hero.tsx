@@ -12,6 +12,7 @@
 
 import { Heading, HStack, Text, useColorMode, VStack } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 import { Button } from "../../components/Button/Button";
 import { Spotlight } from "../../components/Spotlight";
@@ -19,13 +20,22 @@ import { useHeroKeywords } from "../../hooks/useHeroKeywords";
 
 /** Component for displaying the hero section */
 export const Hero = () => {
+  /** translation hook */
   const { t } = useTranslation();
+
+  /** navigation hook */
+  const navigate = useNavigate();
 
   /** the current color mode */
   const { colorMode } = useColorMode();
 
   /** keywords through which the hero section cycles */
   const keywords: string = useHeroKeywords();
+
+  /** handle contact button click */
+  const handleHeroContactClick = () => {
+    navigate("/contact");
+  };
 
   return (
     <HStack width="full">
@@ -44,6 +54,7 @@ export const Hero = () => {
           size={{ base: "md", lg: "lg" }}
           alignSelf={{ base: "center", lg: "start" }}
           label={t("hero.contact")}
+          onClick={handleHeroContactClick}
         ></Button>
       </VStack>
       {colorMode === "dark" && <Spotlight />}
