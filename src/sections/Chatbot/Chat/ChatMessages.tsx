@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { HStack, Stack, VStack } from "@chakra-ui/react";
+import { Stack, VStack } from "@chakra-ui/react";
 import { RefObject, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -46,7 +46,6 @@ export const ChatMessages = () => {
    * @returns ChatText and ChatDowload Components
    */
   const renderMessages = () => {
-    console.log("messages", messages);
     return messages.map((message: IChatMessage, idx: number) => {
       if (isChatTextMessage(message)) {
         return (
@@ -69,7 +68,6 @@ export const ChatMessages = () => {
       }
 
       if (isChatRedirect(message)) {
-        console.log("rendering chat navigation");
         return <ChatNavigation key={idx} url={message.url} />;
       }
 

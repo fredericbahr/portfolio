@@ -67,7 +67,9 @@
       "screenshots": "Screenshots",
       "kirmize": {
         "focus": "Webentwicklung",
-        "subtitle": "Die mobile Webanwendung für die Kirmes zur Planung von Terminen."
+        "subtitle": "Die mobile Webanwendung für die Kirmes zur Planung von Terminen.",
+        "goal": "Die Kirmize-App wurde entwickelt, um die Organisation und Planung von Terminen von lokalen Vereinen zu erleichtern. Das Ziel war es, eine benutzerfreundliche und intuitive Anwendung zu schaffen, die es den Nutzern ermöglicht, sich über die verschiedenen Veranstaltungen zu informieren und ihre Teilnahme an den Terminen zu planen. Die App sollte eine klare Struktur und ein ansprechendes Design aufweisen, um die Nutzererfahrung zu verbessern und die Interaktion mit der Anwendung zu erleichtern. Darüber hinaus sollte die Anwendung es ermöglichen Fotos und Videos von den Veranstaltungen hochzuladen und zu teilen. Zusätzlich sollen Umfragen und Abstimmungen duchgeführt werden können, um die Meinung der Nutzer zu verschiedenen Themen zu erfassen.",
+        "implementation": "Die Kirmize-App wurde mit React und ChakraUI entwickelt. Die Anwendung wurde als Progressive Web App (PWA) konzipiert, um eine optimale Performance und Benutzererfahrung auf verschiedenen Geräten zu gewährleisten. Die Implementierung erfolgte in enger Zusammenarbeit mit einem lokalen Vereinen, um die Anforderungen und Wünsche der Nutzer zu berücksichtigen. Zur Datenhaltung wird eine MongoDB-Datenbank verwendet, dessen Zugriff mittels Prisma ORM abstrahiert wird. Die Business-Logik der Anwedung wird in einem Express-Backend realisiert, welches die Kommunikation mit der Datenbank und die Bereitstellung der Daten für die Frontend-Anwendung übernimmt. Die Authentifizierung und Autorisierung der Nutzer erfolgt über JSON Web Tokens (JWT)."
       },
       "portfolio": {
         "focus": "Webentwicklung",
@@ -151,7 +153,8 @@
       "name": "Name",
       "email": "E-Mail",
       "message": "Nachricht",
-      "submit": "Senden"
+      "submit": "Senden",
+      "emailError": "Bitte gib eine gültige E-Mail-Adresse ein."
     }
   }
 }

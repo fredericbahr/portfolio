@@ -10,8 +10,9 @@
  * See LICENSE for licensing information.
  */
 
-import { Box, Collapse, Flex, Icon, IconButton, useDisclosure, useMediaQuery } from "@chakra-ui/react";
+import { Collapse, Flex, Icon, IconButton, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import { List as ListIcon, X } from "@phosphor-icons/react";
+import { useNavigate } from "react-router-dom";
 
 import Logo from "../../components/Logo/Logo";
 import { MobileNavigation } from "./Navigation/MobileNavigation";
@@ -25,7 +26,10 @@ export const Header = () => {
   const [isMobile] = useMediaQuery("(max-width: 62em)");
 
   /** state of the mobile navigation */
-  const { isOpen: isMobileNavOpen, onToggle: onToggleMobileNav, onClose: onCloseMobileNav } = useDisclosure();
+  const { isOpen: isMobileNavOpen, onToggle: onToggleMobileNav } = useDisclosure();
+
+  /** navigation hook for routing */
+  const navigate = useNavigate();
 
   return (
     <>
@@ -42,7 +46,7 @@ export const Header = () => {
           aria-label="Logo"
           variant="ghost"
           marginLeft={6}
-          onClick={() => window.location.reload()}
+          onClick={() => navigate("/")}
         />
         {isMobile && (
           <IconButton

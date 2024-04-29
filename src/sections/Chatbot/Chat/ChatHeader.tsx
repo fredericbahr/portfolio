@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Avatar, CardHeader, CloseButton, Heading, HStack, Icon, Tooltip, VStack } from "@chakra-ui/react";
+import { Avatar, CardHeader, CloseButton, Heading, HStack, Tooltip, VStack } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
 import { ChatbotIcon } from "../ChatbotIcon";

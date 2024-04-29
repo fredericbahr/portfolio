@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Divider, Heading, HStack, Stack, Stat, StatHelpText, StatLabel, VStack } from "@chakra-ui/react";
+import { Divider, Heading, Stack, Stat, StatHelpText, StatLabel, VStack } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
 interface ProjectDetailHeaderProps {

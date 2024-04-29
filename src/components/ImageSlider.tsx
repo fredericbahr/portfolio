@@ -10,9 +10,9 @@
  * See LICENSE for licensing information.
  */
 
-import { Box, Grid, Heading, HStack, Icon, IconButton, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, Grid, HStack, Icon, IconButton, Image, VStack } from "@chakra-ui/react";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
-import { motion } from "framer-motion";
+import { MutableRefObject, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 
 export interface ImageDescription {
@@ -30,15 +30,25 @@ interface ImageSliderProps {
  * A classic image slider carousel with swipe support.
  */
 export const ImageSlider = ({ images, index = 0, onIndexChange }: ImageSliderProps) => {
+  /** reference to the image element */
+  const imageRef: MutableRefObject<HTMLImageElement | null> = useRef<HTMLImageElement>(null);
+
+  /** handles the fullscreen mode of the image */
+  const handleFullscreen = () => {
+    if (imageRef.current) {
+      imageRef.current.requestFullscreen();
+    }
+  };
+
+  /** swipe handlers for the image slider */
   const swipeHandlers = useSwipeable({
     onSwipedRight: () => onIndexChange(modulo(index + 1, images.length)),
     onSwipedLeft: () => onIndexChange(modulo(index - 1, images.length)),
-    onSwiped: () => console.log("swiped"),
+    onTouchEndOrOnMouseUp: handleFullscreen,
     trackMouse: true,
   });
 
   /** modulo function that also works with negative numbers */
-
   const modulo = (n: number, m: number) => ((n % m) + m) % m;
 
   return (
@@ -54,9 +64,12 @@ export const ImageSlider = ({ images, index = 0, onIndexChange }: ImageSliderPro
         <Image
           src={images[index]}
           objectFit="contain"
-          maxWidth={{ base: "full", lg: "70%" }}
+          maxWidth={{ base: "full", lg: "min(400px, 70%)" }}
           draggable
+          onClick={handleFullscreen}
           {...swipeHandlers}
+          ref={imageRef}
+          _hover={{ cursor: "pointer" }}
         />
 
         <IconButton

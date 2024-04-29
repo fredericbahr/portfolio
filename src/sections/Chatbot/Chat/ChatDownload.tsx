@@ -13,19 +13,7 @@
 import "react-pdf/dist/Page/TextLayer.css";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 
-import {
-  Box,
-  Card,
-  CardBody,
-  CardFooter,
-  Flex,
-  HStack,
-  Icon,
-  IconButton,
-  Spinner,
-  Text,
-  Tooltip,
-} from "@chakra-ui/react";
+import { Card, CardBody, CardFooter, Flex, HStack, Icon, IconButton, Text, Tooltip } from "@chakra-ui/react";
 import { DownloadSimple } from "@phosphor-icons/react";
 import { MutableRefObject, useRef } from "react";
 import { useTranslation } from "react-i18next";

@@ -10,8 +10,10 @@
  * See LICENSE for licensing information.
  */
 
-import { Flex, Grid, Heading, HStack, Icon, Link, Text, VStack } from "@chakra-ui/react";
+import { Flex, FormControl, FormErrorMessage, Grid, Heading, HStack, Icon, Link, Text, VStack } from "@chakra-ui/react";
+import emailjs from "@emailjs/browser";
 import { EnvelopeSimple } from "@phosphor-icons/react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { Button } from "../../components/Button/Button";
@@ -25,8 +27,71 @@ export const Contact = () => {
   /** translation hook */
   const { t } = useTranslation();
 
+  /** state for the name input */
+  const [name, setName] = useState("");
+
+  /** state for the email input */
+  const [email, setEmail] = useState("");
+
+  /** state for the message input */
+  const [message, setMessage] = useState("");
+
+  /** state for the email error */
+  const [emailError, setEmailError] = useState(false);
+
+  /**
+   * Verifies if the given email is valid
+   * @param email - email to be validated
+   * @returns true if email is valid, false otherwise
+   */
+  const verifyEmail = (email: string): boolean => {
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    return emailRegex.test(email);
+  };
+
+  /** Handles the change of the name input. */
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+  };
+
+  /** Handles the change of the email input. */
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  /** Handles the change of the message input. */
+  const handleMessageChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMessage(event.target.value);
+  };
+
   /** Handles the click on the send button. */
-  const handleSendClick = () => {};
+  const handleSendClick = async (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const templateParams = {
+      from_completeName: name,
+      from_emailcontact: email,
+      message: message,
+    };
+
+    if (!verifyEmail(email)) {
+      setEmailError(true);
+      return;
+    }
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+      );
+
+      setEmailError(false);
+    } catch (error) {
+      console.error("Failed to send email", error);
+    }
+  };
 
   return (
     <VStack spacing={12} align="start" width="full" marginTop={{ base: 8, lg: 16 }}>
@@ -49,17 +114,30 @@ export const Contact = () => {
         </Text>
         <Grid
           gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
-          gridTemplateRows={{ base: "repeat(3, 1fr)", lg: "1fr 1fr" }}
+          gridTemplateRows={{ base: "auto auto 1fr", lg: "1fr 1fr" }}
           columnGap={6}
-          rowGap={{ base: 0, lg: 4 }}
+          rowGap={4}
           width="full"
         >
-          <Input placeholder={t("contact.form.name")} gridColumn="1" gridRow="1"></Input>
-          <Input placeholder={t("contact.form.email")} gridColumn="1" gridRow="2"></Input>
+          <Input
+            placeholder={t("contact.form.name")}
+            gridColumn="1"
+            gridRow="1"
+            value={name}
+            onChange={handleNameChange}
+          ></Input>
+
+          <FormControl isInvalid={emailError} gridColumn="1" gridRow="2">
+            <Input placeholder={t("contact.form.email")} value={email} onChange={handleEmailChange}></Input>
+            {emailError && <FormErrorMessage>{t("contact.form.emailError")}</FormErrorMessage>}
+          </FormControl>
+
           <Textarea
             placeholder={t("contact.form.message")}
             height="full"
             gridRow={{ base: "auto", lg: "1 / span 2" }}
+            value={message}
+            onChange={handleMessageChange}
           ></Textarea>
         </Grid>
 

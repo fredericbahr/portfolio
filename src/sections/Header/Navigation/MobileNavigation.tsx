@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Divider, HStack, Link, List, ListItem, useColorModeValue,VStack } from "@chakra-ui/react";
+import { Divider, HStack, Link, List, ListItem, useColorModeValue, VStack } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
 import { ColorThemePicker } from "../../../components/ColorThemePicker/ColorThemePicker";

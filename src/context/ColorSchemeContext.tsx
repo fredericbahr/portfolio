@@ -24,11 +24,13 @@ interface ColorScheme {
 export type ColorSchemeName = "bordeaux" | "green" | "lime";
 
 /** Map between color scheme name and the color scheme */
-const colorSchemeMap: Map<ColorSchemeName, Record<string, unknown>> = new Map<ColorSchemeName, Record<string, unknown>>([
-  ["bordeaux", bordeauxTheme],
-  ["green", greenTheme],
-  ["lime", limeTheme],
-]);
+const colorSchemeMap: Map<ColorSchemeName, Record<string, unknown>> = new Map<ColorSchemeName, Record<string, unknown>>(
+  [
+    ["bordeaux", bordeauxTheme],
+    ["green", greenTheme],
+    ["lime", limeTheme],
+  ],
+);
 
 /**
  * The color scheme context to provide the current color schema and a method to update it

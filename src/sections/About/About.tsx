@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Box, Grid, HStack, Image, List, ListIcon, ListItem, Text, VStack } from "@chakra-ui/react";
+import { Box, Grid, List, ListIcon, ListItem, Text, VStack } from "@chakra-ui/react";
 import { Terminal } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 
@@ -44,11 +44,11 @@ export const About = () => {
           </List>
         </VStack>
         <Box display="flex" justifyContent="center">
-          <Image
+          {/* <Image
             src="https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Picture of me"
             maxHeight="lg"
-          />
+          /> */}
         </Box>
       </Grid>
     </VStack>

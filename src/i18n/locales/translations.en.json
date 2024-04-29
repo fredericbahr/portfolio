@@ -67,7 +67,9 @@
       "screenshots": "Screenshots",
       "kirmize": {
         "focus": "Web Development",
-        "subtitle": "A mobil web application for the digitalization of planning appointments."
+        "subtitle": "A mobil web application for the digitalization of planning appointments.",
+        "goal": "The Kirmize app was developed to facilitate the organization and planning of appointments for local clubs. The goal was to create a user-friendly and intuitive application that allows users to stay informed about various events and plan their attendance. The app should have a clear structure and appealing design to enhance user experience and facilitate interaction with the application. Additionally, the application should allow users to upload and share photos and videos from the events. Furthermore, surveys and polls should be conducted to capture users' opinions on various topics.",
+        "implementation": "The Kirmize app was developed using React and ChakraUI. The application was designed as a Progressive Web App (PWA) to ensure optimal performance and user experience across various devices. The implementation was done in close collaboration with local clubs to consider the requirements and preferences of the users. For data storage, a MongoDB database is used, with access abstracted through Prisma ORM. The business logic of the application is implemented in an Express backend, which handles communication with the database and provides data to the frontend application. User authentication and authorization are performed using JSON Web Tokens (JWT)."
       },
       "portfolio": {
         "focus": "Web Development",
@@ -151,7 +153,8 @@
       "name": "Name",
       "email": "Email",
       "message": "Message",
-      "submit": "Send message"
+      "submit": "Send message",
+      "emailError": "Please enter a valid email address."
     }
   }
 }

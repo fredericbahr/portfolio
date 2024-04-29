@@ -10,12 +10,23 @@
  * See LICENSE for licensing information.
  */
 
-import { Heading, HStack, Icon, Image, Link, Stack, Tag, Text, VStack } from "@chakra-ui/react";
-import { GithubLogo, Link as LinkIcon } from "@phosphor-icons/react";
+import { Box, Heading, HStack, Icon, Image, Link, Stack, Tag, Text, VStack } from "@chakra-ui/react";
+import { Link as LinkIcon } from "@phosphor-icons/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import appointmentsDark from "../../../assets/projects/kirmize/appointments-dark-bordeaux.jpg";
+import appointmentsLight from "../../../assets/projects/kirmize/appointments-light-bordeaux.jpg";
+import heroDark from "../../../assets/projects/kirmize/hero-dark-bordeaux.jpg";
+import heroLight from "../../../assets/projects/kirmize/hero-light-bordeaux.jpg";
+import heroImage from "../../../assets/projects/kirmize/heroImage.png";
+import photosDark from "../../../assets/projects/kirmize/photos-dark-bordeaux.jpg";
+import photosLight from "../../../assets/projects/kirmize/photos-light-bordeaux.jpg";
+import surveysDark from "../../../assets/projects/kirmize/surveys-dark-bordeaux.jpg";
+import surveysLight from "../../../assets/projects/kirmize/surveys-light-bordeaux.jpg";
+import { ImageSlider } from "../../../components/ImageSlider";
 import { ProjectDetailHeader } from "./ProjectDetailHeader";
 
 /**
@@ -24,6 +35,17 @@ import { ProjectDetailHeader } from "./ProjectDetailHeader";
 export const Kirmize = () => {
   /** translation hook */
   const { t, i18n } = useTranslation();
+
+  /** state to manage the slider index */
+  const [sliderIndex, setSliderIndex] = useState<number>(0);
+
+  /**
+   * Handles the change of the slider index
+   * @param index - the new index
+   */
+  const handleSliderIndexChange = (index: number) => {
+    setSliderIndex(index);
+  };
 
   return (
     <VStack width="full" alignItems="start" spacing={{ base: 4, lg: 8 }} marginTop={{ base: 4, lg: 16 }}>
@@ -38,13 +60,7 @@ export const Kirmize = () => {
         subtitle={t("projects.details.kirmize.subtitle")}
       />
 
-      <Image
-        src="https://s3-ap-south-1.amazonaws.com/static.awfis.com/wp-content/uploads/2017/07/07184649/ProjectManagement.jpg"
-        width="full"
-        maxHeight="35vh"
-        objectFit="contain"
-        marginTop={{ base: 4, lg: 0 }}
-      />
+      <Image src={heroImage} width="full" maxHeight="35vh" objectFit="contain" marginTop={{ base: 4, lg: 0 }} />
 
       <HStack marginTop={8} spacing={8} width="full" alignItems="center">
         <Link href="" display="flex" gap={2}>
@@ -58,12 +74,16 @@ export const Kirmize = () => {
           <Heading as="h2" fontSize="3xl">
             {t("projects.details.goal")}
           </Heading>
+
+          <Text>{t("projects.details.kirmize.goal")}</Text>
         </VStack>
 
         <VStack width="full" alignItems="start" spacing={4}>
           <Heading as="h2" fontSize="3xl">
             {t("projects.details.implementation")}
           </Heading>
+
+          <Text>{t("projects.details.kirmize.implementation")}</Text>
         </VStack>
 
         <VStack width="full" alignItems="start" spacing={4}>
@@ -80,12 +100,29 @@ export const Kirmize = () => {
             <Tag justifyContent="center">Mongo DB</Tag>
           </Stack>
         </VStack>
+      </VStack>
 
-        <VStack width="full" alignItems="start">
-          <Heading as="h2" fontSize="3xl">
-            {t("projects.details.screenshots")}
-          </Heading>
-        </VStack>
+      <VStack width="full" alignItems="start">
+        <Heading as="h2" fontSize="3xl">
+          {t("projects.details.screenshots")}
+        </Heading>
+
+        <Box alignSelf="center" width="full">
+          <ImageSlider
+            images={[
+              heroDark,
+              heroLight,
+              appointmentsDark,
+              appointmentsLight,
+              photosDark,
+              photosLight,
+              surveysDark,
+              surveysLight,
+            ]}
+            index={sliderIndex}
+            onIndexChange={handleSliderIndexChange}
+          ></ImageSlider>
+        </Box>
       </VStack>
     </VStack>
   );
