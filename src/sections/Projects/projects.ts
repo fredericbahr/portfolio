@@ -35,7 +35,7 @@ export const projects: (Project | null)[] = [
   },
   {
     title: "portfolio",
-    url: "/portfolio",
+    url: "/personal-portfolio",
     backgroundType: "none",
     links: {
       github: "https://github.com/fredericbahr/portfolio",
