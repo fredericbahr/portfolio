@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Box, Flex, Grid, VStack } from "@chakra-ui/react";
+import { Box, Flex, Grid, useMediaQuery, VStack } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
 import { Heading } from "../../components/Heading/Heading";
@@ -22,7 +22,11 @@ import { ProjectTile } from "./ProjectTile";
  * Component for displaying the projects section
  */
 export const Projects = () => {
+  /** translation hook */
   const { t } = useTranslation();
+
+  /** flag indicating whether screen is mobile size */
+  const [isMobile] = useMediaQuery("(max-width: 62em)");
 
   return (
     <VStack width="full" alignItems="start" spacing={4} style={{ counterReset: "projects 0" }}>
@@ -38,7 +42,11 @@ export const Projects = () => {
         gridTemplateRows={{ base: "repeat(6, 1fr)", lg: "repeat(2, 1fr)" }}
       >
         {projects.map((project: Project | null, idx: number) => (
-          <Box key={`project-tile-wrapper-${idx}`}>
+          <Box
+            key={`project-tile-wrapper-${idx}`}
+            className={`project-tile-wrapper-${idx}`}
+            display={isMobile && !project ? "none" : "block"}
+          >
             {project ? (
               <ProjectTile
                 key={`project-tile-${project.title}-${idx}`}
