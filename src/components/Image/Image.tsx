@@ -11,7 +11,6 @@
  */
 
 import { Box, Image as ChakraImage, ImageProps } from "@chakra-ui/react";
-import React from "react";
 
 /**
  * Custom image component

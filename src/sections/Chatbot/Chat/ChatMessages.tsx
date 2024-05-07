@@ -50,7 +50,8 @@ export const ChatMessages = () => {
       if (isChatTextMessage(message)) {
         return (
           <ChatText key={idx} owner={message.owner}>
-            {t(message.message)}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            {t(message.message as any)}
           </ChatText>
         );
       }
@@ -130,7 +131,8 @@ export const ChatMessages = () => {
       <Stack direction={{ base: "column", lg: "row" }} width="full" flexWrap="wrap">
         {actions.map((actionMessage: IChatAction, idx: number) => (
           <ChatAction key={idx} handleAction={() => handleChatAction(actionMessage)}>
-            {t(actionMessage.actionText)}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            {t(actionMessage.actionText as any)}
           </ChatAction>
         ))}
       </Stack>
