@@ -1,11 +1,21 @@
+/*
+ * COPYRIGHT (C) 2024 Frederic Bahr
+ *
+ * The PROGRAM is protected by national and international copyright laws and conventions.
+ * The copyright lies with Frederic Bahr, unless expressly stated otherwise.
+ * All rights reserved.
+ * Especially the reproduction and distribution of the PROGRAM without written permission of
+ * the copyright owner is prohibited.
+ *
+ * See LICENSE for licensing information.
+ */
+
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import translation_de from "./locales/de/translation.json";
-import translation_en from "./locales/en/translation.json";
 
-// the translations
-// (tip move them in a JSON file and import them,
-// or even better, manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
+import translation_de from "./locales/translations.de.json";
+import translation_en from "./locales/translations.en.json";
+
 const resources = {
   en: {
     translation: translation_en,
@@ -15,15 +25,11 @@ const resources = {
   },
 };
 
-i18n
-  .use(initReactI18next) // passes i18n down to react-i18next
-  .init({
-    resources,
-    lng: "en",
-    fallbackLng: "en",
-    interpolation: {
-      escapeValue: false, // react already safes from xss
-    },
-  });
+i18n.use(initReactI18next).init({
+  resources,
+  lng: "de",
+  fallbackLng: "de",
+  interpolation: { escapeValue: false },
+});
 
 export default i18n;

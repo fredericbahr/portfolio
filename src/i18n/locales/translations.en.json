@@ -1,0 +1,160 @@
+{
+  "navigation": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact me",
+    "themeSwitch": {
+      "title": "Customize the ui",
+      "light": "Light mode",
+      "dark": "Dark mode",
+      "bordeaux": "Bordeaux",
+      "green": "Green",
+      "lime": "Lime"
+    },
+    "languageSwitch": {
+      "title": "Customize the language",
+      "german": "German",
+      "english": "English"
+    }
+  },
+  "hero": {
+    "intro": "Hey, I am",
+    "subtitle": "I specialize in creating innovative solutions designed to streamline processes, drive digital transformation, and enhance the customer experience.",
+    "contact": "Contact me"
+  },
+  "about": {
+    "title": "About me",
+    "introduction": "Hey there, I'm Frederic Bahr, an enthusiastic software developer hailing from Leipzig, Germany. My journey into the world of web development began with a school project back in 2017, igniting a passion that has only grown since. Over time, I've honed and expanded my skills, delving deeper into the intricacies of the field. Moreover, my academic background in media informatics not only lays a strong foundation but also reinforces my expertise in the domain.",
+    "main": "I'm particularly fascinated by the development of high-quality user interfaces that streamline processes for users through an intuitive interface. My enthusiasm for this field drives me to constantly explore new technologies and frameworks and to continue evolving. I place great emphasis on maintaining a clean and structured codebase that ensures maintainability and scalability.",
+    "volunteering": "In addition to my professional work, I develop a cloud-based application in my free time for managing appointments for small local clubs based in my hometown.",
+    "technologies": "With a clear focus on quality and user-friendliness, I strive to develop innovative solutions that provide real value. For this, I mainly use:"
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "My professional journey",
+    "jobTitles": {
+      "softwareDeveloper": "Software Developer",
+      "juniorSoftwareDeveloper": "Junior Software Developer",
+      "workingStudent": "Working Student",
+      "intern": "Intern",
+      "bachelor": "Bachelor thesis",
+      "master": "Master thesis"
+    },
+    "present": "Present",
+    "cv": "Curriculum Vitae"
+  },
+  "projects": {
+    "title": "Projects",
+    "tab": "Featured",
+    "website": "Website",
+    "github": "GitHub",
+    "projectTitles": {
+      "kirmize": "Kirmize",
+      "portfolio": "Portfolio",
+      "chatbot": "QUAtsCH Chatbot ´22",
+      "multimediaDB": "Multimedia Database Veterinary Practice",
+      "eaFlowShop": "EA Flow Shop Optimization",
+      "weatherData": "XML Weather Data Visiualization"
+    },
+    "details": {
+      "focus": "Focus",
+      "period": "Period",
+      "present": "Present",
+      "goal": "Goal",
+      "implementation": "Implementation",
+      "technologies": "Technologies",
+      "screenshots": "Screenshots",
+      "kirmize": {
+        "focus": "Web Development",
+        "subtitle": "A mobil web application for the digitalization of planning appointments.",
+        "goal": "The Kirmize app was developed to facilitate the organization and planning of appointments for local clubs. The goal was to create a user-friendly and intuitive application that allows users to stay informed about various events and plan their attendance. The app should have a clear structure and appealing design to enhance user experience and facilitate interaction with the application. Additionally, the application should allow users to upload and share photos and videos from the events. Furthermore, surveys and polls should be conducted to capture users' opinions on various topics.",
+        "implementation": "The Kirmize app was developed using React and ChakraUI. The application was designed as a Progressive Web App (PWA) to ensure optimal performance and user experience across various devices. The implementation was done in close collaboration with local clubs to consider the requirements and preferences of the users. For data storage, a MongoDB database is used, with access abstracted through Prisma ORM. The business logic of the application is implemented in an Express backend, which handles communication with the database and provides data to the frontend application. User authentication and authorization are performed using JSON Web Tokens (JWT)."
+      },
+      "portfolio": {
+        "focus": "Web Development",
+        "subtitle": "My personal portfolio website to showcase my work.",
+        "goal": "The goal of creating my own portfolio was to highlight my previous projects and experiences in order to showcase my skills and expertise. Additionally, it served as practice to improve skills such as design and animation. Lastly, a portfolio enhances online presence and facilitates contact with potential employers or clients.",
+        "implementation": "First, I researched what features make a good portfolio and gathered inspiration. Then, I planned the structure of my website and created a concept. Subsequently, the portfolio was implemented using React, ChakraUI, and Framer Motion. Deployment is done via GitHub Pages."
+      },
+      "chatbot": {
+        "focus": "Question Answering System",
+        "subtitle": "A prototype of a chatbot for the Landesanstalt für Umwelt Baden-Württemberg.",
+        "goal": "The Landesanstalt für Umwelt Baden-Württemberg captures environmental data through a network of monitoring stations. From these data, observations can be derived to make statements about the state of ecosystems. Public access enables both researchers and private individuals to explore the observed biotopes. The quantity and complexity of the collected data require not only simplified access for various user groups but also a comprehensible preparation of the information. The goal of this project was to make environmental data accessible through a question-answer system and to support correct input using chatbot functions. Essential here was the creation of a context in which a question can be asked so that it corresponds to the requirements of the data sources. Furthermore, the clarification of the question, the processing of the data sets, and their presentation were relevant to ensure accessibility for the respective user.",
+        "implementation": "To fulfill the project goals, a web-based application was developed, which can meet the respective requirements. For the implementation of the chatbot functionality, the Rasa technology stack* was used, which enables both input in a web-based interface, the mapping of natural language queries to computer commands and the execution of commands. The question-answering system was implemented using the Qanary technology stack**. This technology allows for the extraction of individual knowledge fragments from the question posed to the system and establishing the context of the question so that the data sources can be queried. The clarification of the question, the processing, and presentation of the data sets could also be integrated through this mechanism.",
+        "rasa-detail": "The Rasa technology stack consists of Rasa Chat, Rasa Open Source, and Rasa Action Server:",
+        "qanary-detail": "The Qanary technology stack consists of a reference implementation for creating question answering systems based on the Qanary methodology:"
+      },
+      "multimediaDB": {
+        "focus": "Database Management, Advanced Searching",
+        "subtitle": "A prototypical software using multimedia database for the digitalization of veterinary practices (Case Study).",
+        "goal": "The goal of this university project was to showcase and learn the usage of a multimedia database, specifically PostgreSQL, within a near-real-world context. Ultimately an advances searching functionality based on one of the diverse media types needed to be implemented. The project was conducted in a team of two students and was supervised by a professor. The project was part of the course 'Multimedia Database Systems' and was realised in about 6 weeks.",
+        "implementation": "To achieve the defined goal, a system tailored for veterinary practices was developed, allowing for the storage of customer, animal, and medication data. The implementation of various search techniques involved advanced filtering of medication data, database-based full-text search and finding animals based on image comparisons. The introduction of these search techniques aims to enhance the usability and functionality of the system within the veterinary domain. In this project, we gained initial practical experience in database design and implementation, as well as the utilization of multimedia data in specialized applications."
+      },
+      "eaFlowShop": {
+        "focus": "Optimization, Evolutionary Algorithm",
+        "subtitle": "An evolutionary algorithm for the optimization of flow shop scheduling problems.",
+        "goal": "The flow shop problem is a classic optimization challenge in operations research and manufacturing, where a set of tasks must be scheduled across a series of machines while minimizing the overall completion time. In this university project, I tackled this problem by employing evolutionary algorithms, namely the hill climber and genetic algorithm, to explore their effectiveness in finding optimal solutions. The project also aimed to be a learning playground for different evolutionary algorithm methods.",
+        "implementation": "In my project, I delved into optimizing the problem through two distinct evolutionary algorithms: hill climbing with a shift mutation and a genetic algorithm featuring multiple methods. For the hill climbing approach, I engineered an iterative refinement process aimed at continuously improving solutions by shifting tasks between machines. To enhance the algorithm's exploration capabilities, I integrated a shift mutation operator, which systematically explores neighboring solutions. Conversely, the genetic algorithm was meticulously designed to accommodate a range of genetic operators and selection strategies. Specifically, I implemented order recombination, one-point crossover, fitness-proportional selection, best selection and tournament selection methods. Order recombination fostered diversity by blending genetic material from parent solutions, while one-point crossover facilitated the creation of novel solutions through random genetic material exchange. The selection strategies were varied: fitness-proportional selection ensured that individuals with higher fitness levels were more likely to be chosen, thereby driving the evolutionary process toward fitter solutions. Best selection preserved elite solutions by favoring individuals with the highest fitness values, maintaining a high-quality population over generations. Tournament selection, on the other hand, promoted diversity and maintained solution quality by pitting a subset of individuals against each other for selection. These intricate implementations allowed for a comprehensive exploration of evolutionary techniques in tackling the flow shop scheduling problem, facilitating nuanced comparisons between different algorithms and strategies."
+      },
+      "weatherData": {
+        "focus": "Data Visualization",
+        "subtitle": "A web application for the visualization of weather data based on XML files.",
+        "goal": "The primary objective of this university project was to develop a visual processing system for weather data obtained from XML files. Thereby the techniques of Document Description Languages such as XML Schema Definition and XSL Transformation should be used.",
+        "implementation": "The defined goal was reached by establishing an XML schema with XML Schema Defintion to structure the data effectively. Subsequently, I transformed the XML data utilizing a custom XSL transformations to generate a HTML structure for representing the data. Leveraging D3.js, a powerful JavaScript library for data visualization, I created an interactive website to display the processed weather data. This project not only demonstrated the integration of XML technologies for data structuring and transformation but also showcased the capabilities of D3.js in rendering dynamic and informative visualizations on the web."
+      }
+    }
+  },
+  "footer": {
+    "text": "Developed by Frederic Bahr with"
+  },
+  "chatbot": {
+    "tooltip": "Open the chatbot",
+    "header": {
+      "title": "Chatbot",
+      "subtitle": "Ask me anything!",
+      "close": "Close"
+    },
+    "initialMessage": {
+      "firstMessage": "Hi, I´m Frederic`s ChatBot 🤖",
+      "secondMessage": "How can i help you?"
+    },
+    "sayHello": {
+      "actionText": "I just wanted to say hello",
+      "firstMessage": "Hi, whats up?",
+      "secondMessage": "Well hello there, nice to meet you!👋",
+      "thirdMessage": "Thanks for looking at my personal website.",
+      "fourthMessage": "I hope you enjoy my work.",
+      "fifthMessage": "Can I help you with anything else?"
+    },
+    "showCV": {
+      "actionText": "I want to see your CV.",
+      "firstMessage": "Hey, im interested in your CV!",
+      "secondMessage": "Thanks for reaching out to me.",
+      "thirdMessage": "Underneath you can download my CV.",
+      "download": "Download CV"
+    },
+    "directChat": {
+      "actionText": "I want to talk to you directly.",
+      "firstMessage": "I really like your Chatbot, but i would rather talk to you directly.",
+      "secondMessage": "Sad times, but I respect your decision.",
+      "thirdMessage": "Send my creator a message and he will answer as soon as possible!"
+    }
+  },
+  "socials": {
+    "github": "GitHub Profile",
+    "linkedin": "LinkedIn Profile"
+  },
+  "contact": {
+    "headline": "Get in touch",
+    "subtext": "I'm always open for a good chat, whether it's about a project, a job offer, or just to say hello. Feel free to reach out to me via the contact form or directly via email.",
+    "form": {
+      "headline": "Send me a message!",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send message",
+      "emailError": "Please enter a valid email address."
+    }
+  }
+}

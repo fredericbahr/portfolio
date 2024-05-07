@@ -1,0 +1,160 @@
+{
+  "navigation": {
+    "about": "Über mich",
+    "experience": "Erfahrung",
+    "projects": "Projekte",
+    "contact": "Kontakt",
+    "themeSwitch": {
+      "title": "Passe die UI an",
+      "light": "Heller Modus",
+      "dark": "Dunkler Modus",
+      "bordeaux": "Bordeaux",
+      "green": "Grün",
+      "lime": "Limette"
+    },
+    "languageSwitch": {
+      "title": "Passe die Sprache an",
+      "german": "Deutsch",
+      "english": "Englisch"
+    }
+  },
+  "hero": {
+    "intro": "Hey, ich bin",
+    "subtitle": "Ich entwickle leidenschaftlich innovative Lösungen zur Optimierung von Arbeitsabläufen und Steigerung der Produktivität der Nutzer durch benutzerfreundliche Webanwendungen.",
+    "contact": "Kontakt"
+  },
+  "about": {
+    "title": "Über mich",
+    "introduction": "Hey, ich bin Frederic Bahr, ein leidenschaftlicher Softwareentwickler aus Leipzig, Deutschland. Seit meiner ersten Berührung im Jahr 2017 während eines Schulprojektes entdeckte ich meine Leidenschaft für die Webentwicklung. Seither verbessere und vertiefe ich kontinuierlich meine Fähigkeiten und Kenntnisse. Darüberhinaus bietet mir ein akademischer Hintergrund in Medieninformatik ein solides Fundament und untermauert meine Expertise.",
+    "main": "Besonders fasziniert bin ich von der Entwicklung hochwertiger User Interfaces, die durch eine intuitive Benutzeroberfläche Prozesse für Nutzer vereinfachen. Meine Begeisterung für dieses Feld treibt mich dazu an, stets neue Technologien und Frameworks zu erforschen und mich weiterzuentwickeln. Dabei lege ich großen Wert auf eine saubere und strukturierte Codebasis, die eine Wartbarkeit und Skalierbarkeit gewährleistet.",
+    "volunteering": "Neben meiner beruflichen Tätigkeit entwickel ich in meiner Freizeit eine cloudbasierte Anwendung zur Verwaltung von Terminen für kleine Vereine in meiner Heimat.",
+    "technologies": "Mit einem klaren Fokus auf Qualität und Benutzerfreundlichkeit strebe ich danach, innovative Lösungen zu entwickeln, die einen echten Mehrwert bieten. Dafür verwende ich meistens:"
+  },
+  "experience": {
+    "title": "Erfahrung",
+    "subtitle": "Mein bisheriger Werdegang",
+    "jobTitles": {
+      "softwareDeveloper": "Software Developer",
+      "juniorSoftwareDeveloper": "Junior Software Developer",
+      "workingStudent": "Werkstudent",
+      "intern": "Praktikant",
+      "bachelor": "Bachelorand",
+      "master": "Masterand"
+    },
+    "present": "Heute",
+    "cv": "Lebenslauf"
+  },
+  "projects": {
+    "title": "Projekte",
+    "tab": "Auswahl",
+    "website": "Webseite",
+    "github": "GitHub",
+    "projectTitles": {
+      "kirmize": "Kirmize",
+      "portfolio": "Portfolio",
+      "chatbot": "QUAtsCH Chatbot ´22",
+      "multimediaDB": "Multimedia Datenbank Tierartzpraxis",
+      "eaFlowShop": "EA Flow Shop Optimierung",
+      "weatherData": "XML Wetterdaten Visualisierung"
+    },
+    "details": {
+      "focus": "Fokus",
+      "period": "Zeitraum",
+      "present": "Heute",
+      "goal": "Ziel",
+      "implementation": "Umsetzung",
+      "technologies": "Technologien",
+      "screenshots": "Screenshots",
+      "kirmize": {
+        "focus": "Webentwicklung",
+        "subtitle": "Die mobile Webanwendung für die Kirmes zur Planung von Terminen.",
+        "goal": "Die Kirmize-App wurde entwickelt, um die Organisation und Planung von Terminen von lokalen Vereinen zu erleichtern. Das Ziel war es, eine benutzerfreundliche und intuitive Anwendung zu schaffen, die es den Nutzern ermöglicht, sich über die verschiedenen Veranstaltungen zu informieren und ihre Teilnahme an den Terminen zu planen. Die App sollte eine klare Struktur und ein ansprechendes Design aufweisen, um die Nutzererfahrung zu verbessern und die Interaktion mit der Anwendung zu erleichtern. Darüber hinaus sollte die Anwendung es ermöglichen Fotos und Videos von den Veranstaltungen hochzuladen und zu teilen. Zusätzlich sollen Umfragen und Abstimmungen duchgeführt werden können, um die Meinung der Nutzer zu verschiedenen Themen zu erfassen.",
+        "implementation": "Die Kirmize-App wurde mit React und ChakraUI entwickelt. Die Anwendung wurde als Progressive Web App (PWA) konzipiert, um eine optimale Performance und Benutzererfahrung auf verschiedenen Geräten zu gewährleisten. Die Implementierung erfolgte in enger Zusammenarbeit mit einem lokalen Vereinen, um die Anforderungen und Wünsche der Nutzer zu berücksichtigen. Zur Datenhaltung wird eine MongoDB-Datenbank verwendet, dessen Zugriff mittels Prisma ORM abstrahiert wird. Die Business-Logik der Anwedung wird in einem Express-Backend realisiert, welches die Kommunikation mit der Datenbank und die Bereitstellung der Daten für die Frontend-Anwendung übernimmt. Die Authentifizierung und Autorisierung der Nutzer erfolgt über JSON Web Tokens (JWT)."
+      },
+      "portfolio": {
+        "focus": "Webentwicklung",
+        "subtitle": "Implementierung meiner persönlichen Portfolio-Webseite.",
+        "goal": "Das Ziel der Entwicklug meines eigenen Portfolios war es, meine bisherigen Projekte und Erfahrungen hervorzuheben, um so meine Fähigkeiten und Kenntnisse zu präsentieren. Zusätzlich diente es als Übung, um meine Fähigkeiten in Bereichen wie Design und Animation zu verbessern. Schließlich erhöht ein Portfolio die Online-Präsenz und erleichtert die Kontaktaufnahme mit potenziellen Arbeitgebern oder Kunden.",
+        "implementation": "Zunächst habe ich recherchiert, welche Merkmale in gutes Portfolio erfüllt und dazu Inspirationen gesammelt. Anschließend habe ich die Struktur meiner Webseite geplant und ein Konzept erstellt. Anschließend wurde das Portfolio mit React, ChakraUI und Framer Motion umgesetzt. Das Deployment erfolgt über GitHub Pages."
+      },
+      "chatbot": {
+        "focus": "Question Answering Systeme",
+        "subtitle": "Ein Projekt zur Entwicklung eines Chatbots für die Landesanstalt für Umwelt Baden-Württemberg.",
+        "goal": "Die Landesanstalt für Umwelt Baden-Württemberg erfasst in einem Netz aus Messstationen Umweltdaten. Aus diesen Daten können Beobachtungen abgeleitet werden, um Aussagen über den Zustand der Ökosysteme zu treffen. Der öffentliche Zugang ermöglicht sowohl Forscher:innen als auch Privatpersonen eine Exploration der beobachteten Biotope. Die Menge und Komplexität der erfassten Daten erfordert neben einem vereinfachten Zugang für die diversen Benutzergruppen auch eine nachvollziehbare Aufbereitung der Informationen. Das Ziel dieses Projekts war es, die Umweltdaten über ein Frage-Antwort-System zugänglich zu machen und die korrekte Eingabe mithilfe von Chatbot-Funktionen zu stützen. Wesentlich hierbei war die Erzeugung eines Kontexts, in welchem eine Frage gestellt werden kann, sodass sie den Anforderungen der Datenquellen entspricht. Des Weiteren war eine Präzisierung der Frage, die Verarbeitung der Datensätze und dessen Darstellung relevant, um die Zugänglichkeit für den jeweiligen Benutzer zu gewährleisten.",
+        "implementation": "Um die Projektziele zu erfüllen, wurde eine webbasierte Anwendung entwickelt, welche die jeweiligen Anforderungen bedienen kann. Zur Bearbeitung der Chatbot-Funktionalität wurde der Rasa-Technologie-Stack* benutzt, welcher sowohl die Eingabe in einer webbasierten Oberflächen, die Zuweisung von natürlichsprachigen Anfragen zu Computer-Befehlen als auch die Ausführung der Befehle möglich macht. Das Frage-Antwort-System wurde mithilfe des Qanary-Technologie-Stack** umgesetzt. Diese Technologie ermöglicht es, einzelne Wissensfragmente aus der an das System gestellten Frage zu extrahieren und den Kontext der Frage herzustellen, sodass die Datenquellen abgefragt werden können. Die Präzisierung der Frage, die Verarbeitung und Darstellung der Datensätze konnte ebenfalls über diesen Mechanismus integriert werden.",
+        "rasa-detail": "Der Rasa-Technologie-Stack besteht aus Rasa-Chat, Rasa Open Source und Rasa Action Server:",
+        "qanary-detail": "Der Qanary-Technologie-Stack besteht aus einer Referenzimplementierung zur Erstellung von Fragebeantwortunssystemen nach der Qanary-Methodik:"
+      },
+      "multimediaDB": {
+        "focus": "Multimedia Datenbanken, Fortgeschrittene Suchalgorithmen",
+        "subtitle": "Eine Implementierung einer Software zur Verwendung einer Multimedia Datenbank in einer Tierartztpraxis.",
+        "goal": "Das Ziel dieses Universitätsprojekts war es, die Verwendung einer Multimediadatenbank, insbesondere PostgreSQL, in einem nahezu realen Kontext zu präsentieren und zu erlernen. Letztendlich sollte eine erweiterte Suchfunktionalität basierend auf einem der vielfältigen Medientypen implementiert werden. Das Projekt wurde von einem Team aus zwei Studenten durchgeführt und von einem Professor betreut. Es war Teil des Kurses Multimediadatenbanksysteme und wurde in etwa 6 Wochen umgesetzt.",
+        "implementation": "Um das definierte Ziel zu erreichen, wurde ein auf die Bedürfnisse von Tierarztpraxen zugeschnittenes System entwickelt, das die Speicherung von Kunden-, Tier- und Medikamentendaten ermöglicht. Die Implementierung verschiedene Suchtechniken bezieht sich auf eine erweiterte Filterung von Medikamentendaten, eine datenbankbasierte Volltextsuche und das Finden von Tieren auf Basis von Bildvergleichen. Die Einführung dieser Suchtechniken soll die Benutzerfreundlichkeit und Funktionalität des Systems im veterinärmedizinischen Bereich verbessern. In diesem Projekt lernten wir erste praktische Erfahrungen in der Datenbankgestaltung und -implementierung sowie der Nutzung von Multimediadaten in spezialisierten Anwendungen sammeln."
+      },
+      "eaFlowShop": {
+        "focus": "Optimierung, Evolutionäre Algorithmen",
+        "subtitle": "Ein evolutionärer Algorithmus (GA) zur Optimierung von Flow-Shop Problemen.",
+        "goal": "Das Fließbandproblem ist eine klassische Optimierungsherausforderung in Operations Research und Fertigung, bei der eine Reihe von Aufgaben über eine Folge von Maschinen geplant werden müssen, wobei die Gesamtfertigstellungszeit minimiert wird. In diesem Universitätsprojekt bin ich dieses Problem angegangen, indem ich evolutionäre Algorithmen, voranging den Hillclimber und den genetischen Algorithmus, eingesetzt habe, um ihre Wirksamkeit bei der Suche nach optimalen Lösungen zu untersuchen. Das Projekt hatte zusätzlich zum Ziel, ein Rahmen für das Testen verschiedener Methoden evolutionärer Algorithmen zu spannen.",
+        "implementation": "In meinem Projekt habe ich die Optimierung des Problems mithilfe von zwei unterschiedlichen evolutionären Algorithmen untersucht: der Hillclimber mit einer Verschiebungsmutation und einem genetischen Algorithmus mit verschiedenen evolutionären Methoden. Für den Hillclimber-Ansatz habe ich einen iterativen Verfeinerungsprozess entwickelt, der darauf abzielte, Lösungen kontinuierlich zu verbessern, indem Aufgaben zwischen Maschinen verschoben werden. Um die Erkundungsfähigkeiten des Algorithmus zu verbessern, habe ich einen Verschiebungsmutationsoperator integriert, der systematisch benachbarte Lösungen erforscht. Im Gegensatz dazu wurde der genetische Algorithmus entworfen, um eine Reihe von genetischen Operatoren und Auswahlstrategien zu testen. Konkret habe ich Methoden wie die Ordnungs-Rekombination, den Ein-Punkt-Crossover, die fitnessproportionale Auswahl, die Besten-Auswahl und die Turnierselektion implementiert. Die Ordnungs-Rekombination förderte die Vielfalt durch die Vermischung genetischen Materials aus Elternlösungen, während der Ein-Punkt-Crossover die Erstellung neuer Lösungen durch den Austausch von genetischem Material als Vorteil aufweiste. Die Auswahlstrategien waren vielfältig: Die fitnessproportionale Auswahl gewährleistete, dass Individuen mit höheren Fitnesswerten wahrscheinlicher ausgewählt wurden, um den evolutionären Prozess hin zu fitteren Lösungen zu lenken. Die Besten-Auswahl erhielt elitäre Lösungen, indem sie Individuen mit den höchsten Fitnesswerten bevorzugte und so über Generationen hinweg eine hochwertige Population aufrechterhielt. Die Turnierselektion hingegen förderte die Vielfalt und erhielt die Lösungsqualität, indem sie eine Teilmenge von Individuen gegeneinander antreten ließ. Diese komplexen Implementierungen ermöglichten eine umfassende Erforschung evolutionärer Techniken zur Bewältigung des Fließbandplanungsproblems und erleichterten Vergleiche zwischen verschiedenen Algorithmen und Strategien."
+      },
+      "weatherData": {
+        "focus": "Data Visualization",
+        "subtitle": "Projekt zur Visualisierung von Wetterdaten aus einer XML-Datei.",
+        "goal": "Das Hauptziel dieses Universitätsprojekts bestand darin, ein visuelles Verarbeitungssystem für Wetterdaten zu entwickeln, die aus XML-Dateien stammen. Dabei sollten Techniken von Dokumentenbeschreibungssprachen wie XML-Schema-Definition und XSL-Transformation verwendet werden.",
+        "implementation": "Das definierte Ziel wurde erreicht, indem ein XML-Schema mit XML-Schema-Definition etabliert wurde, um die Daten effektiv zu strukturieren. Anschließend habe ich die XML-Daten mithilfe eigener XSL-Transformationen transformiert, um eine HTML-Struktur zur Darstellung der Daten zu generieren. Unter Nutzung von D3.js, einer leistungsfähigen JavaScript-Bibliothek für Datenvisualisierung, habe ich eine interaktive Website erstellt, um die verarbeiteten Wetterdaten anzuzeigen. Dieses Projekt demonstrierte nicht nur die Integration von XML-Technologien zur Datenstrukturierung und Transformation, sondern zeigte auch die Fähigkeiten von D3.js bei der Erstellung dynamischer und informativer Visualisierungen im Web."
+      }
+    }
+  },
+  "footer": {
+    "text": "Entwickelt von Frederic Bahr mit"
+  },
+  "chatbot": {
+    "tooltip": "Chatbot öffnen",
+    "header": {
+      "title": "Chatbot",
+      "subtitle": "Stell mir eine Frage!",
+      "close": "Schließen"
+    },
+    "initialMessage": {
+      "firstMessage": "Hi, Ich bin Frederic`s ChatBot 🤖",
+      "secondMessage": "Wie kann ich dir helfen?"
+    },
+    "sayHello": {
+      "actionText": "Ich wollte nur einmal Hallo sagen",
+      "firstMessage": "Hi, wie gehts?",
+      "secondMessage": "Hey, schön dich kennenzulernen!",
+      "thirdMessage": "Danke dass du dir mein Portfolio anschaust.",
+      "fourthMessage": "Ich hoffe dir gefällt meine Arbeit.",
+      "fifthMessage": "Kann ich dir sonst irgendwie helfen?"
+    },
+    "showCV": {
+      "actionText": "Zeig mir deinen Lebenslauf.",
+      "firstMessage": "Hey, ich interessiere mich für deinen Lebenslauf!",
+      "secondMessage": "Danke für dein Interesse.",
+      "thirdMessage": "Unten kannst du meinen Lebenslauf herunterladen.",
+      "download": "Lebenslauf herunterladen"
+    },
+    "directChat": {
+      "actionText": "Ich will mit dir persönlich reden.",
+      "firstMessage": "Ich mag deinen Chatbot sehr, aber ich würde gerne mit dir direkt reden.",
+      "secondMessage": "Schade, aber ich respektiere deine Entscheidung.",
+      "thirdMessage": "Schicke meinem Schöpfer eine Nachricht, er wird so schnell wie möglich antworten!"
+    }
+  },
+  "socials": {
+    "github": "GitHub Profil",
+    "linkedin": "LinkedIn Profil"
+  },
+  "contact": {
+    "headline": "Komm' mit mir ins Gespräch - Ich bin nur eine Nachricht entfernt!",
+    "subtext": "Für eine gute Unterhaltung bin ich immer zu haben, sei es über ein Projekt, ein Jobangebot oder einfach nur, um Hallo zu sagen. Zögere nicht, mich über das Kontaktformular oder direkt per E-Mail zu erreichen.",
+    "form": {
+      "headline": "Schreib mir eine Nachricht!",
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Nachricht",
+      "submit": "Senden",
+      "emailError": "Bitte gib eine gültige E-Mail-Adresse ein."
+    }
+  }
+}
