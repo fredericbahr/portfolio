@@ -68,7 +68,7 @@ function App() {
           }
         />
         <Route
-          path="/portfolio"
+          path="/personal-portfolio"
           element={
             <Layout>
               <Portfolio />
