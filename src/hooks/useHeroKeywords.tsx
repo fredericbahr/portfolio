@@ -10,6 +10,7 @@
  * See LICENSE for licensing information.
  */
 
+import { useMediaQuery } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useDencrypt } from "use-dencrypt-effect";
 const keywords = ["Software Developer", "Web Enthusiast", "Frederic Bahr"];
@@ -19,7 +20,11 @@ const keywords = ["Software Developer", "Web Enthusiast", "Frederic Bahr"];
  * Cycle through the keywords and display them in the hero section
  */
 export const useHeroKeywords = () => {
+  /** dencrypt hook for encrypting and decrypting text effect */
   const [dencryptText, dencrypt] = useDencrypt("Frederic Bahr");
+
+  /** flag indicating whether screen is mobile size */
+  const [isMobile] = useMediaQuery("(max-width: 62em)");
 
   useEffect(() => {
     let index = 0;
@@ -33,5 +38,5 @@ export const useHeroKeywords = () => {
     return () => clearInterval(action);
   }, []);
 
-  return dencryptText;
+  return isMobile ? "Frederic Bahr" : dencryptText;
 };
