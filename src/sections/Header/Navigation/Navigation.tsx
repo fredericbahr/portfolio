@@ -12,6 +12,7 @@
 
 import { Box, Link, ListItem, OrderedList } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
 import { ColorThemePicker } from "../../../components/ColorThemePicker/ColorThemePicker";
 import { LanguageSwitcher } from "../../../components/LanguageSwitcher";
@@ -22,6 +23,14 @@ import { LanguageSwitcher } from "../../../components/LanguageSwitcher";
 export const Navigation = () => {
   /** translation hook */
   const { t } = useTranslation();
+
+  /** navigation hook */
+  const navigate: NavigateFunction = useNavigate();
+
+  /** handle contact button click and navigate to contact section */
+  const handleContactClick = () => {
+    navigate("/contact");
+  };
 
   return (
     <Box as="nav" flex={1} display="flex" justifyContent="end" alignItems="center" marginRight={8} gap={8}>
@@ -79,7 +88,7 @@ export const Navigation = () => {
         </ListItem>
         <ListItem style={{ counterIncrement: "navitem 1" }} listStyleType="none">
           <Link
-            href="/contact"
+            onClick={handleContactClick}
             _hover={{
               textDecoration: "none",
               color: "brand.500",

@@ -12,6 +12,7 @@
 
 import { Divider, HStack, Link, List, ListItem, useColorModeValue, VStack } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
 import { ColorThemePicker } from "../../../components/ColorThemePicker/ColorThemePicker";
 import { LanguageSwitcher } from "../../../components/LanguageSwitcher";
@@ -25,6 +26,14 @@ export const MobileNavigation = () => {
 
   /** color for the divider */
   const dividerColor = useColorModeValue("gray.500", "gray.400");
+
+  /** navigation hook */
+  const navigate: NavigateFunction = useNavigate();
+
+  /** handle contact button click and navigate to contact section */
+  const handleContactClick = () => {
+    navigate("/contact");
+  };
 
   return (
     <VStack spacing={3}>
@@ -70,7 +79,7 @@ export const MobileNavigation = () => {
         </ListItem>
         <ListItem style={{ counterIncrement: "navitem 1" }}>
           <Link
-            href="/contact"
+            onClick={handleContactClick}
             _before={{
               content: "'0' counter(navitem) '.'",
               marginRight: 1,
