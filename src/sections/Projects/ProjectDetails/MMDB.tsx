@@ -114,6 +114,7 @@ export const MMDB = () => {
             <ImageSlider
               images={[screenshot1, screenshot2, screenshot3, screenshot4, screenshot5, screenshot6]}
               index={sliderIndex}
+              imageProps={{ maxWidth: { base: "full", lg: "600px" } }}
               onIndexChange={handleSliderIndexChange}
             ></ImageSlider>
           </Box>

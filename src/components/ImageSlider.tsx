@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Box, Grid, HStack, Icon, IconButton, Image, VStack } from "@chakra-ui/react";
+import { Box, Grid, HStack, Icon, IconButton, Image, ImageProps, VStack } from "@chakra-ui/react";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { MutableRefObject, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
@@ -23,13 +23,14 @@ export interface ImageDescription {
 interface ImageSliderProps {
   images: string[];
   index: number;
+  imageProps?: ImageProps;
   onIndexChange: (index: number) => void;
 }
 
 /**
  * A classic image slider carousel with swipe support.
  */
-export const ImageSlider = ({ images, index = 0, onIndexChange }: ImageSliderProps) => {
+export const ImageSlider = ({ images, index = 0, imageProps, onIndexChange }: ImageSliderProps) => {
   /** reference to the image element */
   const imageRef: MutableRefObject<HTMLImageElement | null> = useRef<HTMLImageElement>(null);
 
@@ -70,6 +71,7 @@ export const ImageSlider = ({ images, index = 0, onIndexChange }: ImageSliderPro
           {...swipeHandlers}
           ref={imageRef}
           _hover={{ cursor: "pointer" }}
+          {...imageProps}
         />
 
         <IconButton

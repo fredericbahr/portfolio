@@ -30,7 +30,7 @@ export const projects: (Project | null)[] = [
     url: "/kirmize",
     backgroundType: "lines",
     links: {
-      website: "https://kirmize.app",
+      website: "https://kirmize.netlify.app",
     },
   },
   {

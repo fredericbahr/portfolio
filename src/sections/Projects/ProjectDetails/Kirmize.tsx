@@ -120,6 +120,7 @@ export const Kirmize = () => {
               surveysLight,
             ]}
             index={sliderIndex}
+            imageProps={{ maxWidth: { base: "80%", lg: "250px" } }}
             onIndexChange={handleSliderIndexChange}
           ></ImageSlider>
         </Box>
