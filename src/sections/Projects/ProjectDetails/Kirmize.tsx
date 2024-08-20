@@ -63,7 +63,7 @@ export const Kirmize = () => {
       <Image src={heroImage} width="full" maxHeight="35vh" objectFit="contain" marginTop={{ base: 4, lg: 0 }} />
 
       <HStack marginTop={8} spacing={8} width="full" alignItems="center">
-        <Link href="" display="flex" gap={2}>
+        <Link href="https://kirmize.netlify.app" display="flex" gap={2}>
           <Icon as={LinkIcon} boxSize={{ base: 5, lg: 6 }} />
           <Text as="span">Website</Text>
         </Link>
