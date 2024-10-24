@@ -15,6 +15,18 @@ import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom"],
+          "chakra-ui": ["@chakra-ui/react", "@emotion/react", "@emotion/styled"],
+          "phosphor-icons": ["@phosphor-icons/react"],
+        },
+      },
+    },
+    minify: "esbuild",
+  },
   server: {
     port: 3000,
   },

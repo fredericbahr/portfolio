@@ -10,7 +10,8 @@
  * See LICENSE for licensing information.
  */
 
-import { Box, keyframes, useToken } from "@chakra-ui/react";
+import { Box, useToken } from "@chakra-ui/react";
+import { keyframes } from "@emotion/react";
 import { SVGProps } from "react";
 
 interface IAnimatedLogoProps extends SVGProps<SVGSVGElement> {
