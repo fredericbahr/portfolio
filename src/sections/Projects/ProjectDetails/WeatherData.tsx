@@ -12,8 +12,6 @@
 
 import { Box, Heading, HStack, Icon, Image, Link, Stack, Tag, Text, VStack } from "@chakra-ui/react";
 import { GithubLogo } from "@phosphor-icons/react";
-import { format } from "date-fns";
-import { de } from "date-fns/locale";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -29,7 +27,7 @@ import { ProjectDetailHeader } from "./ProjectDetailHeader";
  */
 export const WeatherData = () => {
   /** translation hook */
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   /** state to manage the slider index */
   const [sliderIndex, setSliderIndex] = useState<number>(0);
@@ -46,11 +44,7 @@ export const WeatherData = () => {
     <VStack width="full" alignItems="start" spacing={{ base: 2, lg: 8 }} marginTop={{ base: 4, lg: 16 }}>
       <ProjectDetailHeader
         focus={t("projects.details.weatherData.focus")}
-        period={
-          format(new Date("2022-04-01"), "MMM. yy", { locale: i18n.language === "de-DE" ? de : undefined }) +
-          " - " +
-          t("projects.details.present")
-        }
+        period="-"
         title={t("projects.projectTitles.weatherData")}
         subtitle={t("projects.details.weatherData.subtitle")}
       />

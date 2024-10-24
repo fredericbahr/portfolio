@@ -50,9 +50,9 @@ export const MMDB = () => {
       <ProjectDetailHeader
         focus={t("projects.details.multimediaDB.focus")}
         period={
-          format(new Date("2022-04-01"), "MMM. yy", { locale: i18n.language === "de-DE" ? de : undefined }) +
+          format(new Date("2022-05-31"), "MMM. yy", { locale: i18n.language === "de-DE" ? de : undefined }) +
           " - " +
-          t("projects.details.present")
+          format(new Date("2022-07-27"), "MMM. yy", { locale: i18n.language === "de-DE" ? de : undefined })
         }
         title={t("projects.projectTitles.multimediaDB")}
         subtitle={t("projects.details.multimediaDB.subtitle")}

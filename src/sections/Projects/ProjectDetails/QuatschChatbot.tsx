@@ -30,9 +30,9 @@ export const QuatschChatbot = () => {
       <ProjectDetailHeader
         focus={t("projects.details.chatbot.focus")}
         period={
-          format(new Date("2022-04-01"), "MMM. yy", { locale: i18n.language === "de-DE" ? de : undefined }) +
+          format(new Date("2023-01-10"), "MMM. yy", { locale: i18n.language === "de-DE" ? de : undefined }) +
           " - " +
-          t("projects.details.present")
+          format(new Date("2023-03-21"), "MMM. yy", { locale: i18n.language === "de-DE" ? de : undefined })
         }
         title={t("projects.projectTitles.chatbot")}
         subtitle={t("projects.details.chatbot.subtitle")}
