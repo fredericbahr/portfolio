@@ -37,7 +37,7 @@ export const Footer = () => {
         gap={1}
         flex={1}
       >
-        <Text as="span">© 2024</Text> {t("footer.text")} <BinaryIcon color="brand.500" />
+        <Text as="span">© {new Date().getFullYear()}</Text> {t("footer.text")} <BinaryIcon color="brand.500" />
       </Text>
 
       {isMobile ? (
