@@ -11,7 +11,7 @@
  */
 
 import { Collapse, Flex, Icon, IconButton, useDisclosure, useMediaQuery } from "@chakra-ui/react";
-import { List as ListIcon, X } from "@phosphor-icons/react";
+import { ListIcon, XIcon } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 
 import Logo from "../../components/Logo/Logo";
@@ -51,7 +51,7 @@ export const Header = () => {
         {isMobile && (
           <IconButton
             aria-label="Open Menu"
-            icon={isMobileNavOpen ? <Icon as={X} /> : <Icon as={ListIcon} />}
+            icon={isMobileNavOpen ? <Icon as={XIcon} /> : <Icon as={ListIcon} />}
             onClick={onToggleMobileNav}
             variant="ghost"
             colorScheme="gray"

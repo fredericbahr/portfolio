@@ -11,7 +11,7 @@
  */
 
 import { Box, Grid, List, ListIcon, ListItem, Text, VStack } from "@chakra-ui/react";
-import { Terminal } from "@phosphor-icons/react";
+import { TerminalIcon } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 
 import { Heading } from "../../components/Heading/Heading";
@@ -38,7 +38,7 @@ export const About = () => {
           <List display="grid" gridTemplateColumns="repeat(2, 1fr)" columnGap={8} rowGap={0.5} alignSelf="start">
             {technologies.map((technology, index) => (
               <ListItem display="flex" alignItems="center" key={`${technology}-${index}`}>
-                <ListIcon as={Terminal} color="green.500" />
+                <ListIcon as={TerminalIcon} color="brand.500" />
                 <Text fontSize={{ base: "sm", lg: "lg" }}>{technology}</Text>
               </ListItem>
             ))}

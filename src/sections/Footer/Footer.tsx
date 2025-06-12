@@ -11,7 +11,7 @@
  */
 
 import { HStack, Icon, Link, Stack, Text, useMediaQuery } from "@chakra-ui/react";
-import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
+import { GithubLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 
 import { BinaryIcon } from "../../components/BinaryIcon";
@@ -44,7 +44,7 @@ export const Footer = () => {
         <HStack spacing={4} width="full" justifyContent="center">
           <Link aria-label="Github" isExternal href="https://github.com/fredericbahr">
             <Icon
-              as={GithubLogo}
+              as={GithubLogoIcon}
               boxSize={6}
               transition="all 0.2s ease-in-out"
               _hover={{
@@ -55,7 +55,7 @@ export const Footer = () => {
           </Link>
           <Link aria-label="Linkedin" isExternal href="https://www.linkedin.com/in/frederic-bahr-446925251/">
             <Icon
-              as={LinkedinLogo}
+              as={LinkedinLogoIcon}
               boxSize={6}
               transition="all 0.2s ease-in-out"
               _hover={{

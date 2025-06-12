@@ -24,7 +24,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import emailjs from "@emailjs/browser";
-import { EnvelopeSimple } from "@phosphor-icons/react";
+import { EnvelopeSimpleIcon } from "@phosphor-icons/react";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -142,7 +142,7 @@ export const Contact = () => {
       </Flex>
 
       <HStack spacing={6} width="full">
-        <Icon as={EnvelopeSimple} width={6} height={6}></Icon>
+        <Icon as={EnvelopeSimpleIcon} width={6} height={6}></Icon>
         <Link href="mailto:fredericbahr1@gmail.com">fredericbahr1@gmail.com</Link>
       </HStack>
 

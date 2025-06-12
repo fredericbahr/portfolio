@@ -11,7 +11,7 @@
  */
 
 import { Box, Heading, HStack, Icon, Image, Link, Stack, Tag, Text, VStack } from "@chakra-ui/react";
-import { Link as LinkIcon } from "@phosphor-icons/react";
+import { LinkIcon } from "@phosphor-icons/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
 import { useState } from "react";

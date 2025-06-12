@@ -31,7 +31,7 @@ import {
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-import { CaretDown, Link as LinkIcon, MapPinLine, Terminal } from "@phosphor-icons/react";
+import { CaretDownIcon, LinkIcon, MapPinLineIcon, TerminalIcon } from "@phosphor-icons/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
 import { useTranslation } from "react-i18next";
@@ -104,7 +104,7 @@ export const Experience = () => {
                               })}
                         </Text>
                       </HStack>
-                      <AccordionIcon as={CaretDown} />
+                      <AccordionIcon as={CaretDownIcon} />
                     </AccordionButton>
                   </ChakraHeading>
 
@@ -114,7 +114,7 @@ export const Experience = () => {
                     <VStack width="full" alignItems="start" spacing={6}>
                       <Stack direction={{ base: "column", lg: "row" }} spacing={6}>
                         <HStack spacing={1}>
-                          <Icon as={MapPinLine} />
+                          <Icon as={MapPinLineIcon} />
                           <Text fontSize={{ base: "sm", lg: "lg" }}>{experience.location}</Text>
                         </HStack>
 
@@ -129,7 +129,7 @@ export const Experience = () => {
                       <List marginLeft={2} spacing={2}>
                         {isSingleDescription(experience.description) ? (
                           <ListItem>
-                            <ListIcon as={Terminal} color="green.500" />
+                            <ListIcon as={TerminalIcon} color="brand.500" />
                             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                             <Text fontSize={{ base: "sm", lg: "lg" }}>{t(experience.description as any)}</Text>
                           </ListItem>
@@ -137,7 +137,7 @@ export const Experience = () => {
                           <>
                             {experience.description.map((description: string) => (
                               <ListItem display="flex" key={`experience-${experience.title}-${idx}-${description}`}>
-                                <ListIcon as={Terminal} color="green.500" />
+                                <ListIcon as={TerminalIcon} color="brand.500" />
                                 {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                                 <Text fontSize={{ base: "sm", lg: "lg" }}>{t(description as any)}</Text>
                               </ListItem>

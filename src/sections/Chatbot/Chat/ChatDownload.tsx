@@ -14,7 +14,7 @@ import "react-pdf/dist/Page/TextLayer.css";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 
 import { Card, CardBody, CardFooter, Flex, HStack, Icon, IconButton, Text, Tooltip } from "@chakra-ui/react";
-import { DownloadSimple } from "@phosphor-icons/react";
+import { DownloadSimpleIcon } from "@phosphor-icons/react";
 import { MutableRefObject, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Document, Page, pdfjs } from "react-pdf";
@@ -62,7 +62,7 @@ export const ChatDownload = ({ type, url, fileName }: IChatDownload) => {
                 <IconButton
                   onClick={() => handleDownload()}
                   aria-label="Download"
-                  icon={<Icon as={DownloadSimple} />}
+                  icon={<Icon as={DownloadSimpleIcon} />}
                   variant="ghost"
                   colorScheme="gray"
                 />

@@ -27,7 +27,7 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
-import { Translate } from "@phosphor-icons/react";
+import { TranslateIcon } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 
 export const LanguageSwitcher = () => {
@@ -52,7 +52,7 @@ export const LanguageSwitcher = () => {
   return (
     <Popover placement="bottom-end" closeOnEsc onClose={onClose} onOpen={onOpen} isOpen={isOpen}>
       <PopoverTrigger>
-        <IconButton aria-label="Change language" icon={<Icon as={Translate} />} variant="outline" colorScheme="gray" />
+        <IconButton aria-label="Change language" icon={<Icon as={TranslateIcon} />} variant="outline" colorScheme="gray" />
       </PopoverTrigger>
 
       <Portal>

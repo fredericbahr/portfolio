@@ -24,7 +24,7 @@ import {
   useToken,
   VStack,
 } from "@chakra-ui/react";
-import { GithubLogo, Link as LinkIcon } from "@phosphor-icons/react";
+import { GithubLogoIcon, LinkIcon } from "@phosphor-icons/react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { NavigateFunction, useNavigate } from "react-router-dom";
@@ -246,7 +246,7 @@ export const ProjectTile = ({ title, url, backgroundType = "none", links, ...pro
           {links?.github && (
             <Tooltip label={t("projects.github")} hasArrow openDelay={300}>
               <IconButton
-                icon={<Icon as={GithubLogo} />}
+                icon={<Icon as={GithubLogoIcon} />}
                 aria-label="github"
                 variant="ghost"
                 colorScheme="gray"

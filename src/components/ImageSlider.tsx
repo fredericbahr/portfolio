@@ -11,7 +11,7 @@
  */
 
 import { Box, Grid, HStack, Icon, IconButton, Image, ImageProps, VStack } from "@chakra-ui/react";
-import { CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 import { MutableRefObject, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 
@@ -57,7 +57,7 @@ export const ImageSlider = ({ images, index = 0, imageProps, onIndexChange }: Im
       <Grid gridTemplateColumns="auto 1fr auto" placeItems="center" width="full" gap={12}>
         <IconButton
           aria-label="Previous"
-          icon={<Icon as={CaretLeft} />}
+          icon={<Icon as={CaretLeftIcon} />}
           onClick={() => onIndexChange(modulo(index - 1, images.length))}
           size={{ base: "xs", lg: "md" }}
         />
@@ -76,7 +76,7 @@ export const ImageSlider = ({ images, index = 0, imageProps, onIndexChange }: Im
 
         <IconButton
           aria-label="Next"
-          icon={<Icon as={CaretRight} />}
+          icon={<Icon as={CaretRightIcon} />}
           onClick={() => onIndexChange(modulo(index + 1, images.length))}
           size={{ base: "xs", lg: "md" }}
         />

@@ -26,7 +26,7 @@ import {
   Text,
   Tooltip,
 } from "@chakra-ui/react";
-import { Palette } from "@phosphor-icons/react";
+import { PaletteIcon } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 
 import { useColorScheme } from "../../context/ColorSchemeContext";
@@ -68,7 +68,7 @@ export const ColorThemePicker = () => {
   return (
     <Popover placement="bottom-end" closeOnEsc>
       <PopoverTrigger>
-        <IconButton aria-label="Change color theme" icon={<Icon as={Palette} />} variant="outline" colorScheme="gray" />
+        <IconButton aria-label="Change color theme" icon={<Icon as={PaletteIcon} />} variant="outline" colorScheme="gray" />
       </PopoverTrigger>
 
       <Portal>

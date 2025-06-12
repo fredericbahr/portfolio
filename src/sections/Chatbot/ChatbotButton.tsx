@@ -11,7 +11,7 @@
  */
 
 import { Icon, IconButton, Tooltip } from "@chakra-ui/react";
-import { Chat } from "@phosphor-icons/react";
+import { ChatIcon } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 
 interface ChatbotButtonProps {
@@ -26,7 +26,7 @@ export const ChatbotButton = ({ onClick }: ChatbotButtonProps) => {
     <Tooltip label={t("chatbot.tooltip")} hasArrow openDelay={300}>
       <IconButton
         aria-label="Chatbot"
-        icon={<Icon as={Chat} boxSize={8} />}
+        icon={<Icon as={ChatIcon} boxSize={8} />}
         position="fixed"
         bottom="5%"
         right="5%"
