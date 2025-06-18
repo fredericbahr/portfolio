@@ -15,9 +15,9 @@ import { GithubLogoIcon } from "@phosphor-icons/react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import screenshot1 from "../../../assets/projects/weather-data/screenshot-1.png";
-import screenshot2 from "../../../assets/projects/weather-data/screenshot-2.png";
-import screenshot3 from "../../../assets/projects/weather-data/screenshot-3.png";
+import screenshot1 from "../../../assets/projects/weather-data/screenshot-1.webp";
+import screenshot2 from "../../../assets/projects/weather-data/screenshot-2.webp";
+import screenshot3 from "../../../assets/projects/weather-data/screenshot-3.webp";
 import weatherDataHeroImage from "../../../assets/projects/weather-data/weather-data-hero.jpg";
 import { ImageSlider } from "../../../components/ImageSlider";
 import { ScrollRestoration } from "../../../components/ScrollRestoration/ScrollRestoration";

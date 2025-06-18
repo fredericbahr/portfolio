@@ -16,8 +16,8 @@ import { format } from "date-fns";
 import { de } from "date-fns/locale";
 import { useTranslation } from "react-i18next";
 
-import flowShopHeroImage from "../../../assets/projects/ea-flow-shop/flow-shop-hero.jpg";
-import screenshot1 from "../../../assets/projects/ea-flow-shop/screenshot-1.png";
+import flowShopHeroImage from "../../../assets/projects/ea-flow-shop/flow-shop-hero.webp";
+import screenshot1 from "../../../assets/projects/ea-flow-shop/screenshot-1.webp";
 import { ScrollRestoration } from "../../../components/ScrollRestoration/ScrollRestoration";
 import { ProjectDetailHeader } from "./ProjectDetailHeader";
 
