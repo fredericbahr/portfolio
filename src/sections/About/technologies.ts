@@ -11,4 +11,14 @@
  */
 
 /** used technologies */
-export const technologies = ["TypeScript", "Jest", "React", "Playwright", "Lit", "Node.js", "ChakraUI", "Express"];
+export const technologies = [
+  { label: "TypeScript", link: "https://www.typescriptlang.org/" },
+  { label: "Jest", link: "https://jestjs.io/" },
+  { label: "React", link: "https://react.dev/" },
+  { label: "Playwright", link: "https://playwright.dev/" },
+  { label: "Web Components", link: "https://developer.mozilla.org/de/docs/Web/API/Web_components" },
+  { label: "Lit", link: "https://lit.dev/" },
+  { label: "Node.js", link: "https://nodejs.org/en" },
+  { label: "ChakraUI", link: "https://chakra-ui.com/" },
+  { label: "Express", link: "https://expressjs.com/" },
+];

@@ -58,7 +58,7 @@ export const ChatDownload = ({ type, url, fileName }: IChatDownload) => {
           <CardFooter width="full" padding={2}>
             <HStack width="full" justifyContent="space-between">
               <Text fontSize="sm">{fileName}.pdf</Text>
-              <Tooltip label={t("chatbot.showCV.download")} hasArrow openDelay={300}>
+              <Tooltip label={t("chatbot.showCV.download")} hasArrow openDelay={500}>
                 <IconButton
                   onClick={() => handleDownload()}
                   aria-label="Download"

@@ -39,7 +39,7 @@ export const Socials = () => {
         }}
       >
         <ListItem>
-          <Tooltip label={t("socials.github")} hasArrow openDelay={300}>
+          <Tooltip label={t("socials.github")} hasArrow openDelay={500}>
             <Link aria-label="Github" isExternal href="https://github.com/fredericbahr">
               <Icon
                 as={GithubLogoIcon}
@@ -55,7 +55,7 @@ export const Socials = () => {
         </ListItem>
 
         <ListItem>
-          <Tooltip label={t("socials.linkedin")} hasArrow openDelay={300}>
+          <Tooltip label={t("socials.linkedin")} hasArrow openDelay={500}>
             <Link aria-label="Linkedin" isExternal href="https://www.linkedin.com/in/frederic-bahr-446925251/">
               <Icon
                 as={LinkedinLogoIcon}

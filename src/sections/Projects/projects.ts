@@ -64,6 +64,7 @@ export const projects: (Project | null)[] = [
     backgroundType: "contour",
     links: {
       github: "https://github.com/fredericbahr/ea-flow-shop",
+      website: "https://stackblitz.com/edit/node-fvbjbs"
     },
   },
   {

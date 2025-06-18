@@ -11,7 +11,7 @@
  */
 
 import { Heading, HStack, Icon, Image, Link, Stack, Tag, Text, VStack } from "@chakra-ui/react";
-import { GithubLogoIcon } from "@phosphor-icons/react";
+import { GithubLogoIcon, LinkIcon } from "@phosphor-icons/react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
 import { useTranslation } from "react-i18next";
@@ -47,6 +47,11 @@ export const EAFlowShop = () => {
         <Image src={flowShopHeroImage} width="full" maxHeight="50vh" objectFit="cover" marginTop={{ base: 4, lg: 0 }} />
 
         <HStack marginTop={8} spacing={8} width="full" alignItems="center">
+          <Link href="https://stackblitz.com/edit/node-fvbjbs" display="flex" gap={2}>
+            <Icon as={LinkIcon} boxSize={{ base: 5, lg: 6 }} />
+            <Text as="span">Website</Text>
+          </Link>
+
           <Link href="https://github.com/fredericbahr/ea-flow-shop" display="flex" gap={2}>
             <Icon as={GithubLogoIcon} boxSize={{ base: 5, lg: 6 }} />
             <Text as="span">Github</Text>

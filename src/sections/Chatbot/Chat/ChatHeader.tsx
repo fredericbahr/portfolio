@@ -39,7 +39,7 @@ export const ChatHeader = ({ onClick }: ChatHeaderProps) => {
             </Heading>
           </VStack>
 
-          <Tooltip label={t("chatbot.header.close")} hasArrow openDelay={300}>
+          <Tooltip label={t("chatbot.header.close")} hasArrow openDelay={500}>
             <CloseButton onClick={onClick} />
           </Tooltip>
         </HStack>

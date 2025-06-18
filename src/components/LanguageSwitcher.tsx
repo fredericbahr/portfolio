@@ -11,6 +11,7 @@
  */
 
 import {
+  Box,
   Icon,
   IconButton,
   List,
@@ -24,6 +25,7 @@ import {
   PopoverTrigger,
   Portal,
   Text,
+  Tooltip,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -51,9 +53,18 @@ export const LanguageSwitcher = () => {
 
   return (
     <Popover placement="bottom-end" closeOnEsc onClose={onClose} onOpen={onOpen} isOpen={isOpen}>
-      <PopoverTrigger>
-        <IconButton aria-label="Change language" icon={<Icon as={TranslateIcon} />} variant="outline" colorScheme="gray" />
-      </PopoverTrigger>
+      <Tooltip hasArrow openDelay={500} label={t("navigation.languageSwitch.title")}>
+        <Box display="inline-block">
+          <PopoverTrigger>
+            <IconButton
+              aria-label="Change language"
+              icon={<Icon as={TranslateIcon} />}
+              variant="outline"
+              colorScheme="gray"
+            />
+          </PopoverTrigger>
+        </Box>
+      </Tooltip>
 
       <Portal>
         <PopoverContent>

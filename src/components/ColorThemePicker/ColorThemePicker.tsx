@@ -67,9 +67,18 @@ export const ColorThemePicker = () => {
 
   return (
     <Popover placement="bottom-end" closeOnEsc>
-      <PopoverTrigger>
-        <IconButton aria-label="Change color theme" icon={<Icon as={PaletteIcon} />} variant="outline" colorScheme="gray" />
-      </PopoverTrigger>
+      <Tooltip hasArrow openDelay={500} label={t("navigation.themeSwitch.title")}>
+        <Box display="inline-block">
+          <PopoverTrigger>
+            <IconButton
+              aria-label="Change color theme"
+              icon={<Icon as={PaletteIcon} />}
+              variant="outline"
+              colorScheme="gray"
+            />
+          </PopoverTrigger>
+        </Box>
+      </Tooltip>
 
       <Portal>
         <PopoverContent>
@@ -77,6 +86,7 @@ export const ColorThemePicker = () => {
           <PopoverHeader display="flex" alignItems="center">
             <Text as="span">{t("navigation.themeSwitch.title")}</Text> <PopoverCloseButton />
           </PopoverHeader>
+
           <PopoverBody>
             <HStack alignItems="center" gap={4} wrap="wrap" width="full" justifyContent="space-evenly">
               <DarkModeSwitch />
@@ -86,6 +96,7 @@ export const ColorThemePicker = () => {
                   aria-label={ThemeName[key as keyof typeof ThemeName]}
                   hasArrow
                   key={value}
+                  openDelay={500}
                 >
                   <Box
                     backgroundColor={Color[key as keyof typeof Color]}

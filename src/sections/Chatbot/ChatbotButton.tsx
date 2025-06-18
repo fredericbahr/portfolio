@@ -23,7 +23,7 @@ export const ChatbotButton = ({ onClick }: ChatbotButtonProps) => {
   const { t } = useTranslation();
 
   return (
-    <Tooltip label={t("chatbot.tooltip")} hasArrow openDelay={300}>
+    <Tooltip label={t("chatbot.tooltip")} hasArrow openDelay={500}>
       <IconButton
         aria-label="Chatbot"
         icon={<Icon as={ChatIcon} boxSize={8} />}

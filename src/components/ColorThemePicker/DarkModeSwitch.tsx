@@ -26,7 +26,7 @@ export const DarkModeSwitch = (props: Partial<IconButtonProps>) => {
       label={t(colorMode === "light" ? "navigation.themeSwitch.dark" : "navigation.themeSwitch.light")}
       aria-label="Dark mode switch"
       hasArrow
-      openDelay={300}
+      openDelay={500}
     >
       <IconButton
         icon={<Icon as={colorMode === "light" ? MoonIcon : SunIcon} boxSize={{ base: 6, lg: 5 }} />}

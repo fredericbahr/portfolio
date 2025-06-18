@@ -10,7 +10,7 @@
  * See LICENSE for licensing information.
  */
 
-import { Box, Grid, List, ListIcon, ListItem, Text, VStack } from "@chakra-ui/react";
+import { Box, Grid, Link, List, ListIcon, ListItem, Text, VStack } from "@chakra-ui/react";
 import { TerminalIcon } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 
@@ -37,9 +37,11 @@ export const About = () => {
 
           <List display="grid" gridTemplateColumns="repeat(2, 1fr)" columnGap={8} rowGap={0.5} alignSelf="start">
             {technologies.map((technology, index) => (
-              <ListItem display="flex" alignItems="center" key={`${technology}-${index}`}>
+              <ListItem display="flex" alignItems="center" key={`${technology.label}-${index}`}>
                 <ListIcon as={TerminalIcon} color="brand.500" />
-                <Text fontSize={{ base: "sm", lg: "lg" }}>{technology}</Text>
+                <Link href={technology.link}  isExternal fontSize={{ base: "sm", lg: "lg" }}>
+                  {technology.label}
+                </Link>
               </ListItem>
             ))}
           </List>

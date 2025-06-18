@@ -233,7 +233,7 @@ export const ProjectTile = ({ title, url, backgroundType = "none", links, ...pro
           width={{ base: "full", lg: "auto" }}
         >
           {links?.website && (
-            <Tooltip label={t("projects.website")} hasArrow openDelay={300}>
+            <Tooltip label={t("projects.website")} hasArrow openDelay={500}>
               <IconButton
                 icon={<Icon as={LinkIcon} />}
                 aria-label="website"
@@ -244,7 +244,7 @@ export const ProjectTile = ({ title, url, backgroundType = "none", links, ...pro
             </Tooltip>
           )}
           {links?.github && (
-            <Tooltip label={t("projects.github")} hasArrow openDelay={300}>
+            <Tooltip label={t("projects.github")} hasArrow openDelay={500}>
               <IconButton
                 icon={<Icon as={GithubLogoIcon} />}
                 aria-label="github"

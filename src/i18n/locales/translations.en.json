@@ -45,15 +45,15 @@
     "experiences": {
       "softwareDeveloperIpoque": {
         "description": {
-          "first": "Development of User Interfaces in the core team",
-          "second": "Implementation and maintenance of components for an internal design system",
+          "first": "Development of User Interfaces in a micro frontend architecture",
+          "second": "Implementation and maintenance of ui components for an internal design system",
           "third": "Implementation and maintenance of an internal frontend framework for micro frontends"
         }
       },
       "juniorSoftwareDeveloperIpoque": {
         "description": {
-          "first": "Development of User Interfaces in the core team",
-          "second": "Implementation and maintenance of components for an internal design system",
+          "first": "Development of User Interfaces in a micro frontend architecture",
+          "second": "Implementation and maintenance of ui components for an internal design system",
           "third": "Implementation and maintenance of an internal frontend framework for micro frontends"
         }
       },

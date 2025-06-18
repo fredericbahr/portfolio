@@ -45,15 +45,15 @@
     "experiences": {
       "softwareDeveloperIpoque": {
         "description": {
-          "first": "Entwicklung von User Interfaces im Basis-Team",
-          "second": "Implementierung und Wartung von Komponenten für ein internes Designsystem",
+          "first": "Entwicklung von User Interfaces in einer Micro Frontend Architektur",
+          "second": "Implementierung und Wartung von UI-Komponenten für ein internes Designsystem",
           "third": "Implementierung und Wartung eines internen Frameworks für Micro Frontends"
         }
       },
       "juniorSoftwareDeveloperIpoque": {
         "description": {
-          "first": "Entwicklung von User Interfaces im Basis-Team",
-          "second": "Implementierung und Wartung von Komponenten für ein internes Designsystem",
+          "first": "Entwicklung von User Interfaces in einer Micro Frontend Architektur",
+          "second": "Implementierung und Wartung von UI-Komponenten für ein internes Designsystem",
           "third": "Implementierung und Wartung eines internen Frameworks für Micro Frontends"
         }
       },
