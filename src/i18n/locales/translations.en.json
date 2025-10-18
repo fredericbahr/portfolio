@@ -105,6 +105,7 @@
     "website": "Website",
     "github": "GitHub",
     "projectTitles": {
+      "qrSight": "QR-Sight",
       "kirmize": "Kirmize",
       "portfolio": "Portfolio",
       "chatbot": "QUAtsCH Chatbot ´22",
@@ -120,6 +121,12 @@
       "implementation": "Implementation",
       "technologies": "Technologies",
       "screenshots": "Screenshots",
+      "qrSight": {
+        "focus": "Web Development",
+        "subtitle": "Create digital information boards for landmarks and share them via QR code.",
+        "goal": "The QR-Sight application was developed to make landmarks, monuments, and special places in communities digitally accessible. The goal was to create a platform that allows users to easily create digital information boards. Visitors can access individual landing pages via QR codes, which provide additional information, images, and documents about a location. The application aims to help communities present cultural and historical content in a modern, informative, and easily accessible way.",
+        "implementation": "The QR-Sight application was developed with React and Mantine for the frontend, and Node.js and Express for the backend. Better-Auth is used for user authentication and authorization. Data is stored in a MongoDB database, with access abstracted through Prisma ORM. The platform is divided into two parts: the Studio for creating and managing digital information boards, and the Viewer for public display of the content. The Viewer was built with Astro to ensure fast loading times and an optimal user experience on mobile devices. PostHog is integrated to analyze user behavior and optimize the application."
+      },
       "kirmize": {
         "focus": "Web Development",
         "subtitle": "A mobil web application for the digitalization of planning appointments.",

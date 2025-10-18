@@ -24,6 +24,7 @@ import { Contact } from "./sections/Contact/Contact";
 import { Experience } from "./sections/Experience/Experience";
 import { Hero } from "./sections/Hero/Hero";
 import { EAFlowShop, Kirmize, MMDB, Portfolio, QuatschChatbot, WeatherData } from "./sections/Projects";
+import { QRSight } from "./sections/Projects/ProjectDetails/QRSight";
 import { Projects } from "./sections/Projects/Projects";
 
 function App() {
@@ -59,6 +60,14 @@ function App() {
         />
 
         {/* Project Routes */}
+        <Route
+          path="/qr-sight"
+          element={
+            <Layout>
+              <QRSight />
+            </Layout>
+          }
+        />
         <Route
           path="/kirmize"
           element={

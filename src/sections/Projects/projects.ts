@@ -25,6 +25,14 @@ export interface Project {
  * Title are the keys for the translation
  */
 export const projects: (Project | null)[] = [
+    {
+    title: "qrSight",
+    url: "/qr-sight",
+    backgroundType: "contour",
+    links: {
+      website: "https://qr-sight.de",
+    },
+  },
   {
     title: "kirmize",
     url: "/kirmize",
@@ -44,7 +52,7 @@ export const projects: (Project | null)[] = [
   {
     title: "chatbot",
     url: "/quatsch-chatbot-2022",
-    backgroundType: "lines",
+    backgroundType: "contour",
     links: {
       github: "https://github.com/fredericbahr/quatsch-project-22",
     },
@@ -52,12 +60,11 @@ export const projects: (Project | null)[] = [
   {
     title: "multimediaDB",
     url: "/multimedia-database-veterinary-practice",
-    backgroundType: "contour",
+    backgroundType: "lines",
     links: {
       github: "https://github.com/fredericbahr/mmdba_tierarztpraxis",
     },
   },
-  null,
   {
     title: "eaFlowShop",
     url: "/ea-flow-shop-optimizer",

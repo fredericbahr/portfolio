@@ -105,6 +105,7 @@
     "website": "Webseite",
     "github": "GitHub",
     "projectTitles": {
+      "qrSight": "QR-Sight",
       "kirmize": "Kirmize",
       "portfolio": "Portfolio",
       "chatbot": "QUAtsCH Chatbot ´22",
@@ -120,6 +121,12 @@
       "implementation": "Umsetzung",
       "technologies": "Technologien",
       "screenshots": "Screenshots",
+      "qrSight": {
+        "focus": "Webentwicklung",
+        "subtitle": "Erstelle digitale Infotafeln für Sehenswürdigkeiten und verbreite diese per QR-Code.",
+        "goal": "Die QR-Sight-Anwendung wurde entwickelt, um Sehenswürdigkeiten, Denkmäler und besondere Orte in Gemeinden digital erlebbar zu machen. Ziel war es, eine Plattform zu schaffen, mit der unkompliziert digitale Infotafeln erstellt werden können. Besucher können über QR-Codes auf individuelle Landingpages zugreifen, die weiterführende Informationen, Bilder und Dokumente zu einem Ort bereitstellen. Die Anwendung soll Gemeinden dabei unterstützen, kulturelle und historische Inhalte modern, informativ und leicht zugänglich zu präsentieren.",
+        "implementation": "Die QR-Sight-Anwendung wurde mit React und Mantine für das Frontend sowie Node.js und Express für das Backend entwickelt. Zur Authentifizierung und Autorisierung der Nutzer kommt Better-Auth zum Einsatz. Die Datenhaltung erfolgt in einer MongoDB-Datenbank, deren Zugriff über Prisma ORM abstrahiert wird. Die Plattform ist in zwei Bereiche unterteilt: das Studio zur Erstellung und Verwaltung von digitalen Infotafeln sowie den Viewer zur öffentlichen Anzeige der Inhalte. Der Viewer wurde mit Astro umgesetzt, um besonders schnelle Ladezeiten und eine optimale Nutzererfahrung auf mobilen Geräten zu gewährleisten. Zur Analyse des Nutzerverhaltens und zur Optimierung der Anwendung wird PostHog integriert."
+      },
       "kirmize": {
         "focus": "Webentwicklung",
         "subtitle": "Die mobile Webanwendung für die Kirmes zur Planung von Terminen.",

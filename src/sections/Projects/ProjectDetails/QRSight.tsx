@@ -17,23 +17,16 @@ import { de } from "date-fns/locale";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import appointmentsDark from "../../../assets/projects/kirmize/appointments-dark-bordeaux.webp";
-import appointmentsLight from "../../../assets/projects/kirmize/appointments-light-bordeaux.webp";
-import heroDark from "../../../assets/projects/kirmize/hero-dark-bordeaux.webp";
-import heroLight from "../../../assets/projects/kirmize/hero-light-bordeaux.webp";
-import heroImage from "../../../assets/projects/kirmize/heroImage.webp";
-import photosDark from "../../../assets/projects/kirmize/photos-dark-bordeaux.webp";
-import photosLight from "../../../assets/projects/kirmize/photos-light-bordeaux.webp";
-import surveysDark from "../../../assets/projects/kirmize/surveys-dark-bordeaux.webp";
-import surveysLight from "../../../assets/projects/kirmize/surveys-light-bordeaux.webp";
+import studio from "../../../assets/projects/qr-sight/studio.webp";
+import viewer from "../../../assets/projects/qr-sight/viewer.webp";
 import { ImageSlider } from "../../../components/ImageSlider";
 import { ScrollRestoration } from "../../../components/ScrollRestoration/ScrollRestoration";
 import { ProjectDetailHeader } from "./ProjectDetailHeader";
 
 /**
- * Component to display Kirmize project details
+ * Component to display qr-sight project details
  */
-export const Kirmize = () => {
+export const QRSight = () => {
   /** translation hook */
   const { t, i18n } = useTranslation();
 
@@ -54,20 +47,20 @@ export const Kirmize = () => {
 
       <VStack width="full" alignItems="start" spacing={{ base: 4, lg: 8 }} marginTop={{ base: 4, lg: 16 }}>
         <ProjectDetailHeader
-          focus={t("projects.details.kirmize.focus")}
+          focus={t("projects.details.qrSight.focus")}
           period={
-            format(new Date("2022-04-01"), "MMM. yy", { locale: i18n.language === "de-DE" ? de : undefined }) +
+            format(new Date("2025-07-15"), "MMM. yy", { locale: i18n.language === "de-DE" ? de : undefined }) +
             " - " +
             t("projects.details.present")
           }
-          title={t("projects.projectTitles.kirmize")}
-          subtitle={t("projects.details.kirmize.subtitle")}
+          title={t("projects.projectTitles.qrSight")}
+          subtitle={t("projects.details.qrSight.subtitle")}
         />
 
-        <Image src={heroImage} width="full" maxHeight="35vh" objectFit="contain" marginTop={{ base: 4, lg: 0 }} />
+        <Image src={studio} width="full" maxHeight="35vh" objectFit="contain" marginTop={{ base: 4, lg: 0 }} />
 
         <HStack marginTop={8} spacing={8} width="full" alignItems="center">
-          <Link href="https://kirmize.de" display="flex" gap={2}>
+          <Link href="https://qr-sight.de" display="flex" gap={2}>
             <Icon as={LinkIcon} boxSize={{ base: 5, lg: 6 }} />
             <Text as="span">Website</Text>
           </Link>
@@ -79,7 +72,7 @@ export const Kirmize = () => {
               {t("projects.details.goal")}
             </Heading>
 
-            <Text>{t("projects.details.kirmize.goal")}</Text>
+            <Text>{t("projects.details.qrSight.goal")}</Text>
           </VStack>
 
           <VStack width="full" alignItems="start" spacing={4}>
@@ -87,7 +80,7 @@ export const Kirmize = () => {
               {t("projects.details.implementation")}
             </Heading>
 
-            <Text>{t("projects.details.kirmize.implementation")}</Text>
+            <Text>{t("projects.details.qrSight.implementation")}</Text>
           </VStack>
 
           <VStack width="full" alignItems="start" spacing={4}>
@@ -98,7 +91,7 @@ export const Kirmize = () => {
             <Stack direction={{ base: "column", lg: "row" }} width="full">
               <Tag justifyContent="center">TypeScript</Tag>
               <Tag justifyContent="center">React</Tag>
-              <Tag justifyContent="center">Chakra UI</Tag>
+              <Tag justifyContent="center">Mantine</Tag>
               <Tag justifyContent="center">Express</Tag>
               <Tag justifyContent="center">Prisma</Tag>
               <Tag justifyContent="center">Mongo DB</Tag>
@@ -113,18 +106,9 @@ export const Kirmize = () => {
 
           <Box alignSelf="center" width="full">
             <ImageSlider
-              images={[
-                heroDark,
-                heroLight,
-                appointmentsDark,
-                appointmentsLight,
-                photosDark,
-                photosLight,
-                surveysDark,
-                surveysLight,
-              ]}
+              images={[studio, viewer]}
               index={sliderIndex}
-              imageProps={{ maxWidth: { base: "80%", lg: "250px" } }}
+              imageProps={{ maxWidth: { base: "80%", lg: "550px" } }}
               onIndexChange={handleSliderIndexChange}
             ></ImageSlider>
           </Box>
