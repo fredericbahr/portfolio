@@ -172,6 +172,7 @@
   },
   "chatbot": {
     "tooltip": "Open the chatbot",
+    "loading": "Loading",
     "header": {
       "title": "Chatbot",
       "subtitle": "Ask me anything!",

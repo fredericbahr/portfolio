@@ -28,7 +28,7 @@ export interface IChatTextMessage {
 export interface IChatDownload {
   type: "pdf" | "img";
   owner: "bot";
-  url: string;
+  url: string | ((language: string) => string);
   fileName: string;
 }
 

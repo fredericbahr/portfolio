@@ -10,7 +10,8 @@
  * See LICENSE for licensing information.
  */
 
-import cv from "../../assets/lebenslauf.pdf";
+import cv_en from "../../assets/cv.pdf";
+import cv_de from "../../assets/lebenslauf.pdf";
 import { IChatAction, IChatTextMessage } from "./chatbot.interface";
 
 export const initialMessages: IChatTextMessage[] = [
@@ -39,7 +40,7 @@ const showCV: IChatAction = {
     {
       type: "pdf",
       owner: "bot",
-      url: cv,
+      url: (language: string) => (language === "de" ? cv_de : cv_en),
       fileName: "cv_fredericbahr",
     },
   ],

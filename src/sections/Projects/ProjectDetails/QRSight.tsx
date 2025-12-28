@@ -91,7 +91,9 @@ export const QRSight = () => {
             <Stack direction={{ base: "column", lg: "row" }} width="full">
               <Tag justifyContent="center">TypeScript</Tag>
               <Tag justifyContent="center">React</Tag>
+              <Tag justifyContent="center">Astro</Tag>
               <Tag justifyContent="center">Mantine</Tag>
+              <Tag justifyContent="center">Tailwind CSS</Tag>
               <Tag justifyContent="center">Express</Tag>
               <Tag justifyContent="center">Prisma</Tag>
               <Tag justifyContent="center">Mongo DB</Tag>

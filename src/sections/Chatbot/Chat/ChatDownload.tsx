@@ -28,7 +28,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.min.m
  * Component to render the chat download
  */
 export const ChatDownload = ({ type, url, fileName }: IChatDownload) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const cardRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
   const size: ElementDimension = useElementDimensions(cardRef.current);
@@ -41,9 +41,17 @@ export const ChatDownload = ({ type, url, fileName }: IChatDownload) => {
     const link: HTMLAnchorElement = document.createElement("a");
     document.body.appendChild(link);
     link.download = fileName.toString();
-    link.href = url.toString();
+    link.href = getURL().toString();
     link.click();
     document.body.removeChild(link);
+  };
+
+  const getURL = (): string => {
+    if (typeof url === "function") {
+      return url(i18n.language);
+    }
+
+    return url;
   };
 
   const renderPDFDownlaod = () => {
@@ -51,8 +59,8 @@ export const ChatDownload = ({ type, url, fileName }: IChatDownload) => {
       <Flex width="full">
         <Card onClick={() => handleDownload()} _hover={{ cursor: "pointer" }}>
           <CardBody ref={cardRef}>
-            <Document file={url}>
-              <Page pageNumber={1} width={size.width} loading="Laden" />
+            <Document file={getURL()}>
+              <Page pageNumber={1} width={size.width} loading={t("chatbot.loading")} />
             </Document>
           </CardBody>
           <CardFooter width="full" padding={2}>
